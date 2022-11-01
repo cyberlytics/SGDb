@@ -1,0 +1,79 @@
+\documentclass[a4paper, 10pt, conference]{IEEEtran}
+
+\IEEEoverridecommandlockouts
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage[style=ieee]{biblatex}
+
+\addbibresource{references.bib}
+
+\graphicspath{ {./images/} }
+
+\begin{document}
+
+\title{\LARGE \bf
+Titel
+}
+
+\author{
+\IEEEauthorblockN{Anastasia Chernysheva} \IEEEauthorblockA{\textit{a.chernysheva@oth-aw.de}}\and
+\IEEEauthorblockN{Jakob Götz} \IEEEauthorblockA{\textit{j.goetz@oth-aw.de}}\and
+\IEEEauthorblockN{Ardian Imeraj} \IEEEauthorblockA{\textit{a.imeraj@oth-aw.de}}\and
+\IEEEauthorblockN{Patrice Korinth} \IEEEauthorblockA{\textit{p.korinth@oth-aw.de}}\and
+\IEEEauthorblockN{Philipp Stangl} \IEEEauthorblockA{\textit{p.stangl1@oth-aw.de}}\and
+}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{abstract}
+TODO
+\end{abstract}
+
+\section{Einleitung}
+
+TODO
+
+
+\section{Verwandte Arbeiten} \label{s:verwandte_arbeiten}
+
+TODO
+
+
+\section{Anforderungen} \label{s:anforderungen}
+
+In der Anforderungsanalyse wurden zwei Stakeholder identifiziert: Benutzer und Entwickler. Deren Anforderungen werden in diesem Abschnitt in Form von User Stories beschrieben.
+
+\subsection{Anforderung}
+
+Als (\dots) möchte ich (\dots), damit (\dots). Akzeptanzkriterien sind:
+\begin{itemize}
+\item Item 1
+\item Item 2
+\item Item 3
+\end{itemize}
+
+\subsection{(Optional) Anforderung}
+
+Als (\dots) möchte ich (\dots), damit (\dots). Akzeptanzkriterien sind:
+\begin{itemize}
+\item Item 1
+\item Item 2
+\item Item 3
+\end{itemize}
+
+\section{Methoden} \label{s:methoden}
+
+Ziel bei der Entwicklung und bei der späteren Verwendung ist eine platformunbhängige Anwendung, die eine Schnittstelle für die \textit{Linked Open Data Cloud} als auch der Bedienoberfläche der Anwendung bereitstellt. Daraus ergeben sich folgende technische Schlüsselbausteine:
+
+Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über eine RESTful-API abgewickelt. Um eine fehlerfreie Anwendung zu entwickeln werden geeignete Test-Frameworks für Frontend als auch Backend selektiert und verwendet. Die einzelnen Komponenten der Anwendung werden mittels Docker \textit{containerisiert}.
+
+
+\printbibliography
+
+\end{document}
