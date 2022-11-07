@@ -37,16 +37,15 @@ TODO
 
 \section{Einleitung}
 
-Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958 ebnete den Weg für die Spieleindustrie. Über Jahrzehnten hinaus kamen immer mehr verschiedene Spiele auf den Markt, die sich in ihrer Art und Weise unterscheiden. Mit den heutigen Videospielen ist es möglich sich mit Spielern aus der ganzen Welt zu messen oder gemeinsam zu spielen. Aus den unzählig veröffentlichen Videospielen ist eine breite Palette an Genres entstanden. Dabei wird in der Spieleindustrie grob in sechs Kategorien unterschieden, hierbei zählen die Strategie- und Action-Spiele zu den beliebtesten Genres \cite{statistica}. Zu den anderen vier Kategorien zählen hier die Rollen-, Adventure-, Simulationen- und Sonstigespiele. Jedes dieser Kategorien besitzt weitere Unterkategorien, die sich in ihrer Art und Weise unterscheiden. 
+Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958 ebnete den Weg für die Spieleindustrie. Über Jahrzehnten hinaus kamen immer mehr verschiedene Spiele auf den Markt, die sich in ihrer Art und Weise unterscheiden. Mit den heutigen Videospielen ist es möglich, sich mit Spielern aus der ganzen Welt zu messen oder gemeinsam zu spielen. Aus den unzählig veröffentlichen Videospielen ist eine breite Palette an Genres entstanden. Dabei wird in der Spieleindustrie grob in sechs Kategorien unterschieden, hierbei zählen die Strategie- und Action-Spiele zu den beliebtesten Genres \cite{statistica}. Zu den anderen vier Kategorien zählen hier die Rollen-, Adventure-, Simulationen- und Sonstigespiele. Jedes dieser Kategorien besitzt weitere Unterkategorien, die sich in ihrer Art und Weise unterscheiden.
 
-Um einen besseren Überblick zu erhalten, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in den jeweiligen Genres in eine übersichtliche  struktur zusammenfasst. In Abschnitt~\ref{s:verwandte_arbeiten} des Konzeptpapiers, werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen beschäftigen. In Abschnitt~\ref{s:anforderungen} beschreibt die Anforderungen, in Form von User Stories. Zum Schluss wird auf die Methoden eingegangen, welche in Abschnitt~\ref{s:methoden} näher beschrieben werden.
+Um einen besseren Überblick zu erhalten, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in den jeweiligen Genres in eine übersichtliche Struktur zusammenfasst. In Abschnitt~\ref{s:verwandte_arbeiten} des Konzeptpapiers werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen beschäftigen. In Abschnitt~\ref{s:anforderungen} beschreibt die Anforderungen in Form von User Stories. Zum Schluss wird auf die Methoden eingegangen, welche in Abschnitt~\ref{s:methoden} näher beschrieben werden.
 
 
 
 \section{Verwandte Arbeiten} \label{s:verwandte_arbeiten}
 
-TODO
-
+Die Website igdb.com gibt einen Eindruck, was der Nutzer von einer Spielesuche erwarten kann. Der Funktionsumfang und die Spieleanzahl ist groß, sodass das Suchergebnis meist zufriedenstellend ist. Des Weiteren besitzt die Website eine gut dokumentierte Entwickler-API. Dies ermöglicht es Entwickler, Daten in Form von JSON, REST oder ProtoBuf zu erhalten. Jedoch setzt IGDB eine relationale Datenbank ein (kann man das irgendwo sehen?). Hier setzt das Projekt von Team Rot an. Es wird eine Web-Applikation entworfen, welche eine vergleichbare Oberfläche bietet, jedoch mit dem Zusatz, dass die Daten in die LOD-Cloud überführt werden.
 
 \section{Anforderungen} \label{s:anforderungen}
 
@@ -67,8 +66,23 @@ Als Benutzer möchte ich meine Genre-Favoriten eingeben und einen Vorschlag an S
 \item Button zum Suchen der Spiele
 \end{itemize}
 
-\subsection{(Optional) Anforderung}
+\subsection{Twitter-Cards für das jeweilige Spiel}
+Als Benutzer möchte ich Twitter-Cards zu dem Spiel sehen, welches aktuell betrachtet wird. Akzeptanzkriterien sind:
+\begin{itemize}
+\item Aktuelle Twitter-Cards geordnet anzeigen
+\item Twitter-Cards fügen sich formschön in die Website-Oberfläche ein
+\item Es existiert eine Verlinkung zum jeweiligen Twitter Beitrag
+\end{itemize}
 
+\subsection{(Optional) Abonieren von Spielen}
+Als Benutzer möchte ich Spiele abonieren können, damit ich über die Twitter-Cards immer auf dem neusten Stand bin. Akzeptanzkriterien sind:
+\begin{itemize}
+\item Twitter-Cards zu den abonierten Spielen werden angezeigt
+\item Twitter-Cards sind aktuell
+\item Eigener Bereich auf der Website bei dem die Twitter-Cards angezeigt werden
+\end{itemize}
+
+\subsection{(Optional) Anforderung}
 Als (\dots) möchte ich (\dots), damit (\dots). Akzeptanzkriterien sind:
 \begin{itemize}
 \item Item 1
@@ -76,11 +90,26 @@ Als (\dots) möchte ich (\dots), damit (\dots). Akzeptanzkriterien sind:
 \item Item 3
 \end{itemize}
 
+\subsection{Testabdeckung}
+Als Entwickler möchte ich eine ausreichend hohe Testabdeckung, um Fehler frühzeit zu erkennen. Akzeptanzkriterien sind:
+\begin{itemize}
+\item Testabdeckung von mindestens 50%
+\item Sowohl Frontend- als auch Backend sind mit den Tests abgedeckt
+\end{itemize}
+
+\subsection{(Optional) API-Nutzung}
+Als Entwickler möchte ich erkennen können, in welchen Umfang meine API genutzt wird, damit ich Rückschlüsse auf die Auslastung und Interessen erhalte. Akzeptanzkriterien sind:
+\begin{itemize}
+\item Wie häufig wird die API angesprochen
+\item Welche API-Endpunkte werden am häufigsten genutzt
+\end{itemize}
+
+
 \section{Methoden} \label{s:methoden}
 
-Ziel bei der Entwicklung und bei der späteren Verwendung ist eine platformunbhängige Anwendung, die eine Schnittstelle für die \textit{Linked Open Data Cloud} als auch der Bedienoberfläche der Anwendung bereitstellt. Daraus ergeben sich folgende technische Schlüsselbausteine:
+Ziel bei der Entwicklung und bei der späteren Verwendung ist eine plattformunabhängige Anwendung, die eine Schnittstelle für die \textit{Linked Open Data Cloud} als auch der Bedienoberfläche der Anwendung bereitstellt. Daraus ergeben sich folgende technische Schlüsselbausteine:
 
-Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über eine RESTful-API abgewickelt. Um eine fehlerfreie Anwendung zu entwickeln werden geeignete Test-Frameworks für Frontend als auch Backend selektiert und verwendet. Die einzelnen Komponenten der Anwendung werden mittels Docker \textit{containerisiert}.
+Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über eine RESTful-API abgewickelt. Um eine fehlerfreie Anwendung zu entwickeln, werden geeignete Test-Frameworks für Frontend als auch Backend selektiert und verwendet. Die einzelnen Komponenten der Anwendung werden mittels Docker \textit{containerisiert}.
 
 
 \printbibliography
