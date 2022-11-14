@@ -16,7 +16,7 @@
 \begin{document}
 
 \title{\LARGE \bf
-Semantic Video Game Database 
+SGDb: Semantic Video Games Database
 }
 
 \author{
@@ -31,156 +31,123 @@ Semantic Video Game Database
 \thispagestyle{empty}
 \pagestyle{empty}
 
-\section{Einleitung}
 
-Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958
-ebnete den Weg für die Spieleindustrie. Über Jahrzehnte
-hinaus kamen immer mehr verschiedene Spiele auf den Markt,
-die sich in ihrer Art und Weise unterscheiden. Mit den
-heutigen Videospielen ist es möglich, sich mit Spielern aus der
-ganzen Welt zu messen oder gemeinsam zu spielen. Aus den
-unzählig veröffentlichen Videospielen ist eine breite Palette an
-Genres entstanden. Dabei wird in der Spieleindustrie grob in
-sechs Kategorien unterschieden, hierbei zählen die Strategieund
-Action-Spiele zu den beliebtesten Genres \cite{statistica}. Zu den
-anderen vier Kategorien zählen hier die Rollen-, Adventure-
-, Simulationen- und Sonstigespiele. Jedes dieser Kategorien
-besitzt weitere Unterkategorien, die sich in ihrer Art und Weise
-unterscheiden.
-
-Um einen Überblick zu erhalten, wie die Spiele zusammenhängen, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in einem Graphen darstellt. In Abschnitt~\ref{s:verwandte_arbeiten} des Konzeptpapiers werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen und Darstellung von Graphen beschäftigen. In Abschnitt~\ref{s:anforderungen} werden die Anforderungen in Form von User Stories beschrieben. Zum Schluss wird auf die zu verwendenden Technologien zur Umsetzung des Projekts eingegangen, welche in Abschnitt~\ref{s:methoden} näher beschrieben werden.
+\begin{abstract}
+    Wir beschäftigen uns mit der Speicherung und Suche vernetzter Informationen von Videospielen.
+    Dazu stellen wir \textit{SGDb} vor -- eine webbasierte Anwendung mit einer Graphen-basierten Suche von Videospielen.
+\end{abstract}
 
 
+\section{Einleitung}\label{sec:einleitung}
 
-\section{Verwandte Arbeiten} \label{s:verwandte_arbeiten}
-Die Anwendung Obsidian erstellt eine Graphenoberfläche
-aus von Nutzern kreierten Markdown Dateien. Über Verlinkungen
-zwischen den Markdown Dateien wächst der Graph
-an. Der Nutzer kann den Graph filtern oder gewisse Teile daraus
-hervorheben. Diese Anwendung zeigt hervorragend, wie
-eine Visualisierung eines Graphen möglicherweise aussehen
-könnte.
+Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958 ebnete den Weg für die Spieleindustrie. Über Jahrzehnten hinaus kamen immer mehr verschiedene Spiele auf den Markt, die sich in ihrer Art und Weise unterscheiden. Mit den heutigen Videospielen ist es möglich, sich mit Spielern aus der ganzen Welt zu messen oder gemeinsam zu spielen. Aus den unzählig veröffentlichen Videospielen ist eine breite Palette an Genres entstanden. Dabei wird in der Spieleindustrie grob in sechs Kategorien unterschieden, hierbei zählen die Strategie- und Action-Spiele zu den beliebtesten Genres~\cite{statistica}. Zu den anderen vier Kategorien zählen hier die Rollen-, Abenteuer-, Simulationen- und Sonstige Spiele. Jedes dieser Kategorien besitzt weitere Unterkategorien, die sich in ihrer Art und Weise unterscheiden.
 
-Die Website igdb.com gibt einen Eindruck, was der Nutzer
-von einer Spielesuche erwarten kann. Der Funktionsumfang
-und die Spieleanzahl ist groß, sodass das Suchergebnis meist
-zufriedenstellend ist. Des Weiteren besitzt die Website eine
-gut dokumentierte Entwickler-API. Dies ermöglicht es Entwicklern,
-Daten in Form von JSON, REST oder ProtoBuf
-zu erhalten. Jedoch sind die Daten, welche IGDB bereitstellt
-nicht für die LOD-Cloud aufbereitet. Außerdem ist die Oberfläche
-der Website sehr klassisch aufgebaut, wodurch kein
-weiteres Interesse geweckt wird. Hier setzt unser Projekt an.
-Es wird eine Web-Applikation entworfen, welche die Daten
-anreichert, damit diese in die LOD-Cloud überführt werden
-können. Zusätzlich wird eine Graphenoberfläche entworfen, die dazu einlädt, artverwandte Spiele auch ohne Filteroptionen zu entdecken.
+Um einen Überblick zu erhalten, wie die Spiele zusammenhängen, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in einem Graphen darstellt. In Abschnitt~\ref{sec:verwandte_arbeiten} des Konzeptpapiers werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen und Darstellung von Graphen beschäftigen.
+In Abschnitt~\ref{sec:anforderungen} werden die Anforderungen in Form von User Stories beschrieben. Zum Schluss wird auf die zu verwendenden Technologien zur Umsetzung des Projekts eingegangen, welche in Abschnitt~\ref{sec:methoden} näher beschrieben werden.
 
-\section{Anforderungen} \label{s:anforderungen}
-% Gehören sich Entwickler in "User-Stories" mit rein? haben ja nur US: Testabdeckung für Entwickler?
-In der Anforderungsanalyse wurden zwei Stakeholder identifiziert: Benutzer und Entwickler. Deren Anforderungen werden in diesem Abschnitt in Form von User Stories beschrieben.
 
-% Laut Prof. Neumann Folien sollen wir UI nicht in User-Stories erwähnen. Aber bei uns ist das ja ein zentraler Punkt?
-\subsection{Graphenoberfläche}
-Als Benutzer möchte ich eine Graphenoberfläche, die visuell
-Verbindungen zu anderen Spielen aufzeigt. Somit kann ich
-direkt ähnliche Spiele, die mir ebenfalls gefallen könnten,
-sehen. Akzeptanzkriterien sind:
+\section{Verwandte Arbeiten}\label{sec:verwandte_arbeiten}
+
+Die \textit{Internet Video Games Database} (IGDB)~\cite{igdb} gibt einen Eindruck, was ein Nutzer von einer Videospieldatenbank erwarten kann. IGDB umfasst derzeit 217.233 Spiele, eine Suchfunktion, die Möglichkeit Videospiele zu entdecken (z.B.\ kürzlich veröffentlichte Videospiele), und eine Entwickler-API. Über die API können Entwickler auf die Videospieldaten mittels Protokolle wie REST oder ProtoBuf zugreifen.
+
+%Jedoch sind die Daten, welche IGDB bereit stellt nicht für die LOD-Cloud aufbereitet. Des Weiteren ist die Oberfläche der Website sehr klassisch aufgebaut, wodurch kein weiteres Interesse geweckt wird. Hier setzt das Projekt von Team Rot an.
+Wie die Visualisierung eines Graphen möglicherweise aussehen kann, demonstriert die Anwendung Obsidian. Diese erstellt aus von Nutzern kreierten Markdown Dateien eine Graphenoberfläche. Über Verlinkungen zwischen den Markdown Dateien wächst der Graph an. Der Nutzer kann den Graph filtern oder gewisse Teile daraus hervorheben.
+
+\begin{figure}[thpb]
+    \centering
+    \includegraphics[scale=0.17]{obsidian}
+    \caption{Obsidian Graphenoberfläche~\cite{obsidian}}
+    \label{fig:obsidian}
+\end{figure}
+
+\newpage
+
+\section{Anforderungen}\label{sec:anforderungen}
+
+In der Anforderungsanalyse wurden zwei primäre Ziele identifiziert, die es umzusetzen gilt: (1) Die Überführung von relationalen Videospieldaten aus IGDB in eine semantische Graphdatenbank, und (2) die Möglichkeit zur Suche von Videospielen per Graph oder Texteingabe.
+
+
+\subsection{Suche per Graph}
+
+Als Benutzer möchte ich in eine Graphenoberfläche, welche visuell Verbindungen zu anderen Spielen aufzeigt. Somit kann ich direkt ähnliche Spiele, welche mir ebenfalls gefallen könnten, sehen. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Graphenoberfläche soll direkt sichtbar sein beim Besuchen
-der Website
-\item Der Graph soll mit ausreichend vielen Knoten angereichert
-sein
-\item Die Oberfläche soll visuell ansprechend sein und zum
-Stöbern einladen
+	\item Auf der Startseite ist ein Graph vorhanden, der alle in der Datenbank vorhandenen Videospiele und deren Beziehungen zueinander anzeigt.
+    \item Schwebt man mit der Maus über einen Konten öffnet sich ein Feld mit weiteren Informationen. 
+    \item Im Informationsfeld wird angezeigt:
+    \begin{itemize}
+      \item Titel des Videospiels
+      \item Genre
+      \item Bewertung
+    \end{itemize}
+    \item Schwebt man mit der Maus über einen Knoten werden alle verbunden Knotenpunkte und Kanten im Graphen hervorgehoben.
 \end{itemize}
 
-\subsection{Knotendetails}
-Als Benutzer möchte ich mit einem Klick auf einen Knoten
-im Graphen weitere Details zu dem im Knoten enthaltenen
-Spiel sehen. Somit erhalte ich ohne die Graphenoberfläche
-zu verlassen die wichtigsten Informationen zu einem Spiel.
-Akzeptanzkriterien sind:
+
+\subsection{Suche per Texteingabe}
+
+Als Benutzer möchte ich ein Videospiel per Texteingabe suchen können, da bei einem Graphen mit vielen Knoten und Kanten ein spezielles Spiel nur schlecht gefunden werden kann. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Knoten im Graphen sollen anklickbar sein
-\item Der geklickte Knoten öffnet ein Feld mit weiteren Informationen
-zu den ausgewählten Knoten
-\item Die wichtigsten Informationen befinden sich zusammengefasst
-im geöffneten Feld
+    \item Ein Eingabefeld für die textuelle Suche ist vorhanden.
+    \item Ist die Suche erfolgreich, werden relevante Knotenpunkte und Kanten im Graphen hervorgehoben.
+    \item Ist die Suche fehlerhaft oder liefert kein Ergebnis, wird der Benutzer darüber benachrichtigt.
 \end{itemize}
 
-\subsection{Filter}
-Als Benutzer möchte ich mit einer Filteroption Knoten und
-somit Spiele im Graphen visuell hervorheben. Dadurch kann
-auch in einem großen Graphen der Nutzer eine Gruppe von
-Spielen problemlos finden. Akzeptanzkriterien sind:
+
+\subsection{Detailseite für Videospiel}
+
+Als Benutzer möchte ich eine Detailseite zu einem jeweiligen Videospiel, damit ich ohne die Anwendung zu verlassen die wichtigsten Informationen zu einem Spiel einsehen kann. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Diverse Filtereinstellungen
-\item Ergebnis sollte gut erkennbar hervorgehoben werden
-\item Ausreichend viele Filteroptionen
+    \item Die Detailseite öffnet sich per Klick auf einen Knoten im Graphen.
+    \item Details die angezeigt werden:
+    \begin{itemize}
+    	\item Titel
+    	\item Erscheinungsdatum
+    	\item Beschreibung des Videospiels
+    	\item Bewertung
+    	\item Genre
+    	\item (Optional) Internetpräsenz (z.B. offizielle Website)
+    \end{itemize}
+    \item (Optional) Anzeige des Videospiel-Covers.
 \end{itemize}
 
-% Die Twitter-Card User-Storie komplett umschreiben
-\subsection{Twitter-Cards für das jeweilige Spiel}
-Als Benutzer möchte ich Twitter-Cards zu dem Spiel sehen, welches aktuell betrachtet wird. Akzeptanzkriterien sind:
+
+\subsection{Filter}\label{subsec:filter}
+
+Als Benutzer möchte ich mit einer Filteroption Knoten und somit Spiele im Graphen visuell hervor heben. Dadurch kann auch in einem großen Graphen der Nutzer eine Gruppe von Spielen problemlos finden. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Aktuelle Twitter-Cards geordnet anzeigen
-\item Twitter-Cards fügen sich formschön in die Website-Oberfläche ein
-\item Es existiert eine Verlinkung zum jeweiligen Twitter-Beitrag
+	\item Schaltfläche für Filter ist vorhanden.
+    \item Filteroptionen sind: 
+    \begin{itemize}
+      \item Genre
+      \item Plattform
+      \item Hersteller
+      \item Erscheinungsjahr
+    \end{itemize}
+    \item Nur das Filterergebnis soll im Graphen sichtbar sein.
+    \item Wird der Filter aufgehoben sollen alle entfernten Konten wieder angezeigt werden.
 \end{itemize}
 
-\subsection{(Optional) Detailseite}
-Als Benutzer möchte ich eine Detailseite zu einem jeweiligen
-Spiel, welche über den Knoten im Graphen erreicht wird.
-Somit muss ich als Nutzer nicht externe Internetseiten für
-weitere Informationen besuchen. Akzeptanzkriterien sind:
-\begin{itemize}
-\item Alle Details eines Spiels werden aufgelistet
-\item Das Spiel wird vorgestellt
-\end{itemize}
-
-\subsection{(Optional) Suche}
-Als Benutzer möchte ich zusätzlich die Option haben ein
-Spiel suchen zu können, da sich die Suche eines speziellen
-Spiels mithilfe eines großen Graphens schwieriger gestaltet.
-Akzeptanzkriterien sind:
-\begin{itemize}
-\item Eingabefeld für Suche
-\item Weiterleitung direkt zum Knotenpunkt, der das gewünschte Spiel beinhaltet
-\item Grafische Hervorhebung des Knotenpunkts
-\end{itemize}
 
 \subsection{Testabdeckung}
-Als Entwickler möchte ich eine ausreichend hohe Testabdeckung, um Fehler frühzeit zu erkennen. Akzeptanzkriterien sind:
-\begin{itemize}
-\item Testabdeckung von mindestens 50%
-\item Sowohl Frontend als auch Backend sind mit den Tests abgedeckt
-\end{itemize}
 
-\subsection{(Optional) API-Nutzung}
-Als Entwickler möchte ich erkennen können, in welchen Umfang meine API genutzt wird, damit ich Rückschlüsse auf die Auslastung und Interessen erhalte. Akzeptanzkriterien sind:
-\begin{itemize}
-\item Wie häufig wird die API angesprochen
-\item Welche API-Endpunkte werden am häufigsten genutzt
-\end{itemize}
-
-\subsection{(Optional) Einsehen meist aufgerufener Spiele}
-Als Benutzer möchte ich, dass mir die meist aufgerufenen Spiele angezeigt werden, damit ich wissen kann, welche Spiele in der Spielebranche momentan gefragt sind.
+Als Entwickler möchte ich eine ausreichende Testabdeckung, damit Fehler frühzeitig erkannt werden.
 Akzeptanzkriterien sind:
 \begin{itemize}
-\item Ein eigener Bereich für zuletzt aufgerufene Spiele auf der Startseite
-\item Spiele werden jeweils nur einmal angezeigt 
-\item Hierarchische Anordnung nach Anzahl der Aufrufe in bestimmter Zeit
+    \item Die Abdeckungsrate liegt bei mindestens 50\%.
+    \item Sowohl Frontend- als auch Backend-Code wird mit geeignetem Testwerkzeug getestet.
 \end{itemize}
 
-\subsection{(Optional) Einsehen von Bewertungen}
-Als Benutzer möchte ich Bewertungen zu dem jeweiligen Spiel einsehen können, damit ich mir ein Bild über die Qualität des Spiels verschaffen kann. Akzeptanzkriterien sind:
+
+\subsection{(Optional) Cloud-Kompatibilität}
+
+Als Entwickler möchte ich eine Cloud-kompatible Anwendung für eine Bereitstellung der Anwendung.  Akzeptanzkriterien sind:
 \begin{itemize}
-\item Eine Anzeige in Form von Sternen oder eines Prozentsatzes
-\item Eine Möglichkeit Spiele anhand der Bewertungen zu sortieren
+    \item Für jede Komponente der Anwendung ist ein Dockerfile erstellt und lauffähig.
+    \item (Optional) Die Anwendung ist in der Cloud und prinzipiell erreichbar.
 \end{itemize}
 
 
-\section{Methoden} \label{s:methoden}
+\section{Methoden}\label{sec:methoden}
 
 Ziel bei der Entwicklung und bei der späteren Verwendung ist eine plattformunabhängige Anwendung, die eine Schnittstelle für die \textit{Linked Open Data Cloud} als auch der Bedienoberfläche der Anwendung bereitstellt. Daraus ergeben sich folgende technische Schlüsselbausteine:
 
