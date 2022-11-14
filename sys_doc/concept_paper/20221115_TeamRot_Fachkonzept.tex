@@ -39,33 +39,44 @@ TODO
 
 Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958 ebnete den Weg für die Spieleindustrie. Über Jahrzehnten hinaus kamen immer mehr verschiedene Spiele auf den Markt, die sich in ihrer Art und Weise unterscheiden. Mit den heutigen Videospielen ist es möglich, sich mit Spielern aus der ganzen Welt zu messen oder gemeinsam zu spielen. Aus den unzählig veröffentlichen Videospielen ist eine breite Palette an Genres entstanden. Dabei wird in der Spieleindustrie grob in sechs Kategorien unterschieden, hierbei zählen die Strategie- und Action-Spiele zu den beliebtesten Genres \cite{statistica}. Zu den anderen vier Kategorien zählen hier die Rollen-, Adventure-, Simulationen- und Sonstigespiele. Jedes dieser Kategorien besitzt weitere Unterkategorien, die sich in ihrer Art und Weise unterscheiden.
 
-Um einen besseren Überblick zu erhalten, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in den jeweiligen Genres in eine übersichtliche Struktur zusammenfasst. In Abschnitt~\ref{s:verwandte_arbeiten} des Konzeptpapiers werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen beschäftigen. In Abschnitt~\ref{s:anforderungen} beschreibt die Anforderungen in Form von User Stories. Zum Schluss wird auf die Methoden eingegangen, welche in Abschnitt~\ref{s:methoden} näher beschrieben werden.
+Um einen Überblick zu erhalten, wie die Spiele zusammenhängen, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in einem Graphen darstellt. In Abschnitt~\ref{s:verwandte_arbeiten} des Konzeptpapiers werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen und Darstellung von Graphen beschäftigen. In Abschnitt~\ref{s:anforderungen} werden die Anforderungen in Form von User Stories beschrieben. Zum Schluss wird auf die zu verwendenden Technologien zur Umsetzung des Projekts eingegangen, welche in Abschnitt~\ref{s:methoden} näher beschrieben werden.
 
 
 
 \section{Verwandte Arbeiten} \label{s:verwandte_arbeiten}
-
-Die Website igdb.com gibt einen Eindruck, was der Nutzer von einer Spielesuche erwarten kann. Der Funktionsumfang und die Spieleanzahl ist groß, sodass das Suchergebnis meist zufriedenstellend ist. Des Weiteren besitzt die Website eine gut dokumentierte Entwickler-API. Dies ermöglicht es Entwickler, Daten in Form von JSON, REST oder ProtoBuf zu erhalten. Jedoch setzt IGDB eine relationale Datenbank ein (kann man das irgendwo sehen?). Hier setzt das Projekt von Team Rot an. Es wird eine Web-Applikation entworfen, welche eine vergleichbare Oberfläche bietet, jedoch mit dem Zusatz, dass die Daten in die LOD-Cloud überführt werden.
+Die Anwendung Obsidian erstellt aus von Nutzern kreierten Markdown Dateien eine Graphenoberfläche. Über Verlinkungen zwischen den Markdown Dateien wächst der Graph an. Der Nutzer kann den Graph filtern oder gewisse Teile daraus hervorheben. Diese Anwendung zeigt hervorragend, wie eine Visualisierung eines Graphen möglicherweise aussehen könnte.
+Die Website igdb.com gibt einen Eindruck, was der Nutzer von einer Spielesuche erwarten kann. Der Funktionsumfang und die Spieleanzahl ist groß, sodass das Suchergebnis meist zufriedenstellend ist. Des Weiteren besitzt die Website eine gut dokumentierte Entwickler-API. Dies ermöglicht es Entwickler, Daten in Form von JSON, REST oder ProtoBuf zu erhalten. Jedoch sind die Daten, welche IGDB bereit stellt nicht für die LOD-Cloud aufbereitet. Des Weiteren ist die Oberfläche der Website sehr klassisch aufgebaut, wodurch kein weiteres Interesse geweckt wird. Hier setzt das Projekt von Team Rot an. Es wird eine Web-Applikation entworfen, welche die Daten anreichert, damit diese in die LOD-Cloud überführt werden können. Zusätzlich wird eine Graphenoberfläche entworfen, welche dazu einlädt, artverwandte Spiele auch ohne Filteroptionen zu entdecken.
 
 \section{Anforderungen} \label{s:anforderungen}
-
+% Gehören sich Entwickler in "User-Stories" mit rein? haben ja nur US: Testabdeckung für Entwickler?
 In der Anforderungsanalyse wurden zwei Stakeholder identifiziert: Benutzer und Entwickler. Deren Anforderungen werden in diesem Abschnitt in Form von User Stories beschrieben.
 
-\subsection{Selection von Genre}
-Als Benutzer möchte ich mir ein Überblick über die unterschiedlichen Genres verschaffen. Akzeptanzkriterien sind:
+% Laut Prof. Neumann Folien sollen wir UI nicht in User-Stories erwähnen. Aber bei uns ist das ja ein zentraler Punkt?
+\subsection{Graphenoberfläche}
+Als Benutzer möchte ich in eine Graphenoberfläche, welche visuell Verbindungen zu anderen Spielen aufzeigt. Somit kann ich direkt ähnliche Spiele, welche mir ebenfalls gefallen könnten, sehen. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Button zum Auswählen der Kategorie
-\item Unterkategorien werden in einer Liste angezeigt
+\item Graphenoberfläche soll direkt sichtbar sein beim besuchen der Website
+\item Der Graph soll mit ausreichend vielen Knoten angereichert sein
+\item Die Oberfläche soll visuell ansprechend sein und zum stöbern einladen
 \end{itemize}
 
-\subsection{Auflistung von Spielen}
-Als Benutzer möchte ich meine Genre-Favoriten eingeben und einen Vorschlag an Spielen erhalten. Akzeptanzkriterien sind:
+\subsection{Knotendetails}
+Als Benutzer möchte ich mit einem Klick auf einem Knoten im Graphen weitere Details zu den im Knoten enthaltenen Spiel sehen. Somit erhalte ich ohne die Graphenoberfläche zu verlassen die wichtigsten Informationen zu einen Spiel. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Eingabefeld für Favoriten
-\item Spiele absteigen in einer Liste anzeigen
-\item Button zum Suchen der Spiele
+\item Knoten im Graphen sollen anklickbar sein
+\item Der geklickte Knoten öffnet ein Feld mit weiteren Informationen zu den ausgewählten Knoten
+\item Die wichtigsten Informationen befinden sich zusammengefasst im geöffneten Feld
 \end{itemize}
 
+\subsection{Filter}
+Als Benutzer möchte ich mit einer Filteroption Knoten und somit Spiele im Graphen visuell hervor heben. Dadurch kann auch in einem großen Graphen der Nutzer eine Gruppe von Spielen problemlos finden. Akzeptanzkriterien sind:
+\begin{itemize}
+\item diverse Filtereinstellungen
+\item Ergebnis sollte gut erkennbar hervor gehoben werden
+\item Ausreichend viele Filteroptionen
+\end{itemize}
+
+% Die Twitter-Card User-Storie komplett umschreiben
 \subsection{Twitter-Cards für das jeweilige Spiel}
 Als Benutzer möchte ich Twitter-Cards zu dem Spiel sehen, welches aktuell betrachtet wird. Akzeptanzkriterien sind:
 \begin{itemize}
@@ -74,20 +85,19 @@ Als Benutzer möchte ich Twitter-Cards zu dem Spiel sehen, welches aktuell betra
 \item Es existiert eine Verlinkung zum jeweiligen Twitter Beitrag
 \end{itemize}
 
-\subsection{(Optional) Abonieren von Spielen}
-Als Benutzer möchte ich Spiele abonieren können, damit ich über die Twitter-Cards immer auf dem neusten Stand bin. Akzeptanzkriterien sind:
+\subsection{(Optional) Detailseite}
+Als Benutzer möchte ich eine Detailseite zu einem jeweilige Spiel, welche über den Knoten im Graphen erreicht wird. Somit muss ich als Nutzer nicht externe Internetseiten für weitere Informationen besuchen. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Twitter-Cards zu den abonierten Spielen werden angezeigt
-\item Twitter-Cards sind aktuell
-\item Eigener Bereich auf der Website bei dem die Twitter-Cards angezeigt werden
+\item Alle Details eines Spiels werden aufgelistet
+\item Spiel wird vorgestellt
 \end{itemize}
 
-\subsection{(Optional) Anforderung}
-Als (\dots) möchte ich (\dots), damit (\dots). Akzeptanzkriterien sind:
+\subsection{(Optional) Suche}
+Als Benutzer möchte ich ein Spiel suchen können, da bei einem größeren Graphen nur schwierig ein spezielles Spiel gefunden werden kann. Akzeptanzkriterien sind:
 \begin{itemize}
-\item Item 1
-\item Item 2
-\item Item 3
+\item Eingabefeld für Suche
+\item Weiterleitung direkt zum Knotenpunkt, welcher das gewünschte Spiel beinhaltet
+\item Grafische hervorherbung des Knotenpunkts
 \end{itemize}
 
 \subsection{Testabdeckung}
