@@ -50,8 +50,7 @@ In Abschnitt~\ref{sec:anforderungen} werden die Anforderungen in Form von User S
 
 Die \textit{Internet Video Games Database} (IGDB)~\cite{igdb} gibt einen Eindruck, was ein Nutzer von einer Videospieldatenbank erwarten kann. IGDB umfasst derzeit 217.233 Spiele, eine Suchfunktion, die Möglichkeit Videospiele zu entdecken (z.B.\ kürzlich veröffentlichte Videospiele), und eine Entwickler-API. Über die API können Entwickler auf die Videospieldaten mittels Protokolle wie REST oder ProtoBuf zugreifen.
 
-%Jedoch sind die Daten, welche IGDB bereit stellt nicht für die LOD-Cloud aufbereitet. Des Weiteren ist die Oberfläche der Website sehr klassisch aufgebaut, wodurch kein weiteres Interesse geweckt wird. Hier setzt das Projekt von Team Rot an.
-Wie die Visualisierung eines Graphen möglicherweise aussehen kann, demonstriert die Anwendung Obsidian. Diese erstellt aus von Nutzern kreierten Markdown Dateien eine Graphenoberfläche. Über Verlinkungen zwischen den Markdown Dateien wächst der Graph an. Der Nutzer kann den Graph filtern oder gewisse Teile daraus hervorheben.
+Wie die Visualisierung eines Graphen möglicherweise aussehen kann, demonstriert die Anwendung Obsidian. Diese erstellt aus von Nutzern kreierten Markdown Dateien eine Graphenoberfläche. Über Verlinkungen zwischen den Markdown Dateien wächst der Graph an. Der Nutzer kann den Graph filtern oder gewisse Teile daraus hervorheben (vgl. Abbildung~\ref{fig:obsidian}).
 
 \begin{figure}[thpb]
     \centering
@@ -60,7 +59,6 @@ Wie die Visualisierung eines Graphen möglicherweise aussehen kann, demonstriert
     \label{fig:obsidian}
 \end{figure}
 
-\newpage
 
 \section{Anforderungen}\label{sec:anforderungen}
 
@@ -72,20 +70,19 @@ In der Anforderungsanalyse wurden zwei primäre Ziele identifiziert, die es umzu
 Als Benutzer möchte ich in eine Graphenoberfläche, welche visuell Verbindungen zu anderen Spielen aufzeigt. Somit kann ich direkt ähnliche Spiele, welche mir ebenfalls gefallen könnten, sehen. Akzeptanzkriterien sind:
 \begin{itemize}
 	\item Auf der Startseite ist ein Graph vorhanden, der alle in der Datenbank vorhandenen Videospiele und deren Beziehungen zueinander anzeigt.
-    \item Schwebt man mit der Maus über einen Konten öffnet sich ein Feld mit weiteren Informationen. 
-    \item Im Informationsfeld wird angezeigt:
+    \item Schwebt man mit der Maus über einen Knoten öffnet sich ein Informationsfeld, indem angezeigt wird:
     \begin{itemize}
       \item Titel des Videospiels
       \item Genre
       \item Bewertung
     \end{itemize}
-    \item Schwebt man mit der Maus über einen Knoten werden alle verbunden Knotenpunkte und Kanten im Graphen hervorgehoben.
+    \item Schwebt man mit der Maus über einen Knoten werden alle verbundenen Knotenpunkte und Kanten im Graphen hervorgehoben.
 \end{itemize}
 
 
 \subsection{Suche per Texteingabe}
 
-Als Benutzer möchte ich ein Videospiel per Texteingabe suchen können, da bei einem Graphen mit vielen Knoten und Kanten ein spezielles Spiel nur schlecht gefunden werden kann. Akzeptanzkriterien sind:
+Als Benutzer möchte ich ein Videospiel per Texteingabe suchen können, da sich ein spezielles Spiel bei einem Graphen mit vielen Knoten und Kanten nur schlecht finden lässt. Akzeptanzkriterien sind:
 \begin{itemize}
     \item Ein Eingabefeld für die textuelle Suche ist vorhanden.
     \item Ist die Suche erfolgreich, werden relevante Knotenpunkte und Kanten im Graphen hervorgehoben.
@@ -143,7 +140,8 @@ Akzeptanzkriterien sind:
 Als Entwickler möchte ich eine Cloud-kompatible Anwendung für eine Bereitstellung der Anwendung.  Akzeptanzkriterien sind:
 \begin{itemize}
     \item Für jede Komponente der Anwendung ist ein Dockerfile erstellt und lauffähig.
-    \item (Optional) Die Anwendung ist in der Cloud und prinzipiell erreichbar.
+    \item Mit Docker Compose ist eine YAML-Datei vorhanden, um mit einem einzigen Befehl alles Container zu starten und zu beenden.
+    \item (Optional) Die Anwendung ist bei einem Cloud-Anbieter (z.B. Amazon Web Services) bereitgestellt und erreichbar.
 \end{itemize}
 
 
@@ -151,7 +149,7 @@ Als Entwickler möchte ich eine Cloud-kompatible Anwendung für eine Bereitstell
 
 Ziel bei der Entwicklung und bei der späteren Verwendung ist eine plattformunabhängige Anwendung, die eine Schnittstelle für die \textit{Linked Open Data Cloud} als auch der Bedienoberfläche der Anwendung bereitstellt. Daraus ergeben sich folgende technische Schlüsselbausteine:
 
-Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über eine RESTful-API abgewickelt. Um eine fehlerfreie Anwendung zu entwickeln, werden geeignete Test-Frameworks für Frontend als auch Backend selektiert und verwendet. Die einzelnen Komponenten der Anwendung werden mittels Docker \textit{containerisiert}.
+Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über eine RESTful-API abgewickelt. Die einzelnen Komponenten der Anwendung (Frontend, Backend und Datenbank) werden mittels Docker \textit{containerisiert}.
 
 
 \printbibliography
