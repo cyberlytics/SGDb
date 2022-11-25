@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  database:
+    container_name: database
+    hostname: database
+    build:
+      dockerfile: database/Dockerfile
+      args:
+        version: 10.0.0
+    restart: unless-stopped
+    environment:
+      GDB_JAVA_OPTS: >-
+        -Xmx2g -Xms2g
+        -Dgraphdb.home=/opt/graphdb/home
+        -Dgraphdb.workbench.importDirectory=/opt/graphdb/home/graphdb-import
+        -Dgraphdb.workbench.cors.enable=true
+        -Denable-context-index=true
+        -Dentity-pool-implementation=transactional
+        -Dhealth.max.query.time.seconds=60
+        -Dgraphdb.append.request.id.headers=true
+        -Dreuse.vars.in.subselects=true
+    ports:
+      - "7200:7200"
+      - "7300:7300"
+    volumes:
+      - ./database/graphdb-data:/opt/graphdb/home
+
+  backend:
+    container_name: backend
+    hostname: backend
+    build: ./backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+
+  frontend:
+    container_name: frontend
+    hostname: frontend
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
