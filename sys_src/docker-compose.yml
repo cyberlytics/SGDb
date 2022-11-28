@@ -3,10 +3,7 @@ services:
   database:
     container_name: database
     hostname: database
-    build:
-      dockerfile: database/Dockerfile
-      args:
-        version: 10.0.0
+    build: ./database
     restart: unless-stopped
     environment:
       GDB_JAVA_OPTS: >-
@@ -24,6 +21,18 @@ services:
       - "7300:7300"
     volumes:
       - ./database/graphdb-data:/opt/graphdb/home
+
+  refine:
+    image: ontotext/refine
+    restart: unless-stopped
+    environment:
+      SERVER_HOST: localhost
+      GRAPHDB_ADDRESS: http://database:7200
+      GRAPHDB_REPOSITORY: sgdb
+    ports:
+      - "7333:7333"
+    volumes:
+      - ./refine/refine_data:/opt/ontorefine/data
 
   backend:
     container_name: backend
