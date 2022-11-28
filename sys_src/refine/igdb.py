@@ -1,8 +1,12 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
-client_id= "s0upfq8wje1y8i0rrzqn3rh2xxhilk"
-client_secret= "dz8e2ku8clmcvuhaq7ld8r6shy1b6f"
+load_dotenv()
+
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
 class TwitchAPI:
     def __init__(self, client_id, client_secret):
@@ -39,10 +43,6 @@ class TwitchAPI:
         # get all games
         query = 'fields name, id, first_release_date, cover.url, genres.name, platforms.name, summary, involved_companies.company.name, involved_companies.developer, involved_companies.publisher, involved_companies.company.country; limit 500; sort first_release_date desc;'
         res = requests.post(self.api + '/games', headers=self.headers, data=query)
-    def get_games(self):
-        # get all games
-        query = 'fields name, id, first_release_date, cover.url, genres.name, platforms.name, summary, involved_companies.company.name, involved_companies.developer, involved_companies.publisher, involved_companies.company.country; limit 500; sort first_release_date desc;'
-        res = requests.post(self.api + '/games', headers=self.headers, data=query)
         if res.status_code == 200:
             print('Games acquired')
             with open('game_data.json', 'w') as f:
@@ -53,5 +53,7 @@ class TwitchAPI:
             raise Exception('Games not acquired')
         return res.json()
 
-twitch = TwitchAPI(client_id, client_secret)
-games = twitch.get_games()
+
+if __name__ == "__main__":
+    api = TwitchAPI(CLIENT_ID, CLIENT_SECRET)
+    api.get_games()
