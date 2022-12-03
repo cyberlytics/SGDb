@@ -1,26 +1,110 @@
 <script lang="ts">
   import Sigma from 'sigma';
-  import Graph from 'graphology';
-  import { onMount } from 'svelte';
+  import { afterUpdate, createEventDispatcher, onDestroy, onMount } from 'svelte';
+  import { buildGraph } from "./graph.ts";
+  import FA2Layout from "graphology-layout-forceatlas2/worker";
+  import forceAtlas2 from "graphology-layout-forceatlas2";
 
-  let container;
+  import type { SigmaNodeEventPayload } from "sigma/sigma";
+  import type Graph from "graphology";
+  import type State from "./types/Graph";
 
-  onMount(() => {
-    const graph = new Graph();
+  export let searchQuery = "";
 
-    graph.addNode("John", { x: 0, y: 10, size: 20, label: "John", color: "red" });
-    graph.addNode("Mary", { x: 10, y: 0, size: 20, label: "Mary", color: "red" });
-    graph.addNode("Thomas", { x: 7, y: 9, size: 20, label: "Thomas", color: "red" });
-    graph.addNode("Hannah", { x: -7, y: -6, size: 20, label: "Hannah", color: "red" });
+  let container: HTMLElement;
+  let sigma: Sigma | undefined;
+  let fa2Layout: FA2Layout | undefined;
 
-    graph.addEdge("John", "Mary", { type: "arrow", label: "loves", size: 2 });
-    graph.addEdge("John", "Thomas");
-    graph.addEdge("John", "Hannah");
-    graph.addEdge("Hannah", "Thomas");
-    graph.addEdge("Hannah", "Mary");
+  let graph: Graph;
+  const state: State = { searchQuery: "" };
+  const dispatch = createEventDispatcher();
 
-    // render graph in container
-    const renderer = new Sigma(graph, container, { renderEdgeLabels: true });
+  onMount(async () => {
+    graph = await buildGraph();
+
+    sigma = new Sigma(graph, container, {
+      allowInvalidContainer: true,
+      defaultNodeColor: "#a3a3a3",
+      renderEdgeLabels: true,
+      nodeReducer(node, data) {
+        const res = { ...data };
+        if (state.hoveredNode == node) {
+            res.color = "#95060F";
+        }
+        if (state.hoveredNodeNeighbors && !state.hoveredNodeNeighbors.has(node) && state.hoveredNode !== node) {
+          res.label = "";
+          res.color = "#f6f6f6";
+        }
+        if (state.selectedNode === node) {
+          res.highlighted = true;
+        }
+        return res;
+      },
+      edgeReducer(edge, data) {
+        const res = { ...data };
+        if (state.hoveredNode && !graph.hasExtremity(edge, state.hoveredNode)) {
+          res.hidden = true;
+        }
+        return res;
+      },
+    });
+
+    // bind graph interactions
+    sigma.on("clickNode", handleNodeClick);
+    sigma.on("enterNode", handleNodeEnter);
+    sigma.on("leaveNode", handleNodeLeave);
+  });
+
+  const setHoveredNode = (node?: string) => {
+    if (node) {
+      state.hoveredNode = node;
+      state.hoveredNodeNeighbors = new Set(graph.neighbors(node));
+    } else {
+      state.hoveredNode = undefined;
+      state.hoveredNodeNeighbors = undefined;
+    }
+
+    // refresh rendering
+    sigma.refresh();
+  }
+
+  const handleNodeEnter = ({ node }: SigmaNodeEventPayload) => {
+    setHoveredNode(node);
+    sigma.refresh();
+  };
+
+  const handleNodeLeave = () => {
+    setHoveredNode(undefined);
+    sigma.refresh();
+  };
+
+  const handleNodeClick = async ({ node }: SigmaNodeEventPayload) => {
+    dispatch("nodeclick", node);
+  };
+
+  afterUpdate(() => {
+    if (sigma) {
+      sigma.refresh();
+      if (fa2Layout) {
+        fa2Layout.kill();
+      }
+      const sensibleSettings = forceAtlas2.inferSettings(graph);
+      fa2Layout = new FA2Layout(graph, {
+        settings: sensibleSettings,
+      });
+      fa2Layout.start();
+    }
+  });
+
+  onDestroy(async () => {
+    if (fa2Layout) {
+      fa2Layout.kill();
+      fa2Layout = undefined;
+    }
+    if (sigma) {
+      sigma.kill();
+      sigma = undefined;
+    }
   });
 </script>
 
@@ -28,7 +112,7 @@
 
 <style>
   #sigma-container {
-    width: 550px;
-    height: 450px;
+    width: 100%;
+    height: 860px;
   }
 </style>
