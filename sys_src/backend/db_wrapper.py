@@ -4,39 +4,36 @@ from typing import Optional
 # for debugging purpose
 import uvicorn
 
-# ontotext url should be here
-graphdb_url = 'http://localhost:7200/repositories/movies'
+# Get the url to the graphdb repository
+graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
 # db object initialize
 sparql = SPARQLWrapper(graphdb_url)
 sparql.setReturnFormat(JSON)
 
-# todo: Query for whole Graph
-sparql.setQuery("""
-    PREFIX imdb: <http://academy.ontotext.com/imdb/>
-    PREFIX schema: <http://schema.org/>
+# Query for whole Graph
+def query_all(sparql_obj):
+    """Queries the whole graph and returns it"""
+    sparql_obj.setQuery("""
+        SELECT * WHERE { 
+            ?s ?p ?o .
+        }
+    """)
+    return sparql_obj
 
-    SELECT * { 
-        ?movie a imdb:ColorMovie ;
-           schema:name ?movieName ;
-           schema:commentCount ?commentCount .
-    }   
-    ORDER BY DESC(?commentCount)
-    LIMIT 5
-""")
-
-# catch any errors if query goes wrong
-try:
-    ret = sparql.queryAndConvert()
-    for r in ret["results"]["bindings"]:
-        print(r)
-except Exception as e:
-    print(e)
-
-# todo: query for search; search after game-name
+# query for search; search after game-name
     # param1: sparql object, which is generated in this file
     # param2: game-name from main.py
     # return json with possible games
+def search_game_name(sparql_obj, game_name):
+    """Search the Query by the given game name"""
+    sparql_obj.setQuery("""
+        PREFIX schema: <http://schema.org/>
+        SELECT ?s ?p ?o WHERE {{ 
+        ?o schema:title "{game_name}" .
+        }}
+        """.format(game_name=game_name))
+    return sparql
 
 # games is only as long as we dont have data in our database
 games = [
@@ -71,3 +68,31 @@ def search_query(search: str = None):
     # param1: sparql object, which is generated in this file
     # param2: filter-options from main.py
     # return json with new graph
+    
+# TODO Sinnvoll Filter nur als String zu übernehmen? Problem bei format, unbekannte Anzahl Filter
+def query_filter(sparql_obj, fil_opts): 
+    """Query the graph by given filters"""
+    sparql_obj.setQuery("""
+    SELECT * WHERE { 
+            ?s ?p ?o .
+        }
+    {filter}
+    """.format(filter=fil_opts))
+
+# TODO Methode für Filter-Generierung schreiben, in die eine Liste übergeben wird 
+fil_opts = "FILTER () .\nFILTER ()"
+        
+sparql_obj = query_all(sparql)
+
+# Print the result
+def print_res(result):
+    try:
+        ret = result.queryAndConvert()
+        for r in ret["results"]["bindings"]:
+            print(r)
+    except Exception as e:
+        print(e)
+
+# Just a test term for the game search
+res = search_game_name(sparql, "This Way Madness Lies")
+print_res(res)

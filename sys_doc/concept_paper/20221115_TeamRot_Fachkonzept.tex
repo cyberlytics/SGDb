@@ -16,7 +16,7 @@
 \begin{document}
 
 \title{\LARGE \bf
-SGDb: Semantic Video Games Database
+SGDb: Semantic Video Game Database
 }
 
 \author{
@@ -40,10 +40,10 @@ SGDb: Semantic Video Games Database
 
 \section{Einleitung}\label{sec:einleitung}
 
-Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958 ebnete den Weg für die Spieleindustrie. Über Jahrzehnten hinaus kamen immer mehr verschiedene Spiele auf den Markt, die sich in ihrer Art und Weise unterscheiden. Mit den heutigen Videospielen ist es möglich, sich mit Spielern aus der ganzen Welt zu messen oder gemeinsam zu spielen. Aus den unzählig veröffentlichen Videospielen ist eine breite Palette an Genres entstanden. Dabei wird in der Spieleindustrie grob in sechs Kategorien unterschieden, hierbei zählen die Strategie- und Action-Spiele zu den beliebtesten Genres~\cite{statistica}. Zu den anderen vier Kategorien zählen hier die Rollen-, Abenteuer-, Simulationen- und Sonstige Spiele. Jedes dieser Kategorien besitzt weitere Unterkategorien, die sich in ihrer Art und Weise unterscheiden.
+Das erste Videospiel \textit{Tennis for Two} aus dem Jahr 1958 ebnete den Weg für die Spieleindustrie. Über Jahrzehnten hinaus kamen immer mehr verschiedene Spiele auf den Markt, die sich in ihrer Art und Weise unterscheiden. Mit den heutigen Videospielen ist es möglich, sich mit Spielern aus der ganzen Welt zu messen oder gemeinsam zu spielen. Aus den unzählig veröffentlichen Videospielen ist eine breite Palette an Genres entstanden. Dabei wird in der Spieleindustrie grob in sechs Kategorien unterschieden, hierbei zählen die Strategie- und Action-Spiele zu den beliebtesten Genres~\cite{statistica}. Zu den anderen vier Kategorien zählen die Rollen-, Abenteuer-, Simulationen- und sonstige Spiele. Jedes dieser Kategorien besitzt weitere Unterkategorien, die sich in ihrer Art und Weise unterscheiden.\\
 
 Um einen Überblick zu erhalten, wie die Spiele zusammenhängen, präsentieren wir hier eine plattformunabhängige Anwendung, welche die Spiele in einem Graphen darstellt. In Abschnitt~\ref{sec:verwandte_arbeiten} des Konzeptpapiers werden bereits bestehende Anwendungen vorgestellt, die sich mit der Kategorisierung von Spielen und Darstellung von Graphen beschäftigen.
-In Abschnitt~\ref{sec:anforderungen} werden die Anforderungen in Form von User Stories beschrieben. Zum Schluss wird auf die zu verwendenden Technologien zur Umsetzung des Projekts eingegangen, welche in Abschnitt~\ref{sec:methoden} näher beschrieben werden.
+In Abschnitt~\ref{sec:anforderungen} werden die Anforderungen in Form von User Stories beschrieben. Zum Schluss wird auf die geplanten Technologien bei der Umsetzung des Projekts eingegangen, welche in Abschnitt~\ref{sec:methoden} beschrieben werden.
 
 
 \section{Verwandte Arbeiten}\label{sec:verwandte_arbeiten}
@@ -55,7 +55,7 @@ Wie die Visualisierung eines Graphen möglicherweise aussehen kann, demonstriert
 \begin{figure}[thpb]
     \centering
     \includegraphics[scale=0.17]{obsidian}
-    \caption{Obsidian Graphenoberfläche~\cite{obsidian}}
+    \caption{Obsidian Benutzeroberfläche~\cite{obsidian}}
     \label{fig:obsidian}
 \end{figure}
 
@@ -82,7 +82,7 @@ Als Benutzer möchte ich in eine Graphenoberfläche, welche visuell Verbindungen
 
 \subsection{Suche per Texteingabe}
 
-Als Benutzer möchte ich ein Videospiel per Texteingabe suchen können, da sich ein spezielles Spiel bei einem Graphen mit vielen Knoten und Kanten nur schlecht finden lässt. Akzeptanzkriterien sind:
+Als Benutzer möchte ich ein Videospiel per Texteingabe suchen können, da sich ein spezielles Spiel bei einem Graphen mit vielen Knoten und Kanten ggf. nur schlecht finden lässt. Akzeptanzkriterien sind:
 \begin{itemize}
     \item Ein Eingabefeld für die textuelle Suche ist vorhanden.
     \item Ist die Suche erfolgreich, werden relevante Knotenpunkte und Kanten im Graphen hervorgehoben.
@@ -95,11 +95,11 @@ Als Benutzer möchte ich ein Videospiel per Texteingabe suchen können, da sich 
 Als Benutzer möchte ich eine Detailseite zu einem jeweiligen Videospiel, damit ich ohne die Anwendung zu verlassen die wichtigsten Informationen zu einem Spiel einsehen kann. Akzeptanzkriterien sind:
 \begin{itemize}
     \item Die Detailseite öffnet sich per Klick auf einen Knoten im Graphen.
-    \item Details die angezeigt werden:
+    \item Details zum Videospiel die angezeigt werden:
     \begin{itemize}
     	\item Titel
     	\item Erscheinungsdatum
-    	\item Beschreibung des Videospiels
+    	\item Beschreibung
     	\item Bewertung
     	\item Genre
     	\item (Optional) Internetpräsenz (z.B. offizielle Website)
@@ -108,12 +108,12 @@ Als Benutzer möchte ich eine Detailseite zu einem jeweiligen Videospiel, damit 
 \end{itemize}
 
 
-\subsection{Filter}\label{subsec:filter}
+\subsection{Filteroption}\label{subsec:filter}
 
-Als Benutzer möchte ich mit einer Filteroption Knoten und somit Spiele im Graphen visuell hervor heben. Dadurch kann auch in einem großen Graphen der Nutzer eine Gruppe von Spielen problemlos finden. Akzeptanzkriterien sind:
+Als Benutzer möchte ich mit einer Filteroption Knoten und somit Spiele im Graphen visuell hervorheben. Dadurch kann auch in einem großen Graphen der Nutzer eine Gruppe von Spielen finden. Akzeptanzkriterien sind:
 \begin{itemize}
-	\item Schaltfläche für Filter ist vorhanden.
-    \item Filteroptionen sind: 
+	\item Eine Schaltfläche für die Filteroption ist vorhanden.
+    \item Filtermöglichkeiten sind: 
     \begin{itemize}
       \item Genre
       \item Plattform
@@ -121,7 +121,7 @@ Als Benutzer möchte ich mit einer Filteroption Knoten und somit Spiele im Graph
       \item Erscheinungsjahr
     \end{itemize}
     \item Nur das Filterergebnis soll im Graphen sichtbar sein.
-    \item Wird der Filter aufgehoben sollen alle entfernten Konten wieder angezeigt werden.
+    \item Wird der Filter aufgehoben sollen alle entfernten Knoten wieder angezeigt werden.
 \end{itemize}
 
 
@@ -140,7 +140,7 @@ Akzeptanzkriterien sind:
 Als Entwickler möchte ich eine Cloud-kompatible Anwendung für eine Bereitstellung der Anwendung.  Akzeptanzkriterien sind:
 \begin{itemize}
     \item Für jede Komponente der Anwendung ist ein Dockerfile erstellt und lauffähig.
-    \item Mit Docker Compose ist eine YAML-Datei vorhanden, um mit einem einzigen Befehl alles Container zu starten und zu beenden.
+    \item Mit Docker Compose ist eine YAML-Datei vorhanden, um mit einem einzigen Befehl alle Container zu starten und zu beenden.
     \item (Optional) Die Anwendung ist bei einem Cloud-Anbieter (z.B. Amazon Web Services) bereitgestellt und erreichbar.
 \end{itemize}
 
@@ -149,7 +149,7 @@ Als Entwickler möchte ich eine Cloud-kompatible Anwendung für eine Bereitstell
 
 Ziel bei der Entwicklung und bei der späteren Verwendung ist eine plattformunabhängige Anwendung, die eine Schnittstelle für die \textit{Linked Open Data Cloud} als auch der Bedienoberfläche der Anwendung bereitstellt. Daraus ergeben sich folgende technische Schlüsselbausteine:
 
-Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über eine RESTful-API abgewickelt. Die einzelnen Komponenten der Anwendung (Frontend, Backend und Datenbank) werden mittels Docker \textit{containerisiert}.
+Für die Repräsentation der semantischen Daten im Frontend wird das Framework Svelte verwendet. Die Daten werden voraussichtlich in einer Ontotext GraphDB Instanz persistiert. Im Backend wird FastAPI für eine REST-Schnittstelle und RDFLib zum arbeiten mit RDF verwendet. Die Kommunikation zwischen Frontend und Backend wird über die RESTful-API abgewickelt. Die einzelnen Komponenten der Anwendung (Frontend, Backend und Datenbank) werden mittels Docker \textit{containerisiert}.
 
 
 \printbibliography
