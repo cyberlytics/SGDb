@@ -41,7 +41,7 @@ class TwitchAPI:
 
     def get_games(self):
         # get all games
-        query = 'fields name, id, first_release_date, cover.url, genres.name, platforms.name, summary, involved_companies.company.name, involved_companies.developer, involved_companies.publisher, involved_companies.company.country; limit 500; sort first_release_date desc;'
+        query = 'fields name, id, first_release_date, cover.url, genres.name, platforms.name, summary, total_rating, involved_companies.company.name, involved_companies.developer, involved_companies.publisher, involved_companies.company.country; limit 500; where total_rating > 85; sort rating desc;'
         res = requests.post(self.api + '/games', headers=self.headers, data=query)
         if res.status_code == 200:
             print('Games acquired')
