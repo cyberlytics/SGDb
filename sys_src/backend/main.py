@@ -1,11 +1,12 @@
 from fastapi import FastAPI
-from db_wrapper import search_query
+from db_wrapper import search_game_name, query_all
 from typing import Optional
 
 # for debugging purpose
 import uvicorn
 
 app = FastAPI()
+graph = query_all()
 
 @app.get("/")
 def startpage():
@@ -15,10 +16,8 @@ def startpage():
 # load list-page with games with similiar names to searched game
 @app.get("/search")
 def search(search: str = None):
-    # lowercase search
-    search = search.lower()
     # search in the database for the requested game
-    search_result = search_query(search)
+    search_result = search_game_name(graph, search)
     return{"message": search_result}
 
 # detailpage
@@ -30,4 +29,4 @@ def detailpage(game: str):
 
 # debugging purpose
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8810)

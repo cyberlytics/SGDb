@@ -7,24 +7,26 @@ import uvicorn
 # Get the url to the graphdb repository
 graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
-# db object initialize
-sparql = SPARQLWrapper(graphdb_url)
-sparql.setReturnFormat(JSON)
-
 # Query for whole Graph
-def query_all(sparql_obj):
+def query_all():
+    # db object initialize
+    sparql = SPARQLWrapper(graphdb_url)
+    sparql.setReturnFormat(JSON)
+
     """Queries the whole graph and returns it"""
-    sparql_obj.setQuery("""
+    sparql.setQuery("""
         SELECT * WHERE { 
             ?s ?p ?o .
         }
     """)
-    return sparql_obj
+    return sparql
 
 # query for search; search after game-name
     # param1: sparql object, which is generated in this file
     # param2: game-name from main.py
     # return json with possible games
+# Case-sensitve atm, should be changed to case-insensitive
+# should be working like igdb search
 def search_game_name(sparql_obj, game_name):
     """Search the Query by the given game name"""
     sparql_obj.setQuery("""
@@ -33,8 +35,9 @@ def search_game_name(sparql_obj, game_name):
         ?o schema:title "{game_name}" .
         }}
         """.format(game_name=game_name))
-    return sparql
+    return sparql_obj.queryAndConvert()
 
+'''
 # games is only as long as we dont have data in our database
 games = [
 {"name": "cs:go", "preis": 0, "genre": "Shooter"},
@@ -61,7 +64,7 @@ def search_query(search: str = None):
             return search_results
     else:
         return {"no game": "please enter some game"}
-
+'''
     
 
 # todo: query for filter-options; load new graph with filter(s) activated
@@ -79,6 +82,7 @@ def query_filter(sparql_obj, fil_opts):
     {filter}
     """.format(filter=fil_opts))
 
+'''
 # TODO Methode für Filter-Generierung schreiben, in die eine Liste übergeben wird 
 fil_opts = "FILTER () .\nFILTER ()"
         
@@ -96,3 +100,4 @@ def print_res(result):
 # Just a test term for the game search
 res = search_game_name(sparql, "This Way Madness Lies")
 print_res(res)
+'''
