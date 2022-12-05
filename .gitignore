@@ -1,5 +1,10 @@
 # Gitignore for OS generated files, Node, Python, and TeX
 
+### Ontotext folders ###
+graphdb-data
+refine-data
+
+
 ### OS generated files ###
 .DS_Store
 .DS_Store?
