@@ -21,22 +21,81 @@ def query_all():
     """)
     return sparql
 
-# query for search; search after game-name
-    # param1: sparql object, which is generated in this file
+
+# query for detailpage; content for detail page
+    # param1: sparql object, which is generated in the main.py file
     # param2: game-name from main.py
-    # return json with possible games
+    # return json with content of detail page to particular game
 # Case-sensitve atm, should be changed to case-insensitive
-# should be working like igdb search
-def search_game_name(sparql_obj, game_name):
-    """Search the Query by the given game name"""
+
+def subject_to_query(sparql_obj, game_name):
+    # Search the subject to the game name
     sparql_obj.setQuery("""
         PREFIX schema: <http://schema.org/>
         SELECT ?s ?p ?o WHERE {{ 
         ?o schema:title "{game_name}" .
         }}
         """.format(game_name=game_name))
-    return sparql_obj.queryAndConvert()
+    subject = sparql_obj.query().convert()
+    return subject["results"]["bindings"][0]["o"]["value"]
+    
+def query_the_subject(sparql_obj, subject):
+    # Search the Query by the given subject
+    sparql_obj.setQuery("""
+        SELECT ?subject ?predicate ?object
+        WHERE {{
+            <{subject}> ?predicate ?object .
+        }} LIMIT 100
+        """.format(subject=subject))
+    return sparql_obj.query().convert()
 
+# Print the result
+def print_result(result):
+    try:
+        for r in result["results"]["bindings"]:
+            print(r)
+    except Exception as e:
+        print(e)
+
+# method for searching games with their title
+def detailpage_content(sparql_obj, game_name):
+    subject_iri = subject_to_query(sparql_obj, game_name)
+    result = query_the_subject(sparql_obj, subject_iri)
+    return result
+
+
+#############################################################
+# still under construction under this section
+#############################################################
+# query for search; search after game-name
+    # param1: sparql object, which is generated in this file
+    # param2: game-name from main.py
+    # return json with possible games
+# Case-sensitve atm, should be changed to case-insensitive
+# should be working like igdb search
+'''
+def search_game_name(sparql_obj, game_name):
+    # Search the Query for the subject by the given game name
+    sparql_obj.setQuery("""
+        PREFIX schema: <http://schema.org/>
+        SELECT ?s ?p ?o WHERE {{ 
+        ?o schema:title "{game_name}" .
+        }}
+        """.format(game_name=game_name))
+    subject = sparql_obj.query().convert()
+    subject_name = subject["results"]["bindings"][0]["o"]["value"]
+    sparql_obj.setQuery("""
+        SELECT ?subject ?predicate ?object
+        WHERE {
+            <{subject_name}> ?predicate ?object .
+        }
+    """)
+    result_to_formated = sparql_obj.query().convert()
+    result = {}
+    for r in result_to_formated["results"]["bindings"]:
+        result.update(r)
+    return result
+'''
 '''
 # games is only as long as we dont have data in our database
 games = [
@@ -72,6 +131,7 @@ def search_query(search: str = None):
     # param2: filter-options from main.py
     # return json with new graph
     
+'''
 # TODO Sinnvoll Filter nur als String zu übernehmen? Problem bei format, unbekannte Anzahl Filter
 def query_filter(sparql_obj, fil_opts): 
     """Query the graph by given filters"""
@@ -82,22 +142,7 @@ def query_filter(sparql_obj, fil_opts):
     {filter}
     """.format(filter=fil_opts))
 
-'''
+
 # TODO Methode für Filter-Generierung schreiben, in die eine Liste übergeben wird 
 fil_opts = "FILTER () .\nFILTER ()"
-        
-sparql_obj = query_all(sparql)
-
-# Print the result
-def print_res(result):
-    try:
-        ret = result.queryAndConvert()
-        for r in ret["results"]["bindings"]:
-            print(r)
-    except Exception as e:
-        print(e)
-
-# Just a test term for the game search
-res = search_game_name(sparql, "This Way Madness Lies")
-print_res(res)
 '''
