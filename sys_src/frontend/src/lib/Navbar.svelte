@@ -7,7 +7,7 @@
 
 <nav class="bg-white px-2 sm:px-4 py-2">
   <div class="container flex flex-row items-center justify-between mx-auto">
-    <div class="text-xl font-semibold whitespace-nowrap text-primary mr-8">
+    <div class="text-xl select-none font-semibold whitespace-nowrap text-primary mr-8">
       SGDb
     </div>
     <div class="w-full">
