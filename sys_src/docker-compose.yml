@@ -32,7 +32,7 @@ services:
     ports:
       - "7333:7333"
     volumes:
-      - ./refine/refine_data:/opt/ontorefine/data
+      - ./refine/refine-data:/opt/ontorefine/data
 
   backend:
     container_name: backend
