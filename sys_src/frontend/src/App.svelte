@@ -1,8 +1,14 @@
 <script lang="ts">
-  import Graph from "./lib/Graph.svelte";
+  import { Router, Route } from 'svelte-routing';
+  import Game from "./routes/Game.svelte";
+  import Home from "./routes/Home.svelte";
 </script>
 
-<main>
-  <h1 class="font-bold text-4xl pb-8">SGDb</h1>
-  <Graph />
-</main>
+<body>
+  <Router>
+    <Route path="game/:id" let:params>
+      <Game id="{params.id}" />
+    </Route>
+    <Route path="/"><Home /></Route>
+  </Router>
+</body>
