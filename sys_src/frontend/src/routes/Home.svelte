@@ -16,8 +16,9 @@
   };
 </script>
 
-<Navbar />
+
 <main id="graph-container">
+    <Navbar />
     {#await fetchGraph()}
         <p class="text-black">Loading Graph...</p>
     {:then graph}

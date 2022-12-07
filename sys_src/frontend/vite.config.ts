@@ -9,6 +9,7 @@ export default defineConfig({
       $lib: resolve(__dirname, 'src/lib'),
       $components: resolve(__dirname, './src/lib/components'),
       $utils: resolve(__dirname, './src/lib/utils'),
+      $stores: resolve(__dirname, './src/lib/stores')
     },
   },
   plugins: [svelte()],

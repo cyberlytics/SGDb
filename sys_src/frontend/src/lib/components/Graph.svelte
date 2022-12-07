@@ -112,6 +112,6 @@
 <style>
   #sigma-container {
     width: 100%;
-    height: 860px;
+    height: 100vh;
   }
 </style>
