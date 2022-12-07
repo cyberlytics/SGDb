@@ -1,12 +1,21 @@
 from fastapi import FastAPI
 from db_wrapper import detailpage_content, query_all
 from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
 
 # for debugging purpose
 import uvicorn
 
 app = FastAPI()
 graph = query_all()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def startpage():

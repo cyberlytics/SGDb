@@ -1,15 +1,29 @@
 <script lang="ts">
   import { navigate } from "svelte-routing";
+  import { buildGraph } from "$utils/graph";
 
-  import Graph from "../lib/Graph.svelte";
-  import Navbar from '../lib/Navbar.svelte';
+  import Graph from "$components/Graph.svelte";
+  import Navbar from '$components/Navbar.svelte';
 
   const handleNodeClick= async (event: CustomEvent<string>) => {
-    navigate(`/game/${event.detail}`);
-  }
+      navigate(`/game/${event.detail}`);
+  };
+
+  const fetchGraph = async (): Promise<Graph> => {
+      //const data = await fetch("http://localhost:8000/")
+      //const json = await data.json();
+      return await buildGraph();
+  };
 </script>
 
-<Navbar />
+
 <main id="graph-container">
-    <Graph on:nodeclick={handleNodeClick} />
+    <Navbar />
+    {#await fetchGraph()}
+        <p class="text-black">Loading Graph...</p>
+    {:then graph}
+        <Graph on:nodeclick={handleNodeClick} {graph} />
+    {:catch error}
+        <p class="text-primary">{error.message}</p>
+    {/await}
 </main>
