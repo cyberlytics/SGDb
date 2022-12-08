@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from db_wrapper import detailpage_content, query_all, search_query
+from db_wrapper import query_all, detailpage_content, search_query
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -17,13 +17,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# todo: startpage return a root-graph
 @app.get("/")
 def startpage():
-    return{"message": "Startpage"}
+    return{"message": "rootgraph"}
 
 # search request
 # load list-page with games with similiar names to searched game
-@app.get("/search")
+@app.get("/search/{search}")
 def search(search: str = None):
     # search in the database for the requested game
     #search_result = game_search(graph, search)
