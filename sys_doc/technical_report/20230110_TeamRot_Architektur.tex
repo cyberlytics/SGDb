@@ -68,7 +68,23 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 \subsection{Backend}\label{subsec:backend}
 
 
-\subsection{Frontend}\label{sub:frontend}
+\subsection{Frontend}\label{subsec:frontend}
+Das Frontend ist für die Benutzerschnittstelle verantwortlich.
+Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseite zu einem Videospiel.
+Für die Darstellung des Graphen und die Interaktion mit diesem wird Sigma.js~\cite{sigma} verwendet.
+Sigma.js rendert Graphen mit WebGL. Damit lassen sich größere Graphen schneller zeichnen als mit Canvas- oder SVG-basierten Lösungen.
+Das Graphenmodell wird in einer separaten Bibliothek namens Graphology~\cite{graphology} verwaltet.
+Dies ist eine Standardbibliothek mit Algorithmen aus der Graphentheorie und allgemeinen Hilfsprogrammen wie z.B.\ Graphengeneratoren.
+
+Generierung
+Für das Graphen Layout wird der ForceAtlas2 Algorithmus~\cite{forceatlas2} verwendet.
+Vor dem Start von ForceAtlas 2 Layout muss die Startposition jedes Knotens festgelegt werden.
+Daher müssen zwei Attribute namens x und y für alle Knoten des Diagramms definiert werden.
+
+Dazu wird ein Graph Objekt mit dem Random layout erzeugt.
+Positionierung jedes Knotens, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall [0, 1) auswählt. %(https://graphology.github.io/standard-library/layout.html)
+
+Die Interaktion mit dem Backend erfolgt über die REST-Schnittstelle.
 
 
 \section{Verteilungssicht}\label{sec:verteilungssicht}
