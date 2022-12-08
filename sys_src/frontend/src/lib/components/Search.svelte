@@ -3,8 +3,11 @@
 
   let search = "";
 
+  const handleSearch = () => {
+    searchQuery.set(search);
+  };
+
   $: isSearchDisabled = search.length == 0;
-  $: console.log($searchQuery)
 </script>
 
 <div class="w-full">
@@ -19,14 +22,18 @@
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
     </div>
-    <input bind:value={search} type="search" id="search-input"
+    <input bind:value={search}
+           type="search"
+           id="search-input"
+           data-testid="search-input"
            class="block p-4 pl-10 w-full border border-zinc-900 text-sm text-gray-900 rounded-lg focus:outline-none"
-           placeholder="Suche nach Videospielen..." required
+           placeholder="Suche nach Videospielen..."
+           required
     >
     <button
             disabled={isSearchDisabled}
             class:cursor-not-allowed="{isSearchDisabled}"
-            on:click={() => searchQuery.set(search)}
+            on:click={handleSearch}
             class="text-white absolute right-2.5 bottom-2.5 bg-primary focus:outline-none font-medium rounded-lg text-sm px-4 py-2 disabled:opacity-25"
     >
       Suche

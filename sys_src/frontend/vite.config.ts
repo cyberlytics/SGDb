@@ -4,8 +4,8 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  resolve:{
-    alias:{
+  resolve: {
+    alias: {
       $lib: resolve(__dirname, 'src/lib'),
       $components: resolve(__dirname, './src/lib/components'),
       $utils: resolve(__dirname, './src/lib/utils'),

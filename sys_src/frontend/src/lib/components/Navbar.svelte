@@ -11,6 +11,7 @@
     </div>
     <Search />
     <button
+            data-testid="filter-button"
             disabled={isFilterDisabled}
             class:cursor-not-allowed="{isFilterDisabled}"
             class="text-primary rounded-lg focus:outline-none font-medium text-sm px-4 py-2 ml-2 hover:bg-primary/25 disabled:text-zinc-400 disabled:hover:bg-zinc-400/25"
