@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from db_wrapper import detailpage_content, query_all
+from db_wrapper import detailpage_content, query_all, search_query
 from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -27,7 +27,7 @@ def startpage():
 def search(search: str = None):
     # search in the database for the requested game
     #search_result = game_search(graph, search)
-    return{"message": search}
+    return{"message": search_query(graph, search)}
 
 # detailpage
 # todo: if only one item is returend from search(), then it should be instantly linked to the detail page

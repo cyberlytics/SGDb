@@ -7,6 +7,7 @@ import uvicorn
 # Get the url to the graphdb repository
 graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
+
 # Query for whole Graph
 def query_all():
     # db object initialize
@@ -26,7 +27,6 @@ def query_all():
     # param1: sparql object, which is generated in the main.py file
     # param2: game-name from main.py
     # return json with content of detail page to particular game
-# Case-sensitve atm, should be changed to case-insensitive
 
 def subject_to_query(sparql_obj, game_name):
     # Search the subject to the game name
@@ -64,73 +64,50 @@ def detailpage_content(sparql_obj, game_name):
     return result
 
 
-#############################################################
-# still under construction under this section
-#############################################################
 # query for search; search after game-name
     # param1: sparql object, which is generated in this file
     # param2: game-name from main.py
     # return json with possible games
-# Case-sensitve atm, should be changed to case-insensitive
-# should be working like igdb search
-'''
-def search_game_name(sparql_obj, game_name):
-    # Search the Query for the subject by the given game name
+
+def search_subject_to_query(sparql_obj, game_name):
+    # Search the subject to the game name, case-insensitive
+    # if there are more than one game, return all subjects
     sparql_obj.setQuery("""
         PREFIX schema: <http://schema.org/>
         SELECT ?s ?p ?o WHERE {{ 
-        ?o schema:title "{game_name}" .
+        ?o schema:title ?title .
+        FILTER REGEX(?title, "{game_name}", "i")
         }}
         """.format(game_name=game_name))
     subject = sparql_obj.query().convert()
-    subject_name = subject["results"]["bindings"][0]["o"]["value"]
-    sparql_obj.setQuery("""
-        SELECT ?subject ?predicate ?object
-        WHERE {
-            <{subject_name}> ?predicate ?object .
-        }
-    """)
-    result_to_formated = sparql_obj.query().convert()
-    result = {}
-    for r in result_to_formated["results"]["bindings"]:
-        result.update(r)
-    return result
-'''
-'''
-# games is only as long as we dont have data in our database
-games = [
-{"name": "cs:go", "preis": 0, "genre": "Shooter"},
-{"name": "dota", "preis": 20, "genre": "Moba"},
-{"name": "dota2", "preis": 30, "genre": "Moba"},
-{"name": "need for speed", "preis": 50, "genre": "Rennspiel"},
-]
+    subject_list = []
+    # save all possible subjects in a list
+    for i in range(len(subject["results"]["bindings"])):
+        subject_list.append(subject["results"]["bindings"][i]["o"]["value"])
+    return subject_list
 
-# refine this function to search in database, as soon as the database is accesable
-# should be case-insensitiv query if possible
-def search_query(search: str = None):
-    if search is not "":
-        search_results = []
-        for item in games:
-            # if there is an item with exact the search term, it will give only that item back
-            if item["name"] == search and not search in item["name"]:
-                return item
-            # if more items in the database include the search term, it will give all the results back
-            elif search in item["name"]:
-                search_results.append(item)
-        if len(search_results) == 0:
-            return {"no game": "not found any match"}
-        else:
-            return search_results
+# method for searching games
+def search_query(sparql_obj, game_name):
+    subject_iris = search_subject_to_query(sparql_obj, game_name)
+    if len(subject_iris) != 1:
+        result = []
+        # if there are more than one search result, append them to a list and return the list
+        for i in range(len(subject_iris)):
+            result.append(query_the_subject(sparql_obj, subject_iris[i]))
+            result[i] = result[i]["results"]["bindings"]
+        return result
+    # if there is only one search result, give only that one back
+    # return empty list if there is no game found
     else:
-        return {"no game": "please enter some game"}
-'''
+        result = query_the_subject(sparql_obj, subject_iris[0])
+        result = result["results"]["bindings"]
+        return result
     
 
 # todo: query for filter-options; load new graph with filter(s) activated
     # param1: sparql object, which is generated in this file
     # param2: filter-options from main.py
     # return json with new graph
-    
 '''
 # TODO Sinnvoll Filter nur als String zu übernehmen? Problem bei format, unbekannte Anzahl Filter
 def query_filter(sparql_obj, fil_opts): 
