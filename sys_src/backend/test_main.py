@@ -17,9 +17,21 @@ def test_detailpage():
     assert response.status_code == 200
     assert response.json() == {"message": detailpage_content(graph, "Evergate")}
 
-# test if a search response is correct
+# test if a search request with multiple games are correct
 def test_search():
     response = client.get('/search/eve')
     assert response.status_code == 200
     assert response.json() == {"message": search_query(graph, "eve")}
+    
+# test if it's only a single game with the searched name
+def test_search_single():
+    response = client.get('/search/Evergate')
+    assert response.status_code == 200
+    assert response.json() == {"message": detailpage_content(graph, "Evergate")}
+
+# test if there is no title for search
+def test_search_with_no_content():
+    response = client.get('/search/')
+    assert response.status_code == 200
+    assert response.json() == {"message": "please enter a title for search"}
     

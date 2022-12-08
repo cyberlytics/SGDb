@@ -49,14 +49,6 @@ def query_the_subject(sparql_obj, subject):
         """.format(subject=subject))
     return sparql_obj.query().convert()
 
-# Print the result
-def print_result(result):
-    try:
-        for r in result["results"]["bindings"]:
-            print(r)
-    except Exception as e:
-        print(e)
-
 # method for searching games with their title
 def detailpage_content(sparql_obj, game_name):
     subject_iri = subject_to_query(sparql_obj, game_name)
@@ -89,20 +81,12 @@ def search_subject_to_query(sparql_obj, game_name):
 # method for searching games
 def search_query(sparql_obj, game_name):
     subject_iris = search_subject_to_query(sparql_obj, game_name)
-    if len(subject_iris) != 1:
-        result = []
-        # if there are more than one search result, append them to a list and return the list
-        for i in range(len(subject_iris)):
-            result.append(query_the_subject(sparql_obj, subject_iris[i]))
-            result[i] = result[i]["results"]["bindings"]
-        return result
-    # if there is only one search result, give only that one back
-    # return empty list if there is no game found
-    else:
-        result = query_the_subject(sparql_obj, subject_iris[0])
-        result = result["results"]["bindings"]
-        return result
-    
+    # in the result list all posible findings will be saved and returned
+    result = []
+    for i in range(len(subject_iris)):
+        result.append(query_the_subject(sparql_obj, subject_iris[i]))
+        result[i] = result[i]["results"]["bindings"]
+    return result
 
 # todo: query for filter-options; load new graph with filter(s) activated
     # param1: sparql object, which is generated in this file
@@ -122,4 +106,12 @@ def query_filter(sparql_obj, fil_opts):
 
 # TODO Methode für Filter-Generierung schreiben, in die eine Liste übergeben wird 
 fil_opts = "FILTER () .\nFILTER ()"
+
+# Print the result
+def print_result(result):
+    try:
+        for r in result["results"]["bindings"]:
+            print(r)
+    except Exception as e:
+        print(e)
 '''
