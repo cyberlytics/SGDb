@@ -43,7 +43,7 @@ def combine_Filter(
         game_list = extend_list(game_list, fil_platform(sparql_obj, platform))
     return game_list
 
-def extend_list(game_list, func_res): # TODO TODO Ignores Filter if nothing matches it TODO TODO
+def extend_list(game_list, func_res):
     """Only returns games that were already included in the results of other filters"""
     if(func_res):
         if len(game_list) != 0:
@@ -73,7 +73,7 @@ def fil_date(sparql_obj, year):
     return extract_res(sparql_obj)
     
 def fil_genre(sparql_obj, genre): 
-    """Filter the games by the given genre"""
+    """Filter the games by the given genre(s)"""
     genre = convert_input(genre)
     fil_str = create_filter("?genre", genre)
 
@@ -117,7 +117,7 @@ def fil_creator(sparql_obj, creator):
    
 
 def fil_platform(sparql_obj, platform):
-    """Filter the games by their platform. Like 'Nintendo' or 'Sony'."""
+    """Filter the games by their platform(s). Like ['Nintendo', 'Sony']."""
     platform = convert_input(platform)
     fil_str = create_filter("?platform", platform)
 
@@ -139,7 +139,7 @@ def create_filter(type, arg_list):
     return fil_str
 
 def extract_res(result):
-    """Converts the sparqle object to """
+    """get the games themself as subjects inside a list"""
     try:
         ret = result.queryAndConvert()
         games = ret["results"]["bindings"]
