@@ -47,7 +47,7 @@ Dieser Technical Report beschreibt die Architektur von SGDb -- eine webbasierte 
 \section{Einführung und Ziele}
 
 In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} eingegangen.
-Im Nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
+Im nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
 Anschließend wird in Abschnitt~\ref{sec:verteilungssicht} die Verteilungssicht der Anwendung beschrieben.
 In Abschnitt~\ref{sec:entwicklungswerkzeuge} werden die angewandten Werkzeuge zur Entwicklung der Anwendung vorgestellt.
 Abschließend wird ein Fazit und Ausblick in Abschnitt~\ref{sec:fazit} gegeben.
@@ -66,12 +66,29 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 
 \subsection{Backend}\label{subsec:backend}
+Das Backend dient als Schnittstelle für die Interaktion zwischen Datenbank und dem Frontend. Zusätzlich ist es für die Verarbeitung von Ressourcen zuständig.
+Als Framework wird hierfür FastAPI genutzt, welches als Sprache Python verwendet. Durch das verwendete Framework wurde eine REST-API verwirklicht, welche durch das Frontend angesprochen werden kann.
+Die API stellt für das Frontend folgende Daten bereit:
+\begin{itemize}
+    \item Daten für einen Graphen mit einem Root-Knoten, welcher bei der Startpage angezeigt wird
+    \item Daten, welche Spielinformationen über ein angefordertes Spiel enthalten
+    \item Daten zur Darstellung einer Detailseite eines bestimmten Spiels
+    \item Daten, welche einen Graphen bilden, welcher von Filtereinstellungen betroffen ist
+\end{itemize}
+Des Weiteren wird als Test-Framework im Backend Pytest genutzt.
+
+Durch das Python basierte Backend wird zur Integration mit der Graph-Datenbank die Python-Bibliothek SPARQLWrapper \cite{sparqlwrapper} genutzt.
+Diese dient als einfacher Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Queries in der SPARQL-Syntax. Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können. SPARQL selbst ist eine graphenbasierte Query-Sprache, die mit Daten im RDF-Format arbeitet.
+Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
+
+
+\subsection{Datenbeschaffung und Datenbank}\label{subsec:Datenbeschaffung_und_Datenbank}
 Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API gesendet. 
 Als Antwort wird im Anschluss der Bearbeitung ein Datensatz zurückgegeben, der wesentliche Informationen zu einem Spiel 
 beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, Veröffentlichungsdatum, Genre, 
-Spieleplattform, Bewertung, Entwicklername- und Land, sowie eine URL des Coverbildes. Der Datensatz wird im 
+Spieleplattform, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes. Der Datensatz wird im
 JSON-Format gespeichert und auf 500 Spiele reduziert, die eine hohe Bewertung erzielt haben (>85). Begründet wird diese 
-Bedingung durch das Bestreben einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt. 
+Bedingung durch das Bestreben, einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt.
 Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durschnittsnutzer. 
 So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als "The Epoch" bekannt und zählt die 
 Anzahl der vergangenen Sekunden seit 1.Januar 1970 \cite{unix}. Der Standort des Entwicklerunternehmens wird als 
@@ -81,11 +98,6 @@ Zeitformat \textit{'DD-MM-YYYY'} und den ISO-Country-Code in Ländernamen konver
 
 Der Datensatz wird anschließend mit Refine \cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt. 
 Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB \cite{graphdb} verwendet.  
-
-Die Backend API dient als Schnittstelle im Backend für die Interaktion zwischen Datenbank und der Argumenteübermittlung der REST-API.
-Um im Backend mit der Graph-Datenbank interagieren zu können, wird die Python-Bibliothek SPARQLWrapper \cite{sparqlwrapper} genutzt. Diese dient als einfacher Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Queries in der SPARQL-Syntax. Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können. SPARQL selbst ist eine graphenbasierte Query-Sprache, die mit Daten im RDF-Format arbeitet. 
-Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
-
 
 
 \subsection{Frontend}\label{subsec:frontend}
