@@ -82,6 +82,12 @@ Zeitformat \textit{'DD-MM-YYYY'} und den ISO-Country-Code in Ländernamen konver
 Der Datensatz wird anschließend mit Refine \cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt. 
 Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB \cite{graphdb} verwendet.  
 
+Die Backend API dient als Schnittstelle im Backend für die Interaktion zwischen Datenbank und der Argumenteübermittlung der REST-API.
+Um im Backend mit der Graph-Datenbank interagieren zu können, wird die Python-Bibliothek SPARQLWrapper \cite{sparqlwrapper} genutzt. Diese dient als einfacher Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Queries in der SPARQL-Syntax. Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können. SPARQL selbst ist eine graphenbasierte Query-Sprache, die mit Daten im RDF-Format arbeitet. 
+Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
+
+
+
 \subsection{Frontend}\label{subsec:frontend}
 Das Frontend ist für die Benutzerschnittstelle verantwortlich.
 Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseite zu einem Videospiel.
