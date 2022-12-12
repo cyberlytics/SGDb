@@ -66,7 +66,21 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 
 \subsection{Backend}\label{subsec:backend}
+Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API gesendet. 
+Als Antwort wird im Anschluss der Bearbeitung ein Datensatz zurückgegeben, der wesentliche Informationen zu einem Spiel 
+beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, Veröffentlichungsdatum, Genre, 
+Spieleplattform, Bewertung, Entwicklername- und Land, sowie eine URL des Coverbildes. Der Datensatz wird im 
+JSON-Format gespeichert und auf 500 Spiele reduziert, die eine hohe Bewertung erzielt haben (>85). Begründet wird diese 
+Bedingung durch das Bestreben einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt. 
+Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durschnittsnutzer. 
+So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als "The Epoch" bekannt und zählt die 
+Anzahl der vergangenen Sekunden seit 1.Januar 1970 \cite{unix}. Der Standort des Entwicklerunternehmens wird als 
+dreistelliger Country-Code definiert, der von der International Organization for Standardization (ISO) entwickelt 
+und im ISO-3166 publiziert wurde \cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres 
+Zeitformat \textit{'DD-MM-YYYY'} und den ISO-Country-Code in Ländernamen konvertiert. 
 
+Der Datensatz wird anschließend mit Refine \cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt. 
+Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB \cite{graphdb} verwendet.  
 
 \subsection{Frontend}\label{subsec:frontend}
 Das Frontend ist für die Benutzerschnittstelle verantwortlich.
