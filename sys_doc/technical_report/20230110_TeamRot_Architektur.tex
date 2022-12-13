@@ -67,7 +67,7 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 \subsection{Backend}\label{subsec:backend}
 Das Backend dient als Schnittstelle für die Interaktion zwischen Datenbank und dem Frontend. Zusätzlich ist es für die Verarbeitung von Ressourcen zuständig.
-Als Framework wird hierfür FastAPI genutzt, welches als Sprache Python verwendet. Durch das verwendete Framework wurde eine REST-API verwirklicht, welche durch das Frontend angesprochen werden kann.
+Als Framework wird hierfür FastAPI \cite{fastapi} genutzt, welches als Sprache Python verwendet. Durch das verwendete Framework wurde eine REST-API verwirklicht, welche durch das Frontend angesprochen werden kann.
 Die API stellt für das Frontend folgende Daten bereit:
 \begin{itemize}
     \item Daten für einen Graphen mit einem Root-Knoten, welcher bei der Startpage angezeigt wird
@@ -75,7 +75,7 @@ Die API stellt für das Frontend folgende Daten bereit:
     \item Daten zur Darstellung einer Detailseite eines bestimmten Spiels
     \item Daten, welche einen Graphen bilden, welcher von Filtereinstellungen betroffen ist
 \end{itemize}
-Des Weiteren wird als Test-Framework im Backend Pytest genutzt.
+Des Weiteren wird als Test-Framework im Backend Pytest \cite{pytest} genutzt.
 
 Durch das Python basierte Backend wird zur Integration mit der Graph-Datenbank die Python-Bibliothek SPARQLWrapper \cite{sparqlwrapper} genutzt.
 Diese dient als einfacher Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Queries in der SPARQL-Syntax. Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können. SPARQL selbst ist eine graphenbasierte Query-Sprache, die mit Daten im RDF-Format arbeitet.
@@ -83,7 +83,7 @@ Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank b
 
 
 \subsection{Datenbeschaffung und Datenbank}\label{subsec:Datenbeschaffung_und_Datenbank}
-Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API gesendet. 
+Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API \cite{igdb-api} gesendet. 
 Als Antwort wird im Anschluss der Bearbeitung ein Datensatz zurückgegeben, der wesentliche Informationen zu einem Spiel 
 beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, Veröffentlichungsdatum, Genre, 
 Spieleplattform, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes. Der Datensatz wird im
