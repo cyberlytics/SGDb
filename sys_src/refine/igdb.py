@@ -2,6 +2,8 @@ import requests
 import json
 import os
 from dotenv import load_dotenv
+import datetime  
+import pycountry
 
 load_dotenv()
 
@@ -53,7 +55,33 @@ class TwitchAPI:
             raise Exception('Games not acquired')
         return res.json()
 
+def change_format():
+    #Converting values to readable
+    r = open('refine/game_data.json')
+    data = json.load(r)
+    for d in data:
+        try:
+            #converting unix time to date
+            date = d['first_release_date']
+            d['first_release_date'] = datetime.datetime.utcfromtimestamp(date).strftime('%d-%m-%Y')
+        except Exception:
+            pass
+        try:
+            #converting iso-county-codes to countrynames
+            for i in d['involved_companies']:
+                try:
+                    county = i['company']['country']
+                    i['company']['country'] = pycountry.countries.get(numeric=f'{county}').name
+                except Exception:
+                    pass
+        except Exception:
+            pass
+    with open('refine/game_data.json', 'w') as f:
+        json.dump(data, f)
+    r.close()
 
 if __name__ == "__main__":
     api = TwitchAPI(CLIENT_ID, CLIENT_SECRET)
     api.get_games()
+    #change_format()
+   

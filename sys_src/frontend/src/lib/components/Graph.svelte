@@ -1,26 +1,25 @@
 <script lang="ts">
   import Sigma from 'sigma';
   import { afterUpdate, createEventDispatcher, onDestroy, onMount } from 'svelte';
-  import { buildGraph } from "./graph.ts";
   import FA2Layout from "graphology-layout-forceatlas2/worker";
   import forceAtlas2 from "graphology-layout-forceatlas2";
 
   import type { SigmaNodeEventPayload } from "sigma/sigma";
   import type Graph from "graphology";
-  import type State from "./types/Graph";
+  import type State from "../types/Graph";
 
   export let searchQuery = "";
+  export let graph: Graph;
 
   let container: HTMLElement;
   let sigma: Sigma | undefined;
   let fa2Layout: FA2Layout | undefined;
 
-  let graph: Graph;
   const state: State = { searchQuery: "" };
   const dispatch = createEventDispatcher();
 
   onMount(async () => {
-    graph = await buildGraph();
+    console.log("onMount Graph");
 
     sigma = new Sigma(graph, container, {
       allowInvalidContainer: true,
@@ -113,6 +112,6 @@
 <style>
   #sigma-container {
     width: 100%;
-    height: 860px;
+    height: 100vh;
   }
 </style>
