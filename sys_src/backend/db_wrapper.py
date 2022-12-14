@@ -30,7 +30,7 @@ def query_all():
 def subject_to_query(sparql_obj, game_name):
     # Search the subject to the game name
     sparql_obj.setQuery("""
-        PREFIX schema: <http://schema.org/>
+        PREFIX schema: <https://schema.org/>
         SELECT ?s ?p ?o WHERE {{ 
         ?o schema:title "{game_name}" .
         }}
@@ -64,7 +64,7 @@ def search_subject_to_query(sparql_obj, game_name):
     # Search the subject to the game name, case-insensitive
     # if there are more than one game, return all subjects
     sparql_obj.setQuery("""
-        PREFIX schema: <http://schema.org/>
+        PREFIX schema: <https://schema.org/>
         SELECT ?s ?p ?o WHERE {{ 
         ?o schema:title ?title .
         FILTER REGEX(?title, "{game_name}", "i")

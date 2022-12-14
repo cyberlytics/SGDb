@@ -22,8 +22,7 @@ app.add_middleware(
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    return{"message": get_root_graph(graph)}
-
+    return{get_root_graph(graph)}
 
 # search request
 # load list-page with games with similiar names to searched game
@@ -35,7 +34,7 @@ def search(search: str = None):
         return RedirectResponse(url=f"/detail/{search}", status_code=303)
     # if there are more search-results, return all
     else:
-        return{"message": search_query(graph, search)}
+        return{search_query(graph, search)}
 
 # search request if there are no search query named
 @app.get("/search/")
@@ -46,9 +45,10 @@ def search():
 # detailpage
 @app.get("/detail/{game}")
 def detailpage(game: str):
-    return{"message": detailpage_content(graph, game)}
+    return{detailpage_content(graph, game)}
 
-
+'''
 # debugging purpose
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8810)
+'''
