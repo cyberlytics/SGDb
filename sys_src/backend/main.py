@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from db_wrapper import query_all, detailpage_content, search_query
-from db_filter import fil_date
+from db_wrapper import query_all, detailpage_content, search_query, get_root_graph
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
@@ -20,16 +19,10 @@ app.add_middleware(
 )
 
 
-# todo: startpage return a root-graph
+# returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    # every item in root_graph should represent 1 year
-    root_graph = []
-    for year in range(1950, 2022):
-        games_in_year = fil_date(graph, year)
-        if len(games_in_year) == 0: continue
-        root_graph.append(games_in_year)
-    return{"message": root_graph}
+    return{"message": get_root_graph(graph)}
 
 
 # search request

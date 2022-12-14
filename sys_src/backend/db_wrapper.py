@@ -1,4 +1,5 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
+from db_filter import fil_date
 # for debugging purpose
 import uvicorn
 
@@ -85,6 +86,25 @@ def search_query(sparql_obj, game_name):
         result.append(query_the_subject(sparql_obj, subject_iris[i]))
         result[i] = result[i]["results"]["bindings"]
     return result
+
+
+# method to get root-graph dependent on the release date of a game
+def get_root_graph(sparql_obj):
+    root_graph = {}
+    # get all games from 1950 to 2022
+    for year in range(1950, 2022):
+        # save the iri of the games in the specific year of the for loop
+        games_in_year = fil_date(sparql_obj, year)
+        # if there is no game in the year it should skip the year
+        if len(games_in_year) == 0: continue
+        # if there are more games in a particular year it should save all in a list well formated
+        for game in range(len(games_in_year)):
+            games_in_year[game] = query_the_subject(sparql_obj, games_in_year[game])
+            games_in_year[game] = games_in_year[game]["results"]["bindings"]
+        # add to a dictonary the years as key and the games of that particular year as value
+        root_graph[year]=games_in_year
+    return root_graph
+
 
 # todo: query for filter-options; load new graph with filter(s) activated
     # param1: sparql object, which is generated in this file
