@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from db_wrapper import query_all, detailpage_content, search_query
+from db_filter import fil_date
+
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 
@@ -21,7 +23,14 @@ app.add_middleware(
 # todo: startpage return a root-graph
 @app.get("/")
 def startpage():
-    return{"message": "rootgraph"}
+    # every item in root_graph should represent 1 year
+    root_graph = []
+    for year in range(1950, 2022):
+        games_in_year = fil_date(graph, year)
+        if len(games_in_year) == 0: continue
+        root_graph.append(games_in_year)
+    return{"message": root_graph}
+
 
 # search request
 # load list-page with games with similiar names to searched game
@@ -46,8 +55,7 @@ def search():
 def detailpage(game: str):
     return{"message": detailpage_content(graph, game)}
 
-'''
+
 # debugging purpose
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8810)
-'''

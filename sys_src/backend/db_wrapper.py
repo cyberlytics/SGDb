@@ -1,6 +1,4 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
-from typing import Optional
-
 # for debugging purpose
 import uvicorn
 
@@ -92,26 +90,3 @@ def search_query(sparql_obj, game_name):
     # param1: sparql object, which is generated in this file
     # param2: filter-options from main.py
     # return json with new graph
-'''
-# TODO Sinnvoll Filter nur als String zu übernehmen? Problem bei format, unbekannte Anzahl Filter
-def query_filter(sparql_obj, fil_opts): 
-    """Query the graph by given filters"""
-    sparql_obj.setQuery("""
-    SELECT * WHERE { 
-            ?s ?p ?o .
-        }
-    {filter}
-    """.format(filter=fil_opts))
-
-
-# TODO Methode für Filter-Generierung schreiben, in die eine Liste übergeben wird 
-fil_opts = "FILTER () .\nFILTER ()"
-
-# Print the result
-def print_result(result):
-    try:
-        for r in result["results"]["bindings"]:
-            print(r)
-    except Exception as e:
-        print(e)
-'''
