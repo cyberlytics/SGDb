@@ -1,9 +1,10 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 # for debugging purpose
 import uvicorn
+import os
 
 # Get the url to the graphdb repository
-graphdb_url = "http://localhost:7200/repositories/semantic_games"
+graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 
 
 # Query for whole Graph
