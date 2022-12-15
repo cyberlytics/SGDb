@@ -1,5 +1,5 @@
 from urllib.parse import quote
-from db_wrapper import query_the_subject
+#from db_wrapper import query_the_subject
 
 
 # from SPARQLWrapper import SPARQLWrapper, JSON
