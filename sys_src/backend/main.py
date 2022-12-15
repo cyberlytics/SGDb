@@ -23,7 +23,16 @@ app.add_middleware(
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    return json.dumps(get_root_graph(graph))
+    root_graph = get_root_graph(graph)
+    root = {}
+    for year in range(1985,2023):
+        title_in_year = []
+        for i in range(len(root_graph["results"]["bindings"])):
+            year_string = root_graph["results"]["bindings"][i]["year"]["value"]
+            if year_string.find(str(year)) != -1:
+                title_in_year.append(root_graph["results"]["bindings"][i]["title"]["value"])
+        root[year] = title_in_year
+    return root
 
 # search request
 # load list-page with games with similiar names to searched game

@@ -10,8 +10,8 @@ graph = query_all()
 def test_startpage():
     response = client.get('/')
     assert response.status_code == 200
-    dump_test = json.dumps(get_root_graph(graph))
-    assert dump_test in response.json()
+    assert len(response.json()) == 38
+    assert response.json()["1989"] == ["Denaris"]
     
 # test if a detailpage is shown
 def test_detailpage():
