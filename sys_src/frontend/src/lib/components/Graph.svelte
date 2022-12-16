@@ -3,6 +3,7 @@
   import { afterUpdate, createEventDispatcher, onDestroy, onMount } from 'svelte';
   import FA2Layout from "graphology-layout-forceatlas2/worker";
   import forceAtlas2 from "graphology-layout-forceatlas2";
+  import CircleNodeProgram from "sigma/rendering/webgl/programs/node.fast";
 
   import type { SigmaNodeEventPayload } from "sigma/sigma";
   import type Graph from "graphology";
@@ -46,6 +47,9 @@
         }
         return res;
       },
+      nodeProgramClasses: {
+        circle: CircleNodeProgram
+      }
     });
 
     // bind graph interactions
@@ -113,5 +117,7 @@
   #sigma-container {
     width: 100%;
     height: 100vh;
+    padding-bottom: 16px;
+    padding-top: 44px;
   }
 </style>

@@ -1,36 +1,47 @@
 import Graph from "graphology";
-import circular from "graphology-layout/random";
+import random from "graphology-layout/random";
 
-const nodes = [
-  { id: "John", label: "John" },
-  { id: "Mary", label: "Mary" },
-  { id: "Thomas", label: "Thomas" },
-  { id: "Hannah", label: "Hannah" },
-];
 
-const edges = [
-  { source: "John", target: "Mary" },
-  { source: "John", target: "Thomas" },
-  { source: "John", target: "Hannah" },
-  { source: "Hannah", target: "Thomas" },
-  { source: "Hannah", target: "Mary" },
-];
-
-export async function buildGraph(): Promise<Graph> {
+export async function buildGraph(json): Promise<Graph> {
   console.log("building graph");
 
   const g = new Graph();
 
-  for (const node of nodes) {
-    g.addNode(node.id, { size: 20, label: node.label });
-  }
+  g.addNode("Erscheinungsjahr", { size: 20, label: "Erscheinungsjahr" });
 
-  for (const edge of edges) {
-    g.addEdge(edge.source, edge.target, {
-      type: "arrow", label: "knows", size: 3, weight: 1
+  const nodes = [];
+  const edges = [];
+  for (let [key, values] of Object.entries(json)) {
+    const name = key.toString()
+    nodes.push({ id: name, label: name });
+    edges.push({ source: "Erscheinungsjahr", target: name });
+    // @ts-ignore
+    values.forEach((gameTitle: String) => {
+      nodes.push({ id: gameTitle, label: gameTitle });
+      edges.push({ source: name, target: gameTitle });
     });
   }
 
-  circular.assign(g);
+  for (const node of nodes) {
+    if (!g.hasNode(node.id)){
+      g.addNode(node.id, { size: 10, label: node.label })
+    }
+  }
+
+  for (const edge of edges) {
+    if (g.hasNode(edge.source) && g.hasNode(edge.target)) {
+      if (!g.hasEdge(edge.source, edge.target)) {
+        g.addEdge(edge.source, edge.target, {
+          type: "arrow", size: 3, weight: 1
+        });
+      }
+    }
+  }
+
+  console.log(
+      "Graph has " + g.order + " nodes and " + g.size + " edges."
+  )
+
+  random.assign(g);
   return g;
 }

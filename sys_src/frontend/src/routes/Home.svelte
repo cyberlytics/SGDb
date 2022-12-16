@@ -10,9 +10,9 @@
   };
 
   const fetchGraph = async (): Promise<Graph> => {
-      //const data = await fetch("http://localhost:8000/")
-      //const json = await data.json();
-      return await buildGraph();
+      const data = await fetch("http://localhost:8000/")
+      const json = await data.json();
+      return await buildGraph(json);
   };
 </script>
 
@@ -20,7 +20,7 @@
 <main id="graph-container">
     <Navbar />
     {#await fetchGraph()}
-        <p class="text-black">Loading Graph...</p>
+        <p class="text-black text-2xl p-8">Loading Graph...</p>
     {:then graph}
         <Graph on:nodeclick={handleNodeClick} {graph} />
     {:catch error}
