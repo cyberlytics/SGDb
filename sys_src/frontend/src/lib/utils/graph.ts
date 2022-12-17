@@ -2,32 +2,36 @@ import Graph from "graphology";
 import random from "graphology-layout/random";
 
 
-export async function buildGraph(json): Promise<Graph> {
-  console.log("building graph");
-
-  const g = new Graph();
-
-  g.addNode("Erscheinungsjahr", { size: 20, label: "Erscheinungsjahr" });
-
+export const buildStartPageGraph = async (json: Object) => {
   const nodes = [];
   const edges = [];
+  // root node
+  nodes.push({ id: "Erscheinungsjahr", label: "Erscheinungsjahr", size: 20 });
+  // iterate over all release years in json object
   for (let [key, values] of Object.entries(json)) {
     const name = key.toString()
-    nodes.push({ id: name, label: name });
+    nodes.push({ id: name, label: name, size: 10 });
     edges.push({ source: "Erscheinungsjahr", target: name });
     // @ts-ignore
     values.forEach((gameTitle: String) => {
-      nodes.push({ id: gameTitle, label: gameTitle });
+      nodes.push({ id: gameTitle, label: gameTitle, size: 5 });
       edges.push({ source: name, target: gameTitle });
     });
   }
+  // build graph with nodes and edges
+  return buildGraph(nodes, edges);
+}
 
+export const buildGraph = async (nodes, edges): Promise<Graph> => {
+  // create graph
+  const g = new Graph();
+  // add nodes to graph object
   for (const node of nodes) {
     if (!g.hasNode(node.id)){
-      g.addNode(node.id, { size: 10, label: node.label })
+      g.addNode(node.id, { size: node.size, label: node.label })
     }
   }
-
+  // add edges to graph object
   for (const edge of edges) {
     if (g.hasNode(edge.source) && g.hasNode(edge.target)) {
       if (!g.hasEdge(edge.source, edge.target)) {
@@ -37,11 +41,7 @@ export async function buildGraph(json): Promise<Graph> {
       }
     }
   }
-
-  console.log(
-      "Graph has " + g.order + " nodes and " + g.size + " edges."
-  )
-
+  // init random graph layout
   random.assign(g);
   return g;
 }

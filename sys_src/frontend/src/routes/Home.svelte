@@ -1,6 +1,6 @@
 <script lang="ts">
   import { navigate } from "svelte-routing";
-  import { buildGraph } from "$utils/graph";
+  import { buildStartPageGraph } from "$utils/graph";
 
   import Graph from "$components/Graph.svelte";
   import Navbar from '$components/Navbar.svelte';
@@ -12,7 +12,7 @@
   const fetchGraph = async (): Promise<Graph> => {
       const data = await fetch("http://localhost:8000/")
       const json = await data.json();
-      return await buildGraph(json);
+      return await buildStartPageGraph(json);
   };
 </script>
 
