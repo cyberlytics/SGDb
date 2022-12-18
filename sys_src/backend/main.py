@@ -38,6 +38,8 @@ def startpage():
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search}")
 def search(search: str = None):
+    # remove possible underscore
+    search = search.replace("_", " ")
     # search in the database for the requested game
     # if there is one result, redirect to detail-page of the search-result
     if len(search_query(graph, search)) == 1:
@@ -55,7 +57,10 @@ def search():
 # detailpage
 @app.get("/detail/{game}")
 def detailpage(game: str):
+    # remove possible underscore
+    game = game.replace("_", " ")
     return json.dumps(detailpage_content(graph, game))
+
 
 '''
 # debugging purpose
