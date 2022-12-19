@@ -9,7 +9,6 @@ from fastapi.responses import RedirectResponse
 import uvicorn
 
 app = FastAPI()
-graph = query_all()
 
 app.add_middleware(
     CORSMiddleware,
@@ -19,11 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    root_graph = get_root_graph(graph)
+    root_graph = get_root_graph(query_all())
     root = {}
     for year in range(1985,2023):
         title_in_year = []
@@ -38,6 +36,7 @@ def startpage():
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search}")
 def search(search: str = None):
+    graph = query_all()
     # remove possible underscore
     search = search.replace("_", " ")
     # search in the database for the requested game
@@ -53,10 +52,10 @@ def search(search: str = None):
 def search():
     return{"message": "please enter a title for search"}
 
-
 # detailpage
 @app.get("/detail/{game}")
 def detailpage(game: str):
+    graph = query_all()
     # remove possible underscore
     game = game.replace("_", " ")
     return json.dumps(detailpage_content(graph, game))
