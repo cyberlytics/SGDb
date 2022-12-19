@@ -31,6 +31,7 @@ def filter_schema(sparql_obj, schema_type):
         """.format(schema_type=schema_type))
     return sparql_obj
 
+
 def extract_obj(result):
     """get the objects inside a list"""
     try:
