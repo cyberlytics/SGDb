@@ -8,6 +8,16 @@
   }
 
 </script>
+<head>
+  {#await fetchGameDetails()}
+  <p class="text-black">Loading Cards...</p>
+  {:then details}
+  <meta name="twitter:card" content= {details.description} />
+  <meta name="twitter:title" content= {id}/>
+  <meta name="twitter:description" content= {details.description} />
+  <meta name="twitter:image" content= {details.image}/>
+  {/await}
+</head>
 
   <title>Game Information</title>
 <body>
@@ -20,14 +30,14 @@
   <main>
     <h2>{id}</h2>
     <img src={details.image} alt="Game Image">
-    <p>Game Description:</p>
-    <p>{details.description}</p>
-    <p>Platforms: {details.plattform}</p>
-    <p>Release Date: {details.releaseDate}</p>
-    <p>Developer: {details.creator}</p>
-    <p>Publisher: {details.creator}</p>
-    <p>Genre: {details.genre}</p>
-    <p>Link to Game:</p>
+    <p style="text-align: left;">Game Description:</p>
+    <p style="text-align: left;">{details.description}</p>
+    <p style="text-align: left;">Platforms: {details.plattform}</p>
+    <p style="text-align: left;">Release Date: {details.releaseDate}</p>
+    <p style="text-align: left;">Developer: {details.creator}</p>
+    <p style="text-align: left;">Publisher: {details.creator}</p>
+    <p style="text-align: left;">Genre: {details.genre}</p>
+    <p style="text-align: left;">Link to Game:</p>
   </main>
   <footer>
     <p>Team Rot</p>
