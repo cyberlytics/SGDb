@@ -1,5 +1,6 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 from collections import Counter
+from urllib.parse import unquote
 import json
 
 graphdb_url = "http://localhost:7200/repositories/semantic_games"
@@ -10,14 +11,15 @@ sparql_obj.setReturnFormat(JSON)
 with all or the most frequent values from the database by a given schema type"""
 
 def get_filter_vals(sparql_obj, schema_type, top_n=True):
-    """Use the filter_schema method and put them into extract_obj 
-    to get a list of the preferenced values"""
+    """Use the filter_schema method and put them into extract_obj to get
+    a list of the preferenced values. Use regex to get only the value without the URL syntax"""
     res = filter_schema(sparql_obj, schema_type)
     res_list = extract_obj(res)
+    reg_list = use_regex(res_list)
     if top_n:
-        return get_most_frequents(res_list, 15)
+        return get_most_frequents(reg_list, 15)
     else:
-        return res_list
+        return reg_list
 
 def filter_schema(sparql_obj, schema_type):
     """get the objects which fit the choosen schema type"""
@@ -27,7 +29,7 @@ def filter_schema(sparql_obj, schema_type):
         ?game schema:{schema_type} ?object.
         }}                  
         """.format(schema_type=schema_type))
-    return extract_obj(sparql_obj)
+    return sparql_obj
 
 def extract_obj(result):
     """get the objects inside a list"""
@@ -38,13 +40,20 @@ def extract_obj(result):
     except Exception as e:
         print(e)
 
+def use_regex(result):
+    """Get only the name instead of the whole IRI"""
+    # Extract only the last element of the URL
+    # remove unnecessary chars from url syntax
+    return [unquote(res.split("/")[-1] for res in result)] # [^\/]+$ works as well
+    
+
 def get_most_frequents(type_list, n):
     """return the n most common values in a list"""
     return [val for val, count in Counter(type_list).most_common(n)]
 
 def save_as_json(*val_lists):
     """Save the lists as JSON data"""
-    with open("filter_values.json", "w") as f:
+    with open("../frontend/src/filter_values.json", "w") as f:
         for data in val_lists:
             json.dump(data, f, indent=4)
 
