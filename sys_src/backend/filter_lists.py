@@ -45,8 +45,12 @@ def use_regex(result):
     """Get only the name instead of the whole IRI"""
     # Extract only the last element of the URL
     # remove unnecessary chars from url syntax
-    return [unquote(res.split("/")[-1] for res in result)] # [^\/]+$ works as well
-    
+    clean_l = [] 
+    for e in result:
+        e = e.split("/")[-1] # [^\/]+$ works as well
+        e = unquote(e)
+        clean_l.append(e)
+    return clean_l
 
 def get_most_frequents(type_list, n):
     """return the n most common values in a list"""
@@ -54,7 +58,7 @@ def get_most_frequents(type_list, n):
 
 def save_as_json(*val_lists):
     """Save the lists as JSON data"""
-    with open("../frontend/src/filter_values.json", "w") as f:
+    with open("./frontend/src/lib/stores/filter_values.json", "w") as f:
         for data in val_lists:
             json.dump(data, f, indent=4)
 
@@ -63,7 +67,7 @@ genre_list = {"genre" : get_filter_vals(sparql_obj, "genre")}
 # date_list = {"releaseDate" : get_filter_vals(sparql_obj, "releaseDate", False)} # is it even necessary??
 # rating_list = {"ratingValues" : get_filter_vals(sparql_obj, "ratingValues")} # not necessary 'cause they are always from 1 to 100
 creator_list = {"creator" : get_filter_vals(sparql_obj, "creator")}
-platform_list = {"platform" : get_filter_vals(sparql_obj, "platform")}
+platform_list = {"platform" : get_filter_vals(sparql_obj, "gamePlatform")}
 
 # Save all lists in a json file
 save_as_json(genre_list, creator_list, platform_list)

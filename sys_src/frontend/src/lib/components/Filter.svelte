@@ -14,8 +14,18 @@
     let creator_color ='rgb(66, 153, 63)';
     let platform_color ='rgb(73, 122, 157)';
     let date_color ='rgb(176, 55, 55)';
+
+    //passes set filters to the backend with post-method
+    async function postObj () {
+		const res = await fetch('https://httpbin.org/post', {
+			method: 'POST',
+			body: JSON.stringify({creator,genre,platform,num})
+		})
+		
+		await res.json()
+	}
 </script>
-<div class="filter_box" >
+<div class="filter_box" on:change={postObj}>
     <div class="position">
         <Genre bind:group={genre} bind:color={genre_color}/>  
         <Platform bind:group={platform} bind:color={platform_color}/> 
@@ -28,8 +38,8 @@
         <Tags bind:group={platform} bind:color={platform_color}/>
         <Tags bind:num={num} bind:color={date_color}/>
     </div>
-</div>
 
+</div>
 <style>
     .position{
         position: relative;

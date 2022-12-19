@@ -1,5 +1,5 @@
 <script>
-    export let group;
+    export let group = [];
     export let num = undefined;
     export let color;
     
