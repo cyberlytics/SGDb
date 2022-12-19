@@ -1,36 +1,47 @@
 import Graph from "graphology";
-import circular from "graphology-layout/random";
+import random from "graphology-layout/random";
 
-const nodes = [
-  { id: "John", label: "John" },
-  { id: "Mary", label: "Mary" },
-  { id: "Thomas", label: "Thomas" },
-  { id: "Hannah", label: "Hannah" },
-];
 
-const edges = [
-  { source: "John", target: "Mary" },
-  { source: "John", target: "Thomas" },
-  { source: "John", target: "Hannah" },
-  { source: "Hannah", target: "Thomas" },
-  { source: "Hannah", target: "Mary" },
-];
-
-export async function buildGraph(): Promise<Graph> {
-  console.log("building graph");
-
-  const g = new Graph();
-
-  for (const node of nodes) {
-    g.addNode(node.id, { size: 20, label: node.label });
-  }
-
-  for (const edge of edges) {
-    g.addEdge(edge.source, edge.target, {
-      type: "arrow", label: "knows", size: 3, weight: 1
+export const buildStartPageGraph = async (json: Object) => {
+  const nodes = [];
+  const edges = [];
+  // root node
+  nodes.push({ id: "Erscheinungsjahr", label: "Erscheinungsjahr", size: 20 });
+  // iterate over all release years in json object
+  for (let [key, values] of Object.entries(json)) {
+    const name = key.toString()
+    nodes.push({ id: name, label: name, size: 10 });
+    edges.push({ source: "Erscheinungsjahr", target: name });
+    // @ts-ignore
+    values.forEach((gameTitle: String) => {
+      nodes.push({ id: gameTitle, label: gameTitle, size: 5 });
+      edges.push({ source: name, target: gameTitle });
     });
   }
+  // build graph with nodes and edges
+  return buildGraph(nodes, edges);
+}
 
-  circular.assign(g);
+export const buildGraph = async (nodes, edges): Promise<Graph> => {
+  // create graph
+  const g = new Graph();
+  // add nodes to graph object
+  for (const node of nodes) {
+    if (!g.hasNode(node.id)){
+      g.addNode(node.id, { size: node.size, label: node.label })
+    }
+  }
+  // add edges to graph object
+  for (const edge of edges) {
+    if (g.hasNode(edge.source) && g.hasNode(edge.target)) {
+      if (!g.hasEdge(edge.source, edge.target)) {
+        g.addEdge(edge.source, edge.target, {
+          type: "arrow", size: 3, weight: 1
+        });
+      }
+    }
+  }
+  // init random graph layout
+  random.assign(g);
   return g;
 }
