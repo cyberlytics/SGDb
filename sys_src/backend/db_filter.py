@@ -1,3 +1,4 @@
+from collections import Counter
 from urllib.parse import quote
 from db_wrapper import query_the_subject
 
@@ -9,8 +10,7 @@ from db_wrapper import query_the_subject
 # sparql_obj.setReturnFormat(JSON)
 
 
-## Create multiple filter queries so it's easy to combine them ###
-# There should be always send a copy to the query so the original sparql obj is fastly available
+"""Create multiple filter queries so it's easy to combine them."""
 
 def convert_input(input):
     """Convert the input string(s) in the list to url encoding to make it workable for the query"""
@@ -22,9 +22,11 @@ def combine_Filter(
     genre = None,
     rating_num=None, 
     creator=None, 
-    platform=None):
+    platform=None,
+    recommendation=False):
 
     """Select the filters that should be combined for the query.
+    NOTE: If recommendation is used, use the objects of the game subject as the filter
     If new filters should be adapted or filters removed, pass the whole query object again to this method.
     Saves every game in the list that matches all filters.
     Matches Substrings and it is case insensitive"""
@@ -32,33 +34,57 @@ def combine_Filter(
     game_list = []
 
     if date:
-        game_list = extend_list(game_list, fil_date(sparql_obj, date))
+        if not recommendation:
+            game_list = extend_list(game_list, fil_date(sparql_obj, date))
+        else: 
+            pass
     if genre:
-        game_list = extend_list(game_list, fil_genre(sparql_obj, genre))
+        if not recommendation:
+            game_list = extend_list(game_list, fil_genre(sparql_obj, genre))
+        else: 
+            game_list.append(fil_genre(sparql_obj, date))
     if rating_num:
-        game_list = extend_list(game_list, fil_rating(sparql_obj, rating_num))
+        if not recommendation:
+            game_list = extend_list(game_list, fil_rating(sparql_obj, rating_num))
+        else: 
+            game_list.append(fil_rating(sparql_obj, date))
     if creator:
-        game_list = extend_list(game_list, fil_creator(sparql_obj, creator))
+        if not recommendation:
+            game_list = extend_list(game_list, fil_creator(sparql_obj, creator))
+        else: 
+            game_list.append(fil_creator(sparql_obj, date))
     if platform:
-        game_list = extend_list(game_list, fil_platform(sparql_obj, platform))
+        if not recommendation:
+            game_list = extend_list(game_list, fil_platform(sparql_obj, platform))
+        else: 
+            game_list.append(fil_platform(sparql_obj, date))
     return game_list
 
-def extend_list(game_list, func_res):
+def extend_list(game_list, func_res, recommendation):
     """Only returns games that were already included in the results of other filters"""
     if(func_res):
         if len(game_list) != 0:
-            # return only the intersections of the game_list and the results of the specific filter
-            intersec = list(set(game_list).intersection(func_res))
-            if intersec:
-                return intersec
-            else:
-                return [None] # TODO maybe return something more meaningful
+            # If only exact matches should be returned
+            if not recommendation:
+                # return only the intersections of the game_list and the results of the specific filter
+                intersec = list(set(game_list).intersection(func_res))
+                if intersec:
+                    return intersec
+                else:
+                    return [None] # TODO maybe return something more meaningful
+            # If recommendations should be returned
+            if recommendation:
+                return get_biggest_intersec(game_list)
         else:
             # if the list is empty fill it with the first results 
             return func_res 
     else:
         # If the result is None return None
         return [None]
+
+def get_biggest_intersec(game_list):
+    """Find the game which fits the other game the best"""
+    return Counter(game_list).most_common()
 
 def fil_date(sparql_obj, year): 
     """Filter the games by the release year."""
