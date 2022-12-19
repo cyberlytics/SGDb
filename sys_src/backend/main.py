@@ -3,6 +3,7 @@ from db_wrapper import query_all, detailpage_content, search_query, get_root_gra
 from db_filter import combine_Filter
 import json
 from pydantic import BaseModel
+from filter_lists import get_data
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
@@ -36,6 +37,12 @@ def startpage():
             if year_string.find(str(year)) != -1:
                 title_in_year.append(root_graph["results"]["bindings"][i]["title"]["value"])
         root[year] = title_in_year
+
+    # add filter names to startpage
+    filter_data = get_data(graph)
+    for data in filter_data:
+        root.update(data)
+
     return root
 
 @app.post("/")

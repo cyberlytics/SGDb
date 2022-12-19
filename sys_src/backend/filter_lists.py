@@ -2,8 +2,9 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from collections import Counter
 from urllib.parse import unquote
 import json
+import os
 
-graphdb_url = "http://localhost:7200/repositories/semantic_games"
+graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 sparql_obj = SPARQLWrapper(graphdb_url)
 sparql_obj.setReturnFormat(JSON)
 
