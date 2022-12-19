@@ -6,7 +6,6 @@ import os
 # Get the url to the graphdb repository
 graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 
-
 # Query for whole Graph
 def query_all():
     # db object initialize
