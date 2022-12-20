@@ -29,19 +29,20 @@ class FilterModel(BaseModel):
 @app.get("/")
 def startpage():
     root_graph = get_root_graph(graph)
-    root = {}
+    root = {'data': {}, 'fiters': {}}
     for year in range(1985,2023):
         title_in_year = []
         for i in range(len(root_graph["results"]["bindings"])):
             year_string = root_graph["results"]["bindings"][i]["year"]["value"]
             if year_string.find(str(year)) != -1:
                 title_in_year.append(root_graph["results"]["bindings"][i]["title"]["value"])
-        root[year] = title_in_year
+        root['data'][year] = title_in_year
 
     # add filter names to startpage
     filter_data = get_data(graph)
+    print(filter_data)
     for data in filter_data:
-        root.update(data)
+        root['fiters'].update(data)
 
     return root
 
