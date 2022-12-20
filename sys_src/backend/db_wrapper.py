@@ -36,6 +36,8 @@ def subject_to_query(sparql_obj, game_name):
         }}
         """.format(game_name=game_name))
     subject = sparql_obj.query().convert()
+    if not subject["results"]["bindings"]:
+        return None
     return subject["results"]["bindings"][0]["o"]["value"]
     
 def query_the_subject(sparql_obj, subject):
@@ -51,8 +53,12 @@ def query_the_subject(sparql_obj, subject):
 # method for searching games with their title
 def detailpage_content(sparql_obj, game_name):
     subject_iri = subject_to_query(sparql_obj, game_name)
+    if subject_iri is None:
+        return {"error": "No game found"}
     result = query_the_subject(sparql_obj, subject_iri)
-    return result
+    bindings = result['results']['bindings']
+    res = {b['predicate']['value'].split('/')[-1]: b['object']['value'] for b in bindings}
+    return res
 
 
 # query for search; search after game-name
