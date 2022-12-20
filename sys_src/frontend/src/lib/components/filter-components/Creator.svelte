@@ -1,15 +1,19 @@
 <script>
-    import Tags from "./Tags.svelte";
     export let group = [];
     export let color;
-    let creators = ['SasaGames', 'LalaGames', 'MoserGames', 'LoloGames']
+    export let data = [];
 
 </script>
+<!--Options for creator-filter.
+The color of the box depends on the content in the listobject.
+It serves to differentiate between the filters and the tags-->
 <div class="left">
     {#if group.length > 0}
+     <!--List contains items and the color of the Maintext and Box changes-->
             <h2 style="color:{color}">Creator</h2>
             <div class='filter_container' style="border-color:{color}">
-                {#each creators as creator}
+                <!--a new checkbox is created for each value in the creator list-->
+                {#each data as creator}
                     <label class="border-zinc-900 text-sm text-gray-900">
                         <input type=checkbox value={creator} bind:group>
                         {creator}<br />
@@ -17,10 +21,11 @@
                 {/each}
             </div>
     {/if}
+    <!--List is empty and the color changes to the beginning status-->
     {#if group.length === 0}
         <h2 style="color:rgb(30, 29, 29)">Creator</h2>
                 <div class='filter_container' style="border-color:#ccc">
-                    {#each creators as creator}
+                    {#each data as creator}
                         <label class="border-zinc-900 text-sm text-gray-900">
                             <input type=checkbox value={creator} bind:group>
                             {creator}<br />
