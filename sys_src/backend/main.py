@@ -25,7 +25,7 @@ app.add_middleware(
 @app.get("/")
 def startpage():
     root_graph = get_root_graph(query_all())
-    root = {'data': {}, 'fiters': {}}
+    root = {'data': {}, 'filters': {}}
     for year in range(1985,2023):
         title_in_year = []
         for i in range(len(root_graph["results"]["bindings"])):
@@ -35,10 +35,10 @@ def startpage():
         root['data'][year] = title_in_year
 
     # add filter names to startpage
+    graph = query_all()
     filter_data = get_data(graph)
-    print(filter_data)
     for data in filter_data:
-        root['fiters'].update(data)
+        root['filters'].update(data)
 
     return root
 

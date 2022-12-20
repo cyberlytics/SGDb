@@ -36,10 +36,10 @@
         const res = await fetch('http://localhost:8000/', {
 			method: 'GET'
 		})
-        let data = await res.json()
-        data_genre = toArray(data.genre, data_genre)
-        data_platform = toArray(data.platform, data_platform)
-        data_creator = toArray(data.creator, data_creator)
+        let data = await res.json();
+        data_genre = toArray(data.filters.genre, data_genre);
+        data_platform = toArray(data.filters.platform, data_platform);
+        data_creator = toArray(data.filters.creator, data_creator);
     });
     //passes set filteritems to backend with post-method dynamicly
     async function postObj () {
