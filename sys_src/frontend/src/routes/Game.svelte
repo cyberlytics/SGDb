@@ -1,29 +1,23 @@
 <script lang="ts">
   //export let id;
   let id = "This Way Madness Lies";
-  const fetchGameDetails = async ()=>{
-      const data = await fetch("http://localhost:8000/detail/" + id)
-      const json = await data.json();
-
+  const fetchGameDetails = async () => {
+      const data = await fetch("http://localhost:8000/detail/This%20Way%20Madness%20Lies");
+      return await data.json();
   }
-
 </script>
-<head>
-  {#await fetchGameDetails()}
-  <p class="text-black">Loading Cards...</p>
-  {:then details}
+
+<svelte:head>
+  <title>Game Information</title>
+  {#await fetchGameDetails() then details}
   <meta name="twitter:card" content= {details.description} />
   <meta name="twitter:title" content= {id}/>
   <meta name="twitter:description" content= {details.description} />
   <meta name="twitter:image" content= {details.image}/>
   {/await}
-</head>
+</svelte:head>
 
-  <title>Game Information</title>
 <body>
-  <header>
-    <h1>Game Information</h1>
-  </header>
   {#await fetchGameDetails()}
   <p class="text-black">Loading Graph...</p>
   {:then details}
@@ -44,7 +38,6 @@
   </footer>
   {/await}
 </body>
-
 
 <style>
      body {

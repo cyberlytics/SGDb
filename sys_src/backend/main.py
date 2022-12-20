@@ -58,7 +58,7 @@ def detailpage(game: str):
     graph = query_all()
     # remove possible underscore
     game = game.replace("_", " ")
-    return json.dumps(detailpage_content(graph, game))
+    return detailpage_content(graph, game)
 
 
 '''
