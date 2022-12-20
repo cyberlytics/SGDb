@@ -47,7 +47,7 @@ Dieser Technical Report beschreibt die Architektur von SGDb -- eine webbasierte 
 \section{Einführung und Ziele}
 
 In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} eingegangen.
-Im Nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
+Im nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
 Anschließend wird in Abschnitt~\ref{sec:verteilungssicht} die Verteilungssicht der Anwendung beschrieben.
 In Abschnitt~\ref{sec:entwicklungswerkzeuge} werden die angewandten Werkzeuge zur Entwicklung der Anwendung vorgestellt.
 Abschließend wird ein Fazit und Ausblick in Abschnitt~\ref{sec:fazit} gegeben.
@@ -59,22 +59,90 @@ Dieser Abschnitt enthält einen stark verdichteten Architekturüberblick.
 Eine Gegenüberstellung der wichtigsten Ziele und Lösungsansätze.
 
 
+\section{Datenbeschaffung}\label{sec:datenbeschaffung}
+
+Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API \cite{igdb-api} gesendet. 
+Als Antwort wird im Anschluss der Bearbeitung ein Datensatz zurückgegeben, der wesentliche Informationen zu einem Spiel 
+beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, Veröffentlichungsdatum, Genre, 
+Spieleplattform, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes. 
+
+Der Datensatz wird im JSON-Format gespeichert und auf 500 Spiele, die eine hohe Bewertung erzielt haben (>85), reduziert. Begründet wird diese Bedingung durch das Bestreben, einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt.
+Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durschnittsnutzer. 
+So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als "The Epoch" bekannt und zählt die 
+Anzahl der vergangenen Sekunden seit 1.Januar 1970 \cite{unix}. Der Standort des Entwicklerunternehmens wird als 
+dreistelliger Country-Code definiert, der von der International Organization for Standardization (ISO) entwickelt 
+und im ISO-3166 publiziert wurde \cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres 
+Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert. 
+
+Der Datensatz wird anschließend mit „Refine“~\cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt. 
+
+
 \section{Bausteinsicht}\label{sec:bausteinsicht}
 Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen.
 
 \subsection{Gesamtsystem}\label{subsec:gesamtsystem}
+%TODO Bild von Gesamtsystem mit kurzer Beschreibung
 
+\subsection{Datenbank}\label{subsec:datenbank}
+Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB \cite{graphdb} verwendet.  
+%TODO Beschreibung relevanter Informationen über die Datenbank, z.B. Aufbau des Repositories, Ontologie, etc.
 
 \subsection{Backend}\label{subsec:backend}
 
+Das Backend ist mit der Programmiersprache Python realisiert. Es dient als Schnittstelle zwischen Datenbank und Frontend. Zusätzlich ist es für die Verarbeitung von Ressourcen zuständig. % Ressourcen genauer beschreiben
+Das Frontend kommuniziert mit dem Backend über eine RESTful-API, die mithilfe des Frameworks „FastAPI“~\cite{fastapi} implementiert ist.
 
-\subsection{Frontend}\label{sub:frontend}
+Folgende Daten stellt die API für das Frontend zur Verfügung: %besser wäre hier einen Tabelle zur Beschreibung der API-Endpunkte
+\begin{itemize}
+    \item Daten für einen Graphen mit einem Root-Knoten, welcher bei der Startpage angezeigt wird
+    \item Daten, welche Spielinformationen über ein angefordertes Spiel
+    \item Daten zur Darstellung einer Detailseite eines bestimmten Spiels
+    \item Daten, welche einen Graphen bilden, welcher von Filtereinstellungen betroffen ist
+\end{itemize}
+
+Zur Interaktion mit der Datenbank (RDF Triplestore) wird die Python-Bibliothek „SPARQLWrapper“~\cite{sparqlwrapper} genutzt.
+Diese dient als Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Queries in der SPARQL-Syntax. Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können. SPARQL selbst ist eine graphenbasierte Query-Sprache, die mit Daten im RDF-Format arbeitet.
+
+Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
+
+
+\subsection{Frontend}\label{subsec:frontend}
+
+Das Frontend ist für die Benutzerschnittstelle verantwortlich.
+Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseite zu einem Videospiel.
+Für die Darstellung des Graphen und die Interaktion mit diesem wird „Sigma.js“~\cite{sigma} verwendet.
+Sigma.js rendert Graphen mit WebGL. Damit lassen sich größere Graphen schneller zeichnen als mit Canvas- oder SVG-basierten Lösungen.
+Das Graphenmodell wird in einer separaten Bibliothek namens „Graphology“~\cite{graphology} verwaltet.
+Dies ist eine Standardbibliothek mit Algorithmen aus der Graphentheorie und allgemeinen Hilfsprogrammen wie z.B.\ Graphengeneratoren.
+
+Generierung
+Für das Graphen Layout wird der ForceAtlas2 Algorithmus~\cite{forceatlas2} verwendet.
+Vor dem Start von ForceAtlas 2 Layout muss die Startposition jedes Knotens festgelegt werden.
+Daher müssen zwei Attribute namens x und y für alle Knoten des Diagramms definiert werden.
+
+Dazu wird ein Graph Objekt mit dem Random layout erzeugt.
+Positionierung jedes Knotens, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall [0, 1) auswählt. %(https://graphology.github.io/standard-library/layout.html)
+
+Die Interaktion mit dem Backend erfolgt über die REST-Schnittstelle.
 
 
 \section{Verteilungssicht}\label{sec:verteilungssicht}
 
+Zentraler Bestandteil der Verteilungsstruktur sind Docker- Container. Jeder Baustein von SGDb ist für sich isoliert in einem eigenen Docker-Container untergebracht. Damit das gesamte System mit allen verteilten Komponenten in der korrekten Reihenfolge gestartet wird, werden die Docker- Container mit Docker Compose orchestriert. Docker Compose übernimmt die Netzwerkkonfiguration und die Vergabe von Host-Namen an die jeweiligen Docker-Container. Darüber hinaus können Umgebungsvariablen verwaltet werden.
+
+
 
 \section{Entwicklungswerkzeuge}\label{sec:entwicklungswerkzeuge}
+
+
+\subsection{Backend}
+
+Im Backend wird als Test-Framework „Pytest“~\cite{pytest} genutzt.
+
+
+\subsection{Frontend}
+
+Im Frontend wird als Test-Framework Vitest in Kombination mit Svelte Testing Library verwendet.
 
 
 \section{Fazit und Ausblick}\label{sec:fazit}
