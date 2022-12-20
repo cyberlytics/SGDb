@@ -179,13 +179,4 @@ def extract_res(result):
 #     date=None,
 #     genre=["Adventure", "rpg"],
 #     rating_num=90, 
-#     creator=["nintendo"], 
-#     platform=None
-#     )
-
-# # Give all subs into query and return the subs, preds and obs
-# if res[0]:
-#     for r in res:
-#         print(query_the_subject(sparql_obj, r))
-# else:
-#     print("No results found")
+#     creator=["nintendo"], startpage
