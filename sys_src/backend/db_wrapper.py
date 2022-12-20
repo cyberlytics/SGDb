@@ -1,12 +1,10 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
-from typing import Optional
-
 # for debugging purpose
 import uvicorn
+import os
 
 # Get the url to the graphdb repository
-graphdb_url = "http://localhost:7200/repositories/semantic_games"
-
+graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 
 # Query for whole Graph
 def query_all():
@@ -31,12 +29,14 @@ def query_all():
 def subject_to_query(sparql_obj, game_name):
     # Search the subject to the game name
     sparql_obj.setQuery("""
-        PREFIX schema: <http://schema.org/>
+        PREFIX schema: <https://schema.org/>
         SELECT ?s ?p ?o WHERE {{ 
         ?o schema:title "{game_name}" .
         }}
         """.format(game_name=game_name))
     subject = sparql_obj.query().convert()
+    if not subject["results"]["bindings"]:
+        return None
     return subject["results"]["bindings"][0]["o"]["value"]
     
 def query_the_subject(sparql_obj, subject):
@@ -52,8 +52,12 @@ def query_the_subject(sparql_obj, subject):
 # method for searching games with their title
 def detailpage_content(sparql_obj, game_name):
     subject_iri = subject_to_query(sparql_obj, game_name)
+    if subject_iri is None:
+        return {"error": "No game found"}
     result = query_the_subject(sparql_obj, subject_iri)
-    return result
+    bindings = result['results']['bindings']
+    res = {b['predicate']['value'].split('/')[-1]: b['object']['value'] for b in bindings}
+    return res
 
 
 # query for search; search after game-name
@@ -65,7 +69,7 @@ def search_subject_to_query(sparql_obj, game_name):
     # Search the subject to the game name, case-insensitive
     # if there are more than one game, return all subjects
     sparql_obj.setQuery("""
-        PREFIX schema: <http://schema.org/>
+        PREFIX schema: <https://schema.org/>
         SELECT ?s ?p ?o WHERE {{ 
         ?o schema:title ?title .
         FILTER REGEX(?title, "{game_name}", "i")
@@ -88,30 +92,12 @@ def search_query(sparql_obj, game_name):
         result[i] = result[i]["results"]["bindings"]
     return result
 
-# todo: query for filter-options; load new graph with filter(s) activated
-    # param1: sparql object, which is generated in this file
-    # param2: filter-options from main.py
-    # return json with new graph
-'''
-# TODO Sinnvoll Filter nur als String zu übernehmen? Problem bei format, unbekannte Anzahl Filter
-def query_filter(sparql_obj, fil_opts): 
-    """Query the graph by given filters"""
-    sparql_obj.setQuery("""
-    SELECT * WHERE { 
-            ?s ?p ?o .
-        }
-    {filter}
-    """.format(filter=fil_opts))
-
-
-# TODO Methode für Filter-Generierung schreiben, in die eine Liste übergeben wird 
-fil_opts = "FILTER () .\nFILTER ()"
-
-# Print the result
-def print_result(result):
-    try:
-        for r in result["results"]["bindings"]:
-            print(r)
-    except Exception as e:
-        print(e)
-'''
+# get root graph with title and releaseDate
+def get_root_graph(sparql_obj):
+        sparql_obj.setQuery("""
+        PREFIX schema: <https://schema.org/>
+        SELECT ?year ?title WHERE {{ 
+        ?o schema:releaseDate ?year .
+        ?o schema:title ?title .
+        }}""")
+        return(sparql_obj.query().convert())

@@ -1,87 +1,94 @@
 <script lang="ts">
   export let id;
-  /* fetch the data from the backend
-  const { data, error } = await fetch(`/api/game/${id}`).then((r) => r.json());
-  if (error) {
-    console.error(error);
-  }
-  */
+
+  const fetchGameDetails = async () => {
+      const data = await fetch("http://localhost:8000/detail/" + id.replace(' ', '_'));
+      return await data.json();
+  };
 </script>
 
-<!-- <p class="text-black">GAME {id}</p> -->
-<!-- blue Backround-->
-<div class="bg-blue-500">
-  <p class="text-white">GAME {id}</p>
-</div>
+<svelte:head>
+  <title>Game Information</title>
+  {#await fetchGameDetails() then details}
+  <meta name="twitter:card" content= {details.description} />
+  <meta name="twitter:title" content= {id}/>
+  <meta name="twitter:description" content= {details.description} />
+  <meta name="twitter:image" content= {details.image}/>
+  {/await}
+</svelte:head>
 
-<!-- insert image by URL left and backround blue-->
+<body>
+  {#await fetchGameDetails()}
+  <p class="text-black">Loading Graph...</p>
+  {:then details}
+  <main>
+    <h2>{id}</h2>
+    <img src={details.image} alt="Game Image">
+    <p style="text-align: left;">Game Description:</p>
+    <p style="text-align: left;">{details.description}</p>
+    <p style="text-align: left;">Platforms: {details.plattform}</p>
+    <p style="text-align: left;">Release Date: {details.releaseDate}</p>
+    <p style="text-align: left;">Developer: {details.creator}</p>
+    <p style="text-align: left;">Publisher: {details.creator}</p>
+    <p style="text-align: left;">Genre: {details.genre}</p>
+    <p style="text-align: left;">Link to Game:</p>
+  </main>
+  <footer>
+    <p>Team Rot</p>
+  </footer>
+  {/await}
+</body>
 
-<div class="bg-blue-500"> <!-- blue Backround-->
-  <img
-    src="https://s1.1zoom.me/big0/367/Call_of_Duty_Soldiers_475128.jpg"
-    alt="image"
-    class="w-1/2"
-    style="float: left;"
-    width="300"
-    height="300"
-
-  />
-  <!--set table right to image-->
-  <table class="w-1/2">
-    <tr>
-      <td>Game Name</td>
-      <td>Counter Strike</td>
-    </tr>
-    <tr>
-      <td>Developer</td>
-      <td>Valve</td>
-    </tr>
-    <tr>
-      <td>Release Date</td>
-      <td>August 21, 1999</td>
-    </tr>
-    <tr>
-      <td>Genre</td>
-      <td>First-Person Shooter</td>
-    </tr>
-    <tr>
-      <td>Platform</td>
-      <td>PC</td>
-    </tr>
-    <tr>
-      <td>Link zum Spiel</td>
-      <td>
-          <!-- Set hyperlink under table-->
-          <a href="https://store.steampowered.com/app/10/CounterStrike/" class="w-1/2">Offizielle Webseite</a>
-      </td>
-    </tr>
-  </table>
-
-<!-- set descripton under table-->
-<section class="w-1/2">
-
-  <p class="text-white">
-    Beschreibung:
-  </p>
-  <p class="text-white">
-    Counter-Strike (CS) ist ein Computerspiel aus dem Genre der Online-Taktik-Shooter. Es wurde von Valve und Hidden Path Entertainment entwickelt und stellt das erste Spiel der Counter-Strike-Reihe dar. Das Spiel wurde am 21. August 1999 veröffentlicht und gilt als eines der erfolgreichsten Computerspiele überhaupt. Counter-Strike ist ein Mehrspieler-Online-Shooter, bei dem zwei Teams gegeneinander antreten. Das Spiel ist in der First-Person-Perspektive gehalten und wird über das Internet gespielt. Die Spieler können sich in die Rolle eines Terroristen oder eines Antiterrorkommandos versetzen. Ziel des Spiels ist es, die gegnerische Basis zu zerstören oder die gegnerischen Spieler zu töten. Das Spiel ist kostenlos und kann über Steam heruntergeladen werden.
-  </p>
-</section>
-</div>
-
-  
-
-<!-- text black-->
 <style>
-  .text-black {
-    color: #000;
-  }
-  .text-white {
-    color: #fff;
-  }
-  .table, th, td {
-      padding: 10px;
-      border: 1px solid rgb(238, 239, 252); 
-      border-collapse: collapse;
+     body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, purple, blue);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
       }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    h1 {
+      text-align: center;
+      color: white;
+    }
+    h2 {
+      color: white;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 20px;
+      border-radius: 50%;
+    }
+    p {
+      font-size: 16px;
+      color: white;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      background-color: purple;
+      color: white;
+      padding: 10px;
+    }
 </style>
