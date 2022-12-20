@@ -1,10 +1,10 @@
 <script lang="ts">
-  //export let id;
-  let id = "This Way Madness Lies";
+  export let id;
+
   const fetchGameDetails = async () => {
-      const data = await fetch("http://localhost:8000/detail/This%20Way%20Madness%20Lies");
+      const data = await fetch("http://localhost:8000/detail/" + id.replace(' ', '_'));
       return await data.json();
-  }
+  };
 </script>
 
 <svelte:head>
