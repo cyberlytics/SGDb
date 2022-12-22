@@ -1,14 +1,12 @@
 <script lang="ts">
   import Search from '$components/Search.svelte';  
   import Filter from '$components/Filter.svelte';
-  
-  $: isFilterDisabled = false;
-  
-  $: display = false;
-  $: handleClick = () => display = !display;
+  import {isFilterVisible} from "$stores/filter";
+
+  $: handleClick = () => isFilterVisible.set(true);
 </script>
 
-<nav class="bg-gradient-to-b from-white to-transparent fixed w-full z-20 px-2 sm:px-4 py-2 pb-4">
+<nav class="bg-white w-full z-20 px-2 sm:px-4 py-2 pb-4">
   <div class="container flex flex-row items-center justify-between mx-auto">
     <div class="text-2xl select-none font-semibold whitespace-nowrap text-primary mr-8">
       SGDb
@@ -23,6 +21,3 @@
     </button>
   </div>
 </nav>
-{#if display}
-    <Filter />
-{/if}

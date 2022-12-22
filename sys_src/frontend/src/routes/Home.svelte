@@ -4,6 +4,10 @@
 
   import Graph from "$components/Graph.svelte";
   import Navbar from '$components/Navbar.svelte';
+  import Sideview from '$components/Sideview.svelte';
+  import FilterModal from '$components/FilterModal.svelte';
+  import { isDetailsVisible, selectedGame } from '$stores/game';
+  import { isFilterVisible } from '$stores/filter.ts';
 
   const handleNodeClick= async (event: CustomEvent<string>) => {
       navigate(`/game/${event.detail}`);
@@ -16,9 +20,14 @@
   };
 </script>
 
-
+<Navbar />
+{#if $isFilterVisible}
+    <FilterModal />
+{/if}
 <main id="graph-container">
-    <Navbar />
+    {#if $isDetailsVisible}
+        <Sideview />
+    {/if}
     {#await fetchGraph()}
         <p class="text-black text-2xl p-8">Loading Graph...</p>
     {:then graph}
