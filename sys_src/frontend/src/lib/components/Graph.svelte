@@ -4,19 +4,20 @@
   import FA2Layout from "graphology-layout-forceatlas2/worker";
   import forceAtlas2 from "graphology-layout-forceatlas2";
   import CircleNodeProgram from "sigma/rendering/webgl/programs/node.fast";
+  import { searchQuery } from '$stores/search';
 
-  import type { SigmaNodeEventPayload } from "sigma/sigma";
-  import type Graph from "graphology";
+  import type { SigmaNodeEventPayload } from 'sigma/sigma';
+  import { Coordinates } from 'sigma/types';
+  import type Graph from 'graphology';
   import type State from "../types/Graph";
 
-  export let searchQuery = "";
   export let graph: Graph;
 
   let container: HTMLElement;
   let sigma: Sigma | undefined;
   let fa2Layout: FA2Layout | undefined;
 
-  const state: State = { searchQuery: "" };
+  const state: State = { searchQuery: "" || $searchQuery };
   const dispatch = createEventDispatcher();
 
   onMount(async () => {
@@ -57,6 +58,23 @@
     sigma.on("enterNode", handleNodeEnter);
     sigma.on("leaveNode", handleNodeLeave);
   });
+
+  const focusOnSearchQueryNode = (query: string) => {
+    if (query) {
+      state.selectedNode = query;
+      // center camera on the selected node
+      const nodePosition = sigma.getNodeDisplayData(state.selectedNode) as Coordinates;
+      sigma.getCamera().animate(nodePosition, {
+        duration: 500,
+      });
+    }
+    else {
+      // if the query is empty, then we reset the selectedNode
+      state.selectedNode = undefined;
+    }
+
+    sigma.refresh();
+  }
 
   const setHoveredNode = (node?: string) => {
     if (node) {
@@ -109,6 +127,11 @@
       sigma = undefined;
     }
   });
+
+  $: if (sigma) {
+    // focus on node, if graph is available and search query updated
+    focusOnSearchQueryNode($searchQuery);
+  }
 </script>
 
 <div bind:this={container} class="container" id="sigma-container"/>
