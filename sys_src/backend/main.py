@@ -86,9 +86,16 @@ def search(search: str = None):
     # remove possible underscore
     search = search.replace("_", " ")
     # search in the database for the requested game
+    searched_game = search_query(graph, search)
     # if there is one result, redirect to detail-page of the search-result
-    if len(search_query(graph, search)) == 1:
-        return RedirectResponse(url=f"/detail/{search}", status_code=303)
+    if len(searched_game) == 1:
+        # search in the game object for the title of the game
+        for k in range(len(searched_game[0])):
+            if str(searched_game[0][k]["predicate"]["value"]).find("title") != -1:
+                searched_game = searched_game[0][k]["object"]["value"]
+                break
+        # redirect with title of the game
+        return RedirectResponse(url=f"/detail/{searched_game}", status_code=303)
     # if there are more search-results, return all
     else:
         return json.dumps(search_query(graph, search))
