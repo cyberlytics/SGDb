@@ -6,12 +6,12 @@ export const buildStartPageGraph = async (json: Object) => {
   const nodes = [];
   const edges = [];
   // root node
-  nodes.push({ id: "Erscheinungsjahr", label: "Erscheinungsjahr", size: 20 });
+  nodes.push({ id: 0, label: "Erscheinungsjahr", size: 20 });
   // iterate over all release years in json object
   for (let [key, values] of Object.entries(json['data'])) {
     const name = key.toString()
     nodes.push({ id: name, label: name, size: 10 });
-    edges.push({ source: "Erscheinungsjahr", target: name });
+    edges.push({ source: 0, target: name });
     // @ts-ignore
     values.forEach((gameTitle: String) => {
       nodes.push({ id: gameTitle, label: gameTitle, size: 5 });

@@ -1,20 +1,22 @@
 <script lang="ts">
-  import { navigate } from "svelte-routing";
-  import { buildStartPageGraph } from "$utils/graph";
+  import { buildStartPageGraph } from '$utils/graph';
 
-  import Graph from "$components/Graph.svelte";
+  import Graph from '$components/Graph.svelte';
   import Navbar from '$components/Navbar.svelte';
   import Sideview from '$components/Sideview.svelte';
   import FilterModal from '$components/FilterModal.svelte';
   import { isDetailsVisible, selectedGame } from '$stores/game';
   import { isFilterVisible } from '$stores/filter.ts';
 
-  const handleNodeClick= async (event: CustomEvent<string>) => {
-      navigate(`/game/${event.detail}`);
+  const handleNodeClick = async (event: CustomEvent<string>) => {
+      // test if node only contains digits
+      if (/^\d+$/.test(event.detail)) return;
+      selectedGame.set(event.detail);
+      isDetailsVisible.set(true);
   };
 
   const fetchGraph = async (): Promise<Graph> => {
-      const data = await fetch("http://localhost:8000/")
+      const data = await fetch("http://localhost:8000/");
       const json = await data.json();
       return await buildStartPageGraph(json);
   };
