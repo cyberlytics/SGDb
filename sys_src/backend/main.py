@@ -80,7 +80,7 @@ def startpage(filter_requests: dict):
 
 # search request
 # load list-page with games with similiar names to searched game
-@app.get("/search/{search}")
+@app.get("/search/{search:path}")
 def search(search: str = None):
     graph = query_all()
     # remove possible underscore
@@ -99,13 +99,12 @@ def search():
     return{"message": "please enter a title for search"}
 
 # detailpage
-@app.get("/detail/{game}")
+@app.get("/detail/{game:path}")
 def detailpage(game: str):
     graph = query_all()
     # remove possible underscore
     game = game.replace("_", " ")
     return detailpage_content(graph, game)
-
 
 '''
 # debugging purpose

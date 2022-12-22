@@ -5,6 +5,8 @@ import json
 import os
 
 graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
+# keep the next line for easy debug purpose
+#graphdb_url = "http://localhost:7200/repositories/semantic_games"
 sparql_obj = SPARQLWrapper(graphdb_url)
 sparql_obj.setReturnFormat(JSON)
 
