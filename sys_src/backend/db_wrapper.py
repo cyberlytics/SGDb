@@ -4,11 +4,12 @@ import os
 # Get the url to the graphdb repository
 graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 # keep the next line for easy debug purpose
-#graphdb_url = "http://localhost:7200/repositories/semantic_games"
+# graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
 # db object initialize
 graphdb = SPARQLWrapper(graphdb_url)
 graphdb.setReturnFormat(JSON)
+
 
 # Query for whole Graph
 def query_all():
@@ -24,6 +25,7 @@ def query_all():
     """)
     return sparql
 
+
 # get root graph with title and releaseDate
 def get_root_graph():
     sparql_obj = query_all()
@@ -33,12 +35,13 @@ def get_root_graph():
     ?o schema:releaseDate ?year .
     ?o schema:title ?title .
     }}""")
-    return(sparql_obj.query().convert())
+    return sparql_obj.query().convert()
+
 
 # query for detailpage; content for detail page
-    # param1: sparql object, which is generated in the main.py file
-    # param2: game-name from main.py
-    # return json with content of detail page to particular game
+# param1: sparql object, which is generated in the main.py file
+# param2: game-name from main.py
+# return json with content of detail page to particular game
 
 def subject_to_query(game_name):
     sparql_obj = query_all()
@@ -54,6 +57,7 @@ def subject_to_query(game_name):
         return None
     return subject["results"]["bindings"][0]["o"]["value"]
 
+
 def query_the_subject(subject):
     # Search the Query by the given subject
     sparql_obj = query_all()
@@ -64,6 +68,7 @@ def query_the_subject(subject):
         }} LIMIT 100
         """.format(subject=subject))
     return sparql_obj.query().convert()
+
 
 def query_game_details(title: str):
     """Query game details by title"""
@@ -98,10 +103,11 @@ def detailpage_content(game_name: str):
     bindings = result['results']['bindings'][0]
     return bindings
 
+
 # query for search; search after game-name
-    # param1: sparql object, which is generated in this file
-    # param2: game-name from main.py
-    # return json with possible games
+# param1: sparql object, which is generated in this file
+# param2: game-name from main.py
+# return json with possible games
 
 def search_subject_to_query(game_name):
     sparql_obj = query_all()
@@ -121,6 +127,7 @@ def search_subject_to_query(game_name):
         subject_list.append(subject["results"]["bindings"][i]["o"]["value"])
     return subject_list
 
+
 # method for searching games
 def search_query(game_name):
     subject_iris = search_subject_to_query(game_name)
@@ -130,4 +137,3 @@ def search_query(game_name):
         result.append(query_the_subject(subject_iris[i]))
         result[i] = result[i]["results"]["bindings"]
     return result
-
