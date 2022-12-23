@@ -3,10 +3,10 @@
 
   import Graph from '$components/Graph.svelte';
   import Navbar from '$components/Navbar.svelte';
-  import Sideview from '$components/Sideview.svelte';
   import FilterModal from '$components/FilterModal.svelte';
   import { isDetailsVisible, selectedGame } from '$stores/game';
   import { isFilterVisible } from '$stores/filter.ts';
+    import Game from './Game.svelte';
 
   const handleNodeClick = async (event: CustomEvent<string>) => {
       // test if node only contains digits
@@ -28,7 +28,7 @@
 {/if}
 <main id="graph-container">
     {#if $isDetailsVisible}
-        <Sideview />
+        <Game/>
     {/if}
     {#await fetchGraph()}
         <p class="text-black text-2xl p-8">Loading Graph...</p>
