@@ -4,9 +4,9 @@
   import Graph from '$components/Graph.svelte';
   import Navbar from '$components/Navbar.svelte';
   import FilterModal from '$components/FilterModal.svelte';
+  import Game from '$components/Game.svelte';
   import { isDetailsVisible, selectedGame } from '$stores/game';
   import { isFilterVisible } from '$stores/filter.ts';
-    import Game from './Game.svelte';
 
   const handleNodeClick = async (event: CustomEvent<string>) => {
       // test if node only contains digits
