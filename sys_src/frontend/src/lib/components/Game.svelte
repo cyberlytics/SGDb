@@ -1,9 +1,9 @@
 <script lang="ts">
-  import {selectedGame,isDetailsVisible } from "$stores/game";;
+  import { selectedGame, isDetailsVisible } from "$stores/game";
 
   const fetchGameDetails = async () => {
     const data = await fetch("http://localhost:8000/detail/" + $selectedGame.replace(' ', '_'));
-      return await data.json();
+    return await data.json();
   };
 </script>
 
@@ -17,10 +17,7 @@
   {/await}
 </svelte:head>
 
-
-  {#await fetchGameDetails()}
-  <p class="text-black">Loading Graph...</p>
-  {:then details}
+{#await fetchGameDetails() then details}
   <main>
     <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
 
@@ -111,4 +108,4 @@
   <footer>
     <p>Team Rot</p>
   </footer>
-  {/await}
+{/await}
