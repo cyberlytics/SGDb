@@ -81,11 +81,15 @@
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Platform</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.plattform}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.gamePlatform}</dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Genre</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.genre}</dd>
+                      </div>
+                          <div class="sm:flex sm:px-6 sm:py-5">
+                        <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Rating</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.ratingValue}</dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Release Date</dt>
