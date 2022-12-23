@@ -1,22 +1,20 @@
-from SPARQLWrapper import SPARQLWrapper, JSON
 from collections import Counter
 from urllib.parse import unquote
 import json
+from db_wrapper import query_all
 import os
 
 graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 # keep the next line for easy debug purpose
-#graphdb_url = "http://localhost:7200/repositories/semantic_games"
-sparql_obj = SPARQLWrapper(graphdb_url)
-sparql_obj.setReturnFormat(JSON)
+# graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
 """This methods help to get a list for the filters in the frontend
 with all or the most frequent values from the database by a given schema type"""
 
-def get_filter_vals(sparql_obj, schema_type, top_n=True):
+def get_filter_vals(schema_type, top_n=True):
     """Use the filter_schema method and put them into extract_obj to get
     a list of the preferenced values. Use regex to get only the value without the URL syntax"""
-    res = filter_schema(sparql_obj, schema_type)
+    res = filter_schema(schema_type)
     res_list = extract_obj(res)
     reg_list = use_regex(res_list)
     if top_n:
@@ -24,8 +22,9 @@ def get_filter_vals(sparql_obj, schema_type, top_n=True):
     else:
         return reg_list
 
-def filter_schema(sparql_obj, schema_type):
+def filter_schema(schema_type):
     """get the objects which fit the choosen schema type"""
+    sparql_obj = query_all()
     sparql_obj.setQuery("""
         PREFIX schema: <https://schema.org/>
         SELECT ?object WHERE {{ 
@@ -65,13 +64,13 @@ def save_as_json(*val_lists):
         for data in val_lists:
             json.dump(data, f, indent=4)
 
-def get_data(sparql_obj):
+def get_data():
     # Generate lists for the given filters 
-    genre_list = {"genre" : get_filter_vals(sparql_obj, "genre")}
+    genre_list = {"genre" : get_filter_vals("genre")}
     # date_list = {"releaseDate" : get_filter_vals(sparql_obj, "releaseDate", False)} # is it even necessary??
     # rating_list = {"ratingValues" : get_filter_vals(sparql_obj, "ratingValues")} # not necessary 'cause they are always from 1 to 100
-    creator_list = {"creator" : get_filter_vals(sparql_obj, "creator")}
-    platform_list = {"platform" : get_filter_vals(sparql_obj, "gamePlatform")}
+    creator_list = {"creator" : get_filter_vals("creator")}
+    platform_list = {"platform" : get_filter_vals("gamePlatform")}
     return [genre_list, creator_list, platform_list]
 
 # Save all lists in a json file

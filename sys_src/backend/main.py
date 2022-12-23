@@ -1,8 +1,7 @@
 from fastapi import FastAPI
-from db_wrapper import query_all, detailpage_content, search_query, get_root_graph, query_the_subject
+from db_wrapper import detailpage_content, search_query, get_root_graph, query_the_subject
 from db_filter import combine_Filter
 import json
-from pydantic import BaseModel
 from filter_lists import get_data
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -24,7 +23,7 @@ app.add_middleware(
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    root_graph = get_root_graph(query_all())
+    root_graph = get_root_graph()
     root = {'data': {}, 'filters': {}}
     for year in range(1985,2023):
         title_in_year = []
@@ -35,8 +34,7 @@ def startpage():
         root['data'][year] = title_in_year
 
     # add filter names to startpage
-    graph = query_all()
-    filter_data = get_data(graph)
+    filter_data = get_data()
     for data in filter_data:
         root['filters'].update(data)
 
@@ -48,18 +46,13 @@ def startpage(filter_requests: dict):
         if set_filter == "":
             del filter_requests[set_filter]
 
-    filter_graph_iri = combine_Filter(
-        graph,
-        filter_requests["date"],
-        filter_requests["genre"]
-    )
+    filter_graph_iri = combine_Filter(filter_requests)
 
     filtered_games = []
     for i in filter_graph_iri:
-        filtered_iri = query_the_subject(graph, i)
+        filtered_iri = query_the_subject(i)
         filtered_iri = filtered_iri["results"]["bindings"]
         filtered_games.append(filtered_iri)
-
 
     game_info = {}
     for filtered_game in filtered_games:
@@ -82,11 +75,10 @@ def startpage(filter_requests: dict):
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search:path}")
 def search(search: str = None):
-    graph = query_all()
     # remove possible underscore
     search = search.replace("_", " ")
     # search in the database for the requested game
-    searched_game = search_query(graph, search)
+    searched_game = search_query(search)
     # if there is one result, redirect to detail-page of the search-result
     if len(searched_game) == 1:
         # search in the game object for the title of the game
@@ -98,7 +90,7 @@ def search(search: str = None):
         return RedirectResponse(url=f"/detail/{searched_game}", status_code=303)
     # if there are more search-results, return all
     else:
-        return json.dumps(search_query(graph, search))
+        return json.dumps(search_query(search))
 
 # search request if there are no search query named
 @app.get("/search/")
@@ -108,10 +100,9 @@ def search():
 # detailpage
 @app.get("/detail/{game:path}")
 def detailpage(game: str):
-    graph = query_all()
     # remove possible underscore
     game = game.replace("_", " ")
-    return detailpage_content(graph, game)
+    return detailpage_content(game)
 
 '''
 # debugging purpose

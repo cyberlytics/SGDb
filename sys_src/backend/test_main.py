@@ -1,10 +1,9 @@
 from fastapi.testclient import TestClient
-from db_wrapper import query_all, detailpage_content, search_query, get_root_graph
+from db_wrapper import detailpage_content, search_query
 from main import app
 import json
 
 client = TestClient(app)
-graph = query_all()
 
 # todo: test the root graph
 def test_startpage():
@@ -17,21 +16,21 @@ def test_startpage():
 def test_detailpage():
     response = client.get('/detail/Evergate')
     assert response.status_code == 200
-    dump_test = json.dumps(detailpage_content(graph, "Evergate"))
+    dump_test = json.dumps(detailpage_content("Evergate"))
     assert dump_test in response.json()
 
 # test if a search request with multiple games are correct
 def test_search():
     response = client.get('/search/eve')
     assert response.status_code == 200
-    dump_test = json.dumps(search_query(graph, "eve"))
+    dump_test = json.dumps(search_query("eve"))
     assert dump_test in response.json()
     
 # test if it's only a single game with the searched name
 def test_search_single():
     response = client.get('/search/Evergate')
     assert response.status_code == 200
-    dump_test = json.dumps(detailpage_content(graph, "Evergate"))
+    dump_test = json.dumps(detailpage_content("Evergate"))
     assert dump_test in response.json()
 
 # test if there is no title for search
