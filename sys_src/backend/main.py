@@ -1,12 +1,11 @@
 from fastapi import FastAPI
-from db_wrapper import query_all, detailpage_content, search_query, get_root_graph, query_the_subject
+from db_wrapper import detailpage_content, search_query, get_root_graph, query_the_subject
 from db_filter import combine_Filter
 import json
-from pydantic import BaseModel
 from filter_lists import get_data
 
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, JSONResponse
 
 # for debugging purpose
 import uvicorn
@@ -21,12 +20,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    root_graph = get_root_graph(query_all())
+    root_graph = get_root_graph()
     root = {'data': {}, 'filters': {}}
-    for year in range(1985,2023):
+    for year in range(1985, 2023):
         title_in_year = []
         for i in range(len(root_graph["results"]["bindings"])):
             year_string = root_graph["results"]["bindings"][i]["year"]["value"]
@@ -35,31 +35,27 @@ def startpage():
         root['data'][year] = title_in_year
 
     # add filter names to startpage
-    graph = query_all()
-    filter_data = get_data(graph)
+    filter_data = get_data()
     for data in filter_data:
         root['filters'].update(data)
 
     return root
 
+
 @app.post("/")
 def startpage(filter_requests: dict):
+    # only keep dict keys with values inside
     for set_filter in filter_requests:
         if set_filter == "":
             del filter_requests[set_filter]
 
-    filter_graph_iri = combine_Filter(
-        graph,
-        filter_requests["date"],
-        filter_requests["genre"]
-    )
+    filter_graph_iri = combine_Filter(filter_requests)
 
     filtered_games = []
     for i in filter_graph_iri:
-        filtered_iri = query_the_subject(graph, i)
+        filtered_iri = query_the_subject(i)
         filtered_iri = filtered_iri["results"]["bindings"]
         filtered_games.append(filtered_iri)
-
 
     game_info = {}
     for filtered_game in filtered_games:
@@ -80,31 +76,42 @@ def startpage(filter_requests: dict):
 
 # search request
 # load list-page with games with similiar names to searched game
-@app.get("/search/{search}")
+@app.get("/search/{search:path}")
 def search(search: str = None):
-    graph = query_all()
+    if search == "":
+        return {"message": "please enter a title for search"}
     # remove possible underscore
     search = search.replace("_", " ")
     # search in the database for the requested game
+    searched_game = search_query(search)
     # if there is one result, redirect to detail-page of the search-result
-    if len(search_query(graph, search)) == 1:
-        return RedirectResponse(url=f"/detail/{search}", status_code=303)
+    if len(searched_game) == 1:
+        # search in the game object for the title of the game
+        for k in range(len(searched_game[0])):
+            if str(searched_game[0][k]["predicate"]["value"]).find("title") != -1:
+                searched_game = searched_game[0][k]["object"]["value"]
+                break
+        # redirect with title of the game
+        return RedirectResponse(url=f"/detail/{searched_game}", status_code=303)
     # if there are more search-results, return all
     else:
-        return json.dumps(search_query(graph, search))
+        return json.dumps(searched_game)
 
-# search request if there are no search query named
-@app.get("/search/")
-def search():
-    return{"message": "please enter a title for search"}
 
-# detailpage
-@app.get("/detail/{game}")
-def detailpage(game: str):
-    graph = query_all()
-    # remove possible underscore
-    game = game.replace("_", " ")
-    return detailpage_content(graph, game)
+@app.get("/detail/{game}", tags=['Game'])
+async def detailpage(game: str):
+    """
+    Query game details by game name.
+    \f
+    :param game: Name of the game to query for details.
+    """
+    content = detailpage_content(game.replace("_", " "))
+    if not content:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "Game not found"},
+        )
+    return content
 
 
 '''
