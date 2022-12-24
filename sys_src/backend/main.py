@@ -42,6 +42,7 @@ def startpage():
 
 @app.post("/")
 def startpage(filter_requests: dict):
+    # only keep dict keys with values inside
     for set_filter in filter_requests:
         if set_filter == "":
             del filter_requests[set_filter]
@@ -75,6 +76,8 @@ def startpage(filter_requests: dict):
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search:path}")
 def search(search: str = None):
+    if search == "":
+        return {"message": "please enter a title for search"}
     # remove possible underscore
     search = search.replace("_", " ")
     # search in the database for the requested game
@@ -90,12 +93,7 @@ def search(search: str = None):
         return RedirectResponse(url=f"/detail/{searched_game}", status_code=303)
     # if there are more search-results, return all
     else:
-        return json.dumps(search_query(search))
-
-# search request if there are no search query named
-@app.get("/search/")
-def search():
-    return{"message": "please enter a title for search"}
+        return json.dumps(searched_game)
 
 # detailpage
 @app.get("/detail/{game:path}")
@@ -104,8 +102,7 @@ def detailpage(game: str):
     game = game.replace("_", " ")
     return detailpage_content(game)
 
-'''
+
 # debugging purpose
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8810)
-'''

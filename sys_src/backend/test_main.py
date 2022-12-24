@@ -9,29 +9,27 @@ client = TestClient(app)
 def test_startpage():
     response = client.get('/')
     assert response.status_code == 200
-    assert len(response.json()) == 38
-    assert response.json()["1989"] == ["Denaris"]
+    assert len(response.json()["data"]) == 38
+    assert response.json()["data"]["1989"] == ["Denaris"]
     
 # test if a detailpage is shown
 def test_detailpage():
     response = client.get('/detail/Evergate')
     assert response.status_code == 200
-    dump_test = json.dumps(detailpage_content("Evergate"))
-    assert dump_test in response.json()
+    assert response.json() == detailpage_content("Evergate")
 
 # test if a search request with multiple games are correct
 def test_search():
     response = client.get('/search/eve')
     assert response.status_code == 200
     dump_test = json.dumps(search_query("eve"))
-    assert dump_test in response.json()
+    assert dump_test in str(response.json())
     
 # test if it's only a single game with the searched name
 def test_search_single():
     response = client.get('/search/Evergate')
     assert response.status_code == 200
-    dump_test = json.dumps(detailpage_content("Evergate"))
-    assert dump_test in response.json()
+    assert response.json() == detailpage_content("Evergate")
 
 # test if there is no title for search
 def test_search_with_no_content():

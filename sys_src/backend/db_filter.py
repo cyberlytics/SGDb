@@ -27,22 +27,22 @@ def combine_Filter(filter_requests):
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_genre(filter_requests["genre"]))
         else: 
-            game_list.append(fil_genre(filter_requests["date"]))
+            game_list.append(fil_genre(filter_requests["genre"]))
     if "rating_num" in filter_requests:
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
         else: 
-            game_list.append(fil_rating(filter_requests["date"]))
+            game_list.append(fil_rating(filter_requests["rating_num"]))
     if "creator" in filter_requests:
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_creator(filter_requests["creator"]))
         else: 
-            game_list.append(fil_creator(filter_requests["date"]))
+            game_list.append(fil_creator(filter_requests["creator"]))
     if "platform" in filter_requests:
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_platform(filter_requests["platform"]))
         else: 
-            game_list.append(fil_platform(filter_requests["date"]))
+            game_list.append(fil_platform(filter_requests["platform"]))
     return game_list
 
 def extend_list(game_list, func_res, recommendation=False):

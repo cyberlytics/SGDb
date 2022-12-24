@@ -4,9 +4,9 @@ import json
 from db_wrapper import query_all
 import os
 
-graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
+#graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 # keep the next line for easy debug purpose
-# graphdb_url = "http://localhost:7200/repositories/semantic_games"
+graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
 """This methods help to get a list for the filters in the frontend
 with all or the most frequent values from the database by a given schema type"""
