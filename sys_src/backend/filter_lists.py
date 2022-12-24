@@ -1,7 +1,15 @@
 from collections import Counter
 from urllib.parse import unquote
 import json
-from db_wrapper import query_all
+from SPARQLWrapper import SPARQLWrapper, JSON
+import os
+
+graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
+# keep the next line for easy debug purpose
+#graphdb_url = "http://localhost:7200/repositories/semantic_games"
+
+sparql_obj = SPARQLWrapper(graphdb_url)
+sparql_obj.setReturnFormat(JSON)
 
 """This methods help to get a list for the filters in the frontend
 with all or the most frequent values from the database by a given schema type"""
@@ -21,7 +29,6 @@ def get_filter_vals(schema_type, top_n=True):
 
 def filter_schema(schema_type):
     """get the objects which fit the choosen schema type"""
-    sparql_obj = query_all()
     sparql_obj.setQuery("""
         PREFIX schema: <https://schema.org/>
         SELECT ?object WHERE {{ 

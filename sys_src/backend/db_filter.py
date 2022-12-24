@@ -1,6 +1,16 @@
 from collections import Counter
 from urllib.parse import quote
-from db_wrapper import query_all
+from SPARQLWrapper import SPARQLWrapper, JSON
+import os
+
+graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
+# keep the next line for easy debug purpose
+#graphdb_url = "http://localhost:7200/repositories/semantic_games"
+
+
+sparql_obj = SPARQLWrapper(graphdb_url)
+sparql_obj.setReturnFormat(JSON)
+
 
 """Create multiple filter queries so it's easy to combine them."""
 
@@ -73,7 +83,6 @@ def get_biggest_intersec(game_list):
 
 def fil_date(year): 
     """Filter the games by the release year."""
-    sparql_obj = query_all()
     sparql_obj.setQuery("""
         PREFIX schema: <https://schema.org/>
         SELECT ?game WHERE {{ 
@@ -85,7 +94,6 @@ def fil_date(year):
     
 def fil_genre(genre): 
     """Filter the games by the given genre(s)"""
-    sparql_obj = query_all()
     genre = convert_input(genre)
     fil_str = create_filter("?genre", genre)
 
@@ -99,7 +107,6 @@ def fil_genre(genre):
     return extract_res(sparql_obj)
     
 def fil_rating(rating_num):
-    sparql_obj = query_all()
     """Filter games by best score that are better than the given score number. 
     The results are descending"""
 
@@ -114,7 +121,6 @@ def fil_rating(rating_num):
     return extract_res(sparql_obj)
   
 def fil_creator(creator): 
-    sparql_obj = query_all()
     """Filter the games by the producer"""
     creator = convert_input(creator)
     fil_str = create_filter("?creator", creator)
@@ -131,7 +137,6 @@ def fil_creator(creator):
    
 
 def fil_platform(platform):
-    sparql_obj = query_all()
     """Filter the games by their platform(s). Like ['Nintendo', 'Sony']."""
     platform = convert_input(platform)
     fil_str = create_filter("?platform", platform)
