@@ -1,13 +1,10 @@
 from collections import Counter
 from urllib.parse import quote
-#from db_wrapper import query_the_subject
+from SPARQLWrapper import SPARQLWrapper, JSON
+import os
 
-
-# from SPARQLWrapper import SPARQLWrapper, JSON
-
-# graphdb_url = "http://localhost:7200/repositories/semantic_games"
-# sparql_obj = SPARQLWrapper(graphdb_url)
-# sparql_obj.setReturnFormat(JSON)
+sparql_obj = SPARQLWrapper(os.environ.get('REPOSITORY_ADDR', "http://localhost:7200/repositories/semantic_games"))
+sparql_obj.setReturnFormat(JSON)
 
 
 """Create multiple filter queries so it's easy to combine them."""
@@ -16,51 +13,44 @@ def convert_input(input):
     """Convert the input string(s) in the list to url encoding to make it workable for the query"""
     return [quote(i) for i in input]
 
-def combine_Filter(
-    sparql_obj, 
-    date=None, 
-    genre = None,
-    rating_num=None, 
-    creator=None, 
-    platform=None,
-    recommendation=False):
+def combine_Filter(filter_requests):
 
     """Select the filters that should be combined for the query.
     NOTE: If recommendation is used, use the objects of the game subject as the filter
     If new filters should be adapted or filters removed, pass the whole query object again to this method.
     Saves every game in the list that matches all filters.
     Matches Substrings and it is case insensitive"""
-
+    
     game_list = []
 
-    if date:
-        if not recommendation:
-            game_list = extend_list(game_list, fil_date(sparql_obj, date))
+    if "date" in filter_requests:
+        if "recommendation" not in filter_requests:
+            game_list = extend_list(game_list, fil_date(filter_requests["date"]))
         else: 
             pass
-    if genre:
-        if not recommendation:
-            game_list = extend_list(game_list, fil_genre(sparql_obj, genre))
+    if "genre" in filter_requests:
+        if "recommendation" not in filter_requests:
+            game_list = extend_list(game_list, fil_genre(filter_requests["genre"]))
         else: 
-            game_list.append(fil_genre(sparql_obj, date))
-    if rating_num:
-        if not recommendation:
-            game_list = extend_list(game_list, fil_rating(sparql_obj, rating_num))
+            game_list.append(fil_genre(filter_requests["genre"]))
+    if "rating_num" in filter_requests:
+        if "recommendation" not in filter_requests:
+            game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
         else: 
-            game_list.append(fil_rating(sparql_obj, date))
-    if creator:
-        if not recommendation:
-            game_list = extend_list(game_list, fil_creator(sparql_obj, creator))
+            game_list.append(fil_rating(filter_requests["rating_num"]))
+    if "creator" in filter_requests:
+        if "recommendation" not in filter_requests:
+            game_list = extend_list(game_list, fil_creator(filter_requests["creator"]))
         else: 
-            game_list.append(fil_creator(sparql_obj, date))
-    if platform:
-        if not recommendation:
-            game_list = extend_list(game_list, fil_platform(sparql_obj, platform))
+            game_list.append(fil_creator(filter_requests["creator"]))
+    if "platform" in filter_requests:
+        if "recommendation" not in filter_requests:
+            game_list = extend_list(game_list, fil_platform(filter_requests["platform"]))
         else: 
-            game_list.append(fil_platform(sparql_obj, date))
+            game_list.append(fil_platform(filter_requests["platform"]))
     return game_list
 
-def extend_list(game_list, func_res, recommendation):
+def extend_list(game_list, func_res, recommendation=False):
     """Only returns games that were already included in the results of other filters"""
     if(func_res):
         if len(game_list) != 0:
@@ -86,9 +76,8 @@ def get_biggest_intersec(game_list):
     """Find the game which fits the other game the best"""
     return Counter(game_list).most_common()
 
-def fil_date(sparql_obj, year): 
+def fil_date(year): 
     """Filter the games by the release year."""
-
     sparql_obj.setQuery("""
         PREFIX schema: <https://schema.org/>
         SELECT ?game WHERE {{ 
@@ -98,7 +87,7 @@ def fil_date(sparql_obj, year):
         """.format(year=year))
     return extract_res(sparql_obj)
     
-def fil_genre(sparql_obj, genre): 
+def fil_genre(genre): 
     """Filter the games by the given genre(s)"""
     genre = convert_input(genre)
     fil_str = create_filter("?genre", genre)
@@ -112,7 +101,7 @@ def fil_genre(sparql_obj, genre):
         """.format(fil_str=fil_str))
     return extract_res(sparql_obj)
     
-def fil_rating(sparql_obj, rating_num):
+def fil_rating(rating_num):
     """Filter games by best score that are better than the given score number. 
     The results are descending"""
 
@@ -126,7 +115,7 @@ def fil_rating(sparql_obj, rating_num):
         """.format(rating_num=rating_num))
     return extract_res(sparql_obj)
   
-def fil_creator(sparql_obj, creator): 
+def fil_creator(creator): 
     """Filter the games by the producer"""
     creator = convert_input(creator)
     fil_str = create_filter("?creator", creator)
@@ -142,7 +131,7 @@ def fil_creator(sparql_obj, creator):
     return extract_res(sparql_obj)
    
 
-def fil_platform(sparql_obj, platform):
+def fil_platform(platform):
     """Filter the games by their platform(s). Like ['Nintendo', 'Sony']."""
     platform = convert_input(platform)
     fil_str = create_filter("?platform", platform)
@@ -172,11 +161,3 @@ def extract_res(result):
         return [game["game"]["value"] for game in games]
     except Exception as e:
         print(e)
-
-# # Test it with arguments
-# res = combine_Filter(
-#     sparql_obj, 
-#     date=None,
-#     genre=["Adventure", "rpg"],
-#     rating_num=90, 
-#     creator=["nintendo"], startpage
