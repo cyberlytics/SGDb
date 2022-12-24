@@ -91,7 +91,7 @@ def query_game_details(title: str):
 
 def detailpage_content(game_name: str):
     result = query_game_details(game_name)
-    if not result:
+    if len(result["results"]["bindings"]) == 0:
         return None
     bindings = result['results']['bindings'][0]
     return bindings
