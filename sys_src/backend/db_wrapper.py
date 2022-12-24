@@ -20,6 +20,7 @@ def query_all():
     """)
     return sparql
 
+
 # get root graph with title and releaseDate
 def get_root_graph():
     sparql_obj = query_all()
@@ -29,12 +30,13 @@ def get_root_graph():
     ?o schema:releaseDate ?year .
     ?o schema:title ?title .
     }}""")
-    return(sparql_obj.query().convert())
+    return sparql_obj.query().convert()
+
 
 # query for detailpage; content for detail page
-    # param1: sparql object, which is generated in the main.py file
-    # param2: game-name from main.py
-    # return json with content of detail page to particular game
+# param1: sparql object, which is generated in the main.py file
+# param2: game-name from main.py
+# return json with content of detail page to particular game
 
 def subject_to_query(game_name):
     sparql_obj = query_all()
@@ -49,7 +51,8 @@ def subject_to_query(game_name):
     if not subject["results"]["bindings"]:
         return None
     return subject["results"]["bindings"][0]["o"]["value"]
-    
+
+
 def query_the_subject(subject):
     # Search the Query by the given subject
     sparql_obj = query_all()
@@ -61,21 +64,45 @@ def query_the_subject(subject):
         """.format(subject=subject))
     return sparql_obj.query().convert()
 
-# method for searching games with their title
-def detailpage_content(game_name):
-    subject_iri = subject_to_query(game_name)
-    if subject_iri is None:
+
+def query_game_details(title: str):
+    """Query game details by title"""
+
+    graphdb.setQuery("""
+        PREFIX schema: <https://schema.org/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT *
+        WHERE {{
+        ?game rdf:type schema:VideoGame .
+        ?game schema:title ?title .
+        ?game schema:releaseDate ?releaseDate .
+        ?game schema:image ?image .
+        ?game schema:ratingValue ?ratingValue .
+        ?game schema:description ?description .
+        ?game schema:creator ?creator .
+        ?creator schema:name ?creatorName .
+        ?game schema:gamePlatform ?gamePlatform .
+        ?gamePlatform schema:name ?gamePlatformName .
+        ?game schema:genre ?genre .
+        ?genre schema:name ?genreName .
+        FILTER REGEX(?title, "{game_name}", "i")
+        }}
+        """.format(game_name=title))
+    return graphdb.query().convert()
+
+
+def detailpage_content(game_name: str):
+    result = query_game_details(game_name)
+    if not result:
         return {"error": "No game found"}
-    result = query_the_subject(subject_iri)
-    bindings = result['results']['bindings']
-    res = {b['predicate']['value'].split('/')[-1]: b['object']['value'] for b in bindings}
-    return res
+    bindings = result['results']['bindings'][0]
+    return bindings
 
 
 # query for search; search after game-name
-    # param1: sparql object, which is generated in this file
-    # param2: game-name from main.py
-    # return json with possible games
+# param1: sparql object, which is generated in this file
+# param2: game-name from main.py
+# return json with possible games
 
 def search_subject_to_query(game_name):
     sparql_obj = query_all()
@@ -95,6 +122,7 @@ def search_subject_to_query(game_name):
         subject_list.append(subject["results"]["bindings"][i]["o"]["value"])
     return subject_list
 
+
 # method for searching games
 def search_query(game_name):
     subject_iris = search_subject_to_query(game_name)
@@ -104,4 +132,3 @@ def search_query(game_name):
         result.append(query_the_subject(subject_iris[i]))
         result[i] = result[i]["results"]["bindings"]
     return result
-

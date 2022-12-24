@@ -20,12 +20,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
     root_graph = get_root_graph()
     root = {'data': {}, 'filters': {}}
-    for year in range(1985,2023):
+    for year in range(1985, 2023):
         title_in_year = []
         for i in range(len(root_graph["results"]["bindings"])):
             year_string = root_graph["results"]["bindings"][i]["year"]["value"]
@@ -39,6 +40,7 @@ def startpage():
         root['filters'].update(data)
 
     return root
+
 
 @app.post("/")
 def startpage(filter_requests: dict):
@@ -103,6 +105,8 @@ def detailpage(game: str):
     return detailpage_content(game)
 
 
+'''
 # debugging purpose
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8810)
+'''
