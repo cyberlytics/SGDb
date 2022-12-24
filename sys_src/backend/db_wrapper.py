@@ -2,9 +2,9 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 import os
 
 # Get the url to the graphdb repository
-#graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
+graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 # keep the next line for easy debug purpose
-graphdb_url = "http://localhost:7200/repositories/semantic_games"
+#graphdb_url = "http://localhost:7200/repositories/semantic_games"
 
 # Query for whole Graph
 def query_all():
@@ -68,6 +68,7 @@ def query_the_subject(subject):
 def query_game_details(title: str):
     """Query game details by title"""
 
+    graphdb = query_all()
     graphdb.setQuery("""
         PREFIX schema: <https://schema.org/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
