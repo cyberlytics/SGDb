@@ -11,17 +11,6 @@ graphdb = SPARQLWrapper(graphdb_url)
 graphdb.setReturnFormat(JSON)
 
 
-# Query for whole Graph
-def query_all():
-    """Queries the whole graph and returns it"""
-    graphdb.setQuery("""
-        SELECT * WHERE { 
-            ?s ?p ?o .
-        }
-    """)
-    return graphdb
-
-
 # get root graph with title and releaseDate
 def get_root_graph():
     graphdb.setQuery("""
@@ -31,25 +20,6 @@ def get_root_graph():
     ?o schema:title ?title .
     }}""")
     return graphdb.query().convert()
-
-
-# query for detailpage; content for detail page
-# param1: sparql object, which is generated in the main.py file
-# param2: game-name from main.py
-# return json with content of detail page to particular game
-
-def subject_to_query(game_name):
-    # Search the subject to the game name
-    graphdb.setQuery("""
-        PREFIX schema: <https://schema.org/>
-        SELECT ?s ?p ?o WHERE {{ 
-        ?o schema:title "{game_name}" .
-        }}
-        """.format(game_name=game_name))
-    subject = graphdb.query().convert()
-    if not subject["results"]["bindings"]:
-        return None
-    return subject["results"]["bindings"][0]["o"]["value"]
 
 
 def query_the_subject(subject):
