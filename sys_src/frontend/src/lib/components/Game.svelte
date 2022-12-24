@@ -51,7 +51,7 @@
                       <div>
                         <div class="-m-1 flex">
                           <div class="inline-flex overflow-hidden rounded-lg border-4 border-white">
-                            <img class="h-24 w-24 flex-shrink-0 sm:h-40 sm:w-40 lg:h-48 lg:w-48" src={details.image} alt="">
+                            <img class="h-24 w-24 flex-shrink-0 sm:h-40 sm:w-40 lg:h-48 lg:w-48" src={details.image.value} alt="">
                           </div>
                         </div>
                       </div>
@@ -69,29 +69,29 @@
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Description</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">
-                          <p>{details.description}</p>
+                          <p>{details.description.value}</p>
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Creator</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.creator}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.creatorName.value}</dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Platform</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.gamePlatform}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.gamePlatformName.value}</dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Genre</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.genre}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.genreName.value}</dd>
                       </div>
                           <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Rating</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.ratingValue}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">{details.ratingValue.value}</dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Release Date</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">
-                          <time datetime="{details.releaseDate.split("T")[0]}">{details.releaseDate.split("T")[0]}</time>
+                          <time datetime="{details.releaseDate.value}">{details.releaseDate.value}</time>
                         </dd>
                       </div>
                     </dl>
