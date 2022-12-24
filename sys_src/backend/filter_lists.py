@@ -4,11 +4,7 @@ import json
 from SPARQLWrapper import SPARQLWrapper, JSON
 import os
 
-graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
-# keep the next line for easy debug purpose
-#graphdb_url = "http://localhost:7200/repositories/semantic_games"
-
-sparql_obj = SPARQLWrapper(graphdb_url)
+sparql_obj = SPARQLWrapper(os.environ.get('REPOSITORY_ADDR', "http://localhost:7200/repositories/semantic_games"))
 sparql_obj.setReturnFormat(JSON)
 
 """This methods help to get a list for the filters in the frontend
