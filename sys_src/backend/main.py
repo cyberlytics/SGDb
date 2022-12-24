@@ -5,7 +5,7 @@ import json
 from filter_lists import get_data
 
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, JSONResponse
 
 # for debugging purpose
 import uvicorn
@@ -97,12 +97,21 @@ def search(search: str = None):
     else:
         return json.dumps(searched_game)
 
-# detailpage
-@app.get("/detail/{game:path}")
-def detailpage(game: str):
-    # remove possible underscore
-    game = game.replace("_", " ")
-    return detailpage_content(game)
+
+@app.get("/detail/{game}", tags=['Game'])
+async def detailpage(game: str):
+    """
+    Query game details by game name.
+    \f
+    :param game: Name of the game to query for details.
+    """
+    content = detailpage_content(game.replace("_", " "))
+    if not content:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "Game not found"},
+        )
+    return content
 
 
 '''

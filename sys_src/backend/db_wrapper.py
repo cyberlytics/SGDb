@@ -4,33 +4,33 @@ import os
 # Get the url to the graphdb repository
 graphdb_url = 'http://' + os.environ.get('DB_ADDR') + '/repositories/semantic_games'
 # keep the next line for easy debug purpose
-#graphdb_url = "http://localhost:7200/repositories/semantic_games"
+# graphdb_url = "http://localhost:7200/repositories/semantic_games"
+
+# db object initialize
+graphdb = SPARQLWrapper(graphdb_url)
+graphdb.setReturnFormat(JSON)
+
 
 # Query for whole Graph
 def query_all():
-    # db object initialize
-    sparql = SPARQLWrapper(graphdb_url)
-    sparql.setReturnFormat(JSON)
-
     """Queries the whole graph and returns it"""
-    sparql.setQuery("""
+    graphdb.setQuery("""
         SELECT * WHERE { 
             ?s ?p ?o .
         }
     """)
-    return sparql
+    return graphdb
 
 
 # get root graph with title and releaseDate
 def get_root_graph():
-    sparql_obj = query_all()
-    sparql_obj.setQuery("""
+    graphdb.setQuery("""
     PREFIX schema: <https://schema.org/>
     SELECT ?year ?title WHERE {{ 
     ?o schema:releaseDate ?year .
     ?o schema:title ?title .
     }}""")
-    return sparql_obj.query().convert()
+    return graphdb.query().convert()
 
 
 # query for detailpage; content for detail page
@@ -68,7 +68,6 @@ def query_the_subject(subject):
 def query_game_details(title: str):
     """Query game details by title"""
 
-    graphdb = query_all()
     graphdb.setQuery("""
         PREFIX schema: <https://schema.org/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -95,7 +94,7 @@ def query_game_details(title: str):
 def detailpage_content(game_name: str):
     result = query_game_details(game_name)
     if not result:
-        return {"error": "No game found"}
+        return None
     bindings = result['results']['bindings'][0]
     return bindings
 
