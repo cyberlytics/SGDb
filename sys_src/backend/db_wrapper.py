@@ -61,36 +61,15 @@ def detailpage_content(game_name: str):
     bindings = result['results']['bindings'][0]
     return bindings
 
-
-# query for search; search after game-name
-# param1: sparql object, which is generated in this file
-# param2: game-name from main.py
-# return json with possible games
-
-def search_subject_to_query(game_name):
-    # Search the subject to the game name, case-insensitive
-    # if there are more than one game, return all subjects
+# method for searching games
+def search_query(game_name):
     graphdb.setQuery("""
         PREFIX schema: <https://schema.org/>
-        SELECT ?s ?p ?o WHERE {{ 
+        SELECT ?title WHERE {{ 
         ?o schema:title ?title .
         FILTER REGEX(?title, "{game_name}", "i")
         }}
         """.format(game_name=game_name))
-    subject = graphdb.query().convert()
-    subject_list = []
-    # save all possible subjects in a list
-    for i in range(len(subject["results"]["bindings"])):
-        subject_list.append(subject["results"]["bindings"][i]["o"]["value"])
-    return subject_list
-
-
-# method for searching games
-def search_query(game_name):
-    subject_iris = search_subject_to_query(game_name)
-    # in the result list all posible findings will be saved and returned
-    result = []
-    for i in range(len(subject_iris)):
-        result.append(query_the_subject(subject_iris[i]))
-        result[i] = result[i]["results"]["bindings"]
-    return result
+    searched_games = graphdb.query().convert()
+    return searched_games
+    
