@@ -74,14 +74,8 @@
     }
     .filter_box {
 		width: 69em;
-        height: 11em;
-        border: 1px solid rgb(47, 47, 47);
-        border-radius: 7px;
-        box-shadow: 2px 2px 8px rgba(145, 65, 65, 0.1);
-        padding: 2em;
-        margin-left: 1.5em;
-        margin-top: 5em;
-        
+    margin-top: 2em;
+    margin-bottom: 2em;
 	}
     p{
         color: rgb(30, 29, 29); 

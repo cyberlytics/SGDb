@@ -24,7 +24,7 @@
       <!--
         Modal panel, show/hide based on modal state.
       -->
-      <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+      <div class="relative min-w-max transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
         <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
           <button
                   on:click={handleClose}
@@ -37,7 +37,7 @@
             </svg>
           </button>
         </div>
-        <div class="sm:flex sm:items-start">
+        <div class="flex">
           <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
             <!-- Heroicon name: outline/adjustments-horizontal -->
             <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
