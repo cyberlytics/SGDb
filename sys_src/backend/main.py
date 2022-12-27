@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from db_wrapper import detailpage_content, search_query, get_root_graph, query_the_subject
 from db_filter import combine_Filter
-import json
 from filter_lists import get_data
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+graph = {}
 
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
@@ -39,6 +39,8 @@ def startpage():
     for data in filter_data:
         root['filters'].update(data)
 
+    global graph 
+    graph = root
     return root
 
 
@@ -57,7 +59,7 @@ def startpage(filter_requests: dict):
         filtered_iri = filtered_iri["results"]["bindings"]
         filtered_games.append(filtered_iri)
 
-    game_info = {}
+    game_info = {"data": {}}
     for filtered_game in filtered_games:
         game_date = ""
         game_list = []
@@ -67,10 +69,14 @@ def startpage(filter_requests: dict):
             if str(filtered_game[k]["predicate"]["value"]).find("Date") != -1:
                 game_date = filtered_game[k]["object"]["value"][0:4]
         if game_date:
-            if game_date not in game_info:
-                game_info[game_date] = game_list
+            #if game_date not in game_info["data"]:
+            if game_date not in game_info["data"]:
+                    game_info["data"][game_date] = game_list
             else:
-                game_info[game_date].extend(game_list)
+                game_info["data"][game_date].extend(game_list)
+
+    global graph 
+    graph = game_info
     return game_info
 
 # search request
@@ -86,13 +92,29 @@ def search(search: str = None):
     game_list = []
     for i in range(len(searched_game["results"]["bindings"])):
         game_list.append(searched_game["results"]["bindings"][i]["title"]["value"])
-    json_game_list = {"direct_matches": game_list}
+    json_game_list = {"matches": game_list}
 
     if not game_list:
         return JSONResponse(
             status_code=404,
             content={"message": "Game not found"},
         )
+
+    games_graph = []
+    games_in_graph = []
+    games_out_graph = []
+    # create a list (games_graph), which contains all games of the graph (no matter if root, or filtered graph)
+    for year in graph["data"]:
+        for game in graph["data"][year]:
+            games_graph.append(game)
+
+    # extract only the games, which are in the graph
+    games_in_graph.extend(set(json_game_list["matches"]) & set(games_graph))
+    json_game_list.update(match_in_graph = games_in_graph) 
+
+    # extract only the games, which are out of the graph
+    games_out_graph.extend(set(json_game_list["matches"]) - set(games_in_graph))
+    json_game_list.update(match_out_graph = games_out_graph) 
 
     return json_game_list
 
