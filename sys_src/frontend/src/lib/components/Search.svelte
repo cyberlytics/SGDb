@@ -1,10 +1,15 @@
 <script lang="ts">
-  import { searchQuery } from "$stores/search";
+  import { searchQuery } from '$stores/search';
+  import SearchSuggestions from '$components/SearchSuggestions.svelte';
 
   let search = "";
 
   const handleSearch = () => {
     searchQuery.set(search);
+  };
+
+  const handleSuggestion = async (event: CustomEvent<string>) => {
+    search = event.detail;
   };
 
   $: isSearchDisabled = search.length == 0;
@@ -26,7 +31,8 @@
            type="search"
            id="search-input"
            data-testid="search-input"
-           class="block p-4 pl-10 w-full border border-zinc-900 text-sm text-gray-900 rounded-lg focus:outline-none"
+           class:rounded-lg={isSearchDisabled}
+           class="block p-4 pl-10 w-full border border-zinc-900 text-sm text-gray-900 rounded-t-lg focus:outline-none"
            placeholder="Suche nach Videospielen..."
            required
     >
@@ -38,5 +44,8 @@
     >
       Suche
     </button>
+    {#if !isSearchDisabled}
+    <SearchSuggestions on:suggestclick={handleSuggestion}/>
+    {/if}
   </div>
 </div>
