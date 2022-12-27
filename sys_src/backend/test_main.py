@@ -1,8 +1,7 @@
 from fastapi.testclient import TestClient
-from db_wrapper import detailpage_content, search_query
+from db_wrapper import detailpage_content
 from filter_lists import get_data
 from main import app
-import json
 
 client = TestClient(app)
 

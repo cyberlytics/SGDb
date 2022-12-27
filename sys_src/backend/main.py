@@ -5,7 +5,7 @@ import json
 from filter_lists import get_data
 
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse, JSONResponse
+from fastapi.responses import JSONResponse
 
 # for debugging purpose
 import uvicorn

@@ -76,6 +76,3 @@ def get_data():
     creator_list = {"creator": get_filter_vals("creator")}
     platform_list = {"platform": get_filter_vals("gamePlatform")}
     return [genre_list, creator_list, platform_list]
-
-# Save all lists in a json file
-# save_as_json(genre_list, creator_list, platform_list)
