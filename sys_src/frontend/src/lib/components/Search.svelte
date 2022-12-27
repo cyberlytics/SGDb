@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { searchQuery } from '$stores/search';
+  import { searchQuery, searchText, isSearchDisabled, isSearchSuggestionVisible } from '$stores/search';
   import SearchSuggestions from '$components/SearchSuggestions.svelte';
 
   let search = "";
@@ -12,7 +12,7 @@
     search = event.detail;
   };
 
-  $: isSearchDisabled = search.length == 0;
+  $: isSearchDisabled.set(search.length == 0);
 </script>
 
 <div class="w-full">
@@ -28,23 +28,24 @@
       </svg>
     </div>
     <input bind:value={search}
+           on:input={() => searchText.set(search)}
            type="search"
            id="search-input"
            data-testid="search-input"
-           class:rounded-lg={isSearchDisabled}
+           class:rounded-lg={$isSearchDisabled}
            class="block p-4 pl-10 w-full border border-zinc-900 text-sm text-gray-900 rounded-t-lg focus:outline-none"
            placeholder="Suche nach Videospielen..."
            required
     >
     <button
-            disabled={isSearchDisabled}
-            class:cursor-not-allowed="{isSearchDisabled}"
+            disabled={$isSearchDisabled}
+            class:cursor-not-allowed="{$isSearchDisabled}"
             on:click={handleSearch}
             class="text-white absolute right-2.5 bottom-2.5 bg-primary focus:outline-none font-medium rounded-lg text-sm px-4 py-2 disabled:opacity-25"
     >
       Suche
     </button>
-    {#if !isSearchDisabled}
+    {#if $isSearchSuggestionVisible}
     <SearchSuggestions on:suggestclick={handleSuggestion}/>
     {/if}
   </div>

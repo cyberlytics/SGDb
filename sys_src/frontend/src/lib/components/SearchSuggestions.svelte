@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { searchQuery } from '$stores/search';
+  import { searchText } from '$stores/search';
 
   const dispatch = createEventDispatcher();
 
@@ -9,12 +9,12 @@
   };
 
   const formatData = (data) => {
-    if(!data || !data.hasOwnProperty('direct_matches')) return [];
-    return data['direct_matches'];
+    if(!data || !data.hasOwnProperty('matches')) return [];
+    return data['matches'];
   };
 
   const fetchSuggestions = async (search: string) => {
-    const data = await fetch("http://localhost:8000/search/ever");
+    const data = await fetch("http://localhost:8000/search/" + search);
     const response = await data.json();
     return formatData(response);
   };
@@ -22,7 +22,7 @@
 </script>
 
 <ul class="absolute z-10 max-h-60 w-full overflow-auto rounded-b-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y" id="options" role="listbox">
-  {#await fetchSuggestions($searchQuery) then matches}
+  {#await fetchSuggestions($searchText) then matches}
     {#each matches as match}
       <li
               id="option-0"
