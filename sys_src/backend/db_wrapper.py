@@ -87,6 +87,16 @@ def search_subject_to_query(game_name):
 
 # method for searching games
 def search_query(game_name):
+    graphdb.setQuery("""
+        PREFIX schema: <https://schema.org/>
+        SELECT ?title WHERE {{ 
+        ?o schema:title ?title .
+        FILTER REGEX(?title, "{game_name}", "i")
+        }}
+        """.format(game_name=game_name))
+    searched_games = graphdb.query().convert()
+    return searched_games
+'''
     subject_iris = search_subject_to_query(game_name)
     # in the result list all posible findings will be saved and returned
     result = []
@@ -94,3 +104,4 @@ def search_query(game_name):
         result.append(query_the_subject(subject_iris[i]))
         result[i] = result[i]["results"]["bindings"]
     return result
+'''

@@ -73,7 +73,6 @@ def startpage(filter_requests: dict):
                 game_info[game_date].extend(game_list)
     return game_info
 
-
 # search request
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search:path}")
@@ -84,19 +83,18 @@ def search(search: str = None):
     search = search.replace("_", " ")
     # search in the database for the requested game
     searched_game = search_query(search)
-    # if there is one result, redirect to detail-page of the search-result
-    if len(searched_game) == 1:
-        # search in the game object for the title of the game
-        for k in range(len(searched_game[0])):
-            if str(searched_game[0][k]["predicate"]["value"]).find("title") != -1:
-                searched_game = searched_game[0][k]["object"]["value"]
-                break
-        # redirect with title of the game
-        return RedirectResponse(url=f"/detail/{searched_game}", status_code=303)
-    # if there are more search-results, return all
-    else:
-        return json.dumps(searched_game)
+    game_list = []
+    for i in range(len(searched_game["results"]["bindings"])):
+        game_list.append(searched_game["results"]["bindings"][i]["title"]["value"])
+    json_game_list = {"direct_matches": game_list}
 
+    if not game_list:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "Game not found"},
+        )
+
+    return json_game_list
 
 @app.get("/detail/{game}", tags=['Game'])
 async def detailpage(game: str):

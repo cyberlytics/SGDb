@@ -32,14 +32,19 @@ def test_post_startpage():
 def test_search():
     response = client.get('/search/eve')
     assert response.status_code == 200
-    dump_test = json.dumps(search_query("eve"))
-    assert dump_test in str(response.json())
+    assert any(str(match).find("eve") != -1 for match in response.json()["direct_matches"])
     
 # test if it's only a single game with the searched name
 def test_search_single():
     response = client.get('/search/Evergate')
     assert response.status_code == 200
-    assert response.json() == detailpage_content("Evergate")
+    assert response.json()["direct_matches"][0] == "Evergate"
+    assert len(response.json()["direct_matches"]) == 1
+
+def test_search_no_match():
+    response = client.get('/search/xxxxxxx')
+    assert response.status_code == 404
+    assert response.json() == {"message": "Game not found"}
 
 # test if there is no title for search
 def test_search_with_no_content():
