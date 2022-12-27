@@ -10,9 +10,16 @@
     isFilterVisible.set(false);
   };
 
-  const handleFilterApply = () => {
+  let filter; 
+  //passes set filteritems to backend with post-method
+  async function postFilter () {
+		const res = await fetch('http://localhost:8000/', {
+			method: 'POST',
+			body: JSON.parse(filter)
+		})
+		await res.json()
     isFilterVisible.set(false);
-  };
+	}
 </script>
 
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -46,12 +53,12 @@
           </div>
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
             <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Filter</h3>
-            <Filter />
+            <Filter bind:filter={filter}/>
           </div>
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
           <button
-                  on:click={handleFilterApply}
+                  on:click={postFilter}
                   type="button"
                   class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
             Anwenden

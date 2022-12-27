@@ -4,13 +4,14 @@
     import Genre from "./filter-components/Genre.svelte";
     import Platform from "./filter-components/Platform.svelte";
     import Date from "./filter-components/Date.svelte";
-    import Tags from "./filter-components/Tags.svelte"
+    import Tags from "./filter-components/Tags.svelte";
+
+    export let filter;
 
     let creator;
     let num;
     let genre;
     let platform;
-
     
     let genre_color= 'rgb(90, 73, 157)';
     let creator_color ='rgb(66, 153, 63)';
@@ -20,18 +21,26 @@
     let data_genre = [];
     let data_platform = [];
     let data_creator = [];
-    
+
+    //convert to json-string for post request
+    const handleChange = () => {
+        filter = "";
+        filter = JSON.stringify({creator,platform,genre,num});       
+    };
+
+    //append dict values to an array in order to be able to process them in the respective class
     function toArray(data, array){
         array = []
         for (var key in data){
             for(var k in data[key]){
-                array.push( k );
+                array.push(k);
             }
         }
         console.log(array);
         return array;
     }
 
+    //get filteritems of the appropriate category from the backend
     onMount(async function () {
         const res = await fetch('http://localhost:8000/', {
 			method: 'GET'
@@ -41,17 +50,9 @@
         data_platform = toArray(data.filters.platform, data_platform);
         data_creator = toArray(data.filters.creator, data_creator);
     });
-    //passes set filteritems to backend with post-method dynamicly
-    async function postObj () {
-		const res = await fetch('https://httpbin.org/post', {
-			method: 'POST',
-			body: JSON.stringify({creator,genre,platform,num})
-		})
-		await res.json()
-	}
 </script>
 <!--Modal contains filter options and set filteritem tags-->
-<div class="filter_box" on:change={postObj}>
+<div class="filter_box" on:change={handleChange}>
     <div class="position">
         <!--Creates new filteroptions, returns checked items as values in a list 
         and passes color-variables for style-->
