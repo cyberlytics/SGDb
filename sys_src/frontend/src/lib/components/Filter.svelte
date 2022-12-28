@@ -9,10 +9,10 @@
     export let filter;
 
     let creator;
-    let num;
+    let date;
     let genre;
     let platform;
-    
+
     let genre_color= 'rgb(90, 73, 157)';
     let creator_color ='rgb(66, 153, 63)';
     let platform_color ='rgb(73, 122, 157)';
@@ -25,8 +25,8 @@
     //convert to json-string for post request
     const handleChange = () => {
         filter = "";
-        filter = JSON.stringify({creator,platform,genre,num});       
-    };
+        filter = JSON.stringify({creator,platform,genre,date});
+    }
 
     //append dict values to an array in order to be able to process them in the respective class
     function toArray(data, array){
@@ -59,14 +59,14 @@
         <Genre bind:group={genre} bind:color={genre_color} bind:data={data_genre}/>  
         <Platform bind:group={platform} bind:color={platform_color} bind:data={data_platform}/>
         <Creator bind:group={creator} bind:color={creator_color} bind:data={data_creator}/>    
-        <Date bind:num={num} bind:color={date_color}/>
+        <Date bind:num={date} bind:color={date_color}/>
     </div>
     <div class="tags">
          <!--Creates new tags as checked, passes meantfor colors and values-->
         <Tags bind:group={creator} bind:color={creator_color}/>
         <Tags bind:group={genre} bind:color={genre_color}/>
         <Tags bind:group={platform} bind:color={platform_color}/>
-        <Tags bind:num={num} bind:color={date_color}/>
+        <Tags bind:num={date} bind:color={date_color}/>
     </div>
 </div>
 <style>

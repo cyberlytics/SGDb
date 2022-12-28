@@ -11,14 +11,24 @@
   };
 
   let filter; 
+  let errorVisible = false;
   //passes set filteritems to backend with post-method
   async function postFilter () {
-		const res = await fetch('http://localhost:8000/', {
-			method: 'POST',
-			body: JSON.parse(filter)
-		})
-		await res.json()
-    isFilterVisible.set(false);
+		const response = await fetch("http://localhost:8000/", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: filter,
+    }).then(response => { 
+      response.json()
+      console.log(response)
+      isFilterVisible.set(false);
+    }).catch(error => {
+      errorVisible = true;
+      console.log('Keine Ergebnisse gefunden')
+    });
 	}
 </script>
 
@@ -55,6 +65,11 @@
             <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Filter</h3>
             <Filter bind:filter={filter}/>
           </div>
+          {#if errorVisible ==true}
+          <div class = "absolute text-left top-60 left-20">
+            <p class="text-red-600"> Keine Ergebnisse</p>
+          </div> 
+            {/if}
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
           <button
