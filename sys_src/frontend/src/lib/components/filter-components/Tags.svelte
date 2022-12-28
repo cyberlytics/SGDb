@@ -1,10 +1,10 @@
 <script>
     export let group = [];
-    export let num = undefined;
+    export let date = undefined;
     export let color;
     
     //removes the num-tag from the frontend and the list. reset the num-inputs in Date.svlete
-    const removeNum = () => num = undefined;
+    const removeNum = () => date = undefined;
 
     //removes the tag of the given list-component in frontend and list. 
     function removeTag(tag){
@@ -13,8 +13,8 @@
 
 </script>
 <!--create a new num-tag with given color-->
-{#if num!=undefined}
-    <span class="input-tag" style="background-color:{color}">{num}</span>
+{#if date!=undefined}
+    <span class="input-tag" style="background-color:{color}">{date}</span>
     <button type="button" style="color:{color}" class="remove-tag" on:click={removeNum}>&times;</button>
 {/if}
 <!--create a new list-tag with given color-->

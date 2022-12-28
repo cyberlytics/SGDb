@@ -59,14 +59,14 @@
         <Genre bind:group={genre} bind:color={genre_color} bind:data={data_genre}/>  
         <Platform bind:group={platform} bind:color={platform_color} bind:data={data_platform}/>
         <Creator bind:group={creator} bind:color={creator_color} bind:data={data_creator}/>    
-        <Date bind:num={date} bind:color={date_color}/>
+        <Date bind:date={date} bind:color={date_color}/>
     </div>
     <div class="tags">
          <!--Creates new tags as checked, passes meantfor colors and values-->
         <Tags bind:group={creator} bind:color={creator_color}/>
         <Tags bind:group={genre} bind:color={genre_color}/>
         <Tags bind:group={platform} bind:color={platform_color}/>
-        <Tags bind:num={date} bind:color={date_color}/>
+        <Tags bind:date={date} bind:color={date_color}/>
     </div>
 </div>
 <style>
