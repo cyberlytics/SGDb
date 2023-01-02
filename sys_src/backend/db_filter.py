@@ -1,6 +1,7 @@
 from collections import Counter
 from urllib.parse import quote
 from SPARQLWrapper import SPARQLWrapper, JSON
+from db_wrapper import detailpage_content
 import os
 
 sparql_obj = SPARQLWrapper(os.environ.get('REPOSITORY_ADDR', "http://localhost:7200/repositories/semantic_games"))
@@ -18,60 +19,89 @@ def combine_Filter(filter_requests):
     Matches Substrings and it is case insensitive"""
 
     game_list = {}
-
+    games = []
+    
     if "date" in filter_requests:
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_date(filter_requests["date"]))
-        else: 
-            pass
+
+    if "rating_num" in filter_requests:
+        if "recommendation" not in filter_requests:
+            game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
+
     if "genre" in filter_requests:
         if "recommendation" not in filter_requests:
             for element in range(len(filter_requests["genre"])):  
                 game_list = extend_list(game_list, fil_genre(filter_requests["genre"][element-1]))
         else: 
-            game_list.update(fil_genre(filter_requests["genre"]))
-    if "rating_num" in filter_requests:
-        if "recommendation" not in filter_requests:
-            game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
-        else: 
-            game_list.update(fil_rating(filter_requests["rating_num"]))
+            for element in range(len(filter_requests["genre"])):
+                print(element-1)
+                res = fil_genre(filter_requests["genre"][element-1])
+                games.extend(get_titles(res))
+
     if "creator" in filter_requests:
         if "recommendation" not in filter_requests:
             for element in range(len(filter_requests["creator"])):  
                 game_list = extend_list(game_list, fil_creator(filter_requests["creator"][element-1]))
         else: 
-            game_list.update(fil_creator(filter_requests["creator"]))
+            for element in range(len(filter_requests["creator"])):  
+                res = fil_creator(filter_requests["creator"][element-1])
+                games.extend(get_titles(res))
+
     if "platform" in filter_requests:
         if "recommendation" not in filter_requests:
             for element in range(len(filter_requests["platform"])):  
                 game_list = extend_list(game_list, fil_platform(filter_requests["platform"][element-1]))
         else: 
-            game_list.update(fil_platform(filter_requests["platform"]))
-    return game_list
+            for element in range(len(filter_requests["platform"])): 
+                res = fil_platform(filter_requests["platform"][element-1])
+                games.extend(get_titles(res))
+
+    if "recommendation" not in filter_requests:
+        return game_list
+    else: 
+        return get_biggest_intersec(games, filter_requests["title"])
 
 
-def extend_list(game_list, func_res, recommendation=False):
+def get_titles(result):
+    """Extract the Titles of a game dictionary"""
+    games = [] 
+    result = result["results"]["bindings"]
+    for game in result:
+        if game["title"]["value"] not in games:
+            games.append(game["title"]["value"])
+    return games
+
+
+def get_biggest_intersec(results, title):
+    """Find the game which fits the given game the best by counting similiar attributes 
+    and return the game with the most similiar attributes"""
+    if results:
+        # remove all titles of the list which matches the title of the given game
+        results = [game for game in results if game != title]
+        # Search for the most common game name
+        mc_games = Counter(results).most_common(1)
+        return mc_games[0][0]
+    else:
+        return ["Couldn't find a similar game"]
+
+
+def extend_list(game_list, func_res):
     """Only returns games that were already included in the results of other filters"""
     if(func_res):
         func_res = func_res["results"]["bindings"]
         if len(game_list) != 0:
             if game_list[0] is not None:
-                # If only exact matches should be returned
-                if not recommendation:
-                    intersec = []
-                    for i in game_list:
-                            for k in func_res:
-                                if i["title"]["value"] == k["title"]["value"] and i not in intersec: 
-                                    intersec.append(i)
-                                    break
-                    if intersec:
-                        return intersec
-                    else:
-                        return [None]
-            # If recommendations should be returned
-            if recommendation:
-                return get_biggest_intersec(game_list)
-
+                intersec = []
+                for i in game_list:
+                        for k in func_res:
+                            if i["title"]["value"] == k["title"]["value"] and i not in intersec: 
+                                intersec.append(i)
+                                break
+                if intersec:
+                    return intersec
+                else:
+                    return [None]
         else:
             # if the list is empty fill it with the first results 
             return func_res 
@@ -80,13 +110,8 @@ def extend_list(game_list, func_res, recommendation=False):
         return ["There is no game in the Database for the used Filter"]
 
 
-def get_biggest_intersec(game_list):
-    """Find the game which fits the other game the best"""
-    return Counter(game_list).most_common()
-
-
 def fil_date(year): 
-    """Filter the games by the release year."""
+    """Filter the games by the release year"""
     sparql_obj.setQuery("""
         PREFIX schema: <https://schema.org/>
         SELECT ?title ?date WHERE {{ 
@@ -165,3 +190,5 @@ def fil_platform(platform):
         }}
         """.format(fil_str=fil_str))
     return sparql_obj.queryAndConvert()
+
+print(combine_Filter({"title" : ["Mass Effect Legendary Edition"], "recommendation": "", "platform": ["Nintendo"], "genre" : ["adventure"], "creator" : ["Nintendo"]}))
