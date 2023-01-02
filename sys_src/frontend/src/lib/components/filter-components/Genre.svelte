@@ -1,7 +1,10 @@
 <script>
+    import { filter_data, toArray } from '$stores/filter.ts';
     export let group = [];
     export let color;
-    export let data = [];
+    let data = toArray($filter_data.genre);
+
+
 </script>
 <!--Options for genre-filter.
 The color of the box depends on the content in the listobject.
@@ -12,11 +15,10 @@ It serves to differentiate between the filters and the tags-->
         <h2 style="color:{color}">Genre</h2>
         <div class='filter_container' style="color:{color}">
             <!--a new checkbox is created for each value in the genre list-->
-            {#each data as genre}
+            {#each [...data] as [genre, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
                     <input type=checkbox value={genre} bind:group>
-                    {genre} <br />
-                </label>
+                    {genre} </label><p>({vals})</p> <br />
             {/each}
         </div>
     {/if}
@@ -24,16 +26,28 @@ It serves to differentiate between the filters and the tags-->
     {#if group.length === 0}
     <h2 style="color:rgb(30, 29, 29)">Genre</h2>
         <div class='filter_container' style="border-color:#ccc">
-            {#each data as genre}
+            {#each [...data] as [genre, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
                     <input type=checkbox value={genre} bind:group>
-                    {genre} <br />
-                </label>
+                    {genre} </label><p>({vals})</p> <br />
             {/each}
         </div>
     {/if}
 </div>
 <style>
+    p {
+        font-size: 14px;
+        color:blue;
+        float: right;
+    }
+    label{
+        display: inline-block;
+        text-overflow:ellipsis;
+        width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
     .left{
         float: left;
     }
@@ -43,6 +57,7 @@ It serves to differentiate between the filters and the tags-->
         width: 180px;
         height: 98px;
         overflow-y: scroll;
+        overflow-x: scroll;
         text-align: left;
     }
 </style>

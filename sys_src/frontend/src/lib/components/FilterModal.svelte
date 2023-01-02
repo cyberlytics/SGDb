@@ -1,6 +1,6 @@
 <script>
   import Filter from './Filter.svelte';
-  import { isFilterVisible } from '$stores/filter.ts';
+  import { isFilterVisible, graphData, isPost } from '$stores/filter.ts';
 
   const handleClose = () => {
     isFilterVisible.set(false);
@@ -22,14 +22,14 @@
       },
       body: filter,
     }).then(response => { 
-      response.json()
-      console.log(response)
-      isFilterVisible.set(false);
+      graphData.set(response.json());
     }).catch(error => {
+      console.log(error);
       errorVisible = true;
-      console.log('Keine Ergebnisse gefunden')
     });
-	}
+    isPost.set(true);
+    isFilterVisible.set(false);
+    }
 </script>
 
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">

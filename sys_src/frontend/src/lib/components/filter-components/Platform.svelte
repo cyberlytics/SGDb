@@ -1,7 +1,9 @@
 <script>
+    import { filter_data, toArray } from '$stores/filter.ts';
+
     export let group = [];
     export let color;
-    export let data = [];
+    export let data = toArray($filter_data.platform);
 </script>
 <!--Options for platform-filter.
 The color of the box depends on the content in the listobject.
@@ -12,11 +14,11 @@ It serves to differentiate between the filters and the tags-->
         <h2 style="color:{color}">Platform</h2>
         <div class='filter_container' style="border-color:{color}">
             <!--a new checkbox is created for each value in the platform list-->
-            {#each data as platform}
+            {#each [...data] as [platform, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
                     <input type=checkbox value={platform} bind:group>
-                    {platform}<br />
-                </label>
+                    {platform}</label><p>({vals})</p> <br />
+
             {/each}
         </div>
     {/if}
@@ -24,17 +26,28 @@ It serves to differentiate between the filters and the tags-->
     {#if group.length === 0}
         <h2 style="color:rgb(30, 29, 29)">Platform</h2>
                 <div class='filter_container' style="border-color:#ccc">
-                    {#each data as platform}
+                    {#each [...data] as [platform, vals]}
                         <label class="border-zinc-900 text-sm text-gray-900">
                             <input type=checkbox value={platform} bind:group>
-                            {platform}<br />
-                        </label>
+                            {platform} </label><p>({vals})</p> <br />
                     {/each}
                 </div>
     {/if}
 
 </div>
 <style>
+    p {
+        font-size: 14px;
+        color:blue;
+        float: right;
+    }
+    label{
+        display: inline-block;
+        text-overflow:ellipsis;
+        width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
     .left{
         float:left;
     }
@@ -47,6 +60,8 @@ It serves to differentiate between the filters and the tags-->
         width: 180px;
         height: 98px;
         overflow-y: scroll;
+        -o-text-overflow: ellipsis;    /* Opera < 11*/
+        text-overflow:    ellipsis;    /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
         text-align: left;
     }
         

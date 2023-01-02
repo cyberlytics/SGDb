@@ -1,4 +1,21 @@
-import { writable } from 'svelte/store';
+import { writable} from 'svelte/store';
+
 
 export const isFilterVisible = writable(false);
 export const isFilterDisabled = writable(true);
+
+export let filter_data = writable("");
+
+export const isPost = writable(false);
+export let graphData = writable("");
+
+//append dict values to an array in order to be able to process them in the respective class
+export function toArray(data){
+    let dict = new Map();
+    for (var key in data){
+        for(var k in data[key]){
+            dict.set(k, data[key][k])
+        }
+    }
+    return dict;
+}
