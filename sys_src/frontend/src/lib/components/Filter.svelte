@@ -8,7 +8,7 @@
 
     let creator;
     let platform=[];
-    let genre=[] ;
+    let genre=[];
     let date;
 
     let genre_color= 'rgb(90, 73, 157)';
@@ -20,7 +20,7 @@
     $: filter = JSON.stringify({creator, platform, genre, date});
     $: filterSettings.set(filter);
     
-    $: if(creator=="" && platform.length===0 && genre.length==0 && date==0){
+    $: if(creator==undefined && platform.length==0 && genre.length==0 && date==undefined){
         filterSettings.set('');
     }
 
