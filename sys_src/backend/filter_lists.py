@@ -18,7 +18,7 @@ def get_filter_vals(schema_type, top_n=True):
     res_list = extract_obj(res)
     reg_list = use_regex(res_list)
     if top_n:
-        return get_most_frequents(reg_list, 15)
+        return get_most_frequents(reg_list, None)
     else:
         return reg_list
 
@@ -76,6 +76,3 @@ def get_data():
     creator_list = {"creator": get_filter_vals("creator")}
     platform_list = {"platform": get_filter_vals("gamePlatform")}
     return [genre_list, creator_list, platform_list]
-
-# Save all lists in a json file
-# save_as_json(genre_list, creator_list, platform_list)

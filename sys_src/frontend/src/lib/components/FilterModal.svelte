@@ -13,7 +13,6 @@
   let errorVisible = false;
   //passes set filteritems to backend with post-method
   async function postFilter () {
-    console.log($filterSettings);
     if($filterSettings!=''){
       fetch('http://localhost:8000/', {
       mode: 'cors',
