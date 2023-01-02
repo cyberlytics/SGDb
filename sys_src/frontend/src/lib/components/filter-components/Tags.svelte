@@ -1,10 +1,12 @@
 <script>
     export let group = [];
-    export let num = undefined;
+    export let creator = undefined;
+    export let date = undefined;
     export let color;
     
     //removes the num-tag from the frontend and the list. reset the num-inputs in Date.svlete
-    const removeNum = () => num = undefined;
+    const removeNum = () => date = undefined;
+    const removeCreator = () => creator = undefined;
 
     //removes the tag of the given list-component in frontend and list. 
     function removeTag(tag){
@@ -13,17 +15,22 @@
 
 </script>
 <!--create a new num-tag with given color-->
-{#if num!=undefined}
-    <span class="input-tag" style="background-color:{color}">{num}</span>
-    <button type="button" style="color:{color}" class="remove-tag" on:click={removeNum}>&times;</button>
+{#if date!=undefined}
+    <span class="input-tag" style="background-color:{color}">{date} 
+    <button type="button"  class="remove-tag" on:click={removeNum}>&times;</button></span>
+{/if}
+{#if creator!=undefined}
+    <span class="input-tag" style="background-color:{color}">{creator} 
+    <button type="button" class="remove-tag" on:click={removeCreator}>&times;</button></span>
 {/if}
 <!--create a new list-tag with given color-->
 {#if group!=undefined}
     {#each group as tag}
-        <span class="input-tag" style="background-color: {color}">{tag}</span>
-        <button type="button" class="remove-tag" style="color:{color}" on:click={() => removeTag(tag)}>
-            &times;
-        </button>
+        <span class="input-tag" style="background-color: {color}">{tag} 
+            <button type="button" class="remove-tag" on:click={() => removeTag(tag)}>
+             &times;
+            </button>
+        </span>
     {/each}
 {/if}
 
@@ -45,6 +52,8 @@
         cursor: pointer;
     }
     .remove-tag{
+        color: white;
+        margin-left: .5rem;
         font-size: 1.125rem;
         line-height: 1;
     }

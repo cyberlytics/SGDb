@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from db_wrapper import detailpage_content, search_query, get_root_graph, query_the_subject
+from db_wrapper import detailpage_content, search_query, get_root_graph
 from db_filter import combine_Filter
 from filter_lists import get_data
 
@@ -24,8 +24,8 @@ graph = {}
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
 def startpage():
-    root_graph = get_root_graph()
     root = {'data': {}, 'filters': {}}
+    root_graph = get_root_graph()
     for year in range(1985, 2023):
         title_in_year = []
         for i in range(len(root_graph["results"]["bindings"])):

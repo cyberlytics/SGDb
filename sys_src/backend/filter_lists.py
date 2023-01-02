@@ -18,7 +18,7 @@ def get_filter_vals(schema_type, top_n=True):
     res_list = extract_obj(res)
     reg_list = use_regex(res_list)
     if top_n:
-        return get_most_frequents(reg_list, 15)
+        return get_most_frequents(reg_list, None)
     else:
         return reg_list
 
