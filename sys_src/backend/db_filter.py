@@ -35,7 +35,6 @@ def combine_Filter(filter_requests):
                 game_list = extend_list(game_list, fil_genre(filter_requests["genre"][element-1]))
         else: 
             for element in range(len(filter_requests["genre"])):
-                print(element-1)
                 res = fil_genre(filter_requests["genre"][element-1])
                 games.extend(get_titles(res))
 
@@ -190,5 +189,3 @@ def fil_platform(platform):
         }}
         """.format(fil_str=fil_str))
     return sparql_obj.queryAndConvert()
-
-print(combine_Filter({"title" : ["Mass Effect Legendary Edition"], "recommendation": "", "platform": ["Nintendo"], "genre" : ["adventure"], "creator" : ["Nintendo"]}))
