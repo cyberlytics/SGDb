@@ -116,13 +116,13 @@ In addition to presenting these Atari classics exactly as they were, the talente
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Hack%20and%20slash/Beat%20%27em%20up>, <Arcade>;
-  schema:creator <Digital%20Eclipse%2CAtari>;
+  schema:creator <Digital%20Eclipse>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4xgf.jpg> .
 
 <Hack%20and%20slash/Beat%20%27em%20up> schema:name "Hack and slash/Beat 'em up" .
 
-<Digital%20Eclipse%2CAtari> schema:county "United States";
-  schema:name "Digital Eclipse,Atari" .
+<Digital%20Eclipse> schema:county "United States";
+  schema:name "Digital Eclipse" .
 
 <Arcade> schema:name "Arcade" .
 
@@ -137,11 +137,8 @@ The NieR: Automata - The End of YoRHa Edition includes the game itself and comes
   schema:releaseDate "2022-06-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Square%20Enix%2CPlatinumGames>;
+  schema:creator <Square%20Enix>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5jbj.jpg> .
-
-<Square%20Enix%2CPlatinumGames> schema:county "Japan";
-  schema:name "Square Enix,PlatinumGames" .
 
 <Adventure> schema:name "Adventure" .
 
@@ -153,13 +150,13 @@ The NieR: Automata - The End of YoRHa Edition includes the game itself and comes
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Puzzle>, <Adventure>;
-  schema:creator <Playstack%2CStubby%20Games>;
+  schema:creator <Playstack>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co53fg.jpg> .
 
 <Puzzle> schema:name "Puzzle" .
 
-<Playstack%2CStubby%20Games> schema:county "United Kingdom";
-  schema:name "Playstack,Stubby Games" .
+<Playstack> schema:county "United Kingdom";
+  schema:name "Playstack" .
 
 <203517> a schema:VideoGame;
   schema:title "Inertial Drift: Twilight Rivals Edition";
@@ -168,13 +165,13 @@ The NieR: Automata - The End of YoRHa Edition includes the game itself and comes
   schema:releaseDate "2022-10-20T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Racing>, <Indie>, <Arcade>;
-  schema:creator <Level%2091%20Entertainment%2CPQube>;
+  schema:creator <Level%2091%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co53pl.jpg> .
 
 <Racing> schema:name "Racing" .
 
-<Level%2091%20Entertainment%2CPQube> schema:county "United Kingdom";
-  schema:name "Level 91 Entertainment,PQube" .
+<Level%2091%20Entertainment> schema:county "United Kingdom";
+  schema:name "Level 91 Entertainment" .
 
 <203366> a schema:VideoGame;
   schema:title "Rollerdrome";
@@ -183,11 +180,11 @@ The NieR: Automata - The End of YoRHa Edition includes the game itself and comes
   schema:releaseDate "2022-08-16T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <PlayStation%205>;
   schema:genre <Shooter>, <Sport>, <Adventure>, <Indie>;
-  schema:creator <Private%20Division%2CRoll7>;
+  schema:creator <Private%20Division>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4tg1.jpg> .
 
-<Private%20Division%2CRoll7> schema:county "United States";
-  schema:name "Private Division,Roll7" .
+<Private%20Division> schema:county "United States";
+  schema:name "Private Division" .
 
 <Sport> schema:name "Sport" .
 
@@ -201,12 +198,11 @@ Ikaruga is a balls-hard shmup with lots of difficulty even at the easiest level,
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Xbox%20360>, <Nintendo%20GameCube>,
     <Dreamcast>, <Android>, <PlayStation%204>, <Arcade>, <Nintendo%20Switch>;
   schema:genre <Shooter>, <Arcade>;
-  schema:creator <Nicalis%2C%20Inc.%2CG.rev%2CAtari%2CEntertainment%20Software%20Publishing%20Inc.%2CTreasure>;
+  schema:creator <Nicalis>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4zp5.jpg> .
 
-<Nicalis%2C%20Inc.%2CG.rev%2CAtari%2CEntertainment%20Software%20Publishing%20Inc.%2CTreasure>
-  schema:county "United States";
-  schema:name "Nicalis, Inc.,G.rev,Atari,Entertainment Software Publishing Inc.,Treasure" .
+<Nicalis> schema:county "United States";
+  schema:name "Nicalis" .
 
 <Xbox%20360> schema:name "Xbox 360" .
 
@@ -253,11 +249,11 @@ The No Man’s Sky Nintendo Switch Edition includes five years of updates that w
   schema:releaseDate "2022-06-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20Switch>;
   schema:genre <Shooter>, <Platform>, <Puzzle>, <Adventure>;
-  schema:creator <Valve%20Corporation%2CNVIDIA%20Lightspeed%20Studios>;
+  schema:creator <Valve%20Corporation>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4hap.jpg> .
 
-<Valve%20Corporation%2CNVIDIA%20Lightspeed%20Studios> schema:county "United States";
-  schema:name "Valve Corporation,NVIDIA Lightspeed Studios" .
+<Valve%20Corporation> schema:county "United States";
+  schema:name "Valve Corporation" .
 
 <Platform> schema:name "Platform" .
 
@@ -268,12 +264,12 @@ The No Man’s Sky Nintendo Switch Edition includes five years of updates that w
   schema:releaseDate "2022-03-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Point-and-click>, <Puzzle>, <Adventure>, <Indie>;
-  schema:creator <Rendlike%2CJoystick%20Ventures>;
+  schema:creator <Rendlike>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4hlf.jpg> .
 
 <Point-and-click> schema:name "Point-and-click" .
 
-<Rendlike%2CJoystick%20Ventures> schema:name "Rendlike,Joystick Ventures" .
+<Rendlike> schema:name "Rendlike" .
 
 <187083> a schema:VideoGame;
   schema:title "Shores of Loci";
@@ -294,11 +290,11 @@ The No Man’s Sky Nintendo Switch Edition includes five years of updates that w
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>;
   schema:genre <Platform>, <Puzzle>, <Adventure>, <Indie>;
-  schema:creator <Studio%20Voyager%2CIguanaBee%2CUntold%20Tales>;
+  schema:creator <Studio%20Voyager>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3ywp.jpg> .
 
-<Studio%20Voyager%2CIguanaBee%2CUntold%20Tales> schema:county "Chile";
-  schema:name "Studio Voyager,IguanaBee,Untold Tales" .
+<Studio%20Voyager> schema:county "Chile";
+  schema:name "Studio Voyager" .
 
 <175663> a schema:VideoGame;
   schema:title "Kingdom Two Crowns: Norse Lands";
@@ -326,12 +322,11 @@ The No Man’s Sky Nintendo Switch Edition includes five years of updates that w
   schema:releaseDate "2022-02-24T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <Gust%2CKoei%20Tecmo%2CKoei%20Tecmo%20America%20Corporation%2CKoei%20Tecmo%20Europe>;
+  schema:creator <Gust>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co56gw.jpg> .
 
-<Gust%2CKoei%20Tecmo%2CKoei%20Tecmo%20America%20Corporation%2CKoei%20Tecmo%20Europe>
-  schema:county "Japan";
-  schema:name "Gust,Koei Tecmo,Koei Tecmo America Corporation,Koei Tecmo Europe" .
+<Gust> schema:county "Japan";
+  schema:name "Gust" .
 
 <172756> a schema:VideoGame;
   schema:title "Dungeon Encounters";
@@ -350,11 +345,11 @@ The No Man’s Sky Nintendo Switch Edition includes five years of updates that w
   schema:releaseDate "2021-10-21T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Oculus%20Quest%202>;
   schema:genre <Shooter>;
-  schema:creator <Armature%20Studio%2CCapcom%20Co.%2C%20LTD.>;
+  schema:creator <Armature%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3zab.jpg> .
 
-<Armature%20Studio%2CCapcom%20Co.%2C%20LTD.> schema:county "United States";
-  schema:name "Armature Studio,Capcom Co., LTD." .
+<Armature%20Studio> schema:county "United States";
+  schema:name "Armature Studio" .
 
 <172425> a schema:VideoGame;
   schema:title "Monster Hunter Rise: Sunbreak";
@@ -393,11 +388,11 @@ As the hunter who saved Kamura from calamity, you must now journey to the far-of
   schema:releaseDate "2022-10-13T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Point-and-click>, <Adventure>, <Indie>;
-  schema:creator <Color%20Gray%20Games%2CPlaystack>;
+  schema:creator <Color%20Gray%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co54g4.jpg> .
 
-<Color%20Gray%20Games%2CPlaystack> schema:county "United Kingdom";
-  schema:name "Color Gray Games,Playstack" .
+<Color%20Gray%20Games> schema:county "United Kingdom";
+  schema:name "Color Gray Games" .
 
 <166326> a schema:VideoGame;
   schema:title "Gunvolt Chronicles: Luminous Avenger iX 2";
@@ -421,12 +416,11 @@ As the hunter who saved Kamura from calamity, you must now journey to the far-of
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <Xbox%20Series%20X%7CS>;
   schema:genre <Shooter>, <Adventure>;
-  schema:creator <Nightdive%20Studios%2CThrowback%20Entertainment%2CLobotomy%20Software>;
+  schema:creator <Nightdive%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3klq.jpg> .
 
-<Nightdive%20Studios%2CThrowback%20Entertainment%2CLobotomy%20Software> schema:county
-    "United States";
-  schema:name "Nightdive Studios,Throwback Entertainment,Lobotomy Software" .
+<Nightdive%20Studios> schema:county "United States";
+  schema:name "Nightdive Studios" .
 
 <163826> a schema:VideoGame;
   schema:title "Blake: The Visual Novel";
@@ -435,10 +429,10 @@ As the hunter who saved Kamura from calamity, you must now journey to the far-of
   schema:releaseDate "2021-08-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Indie>;
-  schema:creator <Ori%20Mees%2CLegendOri%20Productions>;
+  schema:creator <Ori%20Mees>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3mcj.jpg> .
 
-<Ori%20Mees%2CLegendOri%20Productions> schema:name "Ori Mees,LegendOri Productions" .
+<Ori%20Mees> schema:name "Ori Mees" .
 
 <Mac> schema:name "Mac" .
 
@@ -462,11 +456,11 @@ As the hunter who saved Kamura from calamity, you must now journey to the far-of
   schema:releaseDate "2022-04-21T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Indie>;
-  schema:creator <Read%20Graves%2CThe%20Yogscast>;
+  schema:creator <Read%20Graves>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4n8h.jpg> .
 
-<Read%20Graves%2CThe%20Yogscast> schema:county "United Kingdom";
-  schema:name "Read Graves,The Yogscast" .
+<Read%20Graves> schema:county "United Kingdom";
+  schema:name "Read Graves" .
 
 <157244> a schema:VideoGame;
   schema:title "Kayak VR: Mirage";
@@ -525,11 +519,11 @@ All four games are enhanced with newly added modern features such as Rewind, Sav
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>;
   schema:genre <Platform>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Konami%2CM2>;
+  schema:creator <Konami>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3vn4.jpg> .
 
-<Konami%2CM2> schema:county "Japan";
-  schema:name "Konami,M2" .
+<Konami> schema:county "Japan";
+  schema:name "Konami" .
 
 <152398> a schema:VideoGame;
   schema:title "Mushihimesama";
@@ -554,11 +548,11 @@ The Switch version of Mushihime-sama includes the standard, Arrange, and v1.5 ve
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Simulator>;
-  schema:creator <Aesir%20Interactive%2Castragon%20Entertainment%20GmbH>;
+  schema:creator <Aesir%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co39t1.jpg> .
 
-<Aesir%20Interactive%2Castragon%20Entertainment%20GmbH> schema:county "Germany";
-  schema:name "Aesir Interactive,astragon Entertainment GmbH" .
+<Aesir%20Interactive> schema:county "Germany";
+  schema:name "Aesir Interactive" .
 
 <152266> a schema:VideoGame;
   schema:title "Warhammer 40,000: Chaos Gate - Daemonhunters";
@@ -567,11 +561,11 @@ The Switch version of Mushihime-sama includes the standard, Arrange, and v1.5 ve
   schema:releaseDate "2022-05-05T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Tactical>;
-  schema:creator <Frontier%20Foundry%2CComplex%20Games>;
+  schema:creator <Frontier%20Foundry>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co39r6.jpg> .
 
-<Frontier%20Foundry%2CComplex%20Games> schema:county "Canada";
-  schema:name "Frontier Foundry,Complex Games" .
+<Frontier%20Foundry> schema:county "Canada";
+  schema:name "Frontier Foundry" .
 
 <152223> a schema:VideoGame;
   schema:title "Green Hell VR";
@@ -594,11 +588,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:releaseDate "2022-10-20T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20Switch>;
   schema:genre <Strategy>, <Turn-based%20strategy%20%28TBS%29>, <Tactical>, <Adventure>;
-  schema:creator <Ubisoft%20Entertainment%2CUbisoft%20Paris>;
+  schema:creator <Ubisoft%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co52q4.jpg> .
 
-<Ubisoft%20Entertainment%2CUbisoft%20Paris> schema:county "France";
-  schema:name "Ubisoft Entertainment,Ubisoft Paris" .
+<Ubisoft%20Entertainment> schema:county "France";
+  schema:name "Ubisoft Entertainment" .
 
 <Turn-based%20strategy%20%28TBS%29> schema:name "Turn-based strategy (TBS)" .
 
@@ -610,15 +604,15 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Fighting>, <Adventure>, <Indie>, <Arcade>;
-  schema:creator <Guard%20Crush%20Games%2CLizardcube%2CDotEmu>;
+  schema:creator <Guard%20Crush%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co47yu.jpg> .
 
 <Linux> schema:name "Linux" .
 
 <Fighting> schema:name "Fighting" .
 
-<Guard%20Crush%20Games%2CLizardcube%2CDotEmu> schema:county "France";
-  schema:name "Guard Crush Games,Lizardcube,DotEmu" .
+<Guard%20Crush%20Games> schema:county "France";
+  schema:name "Guard Crush Games" .
 
 <152030> a schema:VideoGame;
   schema:title "Dying Light: Platinum Edition";
@@ -642,11 +636,10 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Adventure>, <Indie>, <Visual%20Novel>;
-  schema:creator <Silken%20Sail%20Entertainment%2CTop%20Hat%20Studios%2CSilken%20Sail%20Entertainment>;
+  schema:creator <Silken%20Sail%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4ar1.jpg> .
 
-<Silken%20Sail%20Entertainment%2CTop%20Hat%20Studios%2CSilken%20Sail%20Entertainment>
-  schema:name "Silken Sail Entertainment,Top Hat Studios,Silken Sail Entertainment" .
+<Silken%20Sail%20Entertainment> schema:name "Silken Sail Entertainment" .
 
 <Visual%20Novel> schema:name "Visual Novel" .
 
@@ -657,11 +650,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:releaseDate "2022-10-08T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%20Switch>;
   schema:genre <Point-and-click>, <Platform>, <Puzzle>, <Adventure>, <Indie>;
-  schema:creator <Joystick%20Ventures%2CHappy%20Juice%20Games>;
+  schema:creator <Joystick%20Ventures>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co52ks.jpg> .
 
-<Joystick%20Ventures%2CHappy%20Juice%20Games> schema:county "Israel";
-  schema:name "Joystick Ventures,Happy Juice Games" .
+<Joystick%20Ventures> schema:county "Israel";
+  schema:name "Joystick Ventures" .
 
 <149250> a schema:VideoGame;
   schema:title "Shindig";
@@ -693,11 +686,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:releaseDate "2022-10-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Simulator>, <Strategy>;
-  schema:creator <Paradox%20Development%20Studio%2CParadox%20Interactive>;
+  schema:creator <Paradox%20Development%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4v4h.jpg> .
 
-<Paradox%20Development%20Studio%2CParadox%20Interactive> schema:county "Sweden";
-  schema:name "Paradox Development Studio,Paradox Interactive" .
+<Paradox%20Development%20Studio> schema:county "Sweden";
+  schema:name "Paradox Development Studio" .
 
 <148040> a schema:VideoGame;
   schema:title "The Falconeer: Warrior Edition";
@@ -707,11 +700,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Nintendo%20Switch>,
     <PlayStation%205>;
   schema:genre <Fighting>, <Shooter>, <Simulator>, <Adventure>;
-  schema:creator <3GOO%2CTomas%20Sala%2CWired%20Productions>;
+  schema:creator <3GOO>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3gi1.jpg> .
 
-<3GOO%2CTomas%20Sala%2CWired%20Productions> schema:county "United Kingdom";
-  schema:name "3GOO,Tomas Sala,Wired Productions" .
+<3GOO> schema:county "United Kingdom";
+  schema:name "3GOO" .
 
 <147190> a schema:VideoGame;
   schema:title "They Always Run";
@@ -735,11 +728,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Shooter>, <Platform>, <Sport>, <Indie>, <Arcade>;
-  schema:creator <Roll7%2CTake-Two%20Interactive%2CPrivate%20Division>;
+  schema:creator <Roll7>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2xvs.jpg> .
 
-<Roll7%2CTake-Two%20Interactive%2CPrivate%20Division> schema:county "United Kingdom";
-  schema:name "Roll7,Take-Two Interactive,Private Division" .
+<Roll7> schema:county "United Kingdom";
+  schema:name "Roll7" .
 
 <145319> a schema:VideoGame;
   schema:title "Arcade Paradise";
@@ -749,11 +742,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Puzzle>, <Simulator>, <Strategy>, <Adventure>, <Indie>, <Arcade>;
-  schema:creator <Nosebleed%20Interactive%2CWired%20Productions>;
+  schema:creator <Nosebleed%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2wvp.jpg> .
 
-<Nosebleed%20Interactive%2CWired%20Productions> schema:county "United Kingdom";
-  schema:name "Nosebleed Interactive,Wired Productions" .
+<Nosebleed%20Interactive> schema:county "United Kingdom";
+  schema:name "Nosebleed Interactive" .
 
 <145278> a schema:VideoGame;
   schema:title "Arcade Spirits: The New Challengers";
@@ -764,11 +757,11 @@ The game faithfully recreates the dangerous conditions of the Amazon Jungle. You
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Adventure>, <Indie>, <Arcade>,
     <Visual%20Novel>;
-  schema:creator <PQube%2CFiction%20Factory%20Games%2CRatalaika%20Games>;
+  schema:creator <PQube>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4if8.jpg> .
 
-<PQube%2CFiction%20Factory%20Games%2CRatalaika%20Games> schema:county "United Kingdom";
-  schema:name "PQube,Fiction Factory Games,Ratalaika Games" .
+<PQube> schema:county "United Kingdom";
+  schema:name "PQube" .
 
 <145062> a schema:VideoGame;
   schema:title "Asterix & Obelix: Slap Them All!";
@@ -780,11 +773,11 @@ Unlike the magic potion, the gameplay recipe is pretty straight forward and hold
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>;
   schema:genre <Fighting>, <Hack%20and%20slash/Beat%20%27em%20up>, <Arcade>;
-  schema:creator <Microids%2CMr%20Nutz%20Studio>;
+  schema:creator <Microids>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5pxk.jpg> .
 
-<Microids%2CMr%20Nutz%20Studio> schema:county "France";
-  schema:name "Microids,Mr Nutz Studio" .
+<Microids> schema:county "France";
+  schema:name "Microids" .
 
 <145060> a schema:VideoGame;
   schema:title "Shadow Tactics: Blades of the Shogun - Aiko’s Choice";
@@ -794,11 +787,11 @@ Unlike the magic potion, the gameplay recipe is pretty straight forward and hold
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Puzzle>, <Real%20Time%20Strategy%20%28RTS%29>, <Strategy>, <Tactical>,
     <Adventure>, <Indie>;
-  schema:creator <Daedalic%20Entertainment%2CMimimi%20Games>;
+  schema:creator <Daedalic%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co496x.jpg> .
 
-<Daedalic%20Entertainment%2CMimimi%20Games> schema:county "Germany";
-  schema:name "Daedalic Entertainment,Mimimi Games" .
+<Daedalic%20Entertainment> schema:county "Germany";
+  schema:name "Daedalic Entertainment" .
 
 <145058> a schema:VideoGame;
   schema:title "Blaster Master Zero III";
@@ -822,11 +815,11 @@ Rome: Total War - Collection (original 2004 title)""";
   schema:releaseDate "2021-04-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Real%20Time%20Strategy%20%28RTS%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <CREATIVE%20ASSEMBLY%2CFeral%20Interactive>;
+  schema:creator <CREATIVE%20ASSEMBLY>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2w4b.jpg> .
 
-<CREATIVE%20ASSEMBLY%2CFeral%20Interactive> schema:county "United Kingdom";
-  schema:name "CREATIVE ASSEMBLY,Feral Interactive" .
+<CREATIVE%20ASSEMBLY> schema:county "United Kingdom";
+  schema:name "CREATIVE ASSEMBLY" .
 
 <144782> a schema:VideoGame;
   schema:title "Doctor Who: The Lonely Assassins";
@@ -836,11 +829,11 @@ Rome: Total War - Collection (original 2004 title)""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Android>, <iOS>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Puzzle>, <Role-playing%20%28RPG%29>, <Simulator>, <Adventure>, <Indie>;
-  schema:creator <Maze%20Theory%2CKaigan%20Games>;
+  schema:creator <Maze%20Theory>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2vgh.jpg> .
 
-<Maze%20Theory%2CKaigan%20Games> schema:county "United Kingdom";
-  schema:name "Maze Theory,Kaigan Games" .
+<Maze%20Theory> schema:county "United Kingdom";
+  schema:name "Maze Theory" .
 
 <iOS> schema:name "iOS" .
 
@@ -880,11 +873,11 @@ Get those bags packed and ready – paradise awaits!""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>, <Xbox%20One>,
     <Google%20Stadia>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <ZeniMax%20Online%20Studios%2CBethesda%20Softworks>;
+  schema:creator <ZeniMax%20Online%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2usv.jpg> .
 
-<ZeniMax%20Online%20Studios%2CBethesda%20Softworks> schema:county "United States";
-  schema:name "ZeniMax Online Studios,Bethesda Softworks" .
+<ZeniMax%20Online%20Studios> schema:county "United States";
+  schema:name "ZeniMax Online Studios" .
 
 <Google%20Stadia> schema:name "Google Stadia" .
 
@@ -896,11 +889,11 @@ Get those bags packed and ready – paradise awaits!""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Nintendo%20Switch>,
     <PlayStation%205>;
   schema:genre <Shooter>, <Adventure>, <Arcade>;
-  schema:creator <sonmoss%2CUFO%20Interactive%20Games%2CMOSS%20Co.%2C%20Ltd.>;
+  schema:creator <sonmoss>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2t9n.jpg> .
 
-<sonmoss%2CUFO%20Interactive%20Games%2CMOSS%20Co.%2C%20Ltd.> schema:county "Japan";
-  schema:name "sonmoss,UFO Interactive Games,MOSS Co., Ltd." .
+<sonmoss> schema:county "Japan";
+  schema:name "sonmoss" .
 
 <140979> a schema:VideoGame;
   schema:title "The Nioh Collection";
@@ -911,11 +904,11 @@ In this expansive collection, journey through Sengoku-era Japan to face nightmar
   schema:releaseDate "2021-05-02T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%205>;
   schema:genre <Role-playing%20%28RPG%29>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <Team%20NINJA%2CKoei%20Tecmo>;
+  schema:creator <Team%20NINJA>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kiz.jpg> .
 
-<Team%20NINJA%2CKoei%20Tecmo> schema:county "Japan";
-  schema:name "Team NINJA,Koei Tecmo" .
+<Team%20NINJA> schema:county "Japan";
+  schema:name "Team NINJA" .
 
 <140972> a schema:VideoGame;
   schema:title "Nioh 2: The Complete Edition";
@@ -953,10 +946,10 @@ In this version of the tale, Mordred has actually mortally wounded Arthur, and i
   schema:releaseDate "2021-08-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Puzzle>, <Adventure>, <Indie>;
-  schema:creator <Somber%20Pixel%2Cindienova>;
+  schema:creator <Somber%20Pixel>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2ixu.jpg> .
 
-<Somber%20Pixel%2Cindienova> schema:name "Somber Pixel,indienova" .
+<Somber%20Pixel> schema:name "Somber Pixel" .
 
 <138932> a schema:VideoGame;
   schema:title "Devil May Cry 5: Special Edition";
@@ -965,31 +958,26 @@ In this version of the tale, Mordred has actually mortally wounded Arthur, and i
   schema:releaseDate "2020-10-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Hack%20and%20slash/Beat%20%27em%20up>;
-  schema:creator <Capcom%20Development%20Division%201%2CCapcom>;
+  schema:creator <Capcom%20Development%20Division%201>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2hwl.jpg> .
 
-<Capcom%20Development%20Division%201%2CCapcom> schema:county "Japan";
-  schema:name "Capcom Development Division 1,Capcom" .
+<Capcom%20Development%20Division%201> schema:county "Japan";
+  schema:name "Capcom Development Division 1" .
 
 <138784> a schema:VideoGame;
   schema:title "Tom Clancy's Ghost Recon: Breakpoint - Red Patriot";
   schema:ratingValue "96";
   schema:description "The third piece of DLC content in the Ghost Recon: Breakpoint season pass";
   schema:releaseDate "2020-09-15T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>;
-  schema:genre <Shooter>;
+  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
+  schema:genre <Shooter>, <Adventure>;
   schema:creator <Ubisoft%20Paris>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co570x.jpg> .
 
-<PlayStation%204> schema:name "PlayStation 4" .
+<Xbox%20One> schema:name "Xbox One" .
 
 <138784> a schema:VideoGame;
-  schema:genre <Adventure>;
-  schema:gamePlatform <Xbox%20One>, <Google%20Stadia>, <DUPLICATE%20Stadia> .
-
-<Adventure> schema:name "Adventure" .
-
-<Xbox%20One> schema:name "Xbox One" .
+  schema:gamePlatform <Google%20Stadia>, <DUPLICATE%20Stadia> .
 
 <Google%20Stadia> schema:name "Google Stadia" .
 
@@ -1007,17 +995,19 @@ If you enjoyed your adventures in Saviors of Sapphire Wings, you can also dive i
   schema:releaseDate "2021-03-16T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Experience%20Inc.%2CNIS%20America%2CCodeglue>;
+  schema:creator <Experience%20Inc.>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2i7f.jpg> .
 
 <PC%20%28Microsoft%20Windows%29> schema:name "PC (Microsoft Windows)" .
 
 <Role-playing%20%28RPG%29> schema:name "Role-playing (RPG)" .
 
-<Experience%20Inc.%2CNIS%20America%2CCodeglue> schema:county "Japan";
-  schema:name "Experience Inc.,NIS America,Codeglue" .
+<Experience%20Inc.> schema:county "Japan";
+  schema:name "Experience Inc." .
 
 <Nintendo%20Switch> schema:name "Nintendo Switch" .
+
+<Adventure> schema:name "Adventure" .
 
 <138761> a schema:VideoGame;
   schema:title "Let's Sing Queen";
@@ -1041,13 +1031,15 @@ Let’s Party: The ultimate challenge for your Let’s Sing party! Two teams wit
   schema:releaseDate "2020-02-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Music>;
-  schema:creator <Ravenscourt%2CVoxler%2CKoch%20Media>;
+  schema:creator <Ravenscourt>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kei.jpg> .
+
+<PlayStation%204> schema:name "PlayStation 4" .
 
 <Music> schema:name "Music" .
 
-<Ravenscourt%2CVoxler%2CKoch%20Media> schema:county "France";
-  schema:name "Ravenscourt,Voxler,Koch Media" .
+<Ravenscourt> schema:county "France";
+  schema:name "Ravenscourt" .
 
 <135410> a schema:VideoGame;
   schema:title "Aeon Drive";
@@ -1057,15 +1049,15 @@ Let’s Party: The ultimate challenge for your Let’s Sing party! Two teams wit
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Platform>, <Adventure>, <Indie>, <Arcade>;
-  schema:creator <Critical%20Reflex%2C2Awesome%20Studio>;
+  schema:creator <Critical%20Reflex>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co391h.jpg> .
 
 <Linux> schema:name "Linux" .
 
 <Platform> schema:name "Platform" .
 
-<Critical%20Reflex%2C2Awesome%20Studio> schema:county "Spain";
-  schema:name "Critical Reflex,2Awesome Studio" .
+<Critical%20Reflex> schema:county "Spain";
+  schema:name "Critical Reflex" .
 
 <Mac> schema:name "Mac" .
 
@@ -1084,11 +1076,11 @@ Let’s Party: The ultimate challenge for your Let’s Sing party! Two teams wit
   schema:releaseDate "2020-10-30T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Nintendo%20Switch>;
   schema:genre <Music>, <Platform>, <Adventure>;
-  schema:creator <Nippon%20Ichi%20Software%2CNIS%20America>;
+  schema:creator <Nippon%20Ichi%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2k1i.jpg> .
 
-<Nippon%20Ichi%20Software%2CNIS%20America> schema:county "Japan";
-  schema:name "Nippon Ichi Software,NIS America" .
+<Nippon%20Ichi%20Software> schema:county "Japan";
+  schema:name "Nippon Ichi Software" .
 
 <132497> a schema:VideoGame;
   schema:title "Silicon Dreams";
@@ -1123,11 +1115,11 @@ The extra content also includes a Gallery mode to view video and CG scenarios or
   schema:releaseDate "2020-05-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Idea%20Factory%2CCompile%20Heart>;
+  schema:creator <Idea%20Factory>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3wct.jpg> .
 
-<Idea%20Factory%2CCompile%20Heart> schema:county "Japan";
-  schema:name "Idea Factory,Compile Heart" .
+<Idea%20Factory> schema:county "Japan";
+  schema:name "Idea Factory" .
 
 <131966> a schema:VideoGame;
   schema:title "Borderlands Legendary Collection";
@@ -1156,13 +1148,13 @@ Handsome Jack Doppelganger Pack (play as \"Jack\")""";
   schema:releaseDate "2020-05-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>;
-  schema:creator <Gearbox%20Software%2C2K%20Games%2CTake-Two%20Interactive>;
+  schema:creator <Gearbox%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2c8q.jpg> .
 
 <Shooter> schema:name "Shooter" .
 
-<Gearbox%20Software%2C2K%20Games%2CTake-Two%20Interactive> schema:county "United States";
-  schema:name "Gearbox Software,2K Games,Take-Two Interactive" .
+<Gearbox%20Software> schema:county "United States";
+  schema:name "Gearbox Software" .
 
 <130182> a schema:VideoGame;
   schema:title "Floppy Knights";
@@ -1171,13 +1163,13 @@ Handsome Jack Doppelganger Pack (play as \"Jack\")""";
   schema:releaseDate "2022-05-24T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <Xbox%20One>;
   schema:genre <Turn-based%20strategy%20%28TBS%29>, <Tactical>, <Indie>, <Card%20%26%20Board%20Game>;
-  schema:creator <Rose%20City%20Games%2CRose%20City%20Games>;
+  schema:creator <Rose%20City%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3m7q.jpg> .
 
 <Turn-based%20strategy%20%28TBS%29> schema:name "Turn-based strategy (TBS)" .
 
-<Rose%20City%20Games%2CRose%20City%20Games> schema:county "United States";
-  schema:name "Rose City Games,Rose City Games" .
+<Rose%20City%20Games> schema:county "United States";
+  schema:name "Rose City Games" .
 
 <Tactical> schema:name "Tactical" .
 
@@ -1191,11 +1183,11 @@ Handsome Jack Doppelganger Pack (play as \"Jack\")""";
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Adventure>, <Indie>, <Visual%20Novel>;
-  schema:creator <DarkChibiShadow%2CNomNomNami%2CRatalaika%20Games%2CEastAsiaSoft>;
+  schema:creator <DarkChibiShadow>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2yyb.jpg> .
 
-<DarkChibiShadow%2CNomNomNami%2CRatalaika%20Games%2CEastAsiaSoft> schema:county "Spain";
-  schema:name "DarkChibiShadow,NomNomNami,Ratalaika Games,EastAsiaSoft" .
+<DarkChibiShadow> schema:county "Spain";
+  schema:name "DarkChibiShadow" .
 
 <127059> a schema:VideoGame;
   schema:title "The Walking Dead: Season Two - Episode 3: In Harm's Way";
@@ -1283,13 +1275,13 @@ Episode two of a five part episodic game series.""";
   schema:releaseDate "2019-09-16T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <iOS>, <Nintendo%20Switch>;
   schema:genre <Puzzle>, <Strategy>, <Indie>;
-  schema:creator <Capybara%20Games%2CCapybara%20Games>;
+  schema:creator <Capybara%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2f2q.jpg> .
 
 <Puzzle> schema:name "Puzzle" .
 
-<Capybara%20Games%2CCapybara%20Games> schema:county "Canada";
-  schema:name "Capybara Games,Capybara Games" .
+<Capybara%20Games> schema:county "Canada";
+  schema:name "Capybara Games" .
 
 <122317> a schema:VideoGame;
   schema:title "The Sims 4: Realm of Magic";
@@ -1299,11 +1291,11 @@ Episode two of a five part episodic game series.""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>, <Xbox%20One>,
     <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Adventure>;
-  schema:creator <Maxis%2CElectronic%20Arts>;
+  schema:creator <Maxis>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1zqg.jpg> .
 
-<Maxis%2CElectronic%20Arts> schema:county "United States";
-  schema:name "Maxis,Electronic Arts" .
+<Maxis> schema:county "United States";
+  schema:name "Maxis" .
 
 <122118> a schema:VideoGame;
   schema:title "Groove Coaster: Wai Wai Party!!!!";
@@ -1372,11 +1364,11 @@ Four new chefs join the fray! Vampire chef, Ghost chef, Werewolf chef and return
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Simulator>, <Indie>;
-  schema:creator <Ghost%20Town%20Games%2CTeam17>;
+  schema:creator <Ghost%20Town%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1m9h.jpg> .
 
-<Ghost%20Town%20Games%2CTeam17> schema:county "United Kingdom";
-  schema:name "Ghost Town Games,Team17" .
+<Ghost%20Town%20Games> schema:county "United Kingdom";
+  schema:name "Ghost Town Games" .
 
 <119825> a schema:VideoGame;
   schema:title "Jack Move";
@@ -1386,11 +1378,11 @@ Four new chefs join the fray! Vampire chef, Ghost chef, Werewolf chef and return
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>, <Indie>;
-  schema:creator <HypeTrain%20Digital%2CSo%20Romantic>;
+  schema:creator <HypeTrain%20Digital>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2woq.jpg> .
 
-<HypeTrain%20Digital%2CSo%20Romantic> schema:county "Cyprus";
-  schema:name "HypeTrain Digital,So Romantic" .
+<HypeTrain%20Digital> schema:county "Cyprus";
+  schema:name "HypeTrain Digital" .
 
 <119331> a schema:VideoGame;
   schema:title "The Wizards: Dark Times";
@@ -1436,10 +1428,10 @@ Four new chefs join the fray! Vampire chef, Ghost chef, Werewolf chef and return
   schema:releaseDate "2020-09-30T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <Xbox%20One>;
   schema:genre <Simulator>, <Strategy>, <Adventure>, <Indie>;
-  schema:creator <The%20Moonwalls%2CUltimate%20Games%20S.A.>;
+  schema:creator <The%20Moonwalls>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2ck9.jpg> .
 
-<The%20Moonwalls%2CUltimate%20Games%20S.A.> schema:name "The Moonwalls,Ultimate Games S.A." .
+<The%20Moonwalls> schema:name "The Moonwalls" .
 
 <119054> a schema:VideoGame;
   schema:title "Life is Strange 2: Episode 5 - Wolves";
@@ -1455,11 +1447,11 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>;
   schema:genre <Adventure>;
-  schema:creator <Square%20Enix%2CDON%27T%20NOD>;
+  schema:creator <Square%20Enix>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3go6.jpg> .
 
-<Square%20Enix%2CDON%27T%20NOD> schema:county "Japan";
-  schema:name "Square Enix,DON'T NOD" .
+<Square%20Enix> schema:county "Japan";
+  schema:name "Square Enix" .
 
 <118313> a schema:VideoGame;
   schema:title "Hell Pie";
@@ -1469,11 +1461,11 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Platform>, <Adventure>;
-  schema:creator <Thunderful%20Publishing%2CSluggerfly>;
+  schema:creator <Thunderful%20Publishing>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2m8d.jpg> .
 
-<Thunderful%20Publishing%2CSluggerfly> schema:county "Sweden";
-  schema:name "Thunderful Publishing,Sluggerfly" .
+<Thunderful%20Publishing> schema:county "Sweden";
+  schema:name "Thunderful Publishing" .
 
 <117277> a schema:VideoGame;
   schema:title "Lone Echo II";
@@ -1482,11 +1474,11 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:releaseDate "2021-12-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Oculus%20VR>, <Oculus%20Rift>;
   schema:genre <Adventure>;
-  schema:creator <Ready%20at%20Dawn%2COculus%20Studios>;
+  schema:creator <Ready%20at%20Dawn>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3ofn.jpg> .
 
-<Ready%20at%20Dawn%2COculus%20Studios> schema:county "United States";
-  schema:name "Ready at Dawn,Oculus Studios" .
+<Ready%20at%20Dawn> schema:county "United States";
+  schema:name "Ready at Dawn" .
 
 <Oculus%20Rift> schema:name "Oculus Rift" .
 
@@ -1499,10 +1491,10 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>,
     <Adventure>, <Indie>;
-  schema:creator <Deck13%20Spotlight%2CArk%20Heiral>;
+  schema:creator <Deck13%20Spotlight>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co544u.jpg> .
 
-<Deck13%20Spotlight%2CArk%20Heiral> schema:name "Deck13 Spotlight,Ark Heiral" .
+<Deck13%20Spotlight> schema:name "Deck13 Spotlight" .
 
 <116659> a schema:VideoGame;
   schema:title "Overcooked! 2: Campfire Cook Off";
@@ -1512,7 +1504,7 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Simulator>, <Indie>;
-  schema:creator <Ghost%20Town%20Games%2CTeam17>;
+  schema:creator <Ghost%20Town%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1ksy.jpg> .
 
 <116014> a schema:VideoGame;
@@ -1523,11 +1515,11 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>,
     <Tactical>;
-  schema:creator <Ice%20Code%20Games%2CGood%20Shepherd%20Entertainment>;
+  schema:creator <Ice%20Code%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4nqk.jpg> .
 
-<Ice%20Code%20Games%2CGood%20Shepherd%20Entertainment> schema:county "Poland";
-  schema:name "Ice Code Games,Good Shepherd Entertainment" .
+<Ice%20Code%20Games> schema:county "Poland";
+  schema:name "Ice Code Games" .
 
 <115667> a schema:VideoGame;
   schema:title "Unity of Command II";
@@ -1536,11 +1528,11 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:releaseDate "2019-12-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>, <Indie>;
-  schema:creator <2x2%20Games%2CCroteam>;
+  schema:creator <2x2%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co269k.jpg> .
 
-<2x2%20Games%2CCroteam> schema:county "Croatia";
-  schema:name "2x2 Games,Croteam" .
+<2x2%20Games> schema:county "Croatia";
+  schema:name "2x2 Games" .
 
 <114944> a schema:VideoGame;
   schema:title "The Walking Dead: Episode 5 - No Time Left";
@@ -1582,12 +1574,11 @@ Can Sean and Daniel survive together – or will the world tear them apart?""";
   schema:releaseDate "2021-05-26T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Shooter>, <Simulator>, <Indie>;
-  schema:creator <▲%20Pyramid%20Games%2CUltimate%20Games%20S.A.%2CGaming%20Factory%20S.A.>;
+  schema:creator <▲%20Pyramid%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1xt6.jpg> .
 
-<▲%20Pyramid%20Games%2CUltimate%20Games%20S.A.%2CGaming%20Factory%20S.A.> schema:county
-    "Poland";
-  schema:name "▲ Pyramid Games,Ultimate Games S.A.,Gaming Factory S.A." .
+<▲%20Pyramid%20Games> schema:county "Poland";
+  schema:name "▲ Pyramid Games" .
 
 <110575> a schema:VideoGame;
   schema:title "Overcooked! 2: Surf 'n' Turf";
@@ -1611,11 +1602,11 @@ This challenging puzzle platformer weaves a heart-warming story through stunning
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Xbox%20One>, <Nintendo%20Switch>,
     <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Platform>, <Puzzle>, <Adventure>, <Indie>;
-  schema:creator <Stone%20Lantern%20Games%2CPQube>;
+  schema:creator <Stone%20Lantern%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2m7u.jpg> .
 
-<Stone%20Lantern%20Games%2CPQube> schema:county "United Kingdom";
-  schema:name "Stone Lantern Games,PQube" .
+<Stone%20Lantern%20Games> schema:county "United Kingdom";
+  schema:name "Stone Lantern Games" .
 
 <97233> a schema:VideoGame;
   schema:title "Review -Jashin Fukkatsu-";
@@ -1642,10 +1633,10 @@ This challenging puzzle platformer weaves a heart-warming story through stunning
   schema:releaseDate "2022-01-27T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <SteamVR>, <PlayStation%20VR>, <Oculus%20Rift>;
   schema:genre <Puzzle>, <Adventure>;
-  schema:creator <Oddboy%2CM-Theory>;
+  schema:creator <Oddboy>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4nv5.jpg> .
 
-<Oddboy%2CM-Theory> schema:name "Oddboy,M-Theory" .
+<Oddboy> schema:name "Oddboy" .
 
 <95018> a schema:VideoGame;
   schema:title "Eye of the Temple";
@@ -1680,12 +1671,12 @@ This challenging puzzle platformer weaves a heart-warming story through stunning
   schema:releaseDate "2021-09-30T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%20Switch>;
   schema:genre <Fighting>, <Strategy>, <Adventure>, <Indie>, <Arcade>;
-  schema:creator <Ludus%20Games%2CStone%20Bot%20Studio%2CSkystone%20Games>;
+  schema:creator <Ludus%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kav.jpg> .
 
 <Fighting> schema:name "Fighting" .
 
-<Ludus%20Games%2CStone%20Bot%20Studio%2CSkystone%20Games> schema:name "Ludus Games,Stone Bot Studio,Skystone Games" .
+<Ludus%20Games> schema:name "Ludus Games" .
 
 <76888> a schema:VideoGame;
   schema:title "Bayonetta 3";
@@ -1694,13 +1685,13 @@ This challenging puzzle platformer weaves a heart-warming story through stunning
   schema:releaseDate "2022-10-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20Switch>;
   schema:genre <Hack%20and%20slash/Beat%20%27em%20up>;
-  schema:creator <PlatinumGames%2CNintendo>;
+  schema:creator <PlatinumGames>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4z2i.jpg> .
 
 <Hack%20and%20slash/Beat%20%27em%20up> schema:name "Hack and slash/Beat 'em up" .
 
-<PlatinumGames%2CNintendo> schema:county "Japan";
-  schema:name "PlatinumGames,Nintendo" .
+<PlatinumGames> schema:county "Japan";
+  schema:name "PlatinumGames" .
 
 <75994> a schema:VideoGame;
   schema:title "Potionomics";
@@ -1709,11 +1700,11 @@ This challenging puzzle platformer weaves a heart-warming story through stunning
   schema:releaseDate "2022-10-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Strategy>;
-  schema:creator <Voracious%20Games%2CXSEED%20Games>;
+  schema:creator <Voracious%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kdr.jpg> .
 
-<Voracious%20Games%2CXSEED%20Games> schema:county "United States";
-  schema:name "Voracious Games,XSEED Games" .
+<Voracious%20Games> schema:county "United States";
+  schema:name "Voracious Games" .
 
 <75691> a schema:VideoGame;
   schema:title "Injustice 2: Fighter Pack 3";
@@ -1734,11 +1725,11 @@ The island's mysterious residents range from cordial to downright hostile, so It
   schema:releaseDate "2016-11-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%20Switch>;
   schema:genre <Puzzle>, <Role-playing%20%28RPG%29>, <Adventure>, <Indie>;
-  schema:creator <Nicalis%2C%20Inc.%2CLudosity>;
+  schema:creator <Nicalis>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co21ai.jpg> .
 
-<Nicalis%2C%20Inc.%2CLudosity> schema:county "United States";
-  schema:name "Nicalis, Inc.,Ludosity" .
+<Nicalis> schema:county "United States";
+  schema:name "Nicalis" .
 
 <75089> a schema:VideoGame;
   schema:title "Star Wars: Jedi Challenges";
@@ -1753,11 +1744,11 @@ Discover the mysteries of the holocron on your path to Jedi mastery, guided by t
   schema:releaseDate "2017-03-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Android>, <iOS>;
   schema:genre <Fighting>;
-  schema:creator <Disney%20Interactive%2CLenovo>;
+  schema:creator <Disney%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/vukth1f7g4adr3apofnj.jpg> .
 
-<Disney%20Interactive%2CLenovo> schema:county "United States";
-  schema:name "Disney Interactive,Lenovo" .
+<Disney%20Interactive> schema:county "United States";
+  schema:name "Disney Interactive" .
 
 <59591> a schema:VideoGame;
   schema:title "Nioh: Bloodshed's End";
@@ -1769,12 +1760,11 @@ Finally, veteran samurai are invited to The Abyss a perpetual battleground of th
   schema:releaseDate "2017-09-26T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <PlayStation%205>;
   schema:genre <Role-playing%20%28RPG%29>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <Team%20NINJA%2CSony%20Interactive%20Entertainment%2CKoei%20Tecmo%20Games>;
+  schema:creator <Team%20NINJA>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co31e0.jpg> .
 
-<Team%20NINJA%2CSony%20Interactive%20Entertainment%2CKoei%20Tecmo%20Games> schema:county
-    "Japan";
-  schema:name "Team NINJA,Sony Interactive Entertainment,Koei Tecmo Games" .
+<Team%20NINJA> schema:county "Japan";
+  schema:name "Team NINJA" .
 
 <57358> a schema:VideoGame;
   schema:title "Crap! I'm Broke: Out of Pocket";
@@ -1857,11 +1847,11 @@ Fangamer teamed up with ConcernedApe to produce the Collector’s Edition for Ni
   schema:releaseDate "2017-11-04T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Indie>;
-  schema:creator <505%20Games%2CConcernedApe%2CChucklefish%20Games%2CFangamer>;
+  schema:creator <505%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co27vj.jpg> .
 
-<505%20Games%2CConcernedApe%2CChucklefish%20Games%2CFangamer> schema:county "United States";
-  schema:name "505 Games,ConcernedApe,Chucklefish Games,Fangamer" .
+<505%20Games> schema:county "United States";
+  schema:name "505 Games" .
 
 <28859> a schema:VideoGame;
   schema:title "The Sims 4: Parenthood";
@@ -1871,11 +1861,11 @@ Fangamer teamed up with ConcernedApe to produce the Collector’s Edition for Ni
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>, <Xbox%20One>,
     <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Adventure>;
-  schema:creator <Electronic%20Arts%2CMaxis>;
+  schema:creator <Electronic%20Arts>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1zq4.jpg> .
 
-<Electronic%20Arts%2CMaxis> schema:county "United States";
-  schema:name "Electronic Arts,Maxis" .
+<Electronic%20Arts> schema:county "United States";
+  schema:name "Electronic Arts" .
 
 <28192> a schema:VideoGame;
   schema:title "DJMAX Respect";
@@ -1884,12 +1874,11 @@ Fangamer teamed up with ConcernedApe to produce the Collector’s Edition for Ni
   schema:releaseDate "2017-07-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>;
   schema:genre <Music>;
-  schema:creator <Neowiz%20Games%2CRocky%20Studio%2CSony%20Interactive%20Entertainment>;
+  schema:creator <Neowiz%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2se3.jpg> .
 
-<Neowiz%20Games%2CRocky%20Studio%2CSony%20Interactive%20Entertainment> schema:county
-    "Japan";
-  schema:name "Neowiz Games,Rocky Studio,Sony Interactive Entertainment" .
+<Neowiz%20Games> schema:county "Japan";
+  schema:name "Neowiz Games" .
 
 <27696> a schema:VideoGame;
   schema:title "Blood Bowl 2: Legendary Edition";
@@ -1899,11 +1888,11 @@ Fangamer teamed up with ConcernedApe to produce the Collector’s Edition for Ni
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Role-playing%20%28RPG%29>, <Sport>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>,
     <Tactical>;
-  schema:creator <Cyanide%20Studio%2CFocus%20Entertainment>;
+  schema:creator <Cyanide%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co232n.jpg> .
 
-<Cyanide%20Studio%2CFocus%20Entertainment> schema:county "France";
-  schema:name "Cyanide Studio,Focus Entertainment" .
+<Cyanide%20Studio> schema:county "France";
+  schema:name "Cyanide Studio" .
 
 <Sport> schema:name "Sport" .
 
@@ -1927,13 +1916,13 @@ Fangamer teamed up with ConcernedApe to produce the Collector’s Edition for Ni
   schema:releaseDate "2016-12-13T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Xbox%20One>;
   schema:genre <Racing>;
-  schema:creator <Playground%20Games%2CMicrosoft%20Studios>;
+  schema:creator <Playground%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1h5g.jpg> .
 
 <Racing> schema:name "Racing" .
 
-<Playground%20Games%2CMicrosoft%20Studios> schema:county "United Kingdom";
-  schema:name "Playground Games,Microsoft Studios" .
+<Playground%20Games> schema:county "United Kingdom";
+  schema:name "Playground Games" .
 
 <26075> a schema:VideoGame;
   schema:title "Yggdra Union: We'll Never Fight Alone";
@@ -1948,13 +1937,13 @@ Get ready for one of the most unique and engrossing straegy games ever to hit th
   schema:releaseDate "2008-01-24T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Portable>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <Sting%20Entertainment%2CAtlus%20USA>;
+  schema:creator <Sting%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2o08.jpg> .
 
 <PlayStation%20Portable> schema:name "PlayStation Portable" .
 
-<Sting%20Entertainment%2CAtlus%20USA> schema:county "Japan";
-  schema:name "Sting Entertainment,Atlus USA" .
+<Sting%20Entertainment> schema:county "Japan";
+  schema:name "Sting Entertainment" .
 
 <25910> a schema:VideoGame;
   schema:title "Mallow Drops";
@@ -1972,11 +1961,11 @@ Mallow Drops is a meditative mix of platformer and a sliding block puzzle coming
   schema:releaseDate "2016-03-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <iOS>;
   schema:genre <Puzzle>, <Indie>;
-  schema:creator <Gritfish%2CGreen%20Stripe%20Snake>;
+  schema:creator <Gritfish>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/it58smbpvhqhbbubqsj5.jpg> .
 
-<Gritfish%2CGreen%20Stripe%20Snake> schema:county "Australia";
-  schema:name "Gritfish,Green Stripe Snake" .
+<Gritfish> schema:county "Australia";
+  schema:name "Gritfish" .
 
 <25672> a schema:VideoGame;
   schema:title "Undernauts: Labyrinth of Yomi";
@@ -1988,11 +1977,8 @@ Originally announced in 2016 as a Hack and Slash RPG for the Xbox One, the game 
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Adventure>;
-  schema:creator <Experience%20Inc.%2CAksys%20Games>;
+  schema:creator <Experience%20Inc.>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3daf.jpg> .
-
-<Experience%20Inc.%2CAksys%20Games> schema:county "Japan";
-  schema:name "Experience Inc.,Aksys Games" .
 
 <25583> a schema:VideoGame;
   schema:title "Brutal Doom 64";
@@ -2014,31 +2000,23 @@ Originally announced in 2016 as a Hack and Slash RPG for the Xbox One, the game 
   schema:releaseDate "2021-07-05T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Strategy>, <Adventure>, <Indie>;
-  schema:creator <Power%20Struggle%20Games%2CFellow%20Traveller>;
+  schema:creator <Power%20Struggle%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1xv4.jpg> .
 
-<Power%20Struggle%20Games%2CFellow%20Traveller> schema:county "Australia";
-  schema:name "Power Struggle Games,Fellow Traveller" .
+<Power%20Struggle%20Games> schema:county "Australia";
+  schema:name "Power Struggle Games" .
 
 <24599> a schema:VideoGame;
   schema:title "Brave Frontier";
   schema:ratingValue "90";
   schema:description "Brave Frontier is a mobile-based RPG game combining elements of trading card games, collection/evolution-based games, and traditional RPGs. Players act as a \"summoner\", calling upon creatives and heroes of the 6 elements (fire, earth, water, thunder, light, and dark).";
   schema:releaseDate "2013-03-07T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
-  schema:genre <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <株式会社gumi%2CA-Lim> .
+  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Android>, <iOS>;
+  schema:genre <Turn-based%20strategy%20%28TBS%29>, <Adventure>;
+  schema:creator <株式会社gumi>;
+  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co233f.jpg> .
 
-<株式会社gumi%2CA-Lim> schema:name "株式会社gumi,A-Lim" .
-
-<24599> a schema:VideoGame;
-  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co233f.jpg>;
-  schema:gamePlatform <Android>, <iOS>;
-  schema:genre <Adventure> .
-
-<Android> schema:name "Android" .
-
-<Adventure> schema:name "Adventure" .
+<株式会社gumi> schema:name "株式会社gumi" .
 
 <iOS> schema:name "iOS" .
 
@@ -2079,6 +2057,8 @@ Originally announced in 2016 as a Hack and Slash RPG for the Xbox One, the game 
   schema:gamePlatform <iOS>;
   schema:genre <Adventure>, <Arcade> .
 
+<Adventure> schema:name "Adventure" .
+
 <Arcade> schema:name "Arcade" .
 
 <24352> a schema:VideoGame;
@@ -2108,13 +2088,13 @@ Originally announced in 2016 as a Hack and Slash RPG for the Xbox One, the game 
   schema:releaseDate "2004-11-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Real%20Time%20Strategy%20%28RTS%29>, <Simulator>, <Strategy>;
-  schema:creator <Golem%20Labs%2CDreamCatcher%20Interactive%2CTHQ%20Nordic>;
+  schema:creator <Golem%20Labs>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/fj1zhvmuhczz4mm0gwhw.jpg> .
 
 <Real%20Time%20Strategy%20%28RTS%29> schema:name "Real Time Strategy (RTS)" .
 
-<Golem%20Labs%2CDreamCatcher%20Interactive%2CTHQ%20Nordic> schema:county "Canada";
-  schema:name "Golem Labs,DreamCatcher Interactive,THQ Nordic" .
+<Golem%20Labs> schema:county "Canada";
+  schema:name "Golem Labs" .
 
 <Simulator> schema:name "Simulator" .
 
@@ -2144,11 +2124,11 @@ This version was only released in Europe.""";
   schema:releaseDate "2007-01-06T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Real%20Time%20Strategy%20%28RTS%29>;
-  schema:creator <THQ%2CRelic>;
+  schema:creator <THQ>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/frqydkjhjybwsqm7dx0k.jpg> .
 
-<THQ%2CRelic> schema:county "United States";
-  schema:name "THQ,Relic" .
+<THQ> schema:county "United States";
+  schema:name "THQ" .
 
 <24176> a schema:VideoGame;
   schema:title "Ultimate Fighting Championship";
@@ -2180,11 +2160,11 @@ The Daily Telegraph gave this game away free with their Fantasy Football competi
   schema:releaseDate "2000-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Simulator>, <Sport>, <Strategy>;
-  schema:creator <Sports%20Interactive%2CEidos%20Interactive>;
+  schema:creator <Sports%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/dbzihyb8usnogz0efylg.jpg> .
 
-<Sports%20Interactive%2CEidos%20Interactive> schema:county "United Kingdom";
-  schema:name "Sports Interactive,Eidos Interactive" .
+<Sports%20Interactive> schema:county "United Kingdom";
+  schema:name "Sports Interactive" .
 
 <Mac> schema:name "Mac" .
 
@@ -2208,15 +2188,15 @@ The Western version is a regional port of the Japanese version, since it uses th
   schema:releaseDate "2004-05-26T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Game%20Boy%20Advance>;
   schema:genre <Hack%20and%20slash/Beat%20%27em%20up>;
-  schema:creator <Atlus%2CMillion>;
+  schema:creator <Atlus>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4igf.jpg> .
 
 <Game%20Boy%20Advance> schema:name "Game Boy Advance" .
 
 <Hack%20and%20slash/Beat%20%27em%20up> schema:name "Hack and slash/Beat 'em up" .
 
-<Atlus%2CMillion> schema:county "Japan";
-  schema:name "Atlus,Million" .
+<Atlus> schema:county "Japan";
+  schema:name "Atlus" .
 
 <24127> a schema:VideoGame;
   schema:title "The New Adventures Of The Time Machine";
@@ -2266,6 +2246,8 @@ The Western version is a regional port of the Japanese version, since it uses th
 
 <Indie> schema:name "Indie" .
 
+<Android> schema:name "Android" .
+
 <23894> a schema:VideoGame;
   schema:title "Esper: The Collection";
   schema:ratingValue "90";
@@ -2290,13 +2272,13 @@ The Reaper’s Due adds a host of new mechanics centered on the Black Death and 
   schema:releaseDate "2016-08-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Strategy>;
-  schema:creator <Paradox%20Development%20Studio%2CParadox%20Interactive>;
+  schema:creator <Paradox%20Development%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1yxi.jpg> .
 
 <Role-playing%20%28RPG%29> schema:name "Role-playing (RPG)" .
 
-<Paradox%20Development%20Studio%2CParadox%20Interactive> schema:county "Sweden";
-  schema:name "Paradox Development Studio,Paradox Interactive" .
+<Paradox%20Development%20Studio> schema:county "Sweden";
+  schema:name "Paradox Development Studio" .
 
 <23833> a schema:VideoGame;
   schema:title "Hyperkin RetroN 5";
@@ -2336,12 +2318,12 @@ The Reaper’s Due adds a host of new mechanics centered on the Black Death and 
   schema:releaseDate "2001-10-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Racing>;
-  schema:creator <EA%20Games%2CEA%20Seattle>;
+  schema:creator <EA%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/lgutbzejwzwy7h7byzyh.jpg> .
 
 <Racing> schema:name "Racing" .
 
-<EA%20Games%2CEA%20Seattle> schema:name "EA Games,EA Seattle" .
+<EA%20Games> schema:name "EA Games" .
 
 <23802> a schema:VideoGame;
   schema:title "Diamond Mind Baseball 9";
@@ -2403,14 +2385,14 @@ EPOCH has trekked across a war-ravaged country to find the one person he was pro
   schema:releaseDate "2006-03-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Portable>;
   schema:genre <Platform>, <Puzzle>;
-  schema:creator <Ignition%20Banbury%2CIgnition%20Entertainment%2CAtari>;
+  schema:creator <Ignition%20Banbury>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1pnt.jpg> .
 
 <PlayStation%20Portable> schema:name "PlayStation Portable" .
 
 <Platform> schema:name "Platform" .
 
-<Ignition%20Banbury%2CIgnition%20Entertainment%2CAtari> schema:name "Ignition Banbury,Ignition Entertainment,Atari" .
+<Ignition%20Banbury> schema:name "Ignition Banbury" .
 
 <23076> a schema:VideoGame;
   schema:title "Stop the Express";
@@ -2511,11 +2493,11 @@ Set 400 years before the dramatic civil war depicted in SHOGUN 2, the \"Rise of 
   schema:releaseDate "2011-09-27T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Strategy>;
-  schema:creator <The%20Creative%20Assembly%2CSega%2CFeral%20Interactive>;
+  schema:creator <The%20Creative%20Assembly>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/j4jrykro63cdywbwicro.jpg> .
 
-<The%20Creative%20Assembly%2CSega%2CFeral%20Interactive> schema:county "United Kingdom";
-  schema:name "The Creative Assembly,Sega,Feral Interactive" .
+<The%20Creative%20Assembly> schema:county "United Kingdom";
+  schema:name "The Creative Assembly" .
 
 <22649> a schema:VideoGame;
   schema:title "DCS: A-10C Warthog";
@@ -2546,13 +2528,13 @@ Set 400 years before the dramatic civil war depicted in SHOGUN 2, the \"Rise of 
   schema:releaseDate "1995-10-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <DOS>, <Mac>;
   schema:genre <Shooter>, <Simulator>;
-  schema:creator <LucasArts%2CTotally%20Games>;
+  schema:creator <LucasArts>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3qhw.jpg> .
 
 <DOS> schema:name "DOS" .
 
-<LucasArts%2CTotally%20Games> schema:county "United States";
-  schema:name "LucasArts,Totally Games" .
+<LucasArts> schema:county "United States";
+  schema:name "LucasArts" .
 
 <22592> a schema:VideoGame;
   schema:title "Assault Heroes 2";
@@ -2587,12 +2569,12 @@ The Influence Device is numbered \"001\". The primary way in which the Influence
   schema:releaseDate "1985-01-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii>, <Commodore%20C64/128/MAX>;
   schema:genre <Shooter>, <Puzzle>, <Strategy>, <Tactical>;
-  schema:creator <Hewson%20Consultants%2CGraftgold>;
+  schema:creator <Hewson%20Consultants>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/hzjamt0enkse8grv293c.jpg> .
 
 <Wii> schema:name "Wii" .
 
-<Hewson%20Consultants%2CGraftgold> schema:name "Hewson Consultants,Graftgold" .
+<Hewson%20Consultants> schema:name "Hewson Consultants" .
 
 <Tactical> schema:name "Tactical" .
 
@@ -2666,11 +2648,11 @@ http://www.pspminis.com/8859/floating-cloud-god-saves-the-pilgrims-review-if-the
   schema:releaseDate "2005-01-09T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Portable>;
   schema:genre <Sport>;
-  schema:creator <Sumo%20Digital%2CSega>;
+  schema:creator <Sumo%20Digital>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5k1a.jpg> .
 
-<Sumo%20Digital%2CSega> schema:county "United Kingdom";
-  schema:name "Sumo Digital,Sega" .
+<Sumo%20Digital> schema:county "United Kingdom";
+  schema:name "Sumo Digital" .
 
 <22285> a schema:VideoGame;
   schema:title "Shining Force: Resurrection Of The Dark Dragon";
@@ -2686,12 +2668,11 @@ When Guardiana is attacked, you are given an army to lead, & must unravel the my
   schema:gamePlatform <Game%20Boy%20Advance>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>,
     <Adventure>;
-  schema:creator <Climax%20Entertainment%2CAtlus%2CAmusement%20Vision%2CTHQ%2CSEGA%20of%20Japan>;
+  schema:creator <Climax%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co49ku.jpg> .
 
-<Climax%20Entertainment%2CAtlus%2CAmusement%20Vision%2CTHQ%2CSEGA%20of%20Japan> schema:county
-    "Japan";
-  schema:name "Climax Entertainment,Atlus,Amusement Vision,THQ,SEGA of Japan" .
+<Climax%20Entertainment> schema:county "Japan";
+  schema:name "Climax Entertainment" .
 
 <Turn-based%20strategy%20%28TBS%29> schema:name "Turn-based strategy (TBS)" .
 
@@ -2704,10 +2685,10 @@ Apple Jack 2 takes all the ingredients that made the original game a hit with pl
   schema:releaseDate "2012-07-14T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox%20360>;
   schema:genre <Platform>, <Puzzle>;
-  schema:creator <My%20Owl%20Software%2CXbox%20Live%20Arcade>;
+  schema:creator <My%20Owl%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2c0w.jpg> .
 
-<My%20Owl%20Software%2CXbox%20Live%20Arcade> schema:name "My Owl Software,Xbox Live Arcade" .
+<My%20Owl%20Software> schema:name "My Owl Software" .
 
 <22229> a schema:VideoGame;
   schema:title "Dark Age of Camelot: Shrouded Isles";
@@ -2740,13 +2721,13 @@ Apple Jack 2 takes all the ingredients that made the original game a hit with pl
   schema:releaseDate "2015-04-23T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii%20U>;
   schema:genre <Racing>;
-  schema:creator <Nintendo%2CNintendo%20EAD%20Group%20No.%201>;
+  schema:creator <Nintendo>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co22j6.jpg> .
 
 <Wii%20U> schema:name "Wii U" .
 
-<Nintendo%2CNintendo%20EAD%20Group%20No.%201> schema:county "Japan";
-  schema:name "Nintendo,Nintendo EAD Group No. 1" .
+<Nintendo> schema:county "Japan";
+  schema:name "Nintendo" .
 
 <22143> a schema:VideoGame;
   schema:title "Resident Evil 7: Biohazard - Collector's Edition";
@@ -2813,11 +2794,11 @@ Apple Jack 2 takes all the ingredients that made the original game a hit with pl
   schema:releaseDate "2006-07-30T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <PlayStation%20Portable>;
   schema:genre <Puzzle>;
-  schema:creator <Atomic%20Planet%20Entertainment%2CEidos%20Interactive>;
+  schema:creator <Atomic%20Planet%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/hzeoujuy1clnsiqpiuiu.jpg> .
 
-<Atomic%20Planet%20Entertainment%2CEidos%20Interactive> schema:county "United Kingdom";
-  schema:name "Atomic Planet Entertainment,Eidos Interactive" .
+<Atomic%20Planet%20Entertainment> schema:county "United Kingdom";
+  schema:name "Atomic Planet Entertainment" .
 
 <21880> a schema:VideoGame;
   schema:title "Final Fantasy X-2 HD Remaster";
@@ -2826,13 +2807,13 @@ Apple Jack 2 takes all the ingredients that made the original game a hit with pl
   schema:releaseDate "2013-12-26T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Vita>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Square%20Enix%2CVirtuos>;
+  schema:creator <Square%20Enix>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co30sp.jpg> .
 
 <PlayStation%20Vita> schema:name "PlayStation Vita" .
 
-<Square%20Enix%2CVirtuos> schema:county "Japan";
-  schema:name "Square Enix,Virtuos" .
+<Square%20Enix> schema:county "Japan";
+  schema:name "Square Enix" .
 
 <21875> a schema:VideoGame;
   schema:title "Pole Position: Remix";
@@ -2848,14 +2829,13 @@ Apple Jack 2 takes all the ingredients that made the original game a hit with pl
   schema:releaseDate "2008-08-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Shooter>;
-  schema:creator <Sony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29%2CIncognito%20Entertainment>;
+  schema:creator <Sony%20Computer%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1zql.jpg> .
 
 <PlayStation%203> schema:name "PlayStation 3" .
 
-<Sony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29%2CIncognito%20Entertainment>
-  schema:county "Japan";
-  schema:name "Sony Computer Entertainment, Inc. (SCEI),Incognito Entertainment" .
+<Sony%20Computer%20Entertainment> schema:county "Japan";
+  schema:name "Sony Computer Entertainment" .
 
 <21862> a schema:VideoGame;
   schema:title "Saints Row IV: Super Dangerous Wad Wad Edition (aka the Million Dollar Pack)";
@@ -2896,11 +2876,11 @@ The Super Dangerous Wad Wad Edition is available for pre-order through Game only
   schema:releaseDate "2007-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <2K%20Games%2CFiraxis%20Games>;
+  schema:creator <2K%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/emrjuxiu9bqnjq65c4ay.jpg> .
 
-<2K%20Games%2CFiraxis%20Games> schema:county "United States";
-  schema:name "2K Games,Firaxis Games" .
+<2K%20Games> schema:county "United States";
+  schema:name "2K Games" .
 
 <21846> a schema:VideoGame;
   schema:title "LittleBigPlanet: Game of the Year Edition";
@@ -2913,12 +2893,11 @@ Winner of over 80 prominent awards, including several Game of the Year awards, L
   schema:releaseDate "2009-08-09T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Platform>, <Puzzle>;
-  schema:creator <Media%20Molecule%2CSony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29>;
+  schema:creator <Media%20Molecule>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3kps.jpg> .
 
-<Media%20Molecule%2CSony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29> schema:county
-    "United Kingdom";
-  schema:name "Media Molecule,Sony Computer Entertainment, Inc. (SCEI)" .
+<Media%20Molecule> schema:county "United Kingdom";
+  schema:name "Media Molecule" .
 
 <21813> a schema:VideoGame;
   schema:title "Baldur's Gate: Siege of Dragonspear - Collector's Edition";
@@ -2943,11 +2922,11 @@ Collection of 7 Siege of Dragonspear-themed collector's dice, housed in a velvet
   schema:releaseDate "2016-03-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <Beamdog%2COverhaul%20Games>;
+  schema:creator <Beamdog>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/eamxoi3281r2e5kuwu1w.jpg> .
 
-<Beamdog%2COverhaul%20Games> schema:county "Canada";
-  schema:name "Beamdog,Overhaul Games" .
+<Beamdog> schema:county "Canada";
+  schema:name "Beamdog" .
 
 <21788> a schema:VideoGame;
   schema:title "Maboshi's Arcade";
@@ -2999,7 +2978,7 @@ Final Reason: A magical staff of immense power (adds to damage, spell power, and
   schema:releaseDate "2011-11-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Platform>, <Puzzle>, <Adventure>;
-  schema:creator <Media%20Molecule%2CSony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29>;
+  schema:creator <Media%20Molecule>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3kpu.jpg> .
 
 <21697> a schema:VideoGame;
@@ -3011,11 +2990,11 @@ BioWare makes its debut on the Nintendo console with the gripping blockbuster ga
   schema:releaseDate "2012-11-18T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii%20U>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <BioWare%2CElectronic%20Arts>;
+  schema:creator <BioWare>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2gup.jpg> .
 
-<BioWare%2CElectronic%20Arts> schema:county "Canada";
-  schema:name "BioWare,Electronic Arts" .
+<BioWare> schema:county "Canada";
+  schema:name "BioWare" .
 
 <21696> a schema:VideoGame;
   schema:title "Need for Speed: Hot Pursuit - Limited Edition";
@@ -3082,11 +3061,8 @@ Whether you use your predatory instincts to kill silently, or your fearsome arse
   schema:releaseDate "2008-04-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Sport>;
-  schema:creator <Sports%20Interactive%2CSega%20Entertainment>;
+  schema:creator <Sports%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2hnl.jpg> .
-
-<Sports%20Interactive%2CSega%20Entertainment> schema:county "United Kingdom";
-  schema:name "Sports Interactive,Sega Entertainment" .
 
 <21224> a schema:VideoGame;
   schema:title "X-COM Collection";
@@ -3101,13 +3077,13 @@ Whether you use your predatory instincts to kill silently, or your fearsome arse
   schema:releaseDate "2010-11-23T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Music>, <Puzzle>;
-  schema:creator <Zoo%20Games%2CCipher%20Prime%20Studios>;
+  schema:creator <Zoo%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2zbu.jpg> .
 
 <Music> schema:name "Music" .
 
-<Zoo%20Games%2CCipher%20Prime%20Studios> schema:county "United States";
-  schema:name "Zoo Games,Cipher Prime Studios" .
+<Zoo%20Games> schema:county "United States";
+  schema:name "Zoo Games" .
 
 <21149> a schema:VideoGame;
   schema:title "Trenched";
@@ -3151,11 +3127,11 @@ Whether you use your predatory instincts to kill silently, or your fearsome arse
   schema:releaseDate "2015-09-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>, <Xbox%20360>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>;
-  schema:creator <Bungie%2CActivision>;
+  schema:creator <Bungie>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co30dq.jpg> .
 
-<Bungie%2CActivision> schema:county "United States";
-  schema:name "Bungie,Activision" .
+<Bungie> schema:county "United States";
+  schema:name "Bungie" .
 
 <20856> a schema:VideoGame;
   schema:title "PixelJunk Monsters Ultimate HD";
@@ -3167,12 +3143,11 @@ By placing weapon towers at strategic points around the landscape, you can destr
   schema:releaseDate "2013-07-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Vita>;
   schema:genre <Puzzle>, <Real%20Time%20Strategy%20%28RTS%29>, <Strategy>;
-  schema:creator <Double%20Eleven%2CQ-Games%20Ltd.%2CSony%20Computer%20Entertainment>;
+  schema:creator <Double%20Eleven>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2h00.jpg> .
 
-<Double%20Eleven%2CQ-Games%20Ltd.%2CSony%20Computer%20Entertainment> schema:county
-    "United Kingdom";
-  schema:name "Double Eleven,Q-Games Ltd.,Sony Computer Entertainment" .
+<Double%20Eleven> schema:county "United Kingdom";
+  schema:name "Double Eleven" .
 
 <20813> a schema:VideoGame;
   schema:title "Triple Play 98";
@@ -3259,11 +3234,8 @@ Warp Zone art collection.""";
   schema:releaseDate "2006-02-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <PlayStation%20Portable>;
   schema:genre <Sport>;
-  schema:creator <Sony%20Computer%20Entertainment%2CSCE%20San%20Diego%20Studio>;
+  schema:creator <Sony%20Computer%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4sng.jpg> .
-
-<Sony%20Computer%20Entertainment%2CSCE%20San%20Diego%20Studio> schema:county "Japan";
-  schema:name "Sony Computer Entertainment,SCE San Diego Studio" .
 
 <20479> a schema:VideoGame;
   schema:title "Rocket Riot";
@@ -3292,32 +3264,28 @@ Warp Zone art collection.""";
   schema:ratingValue "90";
   schema:description "\"Titanfall: IMC Rising introduces three new maps to the frontier with Backwater, Zone 18 and Sand Trap.\"";
   schema:releaseDate "2014-09-25T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
+  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Xbox%20360>, <Xbox%20One>;
   schema:genre <Shooter>;
-  schema:creator <Respawn%20Entertainment%2CBluepoint%20Games%2CElectronic%20Arts> .
+  schema:creator <Respawn%20Entertainment>;
+  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/behp00cuc50xu2heht42.jpg> .
 
-<Respawn%20Entertainment%2CBluepoint%20Games%2CElectronic%20Arts> schema:county "United States";
-  schema:name "Respawn Entertainment,Bluepoint Games,Electronic Arts" .
-
-<20225> a schema:VideoGame;
-  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/behp00cuc50xu2heht42.jpg>;
-  schema:gamePlatform <Xbox%20360>, <Xbox%20One> .
-
-<Xbox%20360> schema:name "Xbox 360" .
-
-<Xbox%20One> schema:name "Xbox One" .
+<Respawn%20Entertainment> schema:county "United States";
+  schema:name "Respawn Entertainment" .
 
 <20152> a schema:VideoGame;
   schema:title "The Bit.Trip";
   schema:ratingValue "86";
   schema:description "A collection of the six original Bit.Trip games for the PS3, PS4, and Vita.";
   schema:releaseDate "2015-05-12T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PlayStation%20Vita>, <PlayStation%204>;
-  schema:genre <Arcade>;
-  schema:creator <Choice%20Provisions>;
-  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co501j.jpg> .
+  schema:gamePlatform <PlayStation%20Vita> .
 
 <PlayStation%20Vita> schema:name "PlayStation Vita" .
+
+<20152> a schema:VideoGame;
+  schema:genre <Arcade>;
+  schema:creator <Choice%20Provisions>;
+  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co501j.jpg>;
+  schema:gamePlatform <PlayStation%204> .
 
 <Arcade> schema:name "Arcade" .
 
@@ -3392,11 +3360,11 @@ Warp Zone art collection.""";
   schema:releaseDate "2014-07-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Vita>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <Alfa%20System%2CSony%20Computer%20Entertainment>;
+  schema:creator <Alfa%20System>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1uw3.jpg> .
 
-<Alfa%20System%2CSony%20Computer%20Entertainment> schema:county "Japan";
-  schema:name "Alfa System,Sony Computer Entertainment" .
+<Alfa%20System> schema:county "Japan";
+  schema:name "Alfa System" .
 
 <19640> a schema:VideoGame;
   schema:title "Crimson Gem Saga";
@@ -3405,14 +3373,13 @@ Warp Zone art collection.""";
   schema:releaseDate "2008-10-23T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Portable>, <iOS>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <SEGA%20of%20Japan%2CSK%20Telecom%2CAtlus%2CNateGames%2CSonnori%2CSonnori%20Corporation>;
+  schema:creator <SEGA%20of%20Japan>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2nif.jpg> .
 
 <PlayStation%20Portable> schema:name "PlayStation Portable" .
 
-<SEGA%20of%20Japan%2CSK%20Telecom%2CAtlus%2CNateGames%2CSonnori%2CSonnori%20Corporation>
-  schema:county "Japan";
-  schema:name "SEGA of Japan,SK Telecom,Atlus,NateGames,Sonnori,Sonnori Corporation" .
+<SEGA%20of%20Japan> schema:county "Japan";
+  schema:name "SEGA of Japan" .
 
 <19597> a schema:VideoGame;
   schema:title "Wilson's Heart";
@@ -3421,15 +3388,15 @@ Warp Zone art collection.""";
   schema:releaseDate "2017-04-21T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Oculus%20VR>, <Oculus%20Rift>;
   schema:genre <Adventure>;
-  schema:creator <Twisted%20Pixel%2COculus%20Studios>;
+  schema:creator <Twisted%20Pixel>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co28ob.jpg> .
 
 <Oculus%20VR> schema:name "Oculus VR" .
 
 <Adventure> schema:name "Adventure" .
 
-<Twisted%20Pixel%2COculus%20Studios> schema:county "United States";
-  schema:name "Twisted Pixel,Oculus Studios" .
+<Twisted%20Pixel> schema:county "United States";
+  schema:name "Twisted Pixel" .
 
 <Oculus%20Rift> schema:name "Oculus Rift" .
 
@@ -3443,16 +3410,15 @@ Incentive Software published a version of this arcade game for many 8-bit home c
   schema:gamePlatform <Wii>, <Commodore%20C64/128/MAX>, <Amstrad%20CPC>, <ZX%20Spectrum>,
     <Arcade>, <BBC%20Microcomputer%20System>, <Dragon%2032/64>;
   schema:genre <Shooter>, <Arcade>;
-  schema:creator <Nichibutsu%2CIncentive%20Software%2CNihon%20Bussan%2CSega%2CCenturi%2CTaito>;
+  schema:creator <Nichibutsu>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3j6p.jpg> .
 
 <Wii> schema:name "Wii" .
 
 <Shooter> schema:name "Shooter" .
 
-<Nichibutsu%2CIncentive%20Software%2CNihon%20Bussan%2CSega%2CCenturi%2CTaito> schema:county
-    "Japan";
-  schema:name "Nichibutsu,Incentive Software,Nihon Bussan,Sega,Centuri,Taito" .
+<Nichibutsu> schema:county "Japan";
+  schema:name "Nichibutsu" .
 
 <Commodore%20C64/128/MAX> schema:name "Commodore C64/128/MAX" .
 
@@ -3487,13 +3453,13 @@ Utilizing the PlayStation Move motion controller and the PlayStation Eye camera,
   schema:releaseDate "2010-12-21T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Puzzle>;
-  schema:creator <SCE%20Japan%20Studio%2CSony%20Computer%20Entertainment>;
+  schema:creator <SCE%20Japan%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2c66.jpg> .
 
 <PlayStation%203> schema:name "PlayStation 3" .
 
-<SCE%20Japan%20Studio%2CSony%20Computer%20Entertainment> schema:county "Japan";
-  schema:name "SCE Japan Studio,Sony Computer Entertainment" .
+<SCE%20Japan%20Studio> schema:county "Japan";
+  schema:name "SCE Japan Studio" .
 
 <17452> a schema:VideoGame;
   schema:title "The Gallery: Call of the Starseed";
@@ -3562,11 +3528,11 @@ You play this game in a first-person perspective with vector graphics. There's a
   schema:gamePlatform <Commodore%20C64/128/MAX>, <Amstrad%20CPC>, <ZX%20Spectrum>, <Atari%20ST/STE>,
     <Atari%208-bit>, <Commodore%2016>, <Commodore%20Plus/4>;
   schema:genre <Puzzle>, <Simulator>;
-  schema:creator <Novagen%2CDatasoft%2C%20Inc.%2CNovagen>;
+  schema:creator <Novagen>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/uzwf6714igj3zbockqoy.jpg> .
 
-<Novagen%2CDatasoft%2C%20Inc.%2CNovagen> schema:county "United States";
-  schema:name "Novagen,Datasoft, Inc.,Novagen" .
+<Novagen> schema:county "United States";
+  schema:name "Novagen" .
 
 <Atari%20ST/STE> schema:name "Atari ST/STE" .
 
@@ -3618,12 +3584,11 @@ The original was developed by Sensible Software for the C64, Electronic Pencil C
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <DOS>, <Commodore%20C64/128/MAX>,
     <Amiga>, <Amstrad%20CPC>, <ZX%20Spectrum>, <Atari%20ST/STE>;
   schema:genre <Simulator>, <Sport>;
-  schema:creator <Sensible%20Software%2CMicroProse%2CMicroplay%20Software%2CThe%20Electronic%20Pencil%20Co.%20Ltd.%2CKixx%2CSmart%20Egg%20Software%2CDesigner%20Software%2CZiggurat%20Interactive>;
+  schema:creator <Sensible%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3ogf.jpg> .
 
-<Sensible%20Software%2CMicroProse%2CMicroplay%20Software%2CThe%20Electronic%20Pencil%20Co.%20Ltd.%2CKixx%2CSmart%20Egg%20Software%2CDesigner%20Software%2CZiggurat%20Interactive>
-  schema:county "United States";
-  schema:name "Sensible Software,MicroProse,Microplay Software,The Electronic Pencil Co. Ltd.,Kixx,Smart Egg Software,Designer Software,Ziggurat Interactive" .
+<Sensible%20Software> schema:county "United States";
+  schema:name "Sensible Software" .
 
 <Sport> schema:name "Sport" .
 
@@ -3634,15 +3599,15 @@ The original was developed by Sensible Software for the C64, Electronic Pencil C
   schema:releaseDate "2009-09-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <PlayStation%203>;
   schema:genre <Music>;
-  schema:creator <SCE%20London%20Studio%2CSCE%20Worldwide%20Studios%20Europe>;
+  schema:creator <SCE%20London%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/uuuqsbuolavcnmimtley.jpg> .
 
 <PlayStation%202> schema:name "PlayStation 2" .
 
 <Music> schema:name "Music" .
 
-<SCE%20London%20Studio%2CSCE%20Worldwide%20Studios%20Europe> schema:county "United Kingdom";
-  schema:name "SCE London Studio,SCE Worldwide Studios Europe" .
+<SCE%20London%20Studio> schema:county "United Kingdom";
+  schema:name "SCE London Studio" .
 
 <15180> a schema:VideoGame;
   schema:title "SingStar";
@@ -3651,11 +3616,8 @@ The original was developed by Sensible Software for the C64, Electronic Pencil C
   schema:releaseDate "2007-06-12T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Music>;
-  schema:creator <SCE%20London%20Studio%2CSony%20Computer%20Entertainment>;
+  schema:creator <SCE%20London%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/gghz7it8n1276d3vp4eg.jpg> .
-
-<SCE%20London%20Studio%2CSony%20Computer%20Entertainment> schema:county "United Kingdom";
-  schema:name "SCE London Studio,Sony Computer Entertainment" .
 
 <15106> a schema:VideoGame;
   schema:title "Supreme Ruler 2010";
@@ -3664,11 +3626,11 @@ The original was developed by Sensible Software for the C64, Electronic Pencil C
   schema:releaseDate "2005-10-05T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Strategy>;
-  schema:creator <BattleGoat%20Studios%2CStrategy%20First>;
+  schema:creator <BattleGoat%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/sz5unumwqq6ulawqfh6m.jpg> .
 
-<BattleGoat%20Studios%2CStrategy%20First> schema:county "Canada";
-  schema:name "BattleGoat Studios,Strategy First" .
+<BattleGoat%20Studios> schema:county "Canada";
+  schema:name "BattleGoat Studios" .
 
 <14857> a schema:VideoGame;
   schema:title "Alia's Carnival! Sacrament";
@@ -3677,13 +3639,13 @@ The original was developed by Sensible Software for the C64, Electronic Pencil C
   schema:releaseDate "2015-10-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20Vita>;
   schema:genre <>;
-  schema:creator <Dramatic%20Create%2CHuneX>;
+  schema:creator <Dramatic%20Create>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/cyfitko7chdde0o1l9h8.jpg> .
 
 <> schema:name "" .
 
-<Dramatic%20Create%2CHuneX> schema:county "Japan";
-  schema:name "Dramatic Create,HuneX" .
+<Dramatic%20Create> schema:county "Japan";
+  schema:name "Dramatic Create" .
 
 <14724> a schema:VideoGame;
   schema:title "Towerfall Ascension: Dark Worlds";
@@ -3713,12 +3675,11 @@ Players control a robotic \"Vorton\" (resembling a dalek from Doctor Who) and on
   schema:releaseDate "1985-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Commodore%20C64/128/MAX>, <Amstrad%20CPC>, <ZX%20Spectrum>, <MSX>;
   schema:genre <Puzzle>, <Strategy>, <Tactical>;
-  schema:creator <Vortex%20Software%2CVortex%20Software%2CGremlin%20Graphics%20Software%20Ltd.>;
+  schema:creator <Vortex%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/r7nt1lfwljqkcn8apdxm.jpg> .
 
-<Vortex%20Software%2CVortex%20Software%2CGremlin%20Graphics%20Software%20Ltd.> schema:county
-    "United Kingdom";
-  schema:name "Vortex Software,Vortex Software,Gremlin Graphics Software Ltd." .
+<Vortex%20Software> schema:county "United Kingdom";
+  schema:name "Vortex Software" .
 
 <MSX> schema:name "MSX" .
 
@@ -3742,11 +3703,10 @@ Players control a robotic \"Vorton\" (resembling a dalek from Doctor Who) and on
   schema:gamePlatform <DOS>, <Commodore%20C64/128/MAX>, <Amiga>, <Amstrad%20CPC>, <ZX%20Spectrum>,
     <MSX>, <Atari%20ST/STE>, <Atari%208-bit>, <BBC%20Microcomputer%20System>, <Tatung%20Einstein>;
   schema:genre <Platform>, <Puzzle>, <Arcade>;
-  schema:creator <Mandarin%20Software%2CShareData%2C%20Inc.%2CMerlin%20Software%20U.K.%2CBubble%20Bus%20Software>;
+  schema:creator <Mandarin%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/ul5wwtyyqzh06j98agmx.jpg> .
 
-<Mandarin%20Software%2CShareData%2C%20Inc.%2CMerlin%20Software%20U.K.%2CBubble%20Bus%20Software>
-  schema:name "Mandarin Software,ShareData, Inc.,Merlin Software U.K.,Bubble Bus Software" .
+<Mandarin%20Software> schema:name "Mandarin Software" .
 
 <Tatung%20Einstein> schema:name "Tatung Einstein" .
 
@@ -3766,6 +3726,8 @@ Players control a robotic \"Vorton\" (resembling a dalek from Doctor Who) and on
   schema:gamePlatform <Xbox%20One>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co47y6.jpg> .
 
+<Xbox%20One> schema:name "Xbox One" .
+
 <11390> a schema:VideoGame;
   schema:title "Dark Reign 2";
   schema:ratingValue "90";
@@ -3773,13 +3735,13 @@ Players control a robotic \"Vorton\" (resembling a dalek from Doctor Who) and on
   schema:releaseDate "2000-06-30T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Real%20Time%20Strategy%20%28RTS%29>, <Strategy>;
-  schema:creator <Pandemic%20Studios%2CActivision>;
+  schema:creator <Pandemic%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1yh7.jpg> .
 
 <Real%20Time%20Strategy%20%28RTS%29> schema:name "Real Time Strategy (RTS)" .
 
-<Pandemic%20Studios%2CActivision> schema:county "United States";
-  schema:name "Pandemic Studios,Activision" .
+<Pandemic%20Studios> schema:county "United States";
+  schema:name "Pandemic Studios" .
 
 <11013> a schema:VideoGame;
   schema:title "Trainz Railroad Simulator 2004";
@@ -3788,10 +3750,10 @@ Players control a robotic \"Vorton\" (resembling a dalek from Doctor Who) and on
   schema:releaseDate "2003-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>;
-  schema:creator <Auran%2CFIP%20Publishing>;
+  schema:creator <Auran>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/lr17x7xeol60pznh5tkk.jpg> .
 
-<Auran%2CFIP%20Publishing> schema:name "Auran,FIP Publishing" .
+<Auran> schema:name "Auran" .
 
 <10845> a schema:VideoGame;
   schema:title "Silent Storm: Sentinels";
@@ -3823,11 +3785,13 @@ The legendary pirate Dead Kel and his Hanged Men have returned to haunt the seas
   schema:releaseDate "2012-03-20T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%203>, <Xbox%20360>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <38%20Studios%2CBig%20Huge%20Games%2CElectronic%20Arts>;
+  schema:creator <38%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2frw.jpg> .
 
-<38%20Studios%2CBig%20Huge%20Games%2CElectronic%20Arts> schema:county "United States";
-  schema:name "38 Studios,Big Huge Games,Electronic Arts" .
+<38%20Studios> schema:county "United States";
+  schema:name "38 Studios" .
+
+<Xbox%20360> schema:name "Xbox 360" .
 
 <10258> a schema:VideoGame;
   schema:title "Star Command";
@@ -3871,11 +3835,11 @@ In between the simulation game play, the game will suddenly switch to the role o
   schema:releaseDate "1998-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox%20360>, <Dreamcast>, <Arcade>;
   schema:genre <Fighting>;
-  schema:creator <Sega%20AM3%2CSega%2CActivision%2CSega%20AM2>;
+  schema:creator <Sega%20AM3>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co45rz.jpg> .
 
-<Sega%20AM3%2CSega%2CActivision%2CSega%20AM2> schema:county "Japan";
-  schema:name "Sega AM3,Sega,Activision,Sega AM2" .
+<Sega%20AM3> schema:county "Japan";
+  schema:name "Sega AM3" .
 
 <Dreamcast> schema:name "Dreamcast" .
 
@@ -3886,11 +3850,11 @@ In between the simulation game play, the game will suddenly switch to the role o
   schema:releaseDate "1996-11-30T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%2064>, <PlayStation>;
   schema:genre <Shooter>;
-  schema:creator <GT%20Interactive%2CCrave%20Entertainment%2CPlayer%201>;
+  schema:creator <GT%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3gh3.jpg> .
 
-<GT%20Interactive%2CCrave%20Entertainment%2CPlayer%201> schema:county "United States";
-  schema:name "GT Interactive,Crave Entertainment,Player 1" .
+<GT%20Interactive> schema:county "United States";
+  schema:name "GT Interactive" .
 
 <PlayStation> schema:name "PlayStation" .
 
@@ -3943,13 +3907,13 @@ The arcade game introduced recurring video games characters such as Glass Joe, P
   schema:releaseDate "2002-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Xbox>;
   schema:genre <Racing>;
-  schema:creator <Climax%20Brighton%2CTHQ>;
+  schema:creator <Climax%20Brighton>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2guc.jpg> .
 
 <Racing> schema:name "Racing" .
 
-<Climax%20Brighton%2CTHQ> schema:county "United Kingdom";
-  schema:name "Climax Brighton,THQ" .
+<Climax%20Brighton> schema:county "United Kingdom";
+  schema:name "Climax Brighton" .
 
 <7425> a schema:VideoGame;
   schema:title "The Witness";
@@ -3981,11 +3945,11 @@ The player character is a detective who has been summoned to the Cabeza Plana, C
   schema:releaseDate "2011-08-03T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <PlayStation%203>, <PlayStation%20Portable>;
   schema:genre <Simulator>, <Sport>;
-  schema:creator <SCE%20San%20Diego%20Studio%2CSony%20Computer%20Entertainment>;
+  schema:creator <SCE%20San%20Diego%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/de80wmik4skugmhbetk9.jpg> .
 
-<SCE%20San%20Diego%20Studio%2CSony%20Computer%20Entertainment> schema:county "United States";
-  schema:name "SCE San Diego Studio,Sony Computer Entertainment" .
+<SCE%20San%20Diego%20Studio> schema:county "United States";
+  schema:name "SCE San Diego Studio" .
 
 <7263> a schema:VideoGame;
   schema:title "Romance of the Three Kingdoms VIII";
@@ -4016,11 +3980,11 @@ Create an army by selecting rulers, warlords, viceroys, free officers, and bands
   schema:releaseDate "2009-09-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox%20360>;
   schema:genre <Shooter>, <Music>, <Puzzle>;
-  schema:creator <Atari%2CQ%20Entertainment>;
+  schema:creator <Atari>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/xwkssjpzhtv0cjldqm0o.jpg> .
 
-<Atari%2CQ%20Entertainment> schema:county "Japan";
-  schema:name "Atari,Q Entertainment" .
+<Atari> schema:county "Japan", "Italy";
+  schema:name "Atari" .
 
 <7143> a schema:VideoGame;
   schema:title "Screamer 4x4";
@@ -4031,10 +3995,10 @@ Players compete in a series of time trial championships and trophies, earning ne
   schema:releaseDate "2000-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Racing>, <Simulator>;
-  schema:creator <Channel%2042%20Software%20Developer%2CVirgin%20Entertainment>;
+  schema:creator <Channel%2042%20Software%20Developer>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/p2xlnisp5qt5z3e38fcd.jpg> .
 
-<Channel%2042%20Software%20Developer%2CVirgin%20Entertainment> schema:name "Channel 42 Software Developer,Virgin Entertainment" .
+<Channel%2042%20Software%20Developer> schema:name "Channel 42 Software Developer" .
 
 <6612> a schema:VideoGame;
   schema:title "Fahrenheit";
@@ -4045,13 +4009,13 @@ Developed primarily as a 32X CD title, it also saw a release on the Sega CD, whe
   schema:releaseDate "1995-01-09T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Sega%2032X>, <Sega%20CD>;
   schema:genre <Adventure>;
-  schema:creator <Sega%20Enterprises%2CSEGA%20of%20America%2CSega%20Studio%20USA>;
+  schema:creator <Sega%20Enterprises>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2nk4.jpg> .
 
 <Sega%2032X> schema:name "Sega 32X" .
 
-<Sega%20Enterprises%2CSEGA%20of%20America%2CSega%20Studio%20USA> schema:county "Japan";
-  schema:name "Sega Enterprises,SEGA of America,Sega Studio USA" .
+<Sega%20Enterprises> schema:county "Japan";
+  schema:name "Sega Enterprises" .
 
 <Sega%20CD> schema:name "Sega CD" .
 
@@ -4076,13 +4040,13 @@ Developed primarily as a 32X CD title, it also saw a release on the Sega CD, whe
   schema:releaseDate "2004-07-12T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Game%20Boy%20Advance>, <Legacy%20Mobile%20Device>;
   schema:genre <Puzzle>;
-  schema:creator <Rare%2CTHQ%2CIn-Fusio>;
+  schema:creator <Rare>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co322t.jpg> .
 
 <Game%20Boy%20Advance> schema:name "Game Boy Advance" .
 
-<Rare%2CTHQ%2CIn-Fusio> schema:county "United Kingdom";
-  schema:name "Rare,THQ,In-Fusio" .
+<Rare> schema:county "United Kingdom";
+  schema:name "Rare" .
 
 <Legacy%20Mobile%20Device> schema:name "Legacy Mobile Device" .
 
@@ -4099,11 +4063,11 @@ UFC: Tapout received generally lukewarm reviews from critics. A sequel to this g
   schema:releaseDate "2002-02-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox>;
   schema:genre <Fighting>, <Sport>;
-  schema:creator <Capcom%2CCrave%20Entertainment%2CDreamFactory>;
+  schema:creator <Capcom>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4if9.jpg> .
 
-<Capcom%2CCrave%20Entertainment%2CDreamFactory> schema:county "Japan";
-  schema:name "Capcom,Crave Entertainment,DreamFactory" .
+<Capcom> schema:county "Japan";
+  schema:name "Capcom" .
 
 <6028> a schema:VideoGame;
   schema:title "Theocracy";
@@ -4126,11 +4090,11 @@ Cars are split up into 5 categories with 2 subcategories each plus \"Classic\" c
   schema:releaseDate "2004-04-05T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox>;
   schema:genre <Racing>, <Sport>;
-  schema:creator <Microsoft%20Game%20Studios%2CDigital%20Illusions%20CE>;
+  schema:creator <Microsoft%20Game%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co454u.jpg> .
 
-<Microsoft%20Game%20Studios%2CDigital%20Illusions%20CE> schema:county "United States";
-  schema:name "Microsoft Game Studios,Digital Illusions CE" .
+<Microsoft%20Game%20Studios> schema:county "United States";
+  schema:name "Microsoft Game Studios" .
 
 <5981> a schema:VideoGame;
   schema:title "Phantom Dust";
@@ -4143,12 +4107,8 @@ The Xbox Live servers no longer support Online Multiplayer for Phantom Dust, or 
   schema:releaseDate "2004-09-23T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox>;
   schema:genre <Strategy>, <Adventure>, <Card%20%26%20Board%20Game>;
-  schema:creator <Microsoft%20Game%20Studios%2CMajesco%20Entertainment%2CCode%20Mystics>;
+  schema:creator <Microsoft%20Game%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1z3i.jpg> .
-
-<Microsoft%20Game%20Studios%2CMajesco%20Entertainment%2CCode%20Mystics> schema:county
-    "United States";
-  schema:name "Microsoft Game Studios,Majesco Entertainment,Code Mystics" .
 
 <Card%20%26%20Board%20Game> schema:name "Card & Board Game" .
 
@@ -4183,11 +4143,11 @@ Championship Manager is undoubtedly the most popular football management game in
   schema:releaseDate "2002-06-12T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox>;
   schema:genre <Fighting>, <Simulator>, <Sport>;
-  schema:creator <Sports%20Interactive%2CEidos%20Interactive>;
+  schema:creator <Sports%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/irppn0otsfbescbtjz4f.jpg> .
 
-<Sports%20Interactive%2CEidos%20Interactive> schema:county "United Kingdom";
-  schema:name "Sports Interactive,Eidos Interactive" .
+<Sports%20Interactive> schema:county "United Kingdom";
+  schema:name "Sports Interactive" .
 
 <5728> a schema:VideoGame;
   schema:title "APEX";
@@ -4196,11 +4156,8 @@ Championship Manager is undoubtedly the most popular football management game in
   schema:releaseDate "2003-02-18T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Xbox>;
   schema:genre <Puzzle>, <Racing>, <Strategy>;
-  schema:creator <Atari%2CMilestone%20S.r.l.>;
+  schema:creator <Atari>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/q23rsurg45ixfsylpc8u.jpg> .
-
-<Atari%2CMilestone%20S.r.l.> schema:county "Italy";
-  schema:name "Atari,Milestone S.r.l." .
 
 <5441> a schema:VideoGame;
   schema:title "Aerena: Clash of Champions";
@@ -4225,12 +4182,11 @@ Assemble a team of uniquely skilled gladiators. Lead it to victory in challengin
   schema:releaseDate "2008-10-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii>;
   schema:genre <Simulator>;
-  schema:creator <XSEED%20Games%2CBandai%20Namco%20Entertainment%2CAccess%20Games%2CProject%20Aces>;
+  schema:creator <XSEED%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1w41.jpg> .
 
-<XSEED%20Games%2CBandai%20Namco%20Entertainment%2CAccess%20Games%2CProject%20Aces>
-  schema:county "United States";
-  schema:name "XSEED Games,Bandai Namco Entertainment,Access Games,Project Aces" .
+<XSEED%20Games> schema:county "United States";
+  schema:name "XSEED Games" .
 
 <5097> a schema:VideoGame;
   schema:title "Phantom Brave";
@@ -4241,12 +4197,11 @@ The game features a turn based combat system. During battles, Marona is able to 
   schema:releaseDate "2004-01-22T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii>, <PC%20%28Microsoft%20Windows%29>, <PlayStation%202>, <PlayStation%20Portable>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Tactical>, <Adventure>;
-  schema:creator <System%20Prisma%2CKoei%2CNippon%20Ichi%20Software%2CNIS%20America>;
+  schema:creator <System%20Prisma>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3bg0.jpg> .
 
-<System%20Prisma%2CKoei%2CNippon%20Ichi%20Software%2CNIS%20America> schema:county
-    "Japan";
-  schema:name "System Prisma,Koei,Nippon Ichi Software,NIS America" .
+<System%20Prisma> schema:county "Japan";
+  schema:name "System Prisma" .
 
 <5024> a schema:VideoGame;
   schema:title "The Munchables";
@@ -4255,11 +4210,11 @@ The game features a turn based combat system. During battles, Marona is able to 
   schema:releaseDate "2009-05-27T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii>;
   schema:genre <Platform>;
-  schema:creator <Bandai%20Namco%20Entertainment%2CNamco>;
+  schema:creator <Bandai%20Namco%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/hqs3la3d3iexgeziwf2m.jpg> .
 
-<Bandai%20Namco%20Entertainment%2CNamco> schema:county "Japan";
-  schema:name "Bandai Namco Entertainment,Namco" .
+<Bandai%20Namco%20Entertainment> schema:county "Japan";
+  schema:name "Bandai Namco Entertainment" .
 
 <4933> a schema:VideoGame;
   schema:title "Indianapolis 500 Legends";
@@ -4268,11 +4223,11 @@ The game features a turn based combat system. During battles, Marona is able to 
   schema:releaseDate "2007-12-18T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Wii>, <Nintendo%20DS>;
   schema:genre <Racing>;
-  schema:creator <Destineer%2CTorus%20Games>;
+  schema:creator <Destineer>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5alf.jpg> .
 
-<Destineer%2CTorus%20Games> schema:county "United States";
-  schema:name "Destineer,Torus Games" .
+<Destineer> schema:county "United States";
+  schema:name "Destineer" .
 
 <Nintendo%20DS> schema:name "Nintendo DS" .
 
@@ -4285,11 +4240,11 @@ The game is loosely based on a trilogy of novels by Judith and Garfield Reeves-S
   schema:releaseDate "2000-11-23T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Shooter>;
-  schema:creator <The%20Collective%2CSimon%20%26%20Schuster>;
+  schema:creator <The%20Collective>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2jev.jpg> .
 
-<The%20Collective%2CSimon%20%26%20Schuster> schema:county "United States";
-  schema:name "The Collective,Simon & Schuster" .
+<The%20Collective> schema:county "United States";
+  schema:name "The Collective" .
 
 <2960> a schema:VideoGame;
   schema:title "Fable";
@@ -4306,12 +4261,11 @@ But beware... in the world of Fable not everything is as it seems.""";
   schema:releaseDate "1996-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <DOS>;
   schema:genre <Puzzle>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Simbiosis%20Interactive%2CSir-tech%20Software%2CTelstar%20Electronic%20Studios%20Ltd.>;
+  schema:creator <Simbiosis%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co26iz.jpg> .
 
-<Simbiosis%20Interactive%2CSir-tech%20Software%2CTelstar%20Electronic%20Studios%20Ltd.>
-  schema:county "United States";
-  schema:name "Simbiosis Interactive,Sir-tech Software,Telstar Electronic Studios Ltd." .
+<Simbiosis%20Interactive> schema:county "United States";
+  schema:name "Simbiosis Interactive" .
 
 <1984> a schema:VideoGame;
   schema:title "Stargate SG-1 Unleashed";
@@ -4320,10 +4274,10 @@ But beware... in the world of Fable not everything is as it seems.""";
   schema:releaseDate "2013-12-03T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Android>, <iOS>;
   schema:genre <Adventure>;
-  schema:creator <Arkalis%20Interactive%2CMGM>;
+  schema:creator <Arkalis%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/mcoq3rzn6r9jc9wfbymc.jpg> .
 
-<Arkalis%20Interactive%2CMGM> schema:name "Arkalis Interactive,MGM" .
+<Arkalis%20Interactive> schema:name "Arkalis Interactive" .
 
 <1572> a schema:VideoGame;
   schema:title "Sega Rally 2";
@@ -4332,11 +4286,11 @@ But beware... in the world of Fable not everything is as it seems.""";
   schema:releaseDate "1998-01-02T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Dreamcast>, <Arcade>;
   schema:genre <Racing>, <Arcade>;
-  schema:creator <Sega%20AM5%2CSmilebit%2CSega>;
+  schema:creator <Sega%20AM5>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3rsa.jpg> .
 
-<Sega%20AM5%2CSmilebit%2CSega> schema:county "Japan";
-  schema:name "Sega AM5,Smilebit,Sega" .
+<Sega%20AM5> schema:county "Japan";
+  schema:name "Sega AM5" .
 
 <920> a schema:VideoGame;
   schema:title "Trainz";
@@ -4356,11 +4310,11 @@ But beware... in the world of Fable not everything is as it seems.""";
   schema:releaseDate "2000-01-06T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Sport>;
-  schema:creator <Sierra%20On-Line%2CHeadgate%20Studios>;
+  schema:creator <Sierra%20On-Line>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/okxwyjsx4rgqfpxplxse.jpg> .
 
-<Sierra%20On-Line%2CHeadgate%20Studios> schema:county "United States";
-  schema:name "Sierra On-Line,Headgate Studios" .
+<Sierra%20On-Line> schema:county "United States";
+  schema:name "Sierra On-Line" .
 
 <804> a schema:VideoGame;
   schema:title "NASCAR Racing 2003 Season";
@@ -4373,12 +4327,11 @@ Multiplayer supports up to 42 players online in the same race.""";
   schema:releaseDate "2003-02-13T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Racing>, <Simulator>, <Sport>;
-  schema:creator <Sierra%20Entertainment%2CPapyrus%20Design%20Group%2CAspyr%20Media>;
+  schema:creator <Sierra%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2idh.jpg> .
 
-<Sierra%20Entertainment%2CPapyrus%20Design%20Group%2CAspyr%20Media> schema:county
-    "United States";
-  schema:name "Sierra Entertainment,Papyrus Design Group,Aspyr Media" .
+<Sierra%20Entertainment> schema:county "United States";
+  schema:name "Sierra Entertainment" .
 
 <803> a schema:VideoGame;
   schema:title "NASCAR Racing 2002 Season";
@@ -4387,11 +4340,8 @@ Multiplayer supports up to 42 players online in the same race.""";
   schema:releaseDate "2002-02-14T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Racing>, <Simulator>, <Sport>;
-  schema:creator <Sierra%20Entertainment%2CPapyrus%20Design%20Group>;
+  schema:creator <Sierra%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/almfqicfeg5c2opwjx8w.jpg> .
-
-<Sierra%20Entertainment%2CPapyrus%20Design%20Group> schema:county "United States";
-  schema:name "Sierra Entertainment,Papyrus Design Group" .
 
 <791> a schema:VideoGame;
   schema:title "Mission Critical";
@@ -4421,11 +4371,10 @@ Apache Longbow took flying simulators to the next level. The developers construc
   schema:releaseDate "1995-07-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <DOS>, <Mac>;
   schema:genre <Simulator>;
-  schema:creator <Digital%20Integration%2CDigital%20Integration%2CInteractive%20Magic>;
+  schema:creator <Digital%20Integration>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/zmaokvadzctygkgessmf.jpg> .
 
-<Digital%20Integration%2CDigital%20Integration%2CInteractive%20Magic> schema:name
-    "Digital Integration,Digital Integration,Interactive Magic" .
+<Digital%20Integration> schema:name "Digital Integration" .
 
 <592> a schema:VideoGame;
   schema:title "AH-64D Longbow";
@@ -4433,53 +4382,41 @@ Apache Longbow took flying simulators to the next level. The developers construc
   schema:releaseDate "1996-05-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <DOS>;
   schema:genre <Simulator>;
-  schema:creator <Origin%20Systems%2CJane%27s%20Combat%20Simulations%2CElectronic%20Arts>;
+  schema:creator <Origin%20Systems>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/cdodfvc0iwlcqmcynb56.jpg> .
 
-<Origin%20Systems%2CJane%27s%20Combat%20Simulations%2CElectronic%20Arts> schema:county
-    "United States";
-  schema:name "Origin Systems,Jane's Combat Simulations,Electronic Arts" .
+<Origin%20Systems> schema:county "United States";
+  schema:name "Origin Systems" .
 
 <409> a schema:VideoGame;
   schema:title "Final Fantasy XI: Chains of Promathia";
   schema:ratingValue "90";
   schema:description "Final Fantasy XI: Chains of Promathia is the second expansion pack for Final Fantasy XI. This expansion pack brings several new areas, quests, and a new mission storyline to the game. It is also the only expansion thus far to not feature additional jobs.";
   schema:releaseDate "2004-09-16T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
-  schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <Square%20Enix> .
+  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%202>, <Xbox%20360>;
+  schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
+  schema:creator <Square%20Enix>;
+  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1vmv.jpg> .
 
 <Square%20Enix> schema:county "Japan";
-  schema:name "Square Enix";
-  schema:county "Japan" .
-
-<409> a schema:VideoGame;
-  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1vmv.jpg>;
-  schema:gamePlatform <PlayStation%202>, <Xbox%20360>;
-  schema:genre <Adventure> .
-
-<PlayStation%202> schema:name "PlayStation 2" .
-
-<Adventure> schema:name "Adventure" .
-
-<Xbox%20360> schema:name "Xbox 360" .
+  schema:name "Square Enix" .
 
 <212871> a schema:VideoGame;
   schema:title "DeFi Land";
   schema:ratingValue "100";
   schema:description "DeFi Land is the place to enjoy a farming, fishing, gardening and other relaxing activities. Users can build their villages, interact with other players and NPCs to craft the most precious items, compete for the leaderboards and revive the inner farmers in them.";
   schema:releaseDate "2022-01-02T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <Android>, <iOS>, <Web%20browser>;
-  schema:genre <Shooter>, <Tactical>, <Indie>, <Arcade>;
+  schema:gamePlatform <Android>;
+  schema:genre <Shooter>;
   schema:creator <DeFi%20Land>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co52d7.jpg> .
 
-<Android> schema:name "Android" .
-
-<Shooter> schema:name "Shooter" .
-
 <DeFi%20Land> schema:county "Panama";
   schema:name "DeFi Land" .
+
+<212871> a schema:VideoGame;
+  schema:gamePlatform <iOS>, <Web%20browser>;
+  schema:genre <Tactical>, <Indie>, <Arcade> .
 
 <iOS> schema:name "iOS" .
 
@@ -4535,6 +4472,8 @@ It is also positioned as a gaiden work, and the battle system has been changed a
 <PlayStation%20Portable> schema:name "PlayStation Portable" .
 
 <Simulator> schema:name "Simulator" .
+
+<Adventure> schema:name "Adventure" .
 
 <47065> a schema:VideoGame;
   schema:title "Battle Moon Wars";
@@ -4602,11 +4541,11 @@ This Game of the Year Edition now includes bonus content:
   schema:releaseDate "2020-10-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Role-playing%20%28RPG%29>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <FromSoftware%2CActivision>;
+  schema:creator <FromSoftware>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3k97.jpg> .
 
-<FromSoftware%2CActivision> schema:county "Japan";
-  schema:name "FromSoftware,Activision" .
+<FromSoftware> schema:county "Japan";
+  schema:name "FromSoftware" .
 
 <PlayStation%204> schema:name "PlayStation 4" .
 
@@ -4623,11 +4562,13 @@ Enjoy a total overhaul of the original experience, faithfully reproduced but inc
   schema:releaseDate "2022-01-09T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%205>;
   schema:genre <Shooter>, <Adventure>;
-  schema:creator <Sony%20Interactive%20Entertainment%2CNaughty%20Dog>;
+  schema:creator <Sony%20Interactive%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4ukb.jpg> .
 
-<Sony%20Interactive%20Entertainment%2CNaughty%20Dog> schema:county "Japan";
-  schema:name "Sony Interactive Entertainment,Naughty Dog" .
+<Shooter> schema:name "Shooter" .
+
+<Sony%20Interactive%20Entertainment> schema:county "Japan";
+  schema:name "Sony Interactive Entertainment" .
 
 <PlayStation%205> schema:name "PlayStation 5" .
 
@@ -4639,12 +4580,11 @@ Enjoy a total overhaul of the original experience, faithfully reproduced but inc
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Bethesda%20Game%20Studios%2CBethesda%20Softworks%2CXbox%20Game%20Studios>;
+  schema:creator <Bethesda%20Game%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3lyu.jpg> .
 
-<Bethesda%20Game%20Studios%2CBethesda%20Softworks%2CXbox%20Game%20Studios> schema:county
-    "United States";
-  schema:name "Bethesda Game Studios,Bethesda Softworks,Xbox Game Studios" .
+<Bethesda%20Game%20Studios> schema:county "United States";
+  schema:name "Bethesda Game Studios" .
 
 <Nintendo%20Switch> schema:name "Nintendo Switch" .
 
@@ -4657,11 +4597,11 @@ Enjoy a total overhaul of the original experience, faithfully reproduced but inc
   schema:releaseDate "2013-09-07T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Kojima%20Productions%2CKonami>;
+  schema:creator <Kojima%20Productions>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co45jf.jpg> .
 
-<Kojima%20Productions%2CKonami> schema:county "Japan";
-  schema:name "Kojima Productions,Konami" .
+<Kojima%20Productions> schema:county "Japan";
+  schema:name "Kojima Productions" .
 
 <21073> a schema:VideoGame;
   schema:title "Metal Gear Solid: Snake Eater 3D";
@@ -4670,7 +4610,7 @@ Enjoy a total overhaul of the original experience, faithfully reproduced but inc
   schema:releaseDate "2012-02-21T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%203DS>;
   schema:genre <Shooter>, <Strategy>, <Adventure>;
-  schema:creator <Kojima%20Productions%2CKonami>;
+  schema:creator <Kojima%20Productions>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co26m4.jpg> .
 
 <Nintendo%203DS> schema:name "Nintendo 3DS" .
@@ -4719,11 +4659,13 @@ This initial install will require an Xbox 360 Hard Drive or an external 16GB USB
   schema:releaseDate "2013-09-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>, <Xbox%20360>;
   schema:genre <Shooter>, <Racing>, <Sport>;
-  schema:creator <Rockstar%20Games%2CTake-Two%20Interactive>;
+  schema:creator <Rockstar%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2nbc.jpg> .
 
-<Rockstar%20Games%2CTake-Two%20Interactive> schema:county "United States";
-  schema:name "Rockstar Games,Take-Two Interactive" .
+<Rockstar%20Games> schema:county "United States";
+  schema:name "Rockstar Games" .
+
+<Xbox%20360> schema:name "Xbox 360" .
 
 <Racing> schema:name "Racing" .
 
@@ -4764,11 +4706,13 @@ The game was originally released on July 20, 2004. It was the last NFL 2K game t
   schema:releaseDate "2004-07-20T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <Xbox>;
   schema:genre <Simulator>, <Sport>;
-  schema:creator <Visual%20Concepts%2CSega%2CGlobal%20Star%20Software>;
+  schema:creator <Visual%20Concepts>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2xij.jpg> .
 
-<Visual%20Concepts%2CSega%2CGlobal%20Star%20Software> schema:county "United States";
-  schema:name "Visual Concepts,Sega,Global Star Software" .
+<PlayStation%202> schema:name "PlayStation 2" .
+
+<Visual%20Concepts> schema:county "United States";
+  schema:name "Visual Concepts" .
 
 <Xbox> schema:name "Xbox" .
 
@@ -4819,11 +4763,11 @@ The latest RPG in the Persona series! A new storyline in Persona Q, this time fo
   schema:releaseDate "2018-11-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%203DS>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Adventure>;
-  schema:creator <P%20Studio%2CAtlus%2CAtlus%2CSega>;
+  schema:creator <P%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1riw.jpg> .
 
-<P%20Studio%2CAtlus%2CAtlus%2CSega> schema:county "Japan";
-  schema:name "P Studio,Atlus,Atlus,Sega" .
+<P%20Studio> schema:county "Japan";
+  schema:name "P Studio" .
 
 <25651> a schema:VideoGame;
   schema:title "Darkest Dungeon: The Crimson Court";
@@ -4837,11 +4781,11 @@ The DLC is designed to be played alongside an existing campaign, or as a brand n
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <iOS>, <PlayStation%20Vita>,
     <PlayStation%204>;
   schema:genre <Strategy>, <Adventure>, <Indie>;
-  schema:creator <BlitWorks%2CRed%20Hook%20Studios>;
+  schema:creator <BlitWorks>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1h7f.jpg> .
 
-<BlitWorks%2CRed%20Hook%20Studios> schema:county "Spain";
-  schema:name "BlitWorks,Red Hook Studios" .
+<BlitWorks> schema:county "Spain";
+  schema:name "BlitWorks" .
 
 <PlayStation%20Vita> schema:name "PlayStation Vita" .
 
@@ -4859,11 +4803,11 @@ Hitman: Game of the Year Edition includes all of this brand new content:
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>;
   schema:genre <Shooter>, <Tactical>, <Adventure>;
-  schema:creator <IO%20Interactive%2CFeral%20Interactive>;
+  schema:creator <IO%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co24wx.jpg> .
 
-<IO%20Interactive%2CFeral%20Interactive> schema:county "Denmark";
-  schema:name "IO Interactive,Feral Interactive" .
+<IO%20Interactive> schema:county "Denmark";
+  schema:name "IO Interactive" .
 
 <22439> a schema:VideoGame;
   schema:title "The Witcher 3: Wild Hunt - Game of the Year Edition";
@@ -4872,11 +4816,8 @@ Hitman: Game of the Year Edition includes all of this brand new content:
   schema:releaseDate "2016-08-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <CD%20Projekt%20RED%2CCD%20Projekt>;
+  schema:creator <CD%20Projekt%20RED>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1wz4.jpg> .
-
-<CD%20Projekt%20RED%2CCD%20Projekt> schema:county "Poland";
-  schema:name "CD Projekt RED,CD Projekt" .
 
 <142494> a schema:VideoGame;
   schema:title "Dragon Ball Card Warriors";
@@ -4889,11 +4830,11 @@ Challenge players of all skill levels or hone your skills in practice matches ag
   schema:releaseDate "2020-10-27T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Strategy>, <Turn-based%20strategy%20%28TBS%29>, <Card%20%26%20Board%20Game>;
-  schema:creator <CyberConnect2%2CBandai%20Namco%20Entertainment>;
+  schema:creator <CyberConnect2>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4hal.jpg> .
 
-<CyberConnect2%2CBandai%20Namco%20Entertainment> schema:county "Japan";
-  schema:name "CyberConnect2,Bandai Namco Entertainment" .
+<CyberConnect2> schema:county "Japan";
+  schema:name "CyberConnect2" .
 
 <Card%20%26%20Board%20Game> schema:name "Card & Board Game" .
 
@@ -4905,11 +4846,11 @@ Challenge players of all skill levels or hone your skills in practice matches ag
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Point-and-click>, <Puzzle>, <Role-playing%20%28RPG%29>, <Adventure>,
     <Indie>;
-  schema:creator <What%20Pumpkin%20Games%2CFellow%20Traveller>;
+  schema:creator <What%20Pumpkin%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1s8t.jpg> .
 
-<What%20Pumpkin%20Games%2CFellow%20Traveller> schema:county "Australia";
-  schema:name "What Pumpkin Games,Fellow Traveller" .
+<What%20Pumpkin%20Games> schema:county "Australia";
+  schema:name "What Pumpkin Games" .
 
 <Puzzle> schema:name "Puzzle" .
 
@@ -4920,11 +4861,11 @@ Challenge players of all skill levels or hone your skills in practice matches ag
   schema:releaseDate "2016-12-02T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Simulator>, <Adventure>, <Visual%20Novel>;
-  schema:creator <MangaGamer%2CLiar-soft>;
+  schema:creator <MangaGamer>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/tyvz1bnjdidtbfph2dpp.jpg> .
 
-<MangaGamer%2CLiar-soft> schema:county "Japan";
-  schema:name "MangaGamer,Liar-soft" .
+<MangaGamer> schema:county "Japan";
+  schema:name "MangaGamer" .
 
 <43036> a schema:VideoGame;
   schema:title "Monkey Island Special Edition Collection";
@@ -5021,6 +4962,8 @@ you can do it again and again. Do you have what it takes to save your great city
   schema:creator <TYPE-MOON>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1qq4.jpg> .
 
+<Android> schema:name "Android" .
+
 <TYPE-MOON> schema:county "Japan";
   schema:name "TYPE-MOON" .
 
@@ -5036,11 +4979,11 @@ Stone & Blood and Wine. It's the perfect opportunity to enter this world for the
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Saber%20Interactive%2CCD%20Projekt%20RED>;
+  schema:creator <Saber%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5uct.jpg> .
 
-<Saber%20Interactive%2CCD%20Projekt%20RED> schema:county "United States";
-  schema:name "Saber Interactive,CD Projekt RED" .
+<Saber%20Interactive> schema:county "United States";
+  schema:name "Saber Interactive" .
 
 <106819> a schema:VideoGame;
   schema:title "Final Fantasy XIV: Complete Edition";
@@ -5051,6 +4994,9 @@ Stone & Blood and Wine. It's the perfect opportunity to enter this world for the
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
   schema:creator <Square%20Enix>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1nuq.jpg> .
+
+<Square%20Enix> schema:county "Japan";
+  schema:name "Square Enix" .
 
 <132234> a schema:VideoGame;
   schema:title "All Over";
@@ -5092,10 +5038,10 @@ Steam achievements - Growing list of steam achievements.""";
   schema:releaseDate "2018-10-08T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%20Switch>;
   schema:genre <Shooter>, <Indie>, <Arcade>;
-  schema:creator <mebius%2CProject%20Rolling%20Gunner>;
+  schema:creator <mebius>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1mkp.jpg> .
 
-<mebius%2CProject%20Rolling%20Gunner> schema:name "mebius,Project Rolling Gunner" .
+<mebius> schema:name "mebius" .
 
 <114283> a schema:VideoGame;
   schema:title "Persona 5 Royal";
@@ -5105,11 +5051,11 @@ Steam achievements - Growing list of steam achievements.""";
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Turn-based%20strategy%20%28TBS%29>, <Adventure>;
-  schema:creator <Atlus%20USA%2CAtlus>;
+  schema:creator <Atlus%20USA>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1nic.jpg> .
 
-<Atlus%20USA%2CAtlus> schema:county "United States";
-  schema:name "Atlus USA,Atlus" .
+<Atlus%20USA> schema:county "United States";
+  schema:name "Atlus USA" .
 
 <28278> a schema:VideoGame;
   schema:title "Catan Universe";
@@ -5118,11 +5064,11 @@ Steam achievements - Growing list of steam achievements.""";
   schema:releaseDate "2017-04-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <iOS>, <Nintendo%20Switch>;
   schema:genre <Strategy>, <Quiz/Trivia>;
-  schema:creator <Exozet%2CUnited%20Soft%20Media>;
+  schema:creator <Exozet>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co22ve.jpg> .
 
-<Exozet%2CUnited%20Soft%20Media> schema:county "Germany";
-  schema:name "Exozet,United Soft Media" .
+<Exozet> schema:county "Germany";
+  schema:name "Exozet" .
 
 <Quiz/Trivia> schema:name "Quiz/Trivia" .
 
@@ -5134,12 +5080,11 @@ Steam achievements - Growing list of steam achievements.""";
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <DOS>, <Mac>, <Amiga>,
     <Super%20Famicom>, <FM%20Towns>, <Satellaview>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <St.%20GIGA%2CSir-tech%20Software%2CGame%20Studio%2CASCII%20Entertainment>;
+  schema:creator <St.%20GIGA>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co285x.jpg> .
 
-<St.%20GIGA%2CSir-tech%20Software%2CGame%20Studio%2CASCII%20Entertainment> schema:county
-    "United States";
-  schema:name "St. GIGA,Sir-tech Software,Game Studio,ASCII Entertainment" .
+<St.%20GIGA> schema:county "United States";
+  schema:name "St. GIGA" .
 
 <DOS> schema:name "DOS" .
 
@@ -5158,10 +5103,10 @@ Steam achievements - Growing list of steam achievements.""";
   schema:releaseDate "2018-08-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Mac>, <Android>, <iOS>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <Super%20Creative%2CSmilegate%20Megaport>;
+  schema:creator <Super%20Creative>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3wj9.jpg> .
 
-<Super%20Creative%2CSmilegate%20Megaport> schema:name "Super Creative,Smilegate Megaport" .
+<Super%20Creative> schema:name "Super Creative" .
 
 <35282> a schema:VideoGame;
   schema:title "CrossCode";
@@ -5171,12 +5116,11 @@ Steam achievements - Growing list of steam achievements.""";
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>, <PlayStation%205>;
   schema:genre <Puzzle>, <Role-playing%20%28RPG%29>, <Adventure>, <Indie>;
-  schema:creator <Deck13%20Interactive%2CWhisperGames%2CMayflower%20Entertainment%2CDANGEN%20Entertainment%2CRadical%20Fish%20Games>;
+  schema:creator <Deck13%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co28wy.jpg> .
 
-<Deck13%20Interactive%2CWhisperGames%2CMayflower%20Entertainment%2CDANGEN%20Entertainment%2CRadical%20Fish%20Games>
-  schema:county "Germany";
-  schema:name "Deck13 Interactive,WhisperGames,Mayflower Entertainment,DANGEN Entertainment,Radical Fish Games" .
+<Deck13%20Interactive> schema:county "Germany";
+  schema:name "Deck13 Interactive" .
 
 <112875> a schema:VideoGame;
   schema:title "God of War Ragnarök";
@@ -5185,12 +5129,8 @@ Steam achievements - Growing list of steam achievements.""";
   schema:releaseDate "2022-09-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <PlayStation%205>;
   schema:genre <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <Sony%20Interactive%20Entertainment%2CSIE%20Santa%20Monica%20Studio%2CValkyrie%20Entertainment%2CJetpack%20Interactive%2CBluepoint%20Games%2CRedHot%20Software%2COriginal%20Force%20Ltd.%2CSupergenius%20Studio%2CSuperAlloy%20Interactive>;
+  schema:creator <Sony%20Interactive%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5s5v.jpg> .
-
-<Sony%20Interactive%20Entertainment%2CSIE%20Santa%20Monica%20Studio%2CValkyrie%20Entertainment%2CJetpack%20Interactive%2CBluepoint%20Games%2CRedHot%20Software%2COriginal%20Force%20Ltd.%2CSupergenius%20Studio%2CSuperAlloy%20Interactive>
-  schema:county "Japan";
-  schema:name "Sony Interactive Entertainment,SIE Santa Monica Studio,Valkyrie Entertainment,Jetpack Interactive,Bluepoint Games,RedHot Software,Original Force Ltd.,Supergenius Studio,SuperAlloy Interactive" .
 
 <27034> a schema:VideoGame;
   schema:title "Linelight";
@@ -5200,11 +5140,11 @@ Steam achievements - Growing list of steam achievements.""";
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Nintendo%20Switch>;
   schema:genre <Platform>, <Puzzle>, <Strategy>, <Adventure>, <Indie>;
-  schema:creator <My%20Dog%20Zorro%2CPlug%20In%20Digital>;
+  schema:creator <My%20Dog%20Zorro>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co23vg.jpg> .
 
-<My%20Dog%20Zorro%2CPlug%20In%20Digital> schema:county "France";
-  schema:name "My Dog Zorro,Plug In Digital" .
+<My%20Dog%20Zorro> schema:county "France";
+  schema:name "My Dog Zorro" .
 
 <120710> a schema:VideoGame;
   schema:title "The Henry Stickmin Collection";
@@ -5213,11 +5153,11 @@ Steam achievements - Growing list of steam achievements.""";
   schema:releaseDate "2020-07-08T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Point-and-click>, <Adventure>, <Indie>;
-  schema:creator <PuffballsUnited%2CInnerSloth>;
+  schema:creator <PuffballsUnited>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2mgv.jpg> .
 
-<PuffballsUnited%2CInnerSloth> schema:county "United States";
-  schema:name "PuffballsUnited,InnerSloth" .
+<PuffballsUnited> schema:county "United States";
+  schema:name "PuffballsUnited" .
 
 <140059> a schema:VideoGame;
   schema:title "Multi Theft Auto";
@@ -5240,10 +5180,10 @@ Susan's few weeks journey doesn't take her across the world and won't turn her i
   schema:releaseDate "2012-01-12T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Point-and-click>, <Adventure>, <Indie>;
-  schema:creator <Harvester%20Games%2CScreen%207>;
+  schema:creator <Harvester%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1rfw.jpg> .
 
-<Harvester%20Games%2CScreen%207> schema:name "Harvester Games,Screen 7" .
+<Harvester%20Games> schema:name "Harvester Games" .
 
 <109241> a schema:VideoGame;
   schema:title "The Binding of Isaac: Repentance";
@@ -5253,11 +5193,11 @@ Susan's few weeks journey doesn't take her across the world and won't turn her i
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>, <Adventure>, <Indie>, <Arcade>;
-  schema:creator <Edmund%20McMillen%2CNicalis%2C%20Inc.>;
+  schema:creator <Edmund%20McMillen>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5dfa.jpg> .
 
-<Edmund%20McMillen%2CNicalis%2C%20Inc.> schema:county "United States";
-  schema:name "Edmund McMillen,Nicalis, Inc." .
+<Edmund%20McMillen> schema:county "United States";
+  schema:name "Edmund McMillen" .
 
 <12329> a schema:VideoGame;
   schema:title "Fate/hollow ataraxia";
@@ -5277,11 +5217,11 @@ The Original Bloodborne Experience / Bloodborne: The Old Hunters Expansion / Blo
   schema:releaseDate "2015-11-27T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <Sony%20Computer%20Entertainment%2CFromSoftware>;
+  schema:creator <Sony%20Computer%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4vui.jpg> .
 
-<Sony%20Computer%20Entertainment%2CFromSoftware> schema:county "Japan";
-  schema:name "Sony Computer Entertainment,FromSoftware" .
+<Sony%20Computer%20Entertainment> schema:county "Japan";
+  schema:name "Sony Computer Entertainment" .
 
 <24930> a schema:VideoGame;
   schema:title "OFF";
@@ -5326,11 +5266,11 @@ Equip your army with over 240 pieces of equipment, either purchased, gathered fr
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>,
     <Tactical>, <Indie>;
-  schema:creator <6%20Eyes%20Studio%2C1C%20Entertainment>;
+  schema:creator <6%20Eyes%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1k9m.jpg> .
 
-<6%20Eyes%20Studio%2C1C%20Entertainment> schema:county "United States";
-  schema:name "6 Eyes Studio,1C Entertainment" .
+<6%20Eyes%20Studio> schema:county "United States";
+  schema:name "6 Eyes Studio" .
 
 <13166> a schema:VideoGame;
   schema:title "The Witcher 3: Wild Hunt - Blood and Wine";
@@ -5385,11 +5325,11 @@ And no matter which vehicle you're manning- or who you're after- get ready to st
   schema:gamePlatform <DOS>, <Commodore%20C64/128/MAX>, <Amiga>, <Amstrad%20CPC>, <ZX%20Spectrum>,
     <Arcade>, <Atari%20ST/STE>, <Sega%20Master%20System/Mark%20III>;
   schema:genre <Shooter>, <Racing>, <Arcade>;
-  schema:creator <Firebird%20Software%2CSega%20Enterprises%2CSega%20Enterprises>;
+  schema:creator <Firebird%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kqn.jpg> .
 
-<Firebird%20Software%2CSega%20Enterprises%2CSega%20Enterprises> schema:county "United Kingdom";
-  schema:name "Firebird Software,Sega Enterprises,Sega Enterprises" .
+<Firebird%20Software> schema:county "United Kingdom";
+  schema:name "Firebird Software" .
 
 <Commodore%20C64/128/MAX> schema:name "Commodore C64/128/MAX" .
 
@@ -5500,12 +5440,11 @@ Complete tasks and quest's.\"""";
   schema:releaseDate "1995-01-09T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <DOS>, <Super%20Nintendo%20Entertainment%20System>, <Sega%20Mega%20Drive/Genesis>;
   schema:genre <Sport>;
-  schema:creator <EA%20Tiburon%2CHigh%20Score%20Productions%2CEA%20Canada%2CEA%20Sports>;
+  schema:creator <EA%20Tiburon>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2gox.jpg> .
 
-<EA%20Tiburon%2CHigh%20Score%20Productions%2CEA%20Canada%2CEA%20Sports> schema:county
-    "United States";
-  schema:name "EA Tiburon,High Score Productions,EA Canada,EA Sports" .
+<EA%20Tiburon> schema:county "United States";
+  schema:name "EA Tiburon" .
 
 <Super%20Nintendo%20Entertainment%20System> schema:name "Super Nintendo Entertainment System" .
 
@@ -5522,12 +5461,11 @@ Once a prime corporate research facility, Citadel now teems with mindless cyborg
   schema:releaseDate "2015-09-22T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Looking%20Glass%20Studios%2CNight%20Dive%20Studios%2CLimited%20Run%20Games>;
+  schema:creator <Looking%20Glass%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co288f.jpg> .
 
-<Looking%20Glass%20Studios%2CNight%20Dive%20Studios%2CLimited%20Run%20Games> schema:county
-    "United States";
-  schema:name "Looking Glass Studios,Night Dive Studios,Limited Run Games" .
+<Looking%20Glass%20Studios> schema:county "United States";
+  schema:name "Looking Glass Studios" .
 
 <7194> a schema:VideoGame;
   schema:title "Steins;Gate";
@@ -5537,12 +5475,11 @@ Once a prime corporate research facility, Citadel now teems with mindless cyborg
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%203>, <Xbox%20360>,
     <Android>, <PlayStation%20Portable>, <iOS>, <PlayStation%20Vita>, <PlayStation%204>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>, <Visual%20Novel>;
-  schema:creator <5pb.%2CJAST%20USA%2CPQube%2CMAGES.%2CKadokawa%20Shoten%2CNitroplus>;
+  schema:creator <5pb.>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5ff7.jpg> .
 
-<5pb.%2CJAST%20USA%2CPQube%2CMAGES.%2CKadokawa%20Shoten%2CNitroplus> schema:county
-    "Japan";
-  schema:name "5pb.,JAST USA,PQube,MAGES.,Kadokawa Shoten,Nitroplus" .
+<5pb.> schema:county "Japan";
+  schema:name "5pb." .
 
 <119133> a schema:VideoGame;
   schema:title "Elden Ring";
@@ -5552,11 +5489,11 @@ Once a prime corporate research facility, Citadel now teems with mindless cyborg
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <PlayStation%205>, <Xbox%20Series%20X%7CS>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Bandai%20Namco%20Entertainment%2CFromSoftware>;
+  schema:creator <Bandai%20Namco%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4jni.jpg> .
 
-<Bandai%20Namco%20Entertainment%2CFromSoftware> schema:county "Japan";
-  schema:name "Bandai Namco Entertainment,FromSoftware" .
+<Bandai%20Namco%20Entertainment> schema:county "Japan";
+  schema:name "Bandai Namco Entertainment" .
 
 <27844> a schema:VideoGame;
   schema:title "The Elder Scrolls IV: Oblivion - Game of the Year Edition Deluxe";
@@ -5565,11 +5502,8 @@ Once a prime corporate research facility, Citadel now teems with mindless cyborg
   schema:releaseDate "2009-06-16T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Bethesda%20Game%20Studios%2CBethesda%20Softworks>;
+  schema:creator <Bethesda%20Game%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1q3d.jpg> .
-
-<Bethesda%20Game%20Studios%2CBethesda%20Softworks> schema:county "United States";
-  schema:name "Bethesda Game Studios,Bethesda Softworks" .
 
 <153700> a schema:VideoGame;
   schema:title "Ghost of Tsushima: Director's Cut";
@@ -5584,24 +5518,10 @@ Once a prime corporate research facility, Citadel now teems with mindless cyborg
 - Charm of Hachiman’s Favour.
 - Hero of Tsushima Skin Set: Golden Mask, Sword Kit, Horse, Saddle.""";
   schema:releaseDate "2021-08-20T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PlayStation%204>;
-  schema:genre <Role-playing%20%28RPG%29> .
-
-<Role-playing%20%28RPG%29> schema:name "Role-playing (RPG)" .
-
-<153700> a schema:VideoGame;
-  schema:creator <Sony%20Interactive%20Entertainment%2CSucker%20Punch%20Productions>;
-  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3p5f.jpg>;
-  schema:gamePlatform <PlayStation%205>;
-  schema:genre <Adventure> .
-
-<Sony%20Interactive%20Entertainment%2CSucker%20Punch%20Productions> schema:county
-    "Japan";
-  schema:name "Sony Interactive Entertainment,Sucker Punch Productions" .
-
-<PlayStation%205> schema:name "PlayStation 5" .
-
-<Adventure> schema:name "Adventure" .
+  schema:gamePlatform <PlayStation%204>, <PlayStation%205>;
+  schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
+  schema:creator <Sony%20Interactive%20Entertainment>;
+  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3p5f.jpg> .
 
 <2985> a schema:VideoGame;
   schema:title "Persona 4 Golden";
@@ -5609,25 +5529,18 @@ Once a prime corporate research facility, Citadel now teems with mindless cyborg
   schema:description "An enhanced rerelease of Shin Megami Tensei: Persona 4 (2008) featuring quality-of-life improvements, gameplay enhancements, new locations, balance tweaks, online functionality, new difficulty options, an additional side character storyline and a changed endgame.";
   schema:releaseDate "2012-06-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%20Vita>, <PlayStation%204>,
-    <Xbox%20One>, <Nintendo%20Switch>, <Xbox%20Series%20X%7CS>;
+    <Xbox%20One>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Adventure>, <Visual%20Novel>;
-  schema:creator <NIS%20America%2CPREAPP%20PARTNERS%2CAtlus%2CAtlus%20USA>;
+  schema:creator <NIS%20America>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1n1x.jpg> .
 
-<PC%20%28Microsoft%20Windows%29> schema:name "PC (Microsoft Windows)" .
-
-<NIS%20America%2CPREAPP%20PARTNERS%2CAtlus%2CAtlus%20USA> schema:county "United States";
-  schema:name "NIS America,PREAPP PARTNERS,Atlus,Atlus USA" .
-
-<PlayStation%20Vita> schema:name "PlayStation Vita" .
-
-<Simulator> schema:name "Simulator" .
-
-<PlayStation%204> schema:name "PlayStation 4" .
-
-<Xbox%20One> schema:name "Xbox One" .
+<NIS%20America> schema:county "United States";
+  schema:name "NIS America" .
 
 <Visual%20Novel> schema:name "Visual Novel" .
+
+<2985> a schema:VideoGame;
+  schema:gamePlatform <Nintendo%20Switch>, <Xbox%20Series%20X%7CS> .
 
 <Nintendo%20Switch> schema:name "Nintendo Switch" .
 
@@ -5645,22 +5558,25 @@ The game tells the story of Magnus Gallant, a recently graduated officer of the 
   schema:gamePlatform <Nintendo%2064>, <Wii>, <Wii%20U>;
   schema:genre <Real%20Time%20Strategy%20%28RTS%29>, <Role-playing%20%28RPG%29>, <Strategy>,
     <Adventure>;
-  schema:creator <Dual%20Corporation%2CAtlus%2CSquare%20Enix%2CNintendo%20of%20Europe%2CQuest%2CNintendo>;
+  schema:creator <Dual%20Corporation>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co54xx.jpg> .
 
 <Nintendo%2064> schema:name "Nintendo 64" .
 
 <Real%20Time%20Strategy%20%28RTS%29> schema:name "Real Time Strategy (RTS)" .
 
-<Dual%20Corporation%2CAtlus%2CSquare%20Enix%2CNintendo%20of%20Europe%2CQuest%2CNintendo>
-  schema:county "Japan";
-  schema:name "Dual Corporation,Atlus,Square Enix,Nintendo of Europe,Quest,Nintendo" .
+<Dual%20Corporation> schema:county "Japan";
+  schema:name "Dual Corporation" .
 
 <Wii> schema:name "Wii" .
+
+<Role-playing%20%28RPG%29> schema:name "Role-playing (RPG)" .
 
 <Wii%20U> schema:name "Wii U" .
 
 <Strategy> schema:name "Strategy" .
+
+<Adventure> schema:name "Adventure" .
 
 <15123> a schema:VideoGame;
   schema:title "Kohan: Ahriman's Gift";
@@ -5672,6 +5588,8 @@ The game tells the story of Magnus Gallant, a recently graduated officer of the 
   schema:creator <TimeGate%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/vucf6rdrlszpvmuyyhup.jpg> .
 
+<PC%20%28Microsoft%20Windows%29> schema:name "PC (Microsoft Windows)" .
+
 <TimeGate%20Studios> schema:county "United States";
   schema:name "TimeGate Studios" .
 
@@ -5682,16 +5600,15 @@ The game tells the story of Magnus Gallant, a recently graduated officer of the 
   schema:releaseDate "2005-03-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <Arcade>;
   schema:genre <Fighting>;
-  schema:creator <TYPE-MOON%2CFrench%20Bread%2CEcole%20Software%2CEcole%20Software%2CSega>;
+  schema:creator <TYPE-MOON>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2wp7.jpg> .
 
 <PlayStation%202> schema:name "PlayStation 2" .
 
 <Fighting> schema:name "Fighting" .
 
-<TYPE-MOON%2CFrench%20Bread%2CEcole%20Software%2CEcole%20Software%2CSega> schema:county
-    "Japan";
-  schema:name "TYPE-MOON,French Bread,Ecole Software,Ecole Software,Sega" .
+<TYPE-MOON> schema:county "Japan";
+  schema:name "TYPE-MOON" .
 
 <Arcade> schema:name "Arcade" .
 
@@ -5719,13 +5636,15 @@ The game tells the story of Magnus Gallant, a recently graduated officer of the 
   schema:releaseDate "1992-11-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <DOS>, <Mac>, <3DO%20Interactive%20Multiplayer>;
   schema:genre <Simulator>, <Strategy>, <Adventure>, <Indie>;
-  schema:creator <Toys%20for%20Bob%2CAccolade>;
+  schema:creator <Toys%20for%20Bob>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2d9l.jpg> .
 
 <Linux> schema:name "Linux" .
 
-<Toys%20for%20Bob%2CAccolade> schema:county "United States";
-  schema:name "Toys for Bob,Accolade" .
+<Simulator> schema:name "Simulator" .
+
+<Toys%20for%20Bob> schema:county "United States";
+  schema:name "Toys for Bob" .
 
 <DOS> schema:name "DOS" .
 
@@ -5792,6 +5711,10 @@ A source code repository is also maintained on Github and on several occasions c
 
 <Extremely%20OK%20Games> schema:name "Extremely OK Games" .
 
+<PlayStation%204> schema:name "PlayStation 4" .
+
+<Xbox%20One> schema:name "Xbox One" .
+
 <145528> a schema:VideoGame;
   schema:title "Dragon Quest VIII: Journey of the Cursed King";
   schema:ratingValue "95.81638137634931";
@@ -5799,13 +5722,13 @@ A source code repository is also maintained on Github and on several occasions c
   schema:releaseDate "2015-08-27T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%203DS>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Adventure>;
-  schema:creator <Square%20Enix%2CNintendo%2CTose>;
+  schema:creator <Square%20Enix>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2xc0.jpg> .
 
 <Nintendo%203DS> schema:name "Nintendo 3DS" .
 
-<Square%20Enix%2CNintendo%2CTose> schema:county "Japan";
-  schema:name "Square Enix,Nintendo,Tose" .
+<Square%20Enix> schema:county "Japan";
+  schema:name "Square Enix" .
 
 <113344> a schema:VideoGame;
   schema:title "Monster Hunter: World - Iceborne";
@@ -5842,20 +5765,21 @@ A source code repository is also maintained on Github and on several occasions c
   schema:releaseDate "2011-08-11T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>, <Xbox%20360>, <Android>, <PlayStation%20Vita>;
   schema:genre <Shooter>, <Adventure>;
-  schema:creator <Bluepoint%20Games%2CKonami%20Digital%20Entertainment%2CArmature%20Studio>;
+  schema:creator <Bluepoint%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2gki.jpg> .
 
 <PlayStation%203> schema:name "PlayStation 3" .
 
 <Shooter> schema:name "Shooter" .
 
-<Bluepoint%20Games%2CKonami%20Digital%20Entertainment%2CArmature%20Studio> schema:county
-    "United States";
-  schema:name "Bluepoint Games,Konami Digital Entertainment,Armature Studio" .
+<Bluepoint%20Games> schema:county "United States";
+  schema:name "Bluepoint Games" .
 
 <Xbox%20360> schema:name "Xbox 360" .
 
 <Android> schema:name "Android" .
+
+<PlayStation%20Vita> schema:name "PlayStation Vita" .
 
 <76244> a schema:VideoGame;
   schema:title "The Great Ace Attorney: Adventures";
@@ -5879,13 +5803,13 @@ New gameplay mechanics introduced to the series include Dance of Deduction, in w
   schema:releaseDate "1994-01-12T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Super%20Nintendo%20Entertainment%20System>;
   schema:genre <Platform>;
-  schema:creator <Nintendo%20EAD%2CNintendo>;
+  schema:creator <Nintendo%20EAD>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2293.jpg> .
 
 <Super%20Nintendo%20Entertainment%20System> schema:name "Super Nintendo Entertainment System" .
 
-<Nintendo%20EAD%2CNintendo> schema:county "Japan";
-  schema:name "Nintendo EAD,Nintendo" .
+<Nintendo%20EAD> schema:county "Japan";
+  schema:name "Nintendo EAD" .
 
 <796> a schema:VideoGame;
   schema:title "MVP Baseball 2005";
@@ -5895,13 +5819,13 @@ New gameplay mechanics introduced to the series include Dance of Deduction, in w
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%202>, <Xbox>, <Nintendo%20GameCube>,
     <PlayStation%20Portable>;
   schema:genre <Sport>;
-  schema:creator <Electronic%20Arts%2CEA%20Canada>;
+  schema:creator <Electronic%20Arts>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3d4y.jpg> .
 
 <Sport> schema:name "Sport" .
 
-<Electronic%20Arts%2CEA%20Canada> schema:county "United States";
-  schema:name "Electronic Arts,EA Canada" .
+<Electronic%20Arts> schema:county "United States";
+  schema:name "Electronic Arts" .
 
 <Xbox> schema:name "Xbox" .
 
@@ -5916,11 +5840,11 @@ New gameplay mechanics introduced to the series include Dance of Deduction, in w
   schema:releaseDate "1994-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <DOS>, <Mac>;
   schema:genre <Puzzle>, <Strategy>;
-  schema:creator <Jeff%20Tunnell%20Productions%2CSierra%20On-Line>;
+  schema:creator <Jeff%20Tunnell%20Productions>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2f3u.jpg> .
 
-<Jeff%20Tunnell%20Productions%2CSierra%20On-Line> schema:county "United States";
-  schema:name "Jeff Tunnell Productions,Sierra On-Line" .
+<Jeff%20Tunnell%20Productions> schema:county "United States";
+  schema:name "Jeff Tunnell Productions" .
 
 <135999> a schema:VideoGame;
   schema:title "Tetris Effect: Connected";
@@ -5930,13 +5854,13 @@ New gameplay mechanics introduced to the series include Dance of Deduction, in w
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>, <Xbox%20Series%20X%7CS>, <Oculus%20Quest>, <Oculus%20Quest%202>;
   schema:genre <Music>, <Puzzle>, <Indie>, <Arcade>;
-  schema:creator <Monstars%2CResonair%2CStage%20Games%2CEnhance>;
+  schema:creator <Monstars>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2krv.jpg> .
 
 <Music> schema:name "Music" .
 
-<Monstars%2CResonair%2CStage%20Games%2CEnhance> schema:county "Japan";
-  schema:name "Monstars,Resonair,Stage Games,Enhance" .
+<Monstars> schema:county "Japan";
+  schema:name "Monstars" .
 
 <Oculus%20Quest> schema:name "Oculus Quest" .
 
@@ -5950,11 +5874,11 @@ New gameplay mechanics introduced to the series include Dance of Deduction, in w
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Platform>, <Role-playing%20%28RPG%29>, <Strategy>, <Adventure>, <Indie>;
-  schema:creator <Moi%20Rai%20Games%2CTeam17>;
+  schema:creator <Moi%20Rai%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1q3q.jpg> .
 
-<Moi%20Rai%20Games%2CTeam17> schema:county "Germany";
-  schema:name "Moi Rai Games,Team17" .
+<Moi%20Rai%20Games> schema:county "Germany";
+  schema:name "Moi Rai Games" .
 
 <113119> a schema:VideoGame;
   schema:title "The Stanley Parable: Ultra Deluxe";
@@ -5970,6 +5894,8 @@ New gameplay mechanics introduced to the series include Dance of Deduction, in w
 <Crows%20Crows%20Crows> schema:county "Germany";
   schema:name "Crows Crows Crows" .
 
+<PlayStation%205> schema:name "PlayStation 5" .
+
 <94873> a schema:VideoGame;
   schema:title "Sonic Mania Plus";
   schema:ratingValue "90.97423473947146";
@@ -5981,11 +5907,11 @@ Developed in collaboration between SEGA, Christian Whitehead, Headcannon, and Pa
   schema:releaseDate "2018-07-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Platform>;
-  schema:creator <PagodaWest%20Games%2CHeadcannon%2CSEGA%20of%20America>;
+  schema:creator <PagodaWest%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1upn.jpg> .
 
-<PagodaWest%20Games%2CHeadcannon%2CSEGA%20of%20America> schema:county "United States";
-  schema:name "PagodaWest Games,Headcannon,SEGA of America" .
+<PagodaWest%20Games> schema:county "United States";
+  schema:name "PagodaWest Games" .
 
 <20398> a schema:VideoGame;
   schema:title "Chrono Trigger";
@@ -5998,9 +5924,6 @@ Developed in collaboration between SEGA, Christian Whitehead, Headcannon, and Pa
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co54iw.jpg> .
 
 <Nintendo%20DS> schema:name "Nintendo DS" .
-
-<Square%20Enix> schema:county "Japan";
-  schema:name "Square Enix" .
 
 <23701> a schema:VideoGame;
   schema:title "A Tale in the Desert";
@@ -6021,11 +5944,11 @@ Developed in collaboration between SEGA, Christian Whitehead, Headcannon, and Pa
   schema:releaseDate "2018-04-20T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Shooter>, <Racing>, <Sport>, <Adventure>;
-  schema:creator <Rockstar%20Games%2CTake-Two%20Interactive>;
+  schema:creator <Rockstar%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1twh.jpg> .
 
-<Rockstar%20Games%2CTake-Two%20Interactive> schema:county "United States";
-  schema:name "Rockstar Games,Take-Two Interactive" .
+<Rockstar%20Games> schema:county "United States";
+  schema:name "Rockstar Games" .
 
 <Racing> schema:name "Racing" .
 
@@ -6072,11 +5995,8 @@ Developed in collaboration between SEGA, Christian Whitehead, Headcannon, and Pa
   schema:releaseDate "2014-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Xbox%20360>, <Xbox%20One>;
   schema:genre <Shooter>;
-  schema:creator <Electronic%20Arts%2CRespawn%20Entertainment>;
+  schema:creator <Electronic%20Arts>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1ubm.jpg> .
-
-<Electronic%20Arts%2CRespawn%20Entertainment> schema:county "United States";
-  schema:name "Electronic Arts,Respawn Entertainment" .
 
 <77199> a schema:VideoGame;
   schema:title "Oblivion";
@@ -6093,11 +6013,11 @@ The Homeworld series has a long legacy and is regarded by many as one of the bes
   schema:releaseDate "2015-02-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Real%20Time%20Strategy%20%28RTS%29>, <Simulator>, <Strategy>, <Adventure>;
-  schema:creator <Gearbox%20Software%2CGearbox%20Publishing>;
+  schema:creator <Gearbox%20Software>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1rg1.jpg> .
 
-<Gearbox%20Software%2CGearbox%20Publishing> schema:county "United States";
-  schema:name "Gearbox Software,Gearbox Publishing" .
+<Gearbox%20Software> schema:county "United States";
+  schema:name "Gearbox Software" .
 
 <13350> a schema:VideoGame;
   schema:title "Auf Wiedersehen Monty";
@@ -6144,11 +6064,11 @@ The Homeworld series has a long legacy and is regarded by many as one of the bes
   schema:releaseDate "2006-12-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <OOParts>;
   schema:genre <Strategy>, <Visual%20Novel>;
-  schema:creator <Alicesoft%2CMangaGamer>;
+  schema:creator <Alicesoft>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4bwe.jpg> .
 
-<Alicesoft%2CMangaGamer> schema:county "Japan";
-  schema:name "Alicesoft,MangaGamer" .
+<Alicesoft> schema:county "Japan";
+  schema:name "Alicesoft" .
 
 <OOParts> schema:name "OOParts" .
 
@@ -6160,11 +6080,11 @@ The Homeworld series has a long legacy and is regarded by many as one of the bes
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>;
   schema:genre <Role-playing%20%28RPG%29>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>,
     <Indie>;
-  schema:creator <IMGN.PRO%2CFool%27s%20Theory>;
+  schema:creator <IMGN.PRO>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1rp2.jpg> .
 
-<IMGN.PRO%2CFool%27s%20Theory> schema:county "Poland";
-  schema:name "IMGN.PRO,Fool's Theory" .
+<IMGN.PRO> schema:county "Poland";
+  schema:name "IMGN.PRO" .
 
 <Hack%20and%20slash/Beat%20%27em%20up> schema:name "Hack and slash/Beat 'em up" .
 
@@ -6176,12 +6096,11 @@ The Homeworld series has a long legacy and is regarded by many as one of the bes
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <WB%20Games%2CBandai%20Namco%20Entertainment%2Ccdp.pl%2CSpike%20ChunSoft%2CCD%20Projekt%20RED%2CD3T%20Limited>;
+  schema:creator <WB%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1wyy.jpg> .
 
-<WB%20Games%2CBandai%20Namco%20Entertainment%2Ccdp.pl%2CSpike%20ChunSoft%2CCD%20Projekt%20RED%2CD3T%20Limited>
-  schema:county "United States";
-  schema:name "WB Games,Bandai Namco Entertainment,cdp.pl,Spike ChunSoft,CD Projekt RED,D3T Limited" .
+<WB%20Games> schema:county "United States";
+  schema:name "WB Games" .
 
 <178283> a schema:VideoGame;
   schema:title "NFUT Cards";
@@ -6224,11 +6143,11 @@ With completely remastered visuals, The Witch's House MV will feel fresh to even
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Nintendo%20Switch>;
   schema:genre <Puzzle>, <Role-playing%20%28RPG%29>, <Adventure>, <Indie>;
-  schema:creator <DANGEN%20Entertainment%2CFummy>;
+  schema:creator <DANGEN%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2sw7.jpg> .
 
-<DANGEN%20Entertainment%2CFummy> schema:county "Japan";
-  schema:name "DANGEN Entertainment,Fummy" .
+<DANGEN%20Entertainment> schema:county "Japan";
+  schema:name "DANGEN Entertainment" .
 
 <27857> a schema:VideoGame;
   schema:title "Assassin's Creed II: Deluxe Edition";
@@ -6237,11 +6156,11 @@ With completely remastered visuals, The Witch's House MV will feel fresh to even
   schema:releaseDate "2010-05-03T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <iOS>;
   schema:genre <Adventure>;
-  schema:creator <Ubisoft%20Montreal%2CUbisoft%20Kyiv>;
+  schema:creator <Ubisoft%20Montreal>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5r4g.jpg> .
 
-<Ubisoft%20Montreal%2CUbisoft%20Kyiv> schema:county "Canada";
-  schema:name "Ubisoft Montreal,Ubisoft Kyiv" .
+<Ubisoft%20Montreal> schema:county "Canada";
+  schema:name "Ubisoft Montreal" .
 
 <144345> a schema:VideoGame;
   schema:title "FortressOne";
@@ -6287,12 +6206,11 @@ With completely remastered visuals, The Witch's House MV will feel fresh to even
   schema:releaseDate "2018-04-20T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>;
   schema:genre <Role-playing%20%28RPG%29>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <Sony%20Interactive%20Entertainment%2CSIE%20Santa%20Monica%20Studio%2CJetpack%20Interactive>;
+  schema:creator <Sony%20Interactive%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1tmu.jpg> .
 
-<Sony%20Interactive%20Entertainment%2CSIE%20Santa%20Monica%20Studio%2CJetpack%20Interactive>
-  schema:county "Japan";
-  schema:name "Sony Interactive Entertainment,SIE Santa Monica Studio,Jetpack Interactive" .
+<Sony%20Interactive%20Entertainment> schema:county "Japan";
+  schema:name "Sony Interactive Entertainment" .
 
 <19874> a schema:VideoGame;
   schema:title "Mega Man Legacy Collection";
@@ -6302,11 +6220,8 @@ With completely remastered visuals, The Witch's House MV will feel fresh to even
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%203DS>, <PlayStation%204>,
     <Xbox%20One>, <Nintendo%20Switch>;
   schema:genre <Shooter>, <Platform>, <Adventure>, <Arcade>;
-  schema:creator <Capcom%2CDigital%20Eclipse>;
+  schema:creator <Capcom>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co204v.jpg> .
-
-<Capcom%2CDigital%20Eclipse> schema:county "Japan";
-  schema:name "Capcom,Digital Eclipse" .
 
 <6036> a schema:VideoGame;
   schema:title "The Last of Us Remastered";
@@ -6322,11 +6237,11 @@ The Last of Us: Remastered includes;
   schema:releaseDate "2014-07-29T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>;
   schema:genre <Shooter>, <Adventure>;
-  schema:creator <Naughty%20Dog%2CSony%20Computer%20Entertainment>;
+  schema:creator <Naughty%20Dog>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co4ok8.jpg> .
 
-<Naughty%20Dog%2CSony%20Computer%20Entertainment> schema:county "United States";
-  schema:name "Naughty Dog,Sony Computer Entertainment" .
+<Naughty%20Dog> schema:county "United States";
+  schema:name "Naughty Dog" .
 
 <121436> a schema:VideoGame;
   schema:title "Sonic Robo Blast 2 Kart";
@@ -6351,10 +6266,10 @@ Of course, you'll only start off with a few cups available, but you can unlock m
   schema:releaseDate "2020-06-13T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Android>, <iOS>;
   schema:genre <Platform>, <Adventure>, <Indie>;
-  schema:creator <Tomary%2CTomary>;
+  schema:creator <Tomary>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2sjm.jpg> .
 
-<Tomary%2CTomary> schema:name "Tomary,Tomary" .
+<Tomary> schema:name "Tomary" .
 
 <51820> a schema:VideoGame;
   schema:title "Heroes of Might and Magic III: Complete";
@@ -6371,12 +6286,11 @@ You control the greatest heroes and fiercest creatures in a conflict of epic pro
   schema:releaseDate "2000-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <New%20World%20Computing%2CThe%203DO%20Company%2CThe%203DO%20Company%2CLoki%20Software>;
+  schema:creator <New%20World%20Computing>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co218t.jpg> .
 
-<New%20World%20Computing%2CThe%203DO%20Company%2CThe%203DO%20Company%2CLoki%20Software>
-  schema:county "United States";
-  schema:name "New World Computing,The 3DO Company,The 3DO Company,Loki Software" .
+<New%20World%20Computing> schema:county "United States";
+  schema:name "New World Computing" .
 
 <143213> a schema:VideoGame;
   schema:title "Danganronpa Another ~Another Despair Academy~";
@@ -6435,12 +6349,11 @@ For PlayStation owners, Batman Arkham Knight offers the exclusive Scarecrow Nigh
   schema:releaseDate "2016-05-09T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Xbox%20One>;
   schema:genre <Fighting>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <Rocksteady%20Studios%2CWarner%20Bros.%20Interactive%20Entertainment>;
+  schema:creator <Rocksteady%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3zg7.jpg> .
 
-<Rocksteady%20Studios%2CWarner%20Bros.%20Interactive%20Entertainment> schema:county
-    "United Kingdom";
-  schema:name "Rocksteady Studios,Warner Bros. Interactive Entertainment" .
+<Rocksteady%20Studios> schema:county "United Kingdom";
+  schema:name "Rocksteady Studios" .
 
 <87485> a schema:VideoGame;
   schema:title "WildCraft: Wild Sim Online";
@@ -6460,11 +6373,11 @@ Start your adventure as a wolf, fox, lynx and more, and raise a family. Join onl
   schema:releaseDate "2015-07-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Simulator>, <Adventure>, <Indie>;
-  schema:creator <Microsoft%20Studios%2CMojang%20Studios>;
+  schema:creator <Microsoft%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co279y.jpg> .
 
-<Microsoft%20Studios%2CMojang%20Studios> schema:county "Sweden";
-  schema:name "Microsoft Studios,Mojang Studios" .
+<Microsoft%20Studios> schema:county "Sweden";
+  schema:name "Microsoft Studios" .
 
 <8492> a schema:VideoGame;
   schema:title "Lisa";
@@ -6489,11 +6402,11 @@ With new story details, learn the tale of hunters who once made Yharnam their hu
   schema:releaseDate "2015-11-24T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <FromSoftware%2CSony%20Computer%20Entertainment>;
+  schema:creator <FromSoftware>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co233t.jpg> .
 
-<FromSoftware%2CSony%20Computer%20Entertainment> schema:county "Japan";
-  schema:name "FromSoftware,Sony Computer Entertainment" .
+<FromSoftware> schema:county "Japan";
+  schema:name "FromSoftware" .
 
 <1802> a schema:VideoGame;
   schema:title "Chrono Trigger";
@@ -6503,11 +6416,11 @@ With new story details, learn the tale of hunters who once made Yharnam their hu
   schema:gamePlatform <Wii>, <PlayStation>, <PlayStation%203>, <Super%20Nintendo%20Entertainment%20System>,
     <Super%20Famicom>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Square%2CTose>;
+  schema:creator <Square>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3plw.jpg> .
 
-<Square%2CTose> schema:county "Japan";
-  schema:name "Square,Tose" .
+<Square> schema:county "Japan";
+  schema:name "Square" .
 
 <PlayStation> schema:name "PlayStation" .
 
@@ -6560,11 +6473,11 @@ This expansion to \"The Witcher 3: Wild Hunt\" packs over 10 hours of new advent
   schema:releaseDate "2009-11-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <Nintendo%203DS>, <iOS>;
   schema:genre <Puzzle>, <Adventure>;
-  schema:creator <Big%20Fish%20Games%2CBig%20Fish%20Studios%2CEngine%20Software>;
+  schema:creator <Big%20Fish%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5phv.jpg> .
 
-<Big%20Fish%20Games%2CBig%20Fish%20Studios%2CEngine%20Software> schema:county "United States";
-  schema:name "Big Fish Games,Big Fish Studios,Engine Software" .
+<Big%20Fish%20Games> schema:county "United States";
+  schema:name "Big Fish Games" .
 
 <105594> a schema:VideoGame;
   schema:title "Occupy White Walls";
@@ -6596,10 +6509,10 @@ IL-2 1946 includes all of the original IL-2 series content: IL-2 Sturmovik: Forg
   schema:releaseDate "2007-01-01T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
   schema:genre <Shooter>, <Simulator>, <Tactical>;
-  schema:creator <1C%3A%20Maddox%20Games%2C1C-777>;
+  schema:creator <1C%3A%20Maddox%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co22aq.jpg> .
 
-<1C%3A%20Maddox%20Games%2C1C-777> schema:name "1C: Maddox Games,1C-777" .
+<1C%3A%20Maddox%20Games> schema:name "1C: Maddox Games" .
 
 <91477> a schema:VideoGame;
   schema:title "Before Your Eyes";
@@ -6610,11 +6523,11 @@ The story begins after your death, aboard the ship of a mythical Ferryman tasked
   schema:releaseDate "2021-08-04T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>, <Android>, <iOS>;
   schema:genre <Adventure>, <Indie>;
-  schema:creator <Skybound%20Games%2CGoodbyeWorld%20Games>;
+  schema:creator <Skybound%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2x7h.jpg> .
 
-<Skybound%20Games%2CGoodbyeWorld%20Games> schema:county "United States";
-  schema:name "Skybound Games,GoodbyeWorld Games" .
+<Skybound%20Games> schema:county "United States";
+  schema:name "Skybound Games" .
 
 <23851> a schema:VideoGame;
   schema:title "Wandersong";
@@ -6625,11 +6538,11 @@ The story begins after your death, aboard the ship of a mythical Ferryman tasked
     <Nintendo%20Switch>;
   schema:genre <Music>, <Platform>, <Real%20Time%20Strategy%20%28RTS%29>, <Adventure>,
     <Indie>;
-  schema:creator <Dumb%20and%20Fat%20Games%2CHumble%20Games%2CGreg%20Lobanov>;
+  schema:creator <Dumb%20and%20Fat%20Games>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1oey.jpg> .
 
-<Dumb%20and%20Fat%20Games%2CHumble%20Games%2CGreg%20Lobanov> schema:county "Canada";
-  schema:name "Dumb and Fat Games,Humble Games,Greg Lobanov" .
+<Dumb%20and%20Fat%20Games> schema:county "Canada";
+  schema:name "Dumb and Fat Games" .
 
 <41882> a schema:VideoGame;
   schema:title "Uncharted 2: Among Thieves - Limited Edition Collector's Box";
@@ -6647,12 +6560,11 @@ The Collectors Box contains:
   schema:releaseDate "2009-10-16T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Shooter>, <Platform>, <Adventure>;
-  schema:creator <Sony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29%2CNaughty%20Dog>;
+  schema:creator <Sony%20Computer%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2mct.jpg> .
 
-<Sony%20Computer%20Entertainment%2C%20Inc.%20%28SCEI%29%2CNaughty%20Dog> schema:county
-    "Japan";
-  schema:name "Sony Computer Entertainment, Inc. (SCEI),Naughty Dog" .
+<Sony%20Computer%20Entertainment> schema:county "Japan";
+  schema:name "Sony Computer Entertainment" .
 
 <143232> a schema:VideoGame;
   schema:title "Final Fantasy XIV: Endwalker";
@@ -6673,19 +6585,10 @@ Gameplay is largely identical to the original, tapping, sliding and spinning to 
 
 Improvements made in 2006's Elite Beat Agents (the non Japanese \"remake\" of Ouendan) have been carried over, such as the ability to completely skip introductions and unlockable songs. One replay can be saved on each song, improving the system from Elite Beat Agents.""";
   schema:releaseDate "2007-05-17T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <Nintendo%20DS> .
-
-<Nintendo%20DS> schema:name "Nintendo DS" .
-
-<23095> a schema:VideoGame;
+  schema:gamePlatform <Nintendo%20DS>;
   schema:genre <Music>;
-  schema:creator <Nintendo%2CiNiS>;
+  schema:creator <Nintendo>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2753.jpg> .
-
-<Music> schema:name "Music" .
-
-<Nintendo%2CiNiS> schema:county "Japan";
-  schema:name "Nintendo,iNiS" .
 
 <126098> a schema:VideoGame;
   schema:title "Half-Life: Alyx";
@@ -6700,20 +6603,10 @@ Set between the events of Half-Life and Half-Life 2, Alyx Vance and her father E
   schema:creator <Valve%20Corporation>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1tq3.jpg> .
 
-<PC%20%28Microsoft%20Windows%29> schema:name "PC (Microsoft Windows)" .
-
-<Shooter> schema:name "Shooter" .
-
 <Valve%20Corporation> schema:county "United States";
   schema:name "Valve Corporation" .
 
 <Windows%20Mixed%20Reality> schema:name "Windows Mixed Reality" .
-
-<Puzzle> schema:name "Puzzle" .
-
-<SteamVR> schema:name "SteamVR" .
-
-<Adventure> schema:name "Adventure" .
 
 <Oculus%20Rift> schema:name "Oculus Rift" .
 
@@ -6722,16 +6615,18 @@ Set between the events of Half-Life and Half-Life 2, Alyx Vance and her father E
   schema:ratingValue "93.38052244059699";
   schema:description "Sid Meier's Civilization is a turn-based strategy computer game created by Sid Meier for MicroProse in 1991.The game's objective is \"...to build an empire that would stand the test of time\". The game begins in 4000 BC, and the players attempt to expand and develop their empires through the ages until modern and near-future times. It is also known simply as Civilization.";
   schema:releaseDate "1991-01-01T00:00:00Z"^^xsd:dateTime;
-  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation>, <DOS>, <Mac>,
-    <Amiga>, <Super%20Nintendo%20Entertainment%20System>, <Atari%20ST/STE>;
-  schema:genre <Strategy>, <Turn-based%20strategy%20%28TBS%29>;
-  schema:creator <MicroProse%2CKoei>;
-  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1y9x.jpg> .
+  schema:gamePlatform <PC%20%28Microsoft%20Windows%29>;
+  schema:genre <Strategy>;
+  schema:creator <MicroProse> .
 
-<Strategy> schema:name "Strategy" .
+<MicroProse> schema:county "United States";
+  schema:name "MicroProse" .
 
-<MicroProse%2CKoei> schema:county "United States";
-  schema:name "MicroProse,Koei" .
+<902> a schema:VideoGame;
+  schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1y9x.jpg>;
+  schema:gamePlatform <PlayStation>, <DOS>, <Mac>, <Amiga>, <Super%20Nintendo%20Entertainment%20System>,
+    <Atari%20ST/STE>;
+  schema:genre <Turn-based%20strategy%20%28TBS%29> .
 
 <PlayStation> schema:name "PlayStation" .
 
@@ -6770,13 +6665,17 @@ Set between the events of Half-Life and Half-Life 2, Alyx Vance and her father E
   schema:releaseDate "2013-06-14T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Shooter>, <Adventure>;
-  schema:creator <Naughty%20Dog%2CSony%20Computer%20Entertainment>;
+  schema:creator <Naughty%20Dog>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1r7f.jpg> .
 
 <PlayStation%203> schema:name "PlayStation 3" .
 
-<Naughty%20Dog%2CSony%20Computer%20Entertainment> schema:county "United States";
-  schema:name "Naughty Dog,Sony Computer Entertainment" .
+<Shooter> schema:name "Shooter" .
+
+<Naughty%20Dog> schema:county "United States";
+  schema:name "Naughty Dog" .
+
+<Adventure> schema:name "Adventure" .
 
 <102129> a schema:VideoGame;
   schema:title "ASTRO BOT: Rescue Mission";
@@ -6785,15 +6684,15 @@ Set between the events of Half-Life and Half-Life 2, Alyx Vance and her father E
   schema:releaseDate "2018-02-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%20VR>;
   schema:genre <Platform>, <Adventure>;
-  schema:creator <SIE%20Japan%20Studio%2CSony%20Interactive%20Entertainment>;
+  schema:creator <SIE%20Japan%20Studio>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2eao.jpg> .
 
 <PlayStation%20VR> schema:name "PlayStation VR" .
 
 <Platform> schema:name "Platform" .
 
-<SIE%20Japan%20Studio%2CSony%20Interactive%20Entertainment> schema:county "Japan";
-  schema:name "SIE Japan Studio,Sony Interactive Entertainment" .
+<SIE%20Japan%20Studio> schema:county "Japan";
+  schema:name "SIE Japan Studio" .
 
 <145327> a schema:VideoGame;
   schema:title "Town Star";
@@ -6822,11 +6721,11 @@ Through the course of each competitive game, players build towns from scratch by
   schema:gamePlatform <Wii>, <Super%20Nintendo%20Entertainment%20System>, <Wii%20U>,
     <Super%20Famicom>, <New%20Nintendo%203DS>;
   schema:genre <Shooter>, <Platform>, <Adventure>;
-  schema:creator <Nintendo%20R%26D1%2CIntelligent%20Systems%2CNintendo%2CNintendo>;
+  schema:creator <Nintendo%20R%26D1>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5osy.jpg> .
 
-<Nintendo%20R%26D1%2CIntelligent%20Systems%2CNintendo%2CNintendo> schema:county "Japan";
-  schema:name "Nintendo R&D1,Intelligent Systems,Nintendo,Nintendo" .
+<Nintendo%20R%26D1> schema:county "Japan";
+  schema:name "Nintendo R&D1" .
 
 <Wii%20U> schema:name "Wii U" .
 
@@ -6845,13 +6744,19 @@ Through the course of each competitive game, players build towns from scratch by
   schema:creator <WayForward>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1ngf.jpg> .
 
+<PC%20%28Microsoft%20Windows%29> schema:name "PC (Microsoft Windows)" .
+
 <WayForward> schema:name "WayForward" .
 
 <PlayStation%204> schema:name "PlayStation 4" .
 
 <Xbox%20One> schema:name "Xbox One" .
 
+<Puzzle> schema:name "Puzzle" .
+
 <Nintendo%20Switch> schema:name "Nintendo Switch" .
+
+<Strategy> schema:name "Strategy" .
 
 <Indie> schema:name "Indie" .
 
@@ -6864,13 +6769,13 @@ Although Virtua Racing has been released on many different platforms before, thi
   schema:releaseDate "2019-04-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20Switch>;
   schema:genre <Racing>, <Sport>, <Arcade>;
-  schema:creator <M2%2CSega%2CSEGA%20of%20America%2CSega%20Europe>;
+  schema:creator <M2>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3un4.jpg> .
 
 <Racing> schema:name "Racing" .
 
-<M2%2CSega%2CSEGA%20of%20America%2CSega%20Europe> schema:county "Japan";
-  schema:name "M2,Sega,SEGA of America,Sega Europe" .
+<M2> schema:county "Japan";
+  schema:name "M2" .
 
 <Sport> schema:name "Sport" .
 
@@ -6883,11 +6788,11 @@ Although Virtua Racing has been released on many different platforms before, thi
   schema:releaseDate "2018-06-14T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Nintendo%20Switch>;
   schema:genre <Platform>, <Racing>, <Indie>, <Arcade>;
-  schema:creator <Hyperbolic%20Magnetism%2CCINEMAX%2C%20s.r.o.>;
+  schema:creator <Hyperbolic%20Magnetism>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co28wf.jpg> .
 
-<Hyperbolic%20Magnetism%2CCINEMAX%2C%20s.r.o.> schema:county "Czechia";
-  schema:name "Hyperbolic Magnetism,CINEMAX, s.r.o." .
+<Hyperbolic%20Magnetism> schema:county "Czechia";
+  schema:name "Hyperbolic Magnetism" .
 
 <86647> a schema:VideoGame;
   schema:title "Samurai Aces for Nintendo Switch";
@@ -6911,6 +6816,8 @@ Let’s enjoy the history of Psikyo and shooting game NOW!!!""";
   schema:gamePlatform <Nintendo%20DS>;
   schema:creator <DTP%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2ogx.jpg> .
+
+<Nintendo%20DS> schema:name "Nintendo DS" .
 
 <DTP%20Entertainment> schema:county "Germany";
   schema:name "DTP Entertainment" .
@@ -6947,6 +6854,8 @@ A Music Creation Studio That Feels Like a Game.""";
   schema:creator <Detune>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kwn.jpg> .
 
+<Music> schema:name "Music" .
+
 <Detune> schema:name "Detune" .
 
 <59433> a schema:VideoGame;
@@ -6956,13 +6865,13 @@ A Music Creation Studio That Feels Like a Game.""";
   schema:releaseDate "2015-10-12T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%203DS>;
   schema:genre <Adventure>, <Visual%20Novel>;
-  schema:creator <CIRCLE%20Entertainment%2CFlyhigh%20Works>;
+  schema:creator <CIRCLE%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/tuqx2n660rowua9rqgzp.jpg> .
 
 <Nintendo%203DS> schema:name "Nintendo 3DS" .
 
-<CIRCLE%20Entertainment%2CFlyhigh%20Works> schema:county "Hong Kong";
-  schema:name "CIRCLE Entertainment,Flyhigh Works" .
+<CIRCLE%20Entertainment> schema:county "Hong Kong";
+  schema:name "CIRCLE Entertainment" .
 
 <Visual%20Novel> schema:name "Visual Novel" .
 
@@ -6987,12 +6896,11 @@ Skins: 1970s Batsuit, Year One Batman, The Dark Knight Returns, Earth One Batman
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%203>, <Xbox%20360>,
     <Mac>;
   schema:genre <Fighting>, <Hack%20and%20slash/Beat%20%27em%20up>, <Adventure>;
-  schema:creator <Warner%20Bros.%20Entertainment%20Inc.%2CRocksteady%20Studios%2CDC%20Entertainment%2CFeral%20Interactive>;
+  schema:creator <Warner%20Bros.%20Entertainment%20Inc.>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2kia.jpg> .
 
-<Warner%20Bros.%20Entertainment%20Inc.%2CRocksteady%20Studios%2CDC%20Entertainment%2CFeral%20Interactive>
-  schema:county "United Kingdom";
-  schema:name "Warner Bros. Entertainment Inc.,Rocksteady Studios,DC Entertainment,Feral Interactive" .
+<Warner%20Bros.%20Entertainment%20Inc.> schema:county "United Kingdom";
+  schema:name "Warner Bros. Entertainment Inc." .
 
 <Hack%20and%20slash/Beat%20%27em%20up> schema:name "Hack and slash/Beat 'em up" .
 
@@ -7005,11 +6913,11 @@ Skins: 1970s Batsuit, Year One Batman, The Dark Knight Returns, Earth One Batman
   schema:releaseDate "2011-10-21T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Simulator>, <Sport>, <Strategy>;
-  schema:creator <Sega%2CSports%20Interactive>;
+  schema:creator <Sega>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2k6y.jpg> .
 
-<Sega%2CSports%20Interactive> schema:county "Japan";
-  schema:name "Sega,Sports Interactive" .
+<Sega> schema:county "Japan";
+  schema:name "Sega" .
 
 <1070> a schema:VideoGame;
   schema:title "Super Mario World";
@@ -7019,11 +6927,11 @@ Skins: 1970s Batsuit, Year One Batman, The Dark Knight Returns, Earth One Batman
   schema:gamePlatform <Wii>, <Super%20Nintendo%20Entertainment%20System>, <Wii%20U>,
     <Super%20Famicom>, <New%20Nintendo%203DS>;
   schema:genre <Platform>, <Adventure>;
-  schema:creator <Nintendo%2CNintendo%20EAD>;
+  schema:creator <Nintendo>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2v5y.jpg> .
 
-<Nintendo%2CNintendo%20EAD> schema:county "Japan";
-  schema:name "Nintendo,Nintendo EAD" .
+<Nintendo> schema:county "Japan";
+  schema:name "Nintendo" .
 
 <12672> a schema:VideoGame;
   schema:title "Lotus III: The Ultimate Challenge";
@@ -7032,11 +6940,11 @@ Skins: 1970s Batsuit, Year One Batman, The Dark Knight Returns, Earth One Batman
   schema:releaseDate "1992-12-31T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <DOS>, <Amiga>, <Atari%20ST/STE>;
   schema:genre <Racing>;
-  schema:creator <Magnetic%20Fields%2CGremlin%20Graphics>;
+  schema:creator <Magnetic%20Fields>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2jmt.jpg> .
 
-<Magnetic%20Fields%2CGremlin%20Graphics> schema:county "United Kingdom";
-  schema:name "Magnetic Fields,Gremlin Graphics" .
+<Magnetic%20Fields> schema:county "United Kingdom";
+  schema:name "Magnetic Fields" .
 
 <9927> a schema:VideoGame;
   schema:title "Persona 5";
@@ -7045,13 +6953,13 @@ Skins: 1970s Batsuit, Year One Batman, The Dark Knight Returns, Earth One Batman
   schema:releaseDate "2016-09-15T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>, <PlayStation%204>;
   schema:genre <Role-playing%20%28RPG%29>, <Turn-based%20strategy%20%28TBS%29>, <Adventure>;
-  schema:creator <Atlus%2CAtlus%20USA%2CP%20Studio%2CDeep%20Silver>;
+  schema:creator <Atlus>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1r76.jpg> .
 
 <Role-playing%20%28RPG%29> schema:name "Role-playing (RPG)" .
 
-<Atlus%2CAtlus%20USA%2CP%20Studio%2CDeep%20Silver> schema:county "Japan";
-  schema:name "Atlus,Atlus USA,P Studio,Deep Silver" .
+<Atlus> schema:county "Japan";
+  schema:name "Atlus" .
 
 <3349> a schema:VideoGame;
   schema:title "Paper Mario: The Thousand-Year Door";
@@ -7070,13 +6978,10 @@ Stay on your toes! Stamp foes, swing your hammer, and use timely button presses 
   schema:releaseDate "2004-07-22T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20GameCube>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Nintendo%2CIntelligent%20Systems%20Co.%2C%20Ltd.>;
+  schema:creator <Nintendo>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co25us.jpg> .
 
 <Nintendo%20GameCube> schema:name "Nintendo GameCube" .
-
-<Nintendo%2CIntelligent%20Systems%20Co.%2C%20Ltd.> schema:county "Japan";
-  schema:name "Nintendo,Intelligent Systems Co., Ltd." .
 
 <28337> a schema:VideoGame;
   schema:title "13 Sentinels: Aegis Rim";
@@ -7085,11 +6990,8 @@ Stay on your toes! Stamp foes, swing your hammer, and use timely button presses 
   schema:releaseDate "2019-11-28T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>, <Nintendo%20Switch>;
   schema:genre <Simulator>, <Strategy>, <Tactical>, <Adventure>;
-  schema:creator <Atlus%2CVanillaware%2CAtlus%20USA>;
+  schema:creator <Atlus>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2uls.jpg> .
-
-<Atlus%2CVanillaware%2CAtlus%20USA> schema:county "Japan";
-  schema:name "Atlus,Vanillaware,Atlus USA" .
 
 <Tactical> schema:name "Tactical" .
 
@@ -7101,11 +7003,11 @@ Stay on your toes! Stamp foes, swing your hammer, and use timely button presses 
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>,
     <Google%20Stadia>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Take-Two%20Interactive%2CRockstar%20Games>;
+  schema:creator <Take-Two%20Interactive>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1q1f.jpg> .
 
-<Take-Two%20Interactive%2CRockstar%20Games> schema:county "United States";
-  schema:name "Take-Two Interactive,Rockstar Games" .
+<Take-Two%20Interactive> schema:county "United States";
+  schema:name "Take-Two Interactive" .
 
 <Google%20Stadia> schema:name "Google Stadia" .
 
@@ -7116,13 +7018,13 @@ Stay on your toes! Stamp foes, swing your hammer, and use timely button presses 
   schema:releaseDate "2004-11-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>;
   schema:genre <Shooter>, <Tactical>, <Adventure>;
-  schema:creator <Konami%20Computer%20Entertainment%20Japan%2CKonami>;
+  schema:creator <Konami%20Computer%20Entertainment%20Japan>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5ei5.jpg> .
 
 <PlayStation%202> schema:name "PlayStation 2" .
 
-<Konami%20Computer%20Entertainment%20Japan%2CKonami> schema:county "Japan";
-  schema:name "Konami Computer Entertainment Japan,Konami" .
+<Konami%20Computer%20Entertainment%20Japan> schema:county "Japan";
+  schema:name "Konami Computer Entertainment Japan" .
 
 <9577> a schema:VideoGame;
   schema:title "Persona 3";
@@ -7132,11 +7034,8 @@ Stay on your toes! Stamp foes, swing your hammer, and use timely button presses 
   schema:gamePlatform <PlayStation%202>;
   schema:genre <Role-playing%20%28RPG%29>, <Simulator>, <Turn-based%20strategy%20%28TBS%29>,
     <Visual%20Novel>;
-  schema:creator <Atlus%2CAtlus%20USA%2CKoei>;
+  schema:creator <Atlus>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5mo6.jpg> .
-
-<Atlus%2CAtlus%20USA%2CKoei> schema:county "Japan";
-  schema:name "Atlus,Atlus USA,Koei" .
 
 <57692> a schema:VideoGame;
   schema:title "Resident Evil 7: Biohazard - Gold Edition";
@@ -7162,11 +7061,11 @@ The Gold Edition contains the full game plus DLC: the Banned Footage Vol. 1 and 
     <Super%20Famicom>, <Satellaview>;
   schema:genre <Role-playing%20%28RPG%29>, <Strategy>, <Turn-based%20strategy%20%28TBS%29>,
     <Tactical>, <Adventure>;
-  schema:creator <Riverhillsoft%2CArtdink%2CAtlus%2CQuest%2CSquare%20Enix>;
+  schema:creator <Riverhillsoft>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co48g3.jpg> .
 
-<Riverhillsoft%2CArtdink%2CAtlus%2CQuest%2CSquare%20Enix> schema:county "Japan";
-  schema:name "Riverhillsoft,Artdink,Atlus,Quest,Square Enix" .
+<Riverhillsoft> schema:county "Japan";
+  schema:name "Riverhillsoft" .
 
 <Sega%20Saturn> schema:name "Sega Saturn" .
 
@@ -7197,11 +7096,11 @@ While the PlayStation 2 version came out in North America, the arcade version wa
   schema:releaseDate "2002-12-25T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>, <Arcade>;
   schema:genre <Music>, <Puzzle>, <Arcade>;
-  schema:creator <Konami%2CKonami%20Computer%20Entertainment%20Tokyo>;
+  schema:creator <Konami>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co5eg5.jpg> .
 
-<Konami%2CKonami%20Computer%20Entertainment%20Tokyo> schema:county "Japan";
-  schema:name "Konami,Konami Computer Entertainment Tokyo" .
+<Konami> schema:county "Japan";
+  schema:name "Konami" .
 
 <14593> a schema:VideoGame;
   schema:title "Hollow Knight";
@@ -7210,13 +7109,13 @@ While the PlayStation 2 version came out in North America, the arcade version wa
   schema:releaseDate "2017-02-24T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>, <Nintendo%20Switch>;
   schema:genre <Platform>, <Adventure>, <Indie>;
-  schema:creator <Team%20Cherry%2CTeam%20Cherry>;
+  schema:creator <Team%20Cherry>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1rgi.jpg> .
 
 <Linux> schema:name "Linux" .
 
-<Team%20Cherry%2CTeam%20Cherry> schema:county "Australia";
-  schema:name "Team Cherry,Team Cherry" .
+<Team%20Cherry> schema:county "Australia";
+  schema:name "Team Cherry" .
 
 <187043> a schema:VideoGame;
   schema:title "Rising Star";
@@ -7237,11 +7136,8 @@ Start as a lowly busker and work your way to the world tour collecting NFTs and 
   schema:releaseDate "2018-09-14T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20Switch>;
   schema:genre <Role-playing%20%28RPG%29>;
-  schema:creator <Nintendo%2CMonolith%20Soft>;
+  schema:creator <Nintendo>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co260a.jpg> .
-
-<Nintendo%2CMonolith%20Soft> schema:county "Japan";
-  schema:name "Nintendo,Monolith Soft" .
 
 <21737> a schema:VideoGame;
   schema:title "Pac-Man: Championship Edition DX";
@@ -7262,11 +7158,11 @@ Start as a lowly busker and work your way to the world tour collecting NFTs and 
   schema:releaseDate "2002-11-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20GameCube>;
   schema:genre <Shooter>, <Platform>, <Adventure>;
-  schema:creator <Retro%20Studios%2CNintendo>;
+  schema:creator <Retro%20Studios>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3w4w.jpg> .
 
-<Retro%20Studios%2CNintendo> schema:county "United States";
-  schema:name "Retro Studios,Nintendo" .
+<Retro%20Studios> schema:county "United States";
+  schema:name "Retro Studios" .
 
 <75081> a schema:VideoGame;
   schema:title "Umineko When They Cry - Answer Arcs";
@@ -7275,11 +7171,11 @@ Start as a lowly busker and work your way to the world tour collecting NFTs and 
   schema:releaseDate "2017-11-17T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Linux>, <PC%20%28Microsoft%20Windows%29>, <Mac>;
   schema:genre <Adventure>, <Visual%20Novel>;
-  schema:creator <07th%20Expansion%2CMangaGamer>;
+  schema:creator <07th%20Expansion>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co24lp.jpg> .
 
-<07th%20Expansion%2CMangaGamer> schema:county "Japan";
-  schema:name "07th Expansion,MangaGamer" .
+<07th%20Expansion> schema:county "Japan";
+  schema:name "07th Expansion" .
 
 <8293> a schema:VideoGame;
   schema:title "Discworld Noir";
@@ -7288,13 +7184,13 @@ Start as a lowly busker and work your way to the world tour collecting NFTs and 
   schema:releaseDate "1999-05-07T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation>;
   schema:genre <Point-and-click>, <Adventure>;
-  schema:creator <Perfect%20Entertainment%2CGT%20Interactive>;
+  schema:creator <Perfect%20Entertainment>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3h5y.jpg> .
 
 <Point-and-click> schema:name "Point-and-click" .
 
-<Perfect%20Entertainment%2CGT%20Interactive> schema:county "United States";
-  schema:name "Perfect Entertainment,GT Interactive" .
+<Perfect%20Entertainment> schema:county "United States";
+  schema:name "Perfect Entertainment" .
 
 <141540> a schema:VideoGame;
   schema:title "Disco Elysium: The Final Cut";
@@ -7322,11 +7218,11 @@ Start as a lowly busker and work your way to the world tour collecting NFTs and 
   schema:gamePlatform <Wii>, <Super%20Nintendo%20Entertainment%20System>, <Wii%20U>,
     <Super%20Famicom>, <New%20Nintendo%203DS>, <Satellaview>;
   schema:genre <Puzzle>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <St.%20GIGA%2CNintendo%2CNintendo%20EAD%2CNintendo>;
+  schema:creator <St.%20GIGA>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3vzn.jpg> .
 
-<St.%20GIGA%2CNintendo%2CNintendo%20EAD%2CNintendo> schema:county "Japan";
-  schema:name "St. GIGA,Nintendo,Nintendo EAD,Nintendo" .
+<St.%20GIGA> schema:county "Japan";
+  schema:name "St. GIGA" .
 
 <479> a schema:VideoGame;
   schema:title "Metal Gear Solid 3: Subsistence";
@@ -7336,12 +7232,8 @@ Subsistence's online multiplayer component, titled Metal Gear Online, consists o
   schema:releaseDate "2005-12-22T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%202>;
   schema:genre <Shooter>, <Tactical>, <Adventure>;
-  schema:creator <Konami%20Computer%20Entertainment%20Japan%2CKojima%20Productions%2CKonami>;
+  schema:creator <Konami%20Computer%20Entertainment%20Japan>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1vd6.jpg> .
-
-<Konami%20Computer%20Entertainment%20Japan%2CKojima%20Productions%2CKonami> schema:county
-    "Japan";
-  schema:name "Konami Computer Entertainment Japan,Kojima Productions,Konami" .
 
 <7346> a schema:VideoGame;
   schema:title "The Legend of Zelda: Breath of the Wild";
@@ -7353,9 +7245,6 @@ Subsistence's online multiplayer component, titled Metal Gear Online, consists o
   schema:creator <Nintendo>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co3p2d.jpg> .
 
-<Nintendo> schema:county "Japan";
-  schema:name "Nintendo" .
-
 <26192> a schema:VideoGame;
   schema:title "The Last of Us Part II";
   schema:ratingValue "93.71975403163384";
@@ -7363,11 +7252,8 @@ Subsistence's online multiplayer component, titled Metal Gear Online, consists o
   schema:releaseDate "2020-06-19T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%204>;
   schema:genre <Shooter>, <Adventure>;
-  schema:creator <Naughty%20Dog%2CSony%20Interactive%20Entertainment>;
+  schema:creator <Naughty%20Dog>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co1r0o.jpg> .
-
-<Naughty%20Dog%2CSony%20Interactive%20Entertainment> schema:county "United States";
-  schema:name "Naughty Dog,Sony Interactive Entertainment" .
 
 <2617> a schema:VideoGame;
   schema:title "The Settlers II: Gold Edition";
@@ -7391,12 +7277,11 @@ Subsistence's online multiplayer component, titled Metal Gear Online, consists o
   schema:releaseDate "2014-02-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PlayStation%203>;
   schema:genre <Fighting>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Square%20Enix%201st%20Production%20Department%2CDisney%20Interactive%20Studios%2CSquare%20Enix>;
+  schema:creator <Square%20Enix%201st%20Production%20Department>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co315m.jpg> .
 
-<Square%20Enix%201st%20Production%20Department%2CDisney%20Interactive%20Studios%2CSquare%20Enix>
-  schema:county "United States";
-  schema:name "Square Enix 1st Production Department,Disney Interactive Studios,Square Enix" .
+<Square%20Enix%201st%20Production%20Department> schema:county "United States";
+  schema:name "Square Enix 1st Production Department" .
 
 <30155> a schema:VideoGame;
   schema:title "Rocksmith 2014 Edition - Remastered";
@@ -7422,11 +7307,11 @@ This remastered version also includes six free bonus songs.
   schema:releaseDate "2021-05-14T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <PC%20%28Microsoft%20Windows%29>, <PlayStation%204>, <Xbox%20One>;
   schema:genre <Shooter>, <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <BioWare%2CElectronic%20Arts>;
+  schema:creator <BioWare>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co2k5h.jpg> .
 
-<BioWare%2CElectronic%20Arts> schema:county "Canada";
-  schema:name "BioWare,Electronic Arts" .
+<BioWare> schema:county "Canada";
+  schema:name "BioWare" .
 
 <15467> a schema:VideoGame;
   schema:title "Shin Megami Tensei: Strange Journey";
@@ -7435,8 +7320,5 @@ This remastered version also includes six free bonus songs.
   schema:releaseDate "2009-08-10T00:00:00Z"^^xsd:dateTime;
   schema:gamePlatform <Nintendo%20DS>;
   schema:genre <Role-playing%20%28RPG%29>, <Adventure>;
-  schema:creator <Atlus%2CAtlus%20USA%2CLancarse>;
+  schema:creator <Atlus>;
   schema:image <http://images.igdb.com/igdb/image/upload/t_thumb/co26fw.jpg> .
-
-<Atlus%2CAtlus%20USA%2CLancarse> schema:county "Japan";
-  schema:name "Atlus,Atlus USA,Lancarse" .

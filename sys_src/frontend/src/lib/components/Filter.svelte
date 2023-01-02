@@ -4,28 +4,36 @@
     import Platform from "./filter-components/Platform.svelte";
     import Date from "./filter-components/Date.svelte";
     import Tags from "./filter-components/Tags.svelte";
-
-    export let filter;
+    import {filterSettings} from '$stores/filter.ts';
 
     let creator;
+    let platform=[];
+    let genre=[] ;
     let date;
-    let genre;
-    let platform;
 
     let genre_color= 'rgb(90, 73, 157)';
     let creator_color ='rgb(66, 153, 63)';
     let platform_color ='rgb(73, 122, 157)';
     let date_color ='rgb(176, 55, 55)';
 
-    //convert to json-string for post request
-    const handleChange = () => {
-        filter = "";
-        filter = JSON.stringify({creator,platform,genre,date});
+    let filter;
+    $: filter = JSON.stringify({creator, platform, genre, date});
+    $: filterSettings.set(filter);
+    
+    $: if(creator=="" && platform.length===0 && genre.length==0 && date==0){
+        filterSettings.set('');
     }
 
+    if($filterSettings!=''){
+        let settings = JSON.parse($filterSettings);
+        creator= settings.creator;
+        platform= settings.platform;
+        genre= settings.genre;
+        date= settings.date;
+    }
 </script>
 <!--Modal contains filter options and set filteritem tags-->
-<div class="filter_box" on:change={handleChange}>
+<div class="filter_box">
     <div class="position">
         <!--Creates new filteroptions, returns checked items as values in a list 
         and passes color-variables for style-->
@@ -35,13 +43,13 @@
         <Date bind:date={date} bind:color={date_color}/>
     </div>
     <div class="tags">
-
          <!--Creates new tags as checked, passes meantfor colors and values-->
         <Tags bind:creator={creator} bind:color={creator_color}/>
         <Tags bind:group={genre} bind:color={genre_color}/>
         <Tags bind:group={platform} bind:color={platform_color}/>
         <Tags bind:date={date} bind:color={date_color}/>
     </div>
+
 </div>
 <style>
     .position{

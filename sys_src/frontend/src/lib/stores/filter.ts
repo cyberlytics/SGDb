@@ -9,6 +9,8 @@ export let filter_data = writable("");
 export const isPost = writable(false);
 export let graphData = writable("");
 
+export let filterSettings = writable("");
+
 //append dict values to an array in order to be able to process them in the respective class
 export function toArray(data){
     let dict = new Map();

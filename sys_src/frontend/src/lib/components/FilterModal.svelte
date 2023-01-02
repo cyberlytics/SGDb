@@ -1,6 +1,6 @@
 <script>
   import Filter from './Filter.svelte';
-  import { isFilterVisible, graphData, isPost } from '$stores/filter.ts';
+  import { isFilterVisible, graphData, isPost, filterSettings } from '$stores/filter.ts';
 
   const handleClose = () => {
     isFilterVisible.set(false);
@@ -10,26 +10,28 @@
     isFilterVisible.set(false);
   };
 
-  let filter; 
   let errorVisible = false;
   //passes set filteritems to backend with post-method
   async function postFilter () {
-		const response = await fetch("http://localhost:8000/", {
+    if($filterSettings!=''){
+      fetch('http://localhost:8000/', {
+      mode: 'cors',
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin':'*'
       },
-      body: filter,
-    }).then(response => { 
-      graphData.set(response.json());
-    }).catch(error => {
-      console.log(error);
-      errorVisible = true;
-    });
-    isPost.set(true);
-    isFilterVisible.set(false);
+      body: $filterSettings
+      })
+      .then(response => response.json())
+      isPost.set(true);
+      isFilterVisible.set(false);
+    }else{
+      isPost.set(false);
+      isFilterVisible.set(false);
     }
+  }
 </script>
 
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -63,7 +65,7 @@
           </div>
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
             <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Filter</h3>
-            <Filter bind:filter={filter}/>
+            <Filter />
           </div>
           {#if errorVisible ==true}
           <div class = "absolute text-left top-60 left-20">

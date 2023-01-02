@@ -1,6 +1,5 @@
 <script lang="ts">
   import Search from '$components/Search.svelte';  
-  import Filter from '$components/Filter.svelte';
   import {isFilterVisible} from "$stores/filter";
 
   $: handleClick = () => isFilterVisible.set(true);

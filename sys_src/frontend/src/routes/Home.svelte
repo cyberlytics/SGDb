@@ -18,7 +18,6 @@
   const fetchGraph = async (): Promise<Graph> => {
       const data = await fetch("http://localhost:8000/");
       const json = await data.json();
-      console.log(json);
       filter_data.set(json.filters);
       return await buildStartPageGraph(json);
   };
