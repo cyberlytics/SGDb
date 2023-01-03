@@ -1,6 +1,7 @@
 from collections import Counter
 from urllib.parse import quote
 from SPARQLWrapper import SPARQLWrapper, JSON
+from db_wrapper import detailpage_content
 import os
 
 sparql_obj = SPARQLWrapper(os.environ.get('REPOSITORY_ADDR', "http://localhost:7200/repositories/semantic_games"))
@@ -20,39 +21,39 @@ def combine_Filter(filter_requests):
     game_list = {}
     games = []
     
-    if "date" in filter_requests:
+    if "date" in filter_requests and filter_requests["date"] != "":
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_date(filter_requests["date"]))
 
-    if "rating_num" in filter_requests:
+    if "rating_num" in filter_requests and filter_requests["rating_num"] != "":
         if "recommendation" not in filter_requests:
             game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
 
     if "genre" in filter_requests:
         if "recommendation" not in filter_requests:
-            for element in range(len(filter_requests["genre"])):  
-                game_list = extend_list(game_list, fil_genre(filter_requests["genre"][element-1]))
+            for element in filter_requests["genre"]:  
+                game_list = extend_list(game_list, fil_genre(element))
         else: 
-            for element in range(len(filter_requests["genre"])):
-                res = fil_genre(filter_requests["genre"][element-1])
+            for element in filter_requests["genre"]:
+                res = fil_genre(element)
                 games.extend(get_titles(res))
 
     if "creator" in filter_requests:
         if "recommendation" not in filter_requests:
-            for element in range(len(filter_requests["creator"])):  
-                game_list = extend_list(game_list, fil_creator(filter_requests["creator"][element-1]))
+            for element in filter_requests["creator"]:  
+                game_list = extend_list(game_list, fil_creator(element))
         else: 
-            for element in range(len(filter_requests["creator"])):  
-                res = fil_creator(filter_requests["creator"][element-1])
+            for element in filter_requests["creator"]:  
+                res = fil_creator(element)
                 games.extend(get_titles(res))
 
     if "platform" in filter_requests:
         if "recommendation" not in filter_requests:
-            for element in range(len(filter_requests["platform"])):  
-                game_list = extend_list(game_list, fil_platform(filter_requests["platform"][element-1]))
+            for element in filter_requests["platform"]:  
+                game_list = extend_list(game_list, fil_platform(element))
         else: 
-            for element in range(len(filter_requests["platform"])): 
-                res = fil_platform(filter_requests["platform"][element-1])
+            for element in filter_requests["platform"]: 
+                res = fil_platform(element)
                 games.extend(get_titles(res))
 
     if "recommendation" not in filter_requests:
