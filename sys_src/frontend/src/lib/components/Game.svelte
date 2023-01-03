@@ -1,10 +1,10 @@
 <script lang="ts">
   import { selectedGame, isDetailsVisible } from "$stores/game";
-
   const fetchGameDetails = async () => {
     const data = await fetch("http://localhost:8000/detail/" + $selectedGame.replace(' ', '_'));
     return await data.json();
   };
+  
 </script>
 
 <svelte:head>
@@ -21,11 +21,11 @@
   <main>
     <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
 
-      <div class="fixed inset-0 overflow-hidden">
+      <div class="fixed inset-0 overflow-hidden bg-gray-200 bg-opacity-60">
         <div class="absolute inset-0 overflow-hidden">
           <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
     
-            <div class="pointer-events-auto w-screen max-w-2xl">
+            <div class="pointer-events-auto n w-screen max-w-2xl">
               <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                 <div class="px-4 py-6 sm:px-6">
                   <div class="flex items-start justify-between">

@@ -29,9 +29,6 @@
     <FilterModal />
 {/if}
 <main id="graph-container">
-    {#if $isDetailsVisible}
-        <Game/>
-    {/if}
     {#if !$isPost}
         {#await fetchGraph()}
             <p class="text-black text-2xl p-8">Loading Graph...</p>
@@ -42,14 +39,16 @@
         {/await}
     {/if}
     {#if $isPost}
-        {#await $graphData}   
-        {:then result} 
+        {#await $graphData then result}   
             {#await buildStartPageGraph(result)}    
             {:then graph} 
                 <Graph on:nodeclick={handleNodeClick} {graph} />   
             {/await}
             {:catch error}
-            <p class="text-primary">{error.message}</p>
+                <p class="text-primary">{error.message}</p>
         {/await}
     {/if}
 </main>
+{#if $isDetailsVisible}
+        <Game/>
+    {/if}
