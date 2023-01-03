@@ -22,9 +22,6 @@ It serves to differentiate between the filters and the tags-->
 </div>
 
 <style>
-    p{
-        color: rgb(30, 29, 29); 
-    }
     .left{
         float: left;
     }

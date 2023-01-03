@@ -1,9 +1,8 @@
 <script>
-    import { filter_data, toArray } from '$stores/filter.ts';
+    import { filter_data, toArray, isInputDisabled} from '$stores/filter.ts';
     export let group = [];
     export let color;
     let data = toArray($filter_data.genre);
-
 
 </script>
 <!--Options for genre-filter.
@@ -17,7 +16,8 @@ It serves to differentiate between the filters and the tags-->
             <!--a new checkbox is created for each value in the genre list-->
             {#each [...data] as [genre, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
-                    <input type=checkbox value={genre} bind:group>
+                    <input type=checkbox value={genre} bind:group
+                    disabled={$isInputDisabled==true && !group.includes(genre)}>
                     {genre} </label><p>({vals})</p> <br />
             {/each}
         </div>
@@ -28,7 +28,8 @@ It serves to differentiate between the filters and the tags-->
         <div class='filter_container' style="border-color:#ccc">
             {#each [...data] as [genre, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
-                    <input type=checkbox value={genre} bind:group>
+                    <input type=checkbox value={genre} bind:group
+                    disabled={$isInputDisabled==true && !group.includes(genre)}>
                     {genre} </label><p>({vals})</p> <br />
             {/each}
         </div>
@@ -42,7 +43,8 @@ It serves to differentiate between the filters and the tags-->
     }
     label{
         display: inline-block;
-        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+           text-overflow:ellipsis;
         width: 120px;
         white-space: nowrap;
         overflow: hidden;

@@ -1,5 +1,5 @@
 <script>
-    import { filter_data, toArray } from '$stores/filter.ts';
+    import { filter_data, toArray, isInputDisabled } from '$stores/filter.ts';
 
     export let group = [];
     export let color;
@@ -16,7 +16,8 @@ It serves to differentiate between the filters and the tags-->
             <!--a new checkbox is created for each value in the platform list-->
             {#each [...data] as [platform, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
-                    <input type=checkbox value={platform} bind:group>
+                    <input type=checkbox value={platform} bind:group
+                    disabled={$isInputDisabled==true && !group.includes(platform)}>
                     {platform}</label><p>({vals})</p> <br />
 
             {/each}
@@ -28,7 +29,8 @@ It serves to differentiate between the filters and the tags-->
                 <div class='filter_container' style="border-color:#ccc">
                     {#each [...data] as [platform, vals]}
                         <label class="border-zinc-900 text-sm text-gray-900">
-                            <input type=checkbox value={platform} bind:group>
+                            <input type=checkbox value={platform} bind:group
+                            disabled={$isInputDisabled==true && !group.includes(platform)}>
                             {platform} </label><p>({vals})</p> <br />
                     {/each}
                 </div>
@@ -43,7 +45,8 @@ It serves to differentiate between the filters and the tags-->
     }
     label{
         display: inline-block;
-        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+           text-overflow:ellipsis;
         width: 120px;
         white-space: nowrap;
         overflow: hidden;
@@ -60,9 +63,8 @@ It serves to differentiate between the filters and the tags-->
         width: 180px;
         height: 98px;
         overflow-y: scroll;
-        -o-text-overflow: ellipsis;    /* Opera < 11*/
-        text-overflow:    ellipsis;    /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
+        -o-text-overflow: ellipsis;    
+        text-overflow:    ellipsis;    
         text-align: left;
     }
-        
 </style>
