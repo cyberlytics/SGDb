@@ -26,8 +26,7 @@
         },
         body: $filterSettings
       });
-      response.json();
-      console.log(response.text());
+      graphData.set(response.json());
     }
   }
 </script>
