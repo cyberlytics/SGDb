@@ -153,9 +153,9 @@ async def detailpage(game: str):
     recomment = combine_Filter(content, True)
     if recomment:
         recomment_details = detailpage_content(recomment)
-        return content, recomment_details
+        return {"content" : content, "recomment" : recomment_details}
     else:
-        return content
+        return {"content" : content}
 
 
 '''
