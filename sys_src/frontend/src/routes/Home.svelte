@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { buildStartPageGraph,  } from '$utils/graph';
+  import { buildStartPageGraph } from '$utils/graph';
 
   import Graph from '$components/Graph.svelte';
   import Navbar from '$components/Navbar.svelte';
@@ -50,5 +50,5 @@
     {/if}
 </main>
 {#if $isDetailsVisible}
-        <Game/>
-    {/if}
+    <Game/>
+{/if}
