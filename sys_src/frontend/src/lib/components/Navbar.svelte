@@ -1,8 +1,10 @@
 <script lang="ts">
   import Search from '$components/Search.svelte';  
-  import {isFilterVisible} from "$stores/filter";
+  import { isFilterVisible } from '$stores/filter';
 
-  $: handleClick = () => isFilterVisible.set(true);
+  const handleClick = () => {
+    isFilterVisible.set(true);
+  };
 </script>
 
 <nav class="bg-white w-full z-20 px-2 sm:px-4 py-2 pb-4">
@@ -13,7 +15,7 @@
     <Search />
     <button
             data-testid="filter-button"
-            on:click = {handleClick}
+            on:click={handleClick}
             class="text-primary rounded-lg focus:outline-none font-medium text-sm px-4 py-2 ml-2 hover:bg-primary/25 disabled:text-zinc-400 disabled:hover:bg-zinc-400/25"
     >
       Filter
