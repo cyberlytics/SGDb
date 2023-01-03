@@ -36,7 +36,7 @@ It serves to differentiate between the filters and the tags-->
 
 </div>
 <style>
-    p {
+   p {
         font-size: 14px;
         color:blue;
         float: right;
@@ -62,8 +62,8 @@ It serves to differentiate between the filters and the tags-->
         text-align: left;
     }
     input[type="radio"] {
-        -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
-        -moz-appearance: checkbox;    /* Firefox */
-        -ms-appearance: checkbox;     /* not currently supported */
-}
+        -webkit-appearance: checkbox;
+           -moz-appearance: checkbox;
+                appearance: checkbox;
+    }
 </style>

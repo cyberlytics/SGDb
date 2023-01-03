@@ -42,7 +42,8 @@ It serves to differentiate between the filters and the tags-->
     }
     label{
         display: inline-block;
-        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+           text-overflow:ellipsis;
         width: 120px;
         white-space: nowrap;
         overflow: hidden;

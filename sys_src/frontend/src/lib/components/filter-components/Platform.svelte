@@ -43,7 +43,8 @@ It serves to differentiate between the filters and the tags-->
     }
     label{
         display: inline-block;
-        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+           text-overflow:ellipsis;
         width: 120px;
         white-space: nowrap;
         overflow: hidden;
@@ -60,9 +61,8 @@ It serves to differentiate between the filters and the tags-->
         width: 180px;
         height: 98px;
         overflow-y: scroll;
-        -o-text-overflow: ellipsis;    /* Opera < 11*/
-        text-overflow:    ellipsis;    /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
+        -o-text-overflow: ellipsis;    
+        text-overflow:    ellipsis;    
         text-align: left;
     }
-        
 </style>

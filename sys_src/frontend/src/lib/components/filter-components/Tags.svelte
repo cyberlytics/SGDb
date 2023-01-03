@@ -35,17 +35,24 @@
 {/if}
 
 <style>
-    p{
+   p{
         color: black;
     }
  .input-tag {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
         display: inline-flex;
         line-height: 1.2;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         font-size: .875rem;
         color: #f8f4f4;
         border-radius: 7px;
-        user-select: none;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
         padding: .5rem;
         margin-right: .2rem;
         margin-bottom: .25rem;
