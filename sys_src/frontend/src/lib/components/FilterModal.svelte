@@ -1,6 +1,6 @@
 <script>
   import Filter from './Filter.svelte';
-  import { isFilterVisible, graphData, isPost, filterSettings, applyDisabled } from '$stores/filter.ts';
+  import { isFilterVisible, graphData, isPost, filterSettings, isApplyDisabled } from '$stores/filter.ts';
 
   const handleClose = () => {
     isFilterVisible.set(false);
@@ -73,8 +73,8 @@
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
           <button
-                  disabled={$applyDisabled}
-                  class:cursor-not-allowed="{$applyDisabled}"
+                  disabled={$isApplyDisabled}
+                  class:cursor-not-allowed="{$isApplyDisabled}"
                   on:click={postFilter}
                   type="button"
                   class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm disabled:opacity-25 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">

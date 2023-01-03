@@ -4,9 +4,9 @@
     import Platform from "./filter-components/Platform.svelte";
     import Date from "./filter-components/Date.svelte";
     import Tags from "./filter-components/Tags.svelte";
-    import {filterSettings, applyDisabled} from '$stores/filter.ts';
+    import {filterSettings, isApplyDisabled, isInputDisabled} from '$stores/filter.ts';
 
-    let creator;
+    let creator=[];
     let platform=[];
     let genre=[];
     let date;
@@ -20,11 +20,11 @@
     $: filter = JSON.stringify({creator, platform, genre, date});
     $: filterSettings.set(filter);
     
-    $: if(creator==undefined && platform.length==0 && genre.length==0 && date==undefined){
+    $: if(creator.length==0 && platform.length==0 && genre.length==0 && date==undefined){
         filterSettings.set('');
     }
 
-    $: applyDisabled.set($filterSettings == '');
+    $: isApplyDisabled.set($filterSettings == '');
 
     if($filterSettings!=''){
         let settings = JSON.parse($filterSettings);
@@ -33,6 +33,13 @@
         genre= settings.genre;
         date= settings.date;
     }
+
+
+    $: if(creator.length + platform.length + genre.length >= 4){
+        isInputDisabled.set(true);
+    }else {isInputDisabled.set(false)}
+
+
 </script>
 <!--Modal contains filter options and set filteritem tags-->
 <div class="filter_box">
@@ -46,7 +53,7 @@
     </div>
     <div class="tags">
          <!--Creates new tags as checked, passes meantfor colors and values-->
-        <Tags bind:creator={creator} bind:color={creator_color}/>
+        <Tags bind:group={creator} bind:color={creator_color}/>
         <Tags bind:group={genre} bind:color={genre_color}/>
         <Tags bind:group={platform} bind:color={platform_color}/>
         <Tags bind:date={date} bind:color={date_color}/>
