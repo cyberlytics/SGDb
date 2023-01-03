@@ -11,6 +11,8 @@ export let graphData = writable("");
 
 export let filterSettings = writable("");
 
+export let applyDisabled = writable(false);
+
 //append dict values to an array in order to be able to process them in the respective class
 export function toArray(data){
     let dict = new Map();

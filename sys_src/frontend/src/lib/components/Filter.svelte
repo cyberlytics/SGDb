@@ -4,7 +4,7 @@
     import Platform from "./filter-components/Platform.svelte";
     import Date from "./filter-components/Date.svelte";
     import Tags from "./filter-components/Tags.svelte";
-    import {filterSettings} from '$stores/filter.ts';
+    import {filterSettings, applyDisabled} from '$stores/filter.ts';
 
     let creator;
     let platform=[];
@@ -23,6 +23,8 @@
     $: if(creator==undefined && platform.length==0 && genre.length==0 && date==undefined){
         filterSettings.set('');
     }
+
+    $: applyDisabled.set($filterSettings == '');
 
     if($filterSettings!=''){
         let settings = JSON.parse($filterSettings);
@@ -60,9 +62,6 @@
         margin-top: 2em;
         margin-bottom: 2em;
 	}
-    p{
-        color: rgb(30, 29, 29); 
-    }
     .tags {
         margin-left: 47em;
         width: 20em;

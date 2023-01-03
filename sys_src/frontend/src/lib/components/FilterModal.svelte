@@ -1,35 +1,33 @@
 <script>
   import Filter from './Filter.svelte';
-  import { isFilterVisible, graphData, isPost, filterSettings } from '$stores/filter.ts';
+  import { isFilterVisible, graphData, isPost, filterSettings, applyDisabled } from '$stores/filter.ts';
 
   const handleClose = () => {
     isFilterVisible.set(false);
   };
 
   const handleFilterCancel = () => {
+    filterSettings.set('');
+    isPost.set(false);
     isFilterVisible.set(false);
   };
 
   let errorVisible = false;
-  //passes set filteritems to backend with post-method
+  //passes set filteritems to backend with post-request
   async function postFilter () {
+    isPost.set(true);
+    isFilterVisible.set(false);
     if($filterSettings!=''){
-      fetch('http://localhost:8000/', {
-      mode: 'cors',
-      method: 'POST',
-      headers: {
+      const response = await fetch("http://localhost:8000/", {
+        method: 'POST',
+        headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin':'*'
-      },
-      body: $filterSettings
-      })
-      .then(response => response.json())
-      isPost.set(true);
-      isFilterVisible.set(false);
-    }else{
-      isPost.set(false);
-      isFilterVisible.set(false);
+        },
+        body: $filterSettings
+      });
+      response.json();
+      console.log(response.text());
     }
   }
 </script>
@@ -75,9 +73,11 @@
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
           <button
+                  disabled={$applyDisabled}
+                  class:cursor-not-allowed="{$applyDisabled}"
                   on:click={postFilter}
                   type="button"
-                  class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
+                  class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm disabled:opacity-25 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
             Anwenden
           </button>
           <button
