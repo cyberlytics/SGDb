@@ -45,39 +45,58 @@ def startpage():
 
 
 @app.post("/")
-def startpage(filter_requests: dict):
-    # only keep dict keys with values inside
-    for set_filter in filter_requests:
-        if set_filter == "":
-            del filter_requests[set_filter]
+def filter(filter_requests: dict):
+    # check if the filter is only one date and rating
+    if "date" in filter_requests:
+        if not isinstance(filter_requests["date"], int):
+                return JSONResponse(
+                status_code=404,
+                content={"message": "only Filter one year"},
+            )
+    if "rating_num" in filter_requests:
+        if not isinstance(filter_requests["rating_num"], int):
+                return JSONResponse(
+                status_code=404,
+                content={"message": "only Filter one rating_num"},
+            )
 
-    filter_graph_iri = combine_Filter(filter_requests)
+    root = {'data': {}, 'filters': {}}
+    root_graph = combine_Filter(filter_requests)
 
-    filtered_games = []
-    for i in filter_graph_iri:
-        filtered_iri = query_the_subject(i)
-        filtered_iri = filtered_iri["results"]["bindings"]
-        filtered_games.append(filtered_iri)
+    if root_graph is None:
+            return JSONResponse(
+            status_code=404,
+            content={"message": "no matching Game with the Filter"},
+        )
 
-    game_info = {"data": {}}
-    for filtered_game in filtered_games:
-        game_date = ""
-        game_list = []
-        for k in range(len(filtered_game)):
-            if str(filtered_game[k]["predicate"]["value"]).find("title") != -1:
-                game_list.append(filtered_game[k]["object"]["value"])
-            if str(filtered_game[k]["predicate"]["value"]).find("Date") != -1:
-                game_date = filtered_game[k]["object"]["value"][0:4]
-        if game_date:
-            #if game_date not in game_info["data"]:
-            if game_date not in game_info["data"]:
-                    game_info["data"][game_date] = game_list
-            else:
-                game_info["data"][game_date].extend(game_list)
+    if None in root_graph:
+            return JSONResponse(
+            status_code=404,
+            content={"message": "no matching Game with the Filter"},
+        )
 
+    for game in root_graph:
+        year = game['date']['value'][:4]  # Extract the year from the "date" field
+        title = game['title']['value']  # Extract the game title from the "title" field
+
+        # If the year is not already a key in the dictionary, create a new key-value pair
+        # with the year as the key and an empty list as the value
+        if year not in root['data']:
+          root['data'][year] = []
+
+        # Append the game title to the list of game titles for the current year
+        root['data'][year].append(title)
+
+    # add filter names to startpage
+    filter_data = get_data()
+    for data in filter_data:
+        root['filters'].update(data)
+    
     global graph 
-    graph = game_info
-    return game_info
+    graph = root
+    return root
+
+
 
 # search request
 # load list-page with games with similiar names to searched game

@@ -1,7 +1,6 @@
 from collections import Counter
 from urllib.parse import quote
 from SPARQLWrapper import SPARQLWrapper, JSON
-from db_wrapper import detailpage_content
 import os
 
 sparql_obj = SPARQLWrapper(os.environ.get('REPOSITORY_ADDR', "http://localhost:7200/repositories/semantic_games"))
