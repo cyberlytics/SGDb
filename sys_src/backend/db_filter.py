@@ -10,7 +10,7 @@ sparql_obj.setReturnFormat(JSON)
 
 """Create multiple filter queries so it's easy to combine them."""
 
-def combine_Filter(filter_requests):
+def combine_Filter(filter_requests, recommendation=False):
 
     """Select the filters that should be combined for the query.
     NOTE: If recommendation is used, use the objects of the game subject as the filter
@@ -22,45 +22,45 @@ def combine_Filter(filter_requests):
     games = []
     
     if "date" in filter_requests and filter_requests["date"] != "":
-        if "recommendation" not in filter_requests:
+        if recommendation is False:
             game_list = extend_list(game_list, fil_date(filter_requests["date"]))
 
     if "rating_num" in filter_requests and filter_requests["rating_num"] != "":
-        if "recommendation" not in filter_requests:
+        if recommendation is False:
             game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
 
     if "genre" in filter_requests:
-        if "recommendation" not in filter_requests:
+        if recommendation is False:
             for element in filter_requests["genre"]:  
                 game_list = extend_list(game_list, fil_genre(element))
-        else: 
-            for element in filter_requests["genre"]:
+        elif "genreName" in filter_requests: 
+            for element in filter_requests["genreName"]["value"].split(","):
                 res = fil_genre(element)
                 games.extend(get_titles(res))
 
     if "creator" in filter_requests:
-        if "recommendation" not in filter_requests:
+        if recommendation is False:
             for element in filter_requests["creator"]:  
                 game_list = extend_list(game_list, fil_creator(element))
-        else: 
-            for element in filter_requests["creator"]:  
+        elif "creatorName" in filter_requests: 
+            for element in filter_requests["creatorName"]["value"].split(","):
                 res = fil_creator(element)
                 games.extend(get_titles(res))
 
     if "platform" in filter_requests:
-        if "recommendation" not in filter_requests:
+        if recommendation is False:
             for element in filter_requests["platform"]:  
                 game_list = extend_list(game_list, fil_platform(element))
-        else: 
-            for element in filter_requests["platform"]: 
-                res = fil_platform(element)
+        elif "gamePlatformName" in filter_requests: 
+            for element in filter_requests["gamePlatformName"]["value"].split(","):
+                res = fil_genre(element)
                 games.extend(get_titles(res))
 
-    if "recommendation" not in filter_requests:
+    if recommendation is False:
         return game_list
     else: 
-        return get_biggest_intersec(games, filter_requests["title"])
-
+        return get_biggest_intersec(games, filter_requests["title"]["value"])
+        
 
 def get_titles(result):
     """Extract the Titles of a game dictionary"""
@@ -75,14 +75,14 @@ def get_titles(result):
 def get_biggest_intersec(results, title):
     """Find the game which fits the given game the best by counting similiar attributes 
     and return the game with the most similiar attributes"""
-    if results:
+    if results != []:
         # remove all titles of the list which matches the title of the given game
         results = [game for game in results if game != title]
         # Search for the most common game name
         mc_games = Counter(results).most_common(1)
         return mc_games[0][0]
     else:
-        return ["Couldn't find a similar game"]
+        return None
 
 
 def extend_list(game_list, func_res):
