@@ -1,44 +1,54 @@
 <script>
-    export let group = [];
+    import { filter_data, toArray } from '$stores/filter.ts';
+
+    export let group = undefined;
     export let color;
-    export let data = [];
+    export let data = toArray($filter_data.creator);
 
 </script>
 <!--Options for creator-filter.
 The color of the box depends on the content in the listobject.
 It serves to differentiate between the filters and the tags-->
 <div class="left">
-    {#if group.length > 0}
+    {#if group != undefined}
      <!--List contains items and the color of the Maintext and Box changes-->
             <h2 style="color:{color}">Creator</h2>
             <div class='filter_container' style="border-color:{color}">
                 <!--a new checkbox is created for each value in the creator list-->
-                {#each data as creator}
+                {#each [...data] as [creator, vals]}
                     <label class="border-zinc-900 text-sm text-gray-900">
-                        <input type=checkbox value={creator} bind:group>
-                        {creator}<br />
-                    </label>
+                        <input type="radio" value={creator} bind:group>
+                        {creator}</label><p>({vals})</p> <br />
                 {/each}
             </div>
     {/if}
     <!--List is empty and the color changes to the beginning status-->
-    {#if group.length === 0}
+    {#if group == undefined}
         <h2 style="color:rgb(30, 29, 29)">Creator</h2>
                 <div class='filter_container' style="border-color:#ccc">
-                    {#each data as creator}
+                    {#each [...data] as [creator, vals]}
                         <label class="border-zinc-900 text-sm text-gray-900">
-                            <input type=checkbox value={creator} bind:group>
-                            {creator}<br />
-                        </label>
+                            <input type="radio" value={creator} bind:group>
+                            {creator}</label><p>({vals})</p> <br />
                     {/each}
                 </div>
     {/if}
 
 </div>
 <style>
-    p{
-        color: rgb(30, 29, 29);
+    p {
+        font-size: 14px;
+        color:blue;
+        float: right;
     }
+    label{
+        display: inline-block;
+        text-overflow:ellipsis;
+        width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
     .left{
         float: left;
     }
@@ -51,4 +61,9 @@ It serves to differentiate between the filters and the tags-->
         overflow-y: scroll;
         text-align: left;
     }
+    input[type="radio"] {
+        -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+        -moz-appearance: checkbox;    /* Firefox */
+        -ms-appearance: checkbox;     /* not currently supported */
+}
 </style>

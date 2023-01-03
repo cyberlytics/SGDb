@@ -1,6 +1,6 @@
 <script>
   import Filter from './Filter.svelte';
-  import { isFilterVisible } from '$stores/filter.ts';
+  import { isFilterVisible, graphData, isPost, filterSettings } from '$stores/filter.ts';
 
   const handleClose = () => {
     isFilterVisible.set(false);
@@ -10,9 +10,28 @@
     isFilterVisible.set(false);
   };
 
-  const handleFilterApply = () => {
-    isFilterVisible.set(false);
-  };
+  let errorVisible = false;
+  //passes set filteritems to backend with post-method
+  async function postFilter () {
+    if($filterSettings!=''){
+      fetch('http://localhost:8000/', {
+      mode: 'cors',
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin':'*'
+      },
+      body: $filterSettings
+      })
+      .then(response => response.json())
+      isPost.set(true);
+      isFilterVisible.set(false);
+    }else{
+      isPost.set(false);
+      isFilterVisible.set(false);
+    }
+  }
 </script>
 
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -24,7 +43,7 @@
       <!--
         Modal panel, show/hide based on modal state.
       -->
-      <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+      <div class="relative min-w-max transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
         <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
           <button
                   on:click={handleClose}
@@ -37,7 +56,7 @@
             </svg>
           </button>
         </div>
-        <div class="sm:flex sm:items-start">
+        <div class="flex">
           <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
             <!-- Heroicon name: outline/adjustments-horizontal -->
             <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -48,10 +67,15 @@
             <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Filter</h3>
             <Filter />
           </div>
+          {#if errorVisible ==true}
+          <div class = "absolute text-left top-60 left-20">
+            <p class="text-red-600"> Keine Ergebnisse</p>
+          </div> 
+            {/if}
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
           <button
-                  on:click={handleFilterApply}
+                  on:click={postFilter}
                   type="button"
                   class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
             Anwenden
