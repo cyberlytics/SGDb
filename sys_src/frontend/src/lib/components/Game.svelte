@@ -1,9 +1,12 @@
 <script lang="ts">
   import { selectedGame, isDetailsVisible } from "$stores/game";
+    import { validate_each_argument } from "svelte/internal";
   const fetchGameDetails = async () => {
     const data = await fetch("http://localhost:8000/detail/" + $selectedGame.replace(' ', '_'));
-    return await data.json();
+    const json = await data.json();
+    return json["content"];
   };
+
   
 </script>
 
@@ -69,7 +72,7 @@
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Description</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">
-                          <p>{details.description.value}</p>
+                          {#if details.description.value}<p>{details.description.value}</p>{/if}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -91,7 +94,7 @@
                       <div class="sm:flex sm:px-6 sm:py-5">
                         <dt class="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">Release Date</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6">
-                          <time datetime="{details.releaseDate.value}">{details.releaseDate.value}</time>
+                          <time datetime="{details.releaseDate.value}">{new Date(details.releaseDate.value).toLocaleString('de-DE', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
                         </dd>
                       </div>
                     </dl>
