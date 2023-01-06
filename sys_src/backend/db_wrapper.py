@@ -72,4 +72,3 @@ def search_query(game_name):
         """.format(game_name=game_name))
     searched_games = graphdb.query().convert()
     return searched_games
-    

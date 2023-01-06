@@ -59,7 +59,8 @@ def combine_Filter(filter_requests, recommendation=False):
     if recommendation is False:
         return game_list
     else: 
-        return get_biggest_intersec(games, filter_requests["title"]["value"])
+        recomms =  get_biggest_intersec(games, filter_requests["title"]["value"])
+        return get_imgs(recomms)
         
 
 def get_titles(result):
@@ -79,11 +80,29 @@ def get_biggest_intersec(results, title):
         # remove all titles of the list which matches the title of the given game
         results = [game for game in results if game != title]
         # Search for the most common game name
-        mc_games = Counter(results).most_common(1)
-        return mc_games[0][0]
+        mc_games = Counter(results).most_common(5)
+        return [game[0] for game in mc_games]
     else:
         return None
 
+def get_imgs(mc_games):
+    """Get the images and titles of the n recommended games"""
+    sparql_obj.setQuery("""
+        PREFIX schema: <https://schema.org/>
+        SELECT ?title ?image WHERE {{ 
+            VALUES ?title {{
+            "{mc_games[0]}"
+            "{mc_games[1]}"
+            "{mc_games[2]}"
+            "{mc_games[3]}"
+            "{mc_games[4]}"
+            }}
+            ?s schema:title ?title .
+            ?s schema:image ?image .
+        }}
+        """.format(mc_games=mc_games))
+    conv_obj = sparql_obj.queryAndConvert()
+    return conv_obj["results"]["bindings"]
 
 def extend_list(game_list, func_res):
     """Only returns games that were already included in the results of other filters"""
@@ -109,7 +128,7 @@ def extend_list(game_list, func_res):
         return ["There is no game in the Database for the used Filter"]
 
 
-def fil_date(year): 
+def fil_date(year):
     """Filter the games by the release year"""
     sparql_obj.setQuery("""
         PREFIX schema: <https://schema.org/>
