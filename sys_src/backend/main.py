@@ -150,9 +150,9 @@ async def detailpage(game: str):
             status_code=404,
             content={"message": "Game not found"},
         )
-    recomments = combine_Filter(content, True)
-    if recomments:
-        content["recomments"] = recomments
+    recommends = combine_Filter(content, True)
+    if recommends:
+        content["recommends"] = recommends
         return content
     else:
         return content
