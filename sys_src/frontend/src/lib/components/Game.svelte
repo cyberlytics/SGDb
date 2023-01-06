@@ -1,21 +1,25 @@
 <script lang="ts">
   import { selectedGame, isDetailsVisible } from "$stores/game";
+
+  let recommendationsCount = 0;
+
   const fetchGameDetails = async () => {
     const data = await fetch(
       "http://localhost:8000/detail/" + $selectedGame.replace(" ", "_")
     );
     const json = await data.json();
+    recommendationsCount = json.recommends.length;
     return json;
   };
+
   let currentRecommendationIndex = 0;
-  function navigateRecommendations(offset) {
-    this.currentRecommendationIndex += offset + 1;
-    if (this.currentRecommendationIndex < 0) {
-      this.currentRecommendationIndex = 0;
-    } else if (
-      this.currentRecommendationIndex >= this.details.recommends.length
-    ) {
-      this.currentRecommendationIndex = this.details.recommends.length - 1;
+
+  const navigateRecommendations = (offset) => {
+    currentRecommendationIndex += (offset + 1);
+    if (currentRecommendationIndex < 0) {
+      currentRecommendationIndex = 0;
+    } else if ( currentRecommendationIndex >= recommendationsCount) {
+      currentRecommendationIndex = recommendationsCount - 1;
     }
   }
 </script>
