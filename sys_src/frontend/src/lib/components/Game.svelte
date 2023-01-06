@@ -111,7 +111,7 @@
                         <div>
                           <div class="flex items-center">
                             <h3
-                              class="text-xl font-bold text-gray-900 sm:text-2xl"
+                              class="text-xl text-left font-bold text-gray-900 sm:text-2xl"
                             >
                               {$selectedGame}
                             </h3>
@@ -131,7 +131,7 @@
                           Description
                         </dt>
                         <dd
-                          class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
+                          class="mt-1 text-sm text-left text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
                           <p>{details.description.value}</p>
                         </dd>
