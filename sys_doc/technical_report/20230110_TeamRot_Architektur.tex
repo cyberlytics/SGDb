@@ -45,9 +45,10 @@
 Dieser Technical Report beschreibt die Architektur von SGDb -- eine webbasierte Anwendung mit einer Graphen-basierten Suche von Videospielen.
 \end{abstract}
 
+
 \section{Einführung und Ziele}
 
-Vor über einem halben Jahrhundert wurde das erste Videospiel von William Higinbotham veröffentlicht \cite{tennis_for_two}, bei dem zwei Spieler gegeneinander auf einem Oszilloskop spielen konnten. Das Spiel bestand aus einem einfachen Tennis-Spiel, bei dem ein Punkt erzielt wurde, wenn der Ball auf das andere Ende des Bildschirms gespielt wurde. Im Jahr 2022 waren es 2.95 Milliarden aktive Spieler, die täglich mehr als 10 Milliarden Stunden an Videospielen verbringen \cite{gamers}. Die Anzahl der Videospieler als auch die Anzahl der Spiele steigt stetig an, weshalb es für einen Spieler immer schwieriger wird, sich in der Vielzahl an Spielen zurechtzufinden. Die Suche nach einem passenden Spiel kann sehr zeitaufwändig sein, da die Suche nach einem passenden Spiel über verschiedene Plattformen erfolgen muss. Dazu soll eine Semantic Video Game Database (SGDb) entwickelt werden, die eine Suche nach Videospielen ermöglicht. Die Anwendung soll eine Graphen-basierte Suche von Videospielen ermöglichen, die auf einer semantischen Datenbank basiert. 
+Vor über einem halben Jahrhundert wurde das erste Videospiel von William Higinbotham veröffentlicht~\cite{tennis_for_two}, bei dem zwei Spieler gegeneinander auf einem Oszilloskop spielen konnten. Das Spiel bestand aus einem einfachen Tennis-Spiel, bei dem ein Punkt erzielt wurde, wenn der Ball auf das andere Ende des Bildschirms gespielt wurde. Im Jahr 2022 waren es 2.95 Milliarden aktive Spieler, die täglich mehr als 10 Milliarden Stunden an Videospielen verbringen~\cite{gamers}. Die Anzahl der Videospieler als auch die Anzahl der Spiele steigt stetig an, weshalb es für einen Spieler immer schwieriger wird, sich in der Vielzahl an Spielen zurechtzufinden. Die Suche nach einem passenden Spiel kann sehr zeitaufwändig sein, da die Suche nach einem passenden Spiel über verschiedene Plattformen erfolgen muss. Dazu soll eine Semantic Video Game Database (SGDb) entwickelt werden, die eine Suche nach Videospielen ermöglicht. Die Anwendung soll eine Graphen-basierte Suche von Videospielen ermöglichen, die auf einer semantischen Datenbank basiert.
 In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} eingegangen.
 Im nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
 Anschließend wird in Abschnitt~\ref{sec:verteilungssicht} die Verteilungssicht der Anwendung beschrieben.
@@ -57,36 +58,54 @@ Abschließend wird ein Fazit und Ausblick in Abschnitt~\ref{sec:fazit} gegeben.
 
 \section{Lösungsstrategie}\label{sec:loesungsstrategie}
 
-Dieser Abschnitt enthält einen stark verdichteten Architekturüberblick.
-Eine Gegenüberstellung der wichtigsten Ziele und Lösungsansätze.
+Abbildung~\ref{fig:architecture} gibt einen Architekturüberblick.
+Eine Gegenüberstellung der wichtigsten Ziele und Lösungsansätze für die Architektur befinden sich in der nachfolgenden Tabelle~\ref{tab:loesungsstrategie}.
 
+\begin{table}[h!]
+    \begin{center}
+        \caption{Lösungsstrategie}
+        \label{tab:loesungsstrategie}
+        \begin{tabular}{|l|l|}
+            \textbf{Qualitätsziel} & \textbf{Lösungsansatz}\\
+            \hline
+            Verarbeitung großer Graphen	& Graphen mit WebGL rendern\\
+            Separierung der Zuständigkeiten & Backend for Frontend Pattern\\
+        \end{tabular}
+    \end{center}
+\end{table}
 
 \section{Datenbeschaffung}\label{sec:datenbeschaffung}
 
-Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API \cite{igdb-api} gesendet. 
+Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API~\cite{igdb-api} gesendet.
 Als Antwort wird im Anschluss der Bearbeitung ein Datensatz zurückgegeben, der wesentliche Informationen zu einem Spiel 
 beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, Veröffentlichungsdatum, Genre, 
 Spieleplattform, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes. 
 
 Der Datensatz wird im JSON-Format gespeichert und auf 500 Spiele, die eine hohe Bewertung erzielt haben (>85), reduziert. Begründet wird diese Bedingung durch das Bestreben, einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt.
 Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durschnittsnutzer. 
-So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als "The Epoch" bekannt und zählt die 
-Anzahl der vergangenen Sekunden seit 1.Januar 1970 \cite{unix}. Der Standort des Entwicklerunternehmens wird als 
+So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als „The Epoch“ bekannt und zählt die
+Anzahl der vergangenen Sekunden seit 1.Januar 1970~\cite{unix}. Der Standort des Entwicklerunternehmens wird als
 dreistelliger Country-Code definiert, der von der International Organization for Standardization (ISO) entwickelt 
-und im ISO-3166 publiziert wurde \cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres 
+und im ISO-3166 publiziert wurde~\cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres
 Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert. 
 
-Der Datensatz wird anschließend mit „Refine“~\cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt. 
+Der Datensatz wird anschließend mit „Refine“~\cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{architektur}
+    \caption{Überblick über die Architektur von SGDb. Die Architektur besteht aus drei Teilen: Das Frontend bietet dem Nutzer ein graphisches Dashboard (Abschnitt~\ref{subsec:frontend}),  das Backend stellt (Abschnitt~\ref{subsec:backend}) die API bereit und die Datenbank (Abschnitt~\ref{subsec:datenbank}) speichert persistent Daten.}
+    \label{fig:architecture}
+\end{figure*}
 
 
 \section{Bausteinsicht}\label{sec:bausteinsicht}
+
 Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen.
 
-\subsection{Gesamtsystem}\label{subsec:gesamtsystem}
-%TODO Bild von Gesamtsystem mit kurzer Beschreibung
-
 \subsection{Datenbank}\label{subsec:datenbank}
-Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB \cite{graphdb} verwendet. In Ontotext werden die Daten in Form von RDF-Triplen gespeichert, die aus einem Subjekt, einem Prädikat und einem Objekt bestehen. Diese Triplen werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
+
+Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet. In Ontotext werden die Daten in Form von RDF-Triplen gespeichert, die aus einem Subjekt, einem Prädikat und einem Objekt bestehen. Diese Triplen werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
 %TODO Beschreibung relevanter Informationen über die Datenbank, z.B. Aufbau des Repositories, Ontologie, etc.
 
 \subsection{Backend}\label{subsec:backend}
@@ -123,6 +142,7 @@ Zuerst wird ein Graphenobjekt definiert, über welches der Zugriff auf die Daten
 
 % TODO hier nochmal drüber arbeiten, hat sich viel getan in den Bereich
 %Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
+
 
 
 \subsection{Frontend}\label{subsec:frontend}
@@ -177,11 +197,19 @@ Im Backend wird als Test-Framework „Pytest“~\cite{pytest} genutzt, welches b
 
 \subsection{Frontend}\label{subsec:frontend-dev-tools}
 
-Im Frontend wird als Test-Framework „Vitest“~\cite{vitest} in Kombination mit der „Svelte Testing Library“~\cite{stl} verwendet.
+Das Frontend wird unter Zuhilfenahme des Frontend-Frameworks „Svelte“~\cite{svelte} realisiert.
+Die Verwaltung der Abhängigkeiten erfolgt mit „npm“~\cite{npm} für auf „Node.js“ basierende Bausteine.
+Im Frontend ist Vite dafür zuständig, die Anwendung aus dem Quellcode zu erstellen.
+Dabei gibt es zwei Varianten: Für Entwicklungszwecke wird ein Vite-Dev-Server (mit Reload-Funktionalität) zum Bereitstellen der Anwendung verwendet.
+Für den Produktiveinsatz werden nur die benötigten Zieldateien unter Verwendung des \texttt{Static adapter} erstellt, die dann mit einer beliebigen Server-Software ausgeliefert werden können.
+Für die Gestaltung der Benutzeroberfläche wird „Tailwind CSS“~\cite{tailwindcss} verwendet.
+Im Gegensatz zu anderen CSS-Framework, die eine Vielzahl von vordefinierten Komponenten bereitstellen, bietet Tailwind CSS eine Vielzahl von niedrigschwelligen Gestaltungsoptionen, die es Entwicklern ermöglichen, genau die benutzerdefinierten Designs zu erstellen, die sie benötigen.
+Im Frontend wird das Vite-native Test-Framework „Vitest“~\cite{vitest} in Kombination mit der „Svelte Testing Library“~\cite{stl} und „c8“~\cite{c8} für die Testabdeckung verwendet.
 
 \section{Fazit und Ausblick}\label{sec:fazit}
 
-Im Rahmen der Arbeit wurde mit einem begrenzten Datensatz von 500 Spielen eine erste Version der Anwendung entwickelt. Diese ist voll funktionsfähig und erfüllt alle Anforderungen des Fachkonzepts. Zusätzlich konnten einige Optionale-Anforderungen verwirklicht werden. Somit konnte eine bis dato einmalige Anwendung umgesetzt werden.
+Im Rahmen der Arbeit wurde mit einem begrenzten Datensatz von 500 Spielen eine erste Version der Anwendung entwickelt, welche die die Anforderungen des Fachkonzepts erfüllt.
+Ein Benutzer kann per Graph oder per Texteingabe suchen, die Suchergebnisse filtern und Details zu einem Spiel einsehen.
 Die Anwendung ist darauf ausgelegt, auch ohne Komplikationen mit einem größeren Datensatz zu arbeiten.
 
 
