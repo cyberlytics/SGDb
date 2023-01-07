@@ -48,7 +48,7 @@ Dieser Technical Report beschreibt die Architektur von SGDb -- eine webbasierte 
 
 \section{Einführung und Ziele}
 
-Vor über einem halben Jahrhundert wurde das erste Videospiel von William Higinbotham veröffentlicht~\cite{tennis_for_two}, bei dem zwei Spieler gegeneinander auf einem Oszilloskop spielen konnten. Das Spiel bestand aus einem einfachen Tennis-Spiel, bei dem ein Punkt erzielt wurde, wenn der Ball auf das andere Ende des Bildschirms gespielt wurde. Im Jahr 2022 waren es 2.95 Milliarden aktive Spieler, die täglich mehr als 10 Milliarden Stunden an Videospielen verbringen~\cite{gamers}. Die Anzahl der Videospieler als auch die Anzahl der Spiele steigt stetig an, weshalb es für einen Spieler immer schwieriger wird, sich in der Vielzahl an Spielen zurechtzufinden. Die Suche nach einem passenden Spiel kann sehr zeitaufwändig sein, da die Suche nach einem passenden Spiel über verschiedene Plattformen erfolgen muss. Dazu soll eine Semantic Video Game Database (SGDb) entwickelt werden, die eine Suche nach Videospielen ermöglicht. Die Anwendung soll eine Graphen-basierte Suche von Videospielen ermöglichen, die auf einer semantischen Datenbank basiert.
+Vor über einem halben Jahrhundert wurde das erste Videospiel von William Higinbotham veröffentlicht~\cite{tennis_for_two}, bei dem zwei Spieler gegeneinander auf einem Oszilloskop spielen konnten. Das Spiel bestand aus einem einfachen Tennis-Spiel, bei dem ein Punkt erzielt wurde, wenn der Ball auf das andere Ende des Bildschirms gespielt wurde. Im Jahr 2022 waren es 2.95 Milliarden aktive Spieler, die täglich mehr als 10 Milliarden Stunden an Videospielen verbringen~\cite{gamers}. Die Anzahl der Videospieler als auch die Anzahl der Spiele steigt stetig an, weshalb es für einen Spieler immer schwieriger wird, sich in der Vielzahl an Spielen zurechtzufinden. Die Suche nach einem passenden Spiel kann sehr zeitaufwendig sein, da die Suche nach einem passenden Spiel über verschiedene Plattformen erfolgen muss. Dazu soll eine Semantic Video Game Database (SGDb) entwickelt werden, die eine Suche nach Videospielen ermöglicht. Die Anwendung soll eine Graphen-basierte Suche von Videospielen ermöglichen, die auf einer semantischen Datenbank basiert.
 In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} eingegangen.
 Im nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
 Anschließend wird in Abschnitt~\ref{sec:verteilungssicht} die Verteilungssicht der Anwendung beschrieben.
@@ -82,7 +82,7 @@ beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, 
 Spieleplattform, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes. 
 
 Der Datensatz wird im JSON-Format gespeichert und auf 500 Spiele, die eine hohe Bewertung erzielt haben (>85), reduziert. Begründet wird diese Bedingung durch das Bestreben, einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt.
-Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durschnittsnutzer. 
+Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durchschnittsnutzer. 
 So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als „The Epoch“ bekannt und zählt die
 Anzahl der vergangenen Sekunden seit 1.Januar 1970~\cite{unix}. Der Standort des Entwicklerunternehmens wird als
 dreistelliger Country-Code definiert, der von der International Organization for Standardization (ISO) entwickelt 
@@ -161,14 +161,14 @@ Dies ist eine Standardbibliothek mit Algorithmen aus der Graphentheorie und allg
 Für das Graphen Layout wird der ForceAtlas2 Algorithmus~\cite{forceatlas2} verwendet.
 Vor dem Start von ForceAtlas 2 Layout muss die Startposition jedes Knotens festgelegt werden.
 Daher müssen zwei Attribute namens x und y für alle Knoten des Diagramms definiert werden.
-Dazu wird zuerst ein Graph Objekt erzeugt, das jeden jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall [0, 1) ausgewählt werden.
+Dazu wird zuerst ein Graph Objekt erzeugt, das jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall [0, 1] ausgewählt werden.
 
 \subsubsection{Suche}
 %TODO
 
 \subsubsection{Detailseite}
 
-Die Detailseite zeigt die spezifischen Informationen über ein bestimmtes Spiel an. Die Komponente führt asynchron eine HTTP-Anfrage an die REST-API aus, um Details zu einem Spiel abzurufen, wenn sie gerendert wird, und verwendet dann die empfangenen Daten, um die Seite mit Spielinformationen zu füllen. Der Endpunkt lautet \enquote{/detail/\texttt{game\_name}}, wobei \enquote{\texttt{game\_name}} der Name des angeforderten Spiels ist. Die Daten werden anschließend in verschiedenen Elementen in der Vorlage der Komponente angezeigt. Die Komponente enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind. Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll. Die Daten für diese Metatags werden ebenfalls vom der REST-Schnittstelle abgerufen, wenn die Komponente gerendert wird. Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden. Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum. 
+Die Detailseite zeigt die spezifischen Informationen über ein bestimmtes Spiel an. Die Komponente führt asynchron eine HTTP-Anfrage an die REST-API aus, um Details zu einem Spiel abzurufen, wenn sie gerendert wird, und verwendet dann die empfangenen Daten, um die Seite mit Spielinformationen zu füllen. Der Endpunkt lautet \enquote{/detail/\texttt{game\_name}}, wobei \enquote{\texttt{game\_name}} der Name des angeforderten Spiels ist. Die Daten werden anschließend in verschiedenen Elementen in der Vorlage der Komponente angezeigt. Die Komponente enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind. Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll. Die Daten für diese Metatags werden ebenfalls von der REST-Schnittstelle abgerufen, wenn die Komponente gerendert wird. Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden. Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum. 
 
 \section{Verteilungssicht}\label{sec:verteilungssicht}
 
@@ -192,7 +192,7 @@ Dieser Abschnitt geht auf die verwendeten Entwicklungswerkzeuge im Backend (Absc
 
 \subsection{Backend}\label{subsec:backend-dev-tools}
 
-Im Backend wird als Test-Framework „Pytest“~\cite{pytest} genutzt, welches bereits in FastAPI integriert ist.
+Der Hauptbestandteil des Backends wird mit dem Framework FastAPI umgesetzt, das auf den Frameworks „Starlette"~\cite{starlette} und „Pydantic"~\cite{pydantic} basiert. Starlette bietet Funktionen wie WebSockets und Pydantic ermöglicht die Validierung von Datenmodellen, die von FastAPI genutzt werden. Durch Starlette kann ebenso das Test-Framework „Pytest“~\cite{pytest} für Unit-Tests direkt genutzt werden. Als ASGI Server wird Uvicorn genutzt, mit welchen die Anwendung gestartet wird. Als ASGI-Server (Asynchronous Server Gateway Interface) wird "Uvicorn"~\cite{uvicorn} verwendet, um die Anwendung zu starten. Uvicorn ist ein schneller und leistungsfähiger ASGI-Server, der perfekt für die Verwendung mit FastAPI geeignet ist.
 
 
 \subsection{Frontend}\label{subsec:frontend-dev-tools}
@@ -208,7 +208,7 @@ Im Frontend wird das Vite-native Test-Framework „Vitest“~\cite{vitest} in Ko
 
 \section{Fazit und Ausblick}\label{sec:fazit}
 
-Im Rahmen der Arbeit wurde mit einem begrenzten Datensatz von 500 Spielen eine erste Version der Anwendung entwickelt, welche die die Anforderungen des Fachkonzepts erfüllt.
+Im Rahmen der Arbeit wurde mit einem begrenzten Datensatz von 500 Spielen eine erste Version der Anwendung entwickelt, welche die Anforderungen des Fachkonzepts erfüllt.
 Ein Benutzer kann per Graph oder per Texteingabe suchen, die Suchergebnisse filtern und Details zu einem Spiel einsehen.
 Die Anwendung ist darauf ausgelegt, auch ohne Komplikationen mit einem größeren Datensatz zu arbeiten.
 
