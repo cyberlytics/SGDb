@@ -181,7 +181,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.ratingValue.value}
+                          {details.ratingValue.value}/100
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
