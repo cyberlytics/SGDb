@@ -15,7 +15,7 @@
   let currentRecommendationIndex = 0;
 
   const navigateRecommendations = (offset) => {
-    currentRecommendationIndex += (offset + 1);
+    currentRecommendationIndex += (offset);
     if (currentRecommendationIndex < 0) {
       currentRecommendationIndex = 0;
     } else if ( currentRecommendationIndex >= recommendationsCount) {
