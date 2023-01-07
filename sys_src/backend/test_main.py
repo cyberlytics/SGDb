@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
 from db_wrapper import detailpage_content
 from filter_lists import get_data
+from db_filter import combine_Filter
 from main import app
 
 client = TestClient(app)
@@ -64,6 +65,12 @@ def test_search_single():
     assert response.json()["matches"][0] == "Evergate"
     assert len(response.json()["matches"]) == 1
 
+# a warining appears. but it has to be "\\\(" escaped, because the db need two "\\" for the escaping
+def test_search_escaping():
+    response = client.get('/search/chrono_trigger_(2008)')
+    assert response.status_code == 200
+    assert response.json()["matches"][0] == "Chrono Trigger (2008)"
+
 def test_search_no_match():
     response = client.get('/search/xxxxxxx')
     assert response.status_code == 404
@@ -92,11 +99,16 @@ def test_search_with_no_content():
     assert response.status_code == 200
     assert response.json() == {"message": "please enter a title for search"}
     
-# test if a detailpage is shown
+# test if a detailpage is shown and recommendations are added
 def test_detailpage():
     response = client.get('/detail/Evergate')
     assert response.status_code == 200
-    assert response.json() == detailpage_content("Evergate")
+    response_detailpage = {key: value for key, value in response.json().items() if key != "recommends"}
+    detailpage = detailpage_content("Evergate")
+    recommends = combine_Filter(detailpage, True)
+
+    assert detailpage == response_detailpage
+    assert recommends == response.json()["recommends"]
 
 def test_detailpage_no_input():
     response = client.get('/detail/xxxxxxx')

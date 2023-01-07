@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from db_wrapper import detailpage_content, search_query, get_root_graph
 from db_filter import combine_Filter
 from filter_lists import get_data
+from utils import escaping_string
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -96,8 +97,8 @@ def filter(filter_requests: dict):
 def search(search: str = None):
     if search == "":
         return {"message": "please enter a title for search"}
-    # remove possible underscore
-    search = search.replace("_", " ")
+    # escape string
+    search = escaping_string(search)
     # search in the database for the requested game
     searched_game = search_query(search)
     game_list = []
@@ -137,15 +138,15 @@ async def detailpage(game: str):
     \f
     :param game: Name of the game to query for details.
     """
-    content = detailpage_content(game.replace("_", " "))
+    # escape string
+    game = escaping_string(game)
+    content = detailpage_content(game)
     if not content:
         return JSONResponse(
             status_code=404,
             content={"message": "no game for detailpage found"},
         )
     recommends = combine_Filter(content, True)
-    if recommends:
-        content["recommends"] = recommends
-        return content
-    else:
-        return content
+    content["recommends"] = recommends
+    return content
+
