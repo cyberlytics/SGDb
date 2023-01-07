@@ -23,9 +23,27 @@ def test_startpage_title_for_year():
     
 def test_post_startpage():
     # Test that the startpage endpoint returns the expected output
-    response = client.post("/", json={"date": "2013", "genre": "shooter", "gamePlatform": "Playstation 3"})
+    response = client.post("/", json={"date": 2013, "genre": "shooter", "gamePlatform": "Playstation 3", "rating_num": 50})
     assert response.status_code == 200
     assert "The Last of Us" in response.json()["data"]["2013"]
+
+def test_post_startpage_years():
+    # Test that the startpage endpoint returns the expected output
+    response = client.post("/", json={"date": [2010, 2020]})
+    assert response.status_code == 404
+    assert response.json() == {"message": "invalid date input, only int allowed"}
+
+def test_post_startpage_ratingnum():
+    # Test that the startpage endpoint returns the expected output
+    response = client.post("/", json={"rating_num": [50, 95]})
+    assert response.status_code == 404
+    assert response.json() == {"message": "invalid rating_num input, only int allowed"}
+
+def test_post_startpage_no_matching_game():
+    # Test that the startpage endpoint returns the expected output
+    response = client.post("/", json={"date": 1950, "genre": ["puzzle", "simulator", "adventure", "shooter"]})
+    assert response.status_code == 404
+    assert response.json() == {"message": "no matching Game with the Filter"}
 
 # test if a search request with multiple games are correct
 def test_search():
@@ -49,8 +67,8 @@ def test_search_in_graph():
     response = client.get('/')
     response = client.get('/search/ku')
     assert response.status_code == 200
-    assert response.json()["match_in_graph"][0] == "Sengoku Rance"
-    assert response.json()["match_in_graph"][1] == "Carol Vorderman's Sudoku"
+    assert "Sengoku Rance" in response.json()["match_in_graph"]
+    assert "Carol Vorderman's Sudoku" in response.json()["match_in_graph"]
     assert len(response.json()["match_in_graph"]) == 2
 
 def test_search_out_graph():

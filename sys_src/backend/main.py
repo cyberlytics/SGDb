@@ -51,28 +51,22 @@ def filter(filter_requests: dict):
         if not isinstance(filter_requests["date"], int):
                 return JSONResponse(
                 status_code=404,
-                content={"message": "only Filter one year"},
+                content={"message": "invalid date input, only int allowed"},
             )
     if "rating_num" in filter_requests:
         if not isinstance(filter_requests["rating_num"], int):
                 return JSONResponse(
                 status_code=404,
-                content={"message": "only Filter one rating_num"},
+                content={"message": "invalid rating_num input, only int allowed"},
             )
 
     root = {'data': {}, 'filters': {}}
     root_graph = combine_Filter(filter_requests)
 
-    if root_graph is None:
-            return JSONResponse(
-            status_code=404,
-            content={"message": "no matching Game with the Filter"},
-        )
-
     if None in root_graph:
             return JSONResponse(
             status_code=404,
-            content={"message": "no matching Game with the Filter"},
+            content={"message": "no matching game with the used filter"},
         )
 
     for game in root_graph:
