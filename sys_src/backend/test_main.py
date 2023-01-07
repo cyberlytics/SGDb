@@ -16,6 +16,12 @@ def test_startpage_num_filters():
     response = client.get('/')
     assert len(response.json()['filters']) == len(get_data())
 
+def test_startpage_return_filters():
+    response = client.get('/')
+    assert "genre" in response.json()['filters']
+    assert "creator" in response.json()['filters']
+    assert "platform" in response.json()['filters']
+
 def test_startpage_title_for_year():
     response = client.get('/')
     assert len(response.json()["data"]) == 38
@@ -43,7 +49,7 @@ def test_post_startpage_no_matching_game():
     # Test that the startpage endpoint returns the expected output
     response = client.post("/", json={"date": 1950, "genre": ["puzzle", "simulator", "adventure", "shooter"]})
     assert response.status_code == 404
-    assert response.json() == {"message": "no matching Game with the Filter"}
+    assert response.json() == {"message": "no matching game with the used filter"}
 
 # test if a search request with multiple games are correct
 def test_search():
@@ -61,7 +67,7 @@ def test_search_single():
 def test_search_no_match():
     response = client.get('/search/xxxxxxx')
     assert response.status_code == 404
-    assert response.json() == {"message": "Game not found"}
+    assert response.json() == {"message": "searched game not found"}
 
 def test_search_in_graph():
     response = client.get('/')
@@ -95,4 +101,4 @@ def test_detailpage():
 def test_detailpage_no_input():
     response = client.get('/detail/xxxxxxx')
     assert response.status_code == 404
-    assert response.json() == {"message": "Game not found"}
+    assert response.json() == {"message": "no game for detailpage found"}

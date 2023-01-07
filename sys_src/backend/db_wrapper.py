@@ -49,6 +49,7 @@ def detailpage_content(game_name: str):
     bindings = result['results']['bindings'][0]
     return bindings
 
+
 # method for searching games
 def search_query(game_name):
     graphdb.setQuery("""

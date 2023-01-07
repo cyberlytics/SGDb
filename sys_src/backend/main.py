@@ -6,8 +6,6 @@ from filter_lists import get_data
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-# for debugging purpose
-import uvicorn
 
 app = FastAPI()
 
@@ -20,6 +18,7 @@ app.add_middleware(
 )
 
 graph = {}
+
 
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
@@ -91,7 +90,6 @@ def filter(filter_requests: dict):
     return root
 
 
-
 # search request
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search:path}")
@@ -110,7 +108,7 @@ def search(search: str = None):
     if not game_list:
         return JSONResponse(
             status_code=404,
-            content={"message": "Game not found"},
+            content={"message": "searched game not found"},
         )
 
     games_graph = []
@@ -131,6 +129,7 @@ def search(search: str = None):
 
     return json_game_list
 
+
 @app.get("/detail/{game}", tags=['Game'])
 async def detailpage(game: str):
     """
@@ -142,7 +141,7 @@ async def detailpage(game: str):
     if not content:
         return JSONResponse(
             status_code=404,
-            content={"message": "Game not found"},
+            content={"message": "no game for detailpage found"},
         )
     recommends = combine_Filter(content, True)
     if recommends:
@@ -150,10 +149,3 @@ async def detailpage(game: str):
         return content
     else:
         return content
-
-
-'''
-# debugging purpose
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8810)
-'''
