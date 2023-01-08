@@ -89,7 +89,7 @@ dreistelliger Country-Code definiert, der von der International Organization for
 und im ISO-3166 publiziert wurde~\cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres
 Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert. 
 
-Der Datensatz wird anschließend mit „Refine“~\cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt.
+Der Datensatz wird anschließend in OpenRefine~\cite{refine} gereinigt, strukturiert und in RDF-Triples umgewandelt.
 
 \begin{figure*}[ht]
     \centering
@@ -105,8 +105,19 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 \subsection{Datenbank}\label{subsec:datenbank}
 
-Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet. In Ontotext werden die Daten in Form von RDF-Triplen gespeichert, die aus einem Subjekt, einem Prädikat und einem Objekt bestehen. Diese Triplen werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
-%TODO Beschreibung relevanter Informationen über die Datenbank, z.B. Aufbau des Repositories, Ontologie, etc.
+Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet. 
+In Ontotext werden die Daten in Form von RDF-Triples gespeichert, die aus einem Subjekt, einem Prädikat und einem 
+Objekt bestehen. Diese Triples werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen 
+Datenbanken organisiert sind. Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe 
+von Klassifizierungen und Interpretationsregeln organisiert. Ein Repository kann als eine einzelne Ontotext-Datenbank 
+angesehen werden, die für sich selbst fungiert. Somit können mehrere Repositories gleichzeitig existieren, diese sind 
+jedoch von den anderen isoliert.Die Unterteilung der Daten in Klassen, Subklassen oder Instanzen, sowie die Definition 
+der Beziehung untereinander wird durch Ontologien festgelegt. Um mit RDF-Triples zu arbeiten, verwendet Ontotext GraphDB
+das RDF4J-Framework sowie die SAIL-API. Um mit den RDF-Daten interagieren zu können, unterstützt Ontotext die 
+graphbasierte Abfragesprache SPARQL. Das webbasierte Verwaltungstool von Ontotext ist leicht bedienbar und 
+ermöglicht den Import und Export der Daten in verschiedenen Formaten, das Clustern/Bearbeiten/Anzeigen des RDF-Graphen,
+Erstellung neues Repositories, Ausführen der SPARQL-Abfragen u.v.m.
+
 
 \subsection{Backend}\label{subsec:backend}
 
