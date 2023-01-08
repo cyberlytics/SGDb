@@ -151,10 +151,11 @@ Diese dient als Python-Wrapper für SPARQL und ermöglicht so die Ausführung vo
 
 Zuerst wird ein Graphenobjekt definiert, über welches der Zugriff auf die Datenbank realisiert wird. Der Rückgabetyp ist auf das JSON-Format festgelegt. Über das definierte Graphenobjekt können nun Abfragen direkt in der Python Datei vollzogen werden. Die Antwort der Abfragen ist eine geschachtelte JSON-Ausgabe, sodass diese noch weiter formatiert wird.
 
-% TODO hier nochmal drüber arbeiten, hat sich viel getan in den Bereich
-%Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
+Die Funktion der Filter ist so gestaltet, dass eine Hauptklasse verschiedene Filteroptionen wie Datum, Genre, Bewertung, Entwickler und Plattform verwaltet. Diese lassen sich beliebig kombinieren. Ist ein Filterargument gegeben, so wird für das jeweilige Argument eine zugehörige Query erstellt, die Spiele zurückliefert, die dem Filter entsprechen. Anschließend werden alle Query-Ergebnisse verglichen und nur diejenigen zurückgegeben, die auf alle Filtereinstellungen zutreffen.
 
+Desweiteren behandelt die Filter-Hauptklasse die Funktion, für ein gegebenes Spiel, passende Spiele-Empfehlungen zurückzugeben. Dabei werden ebenfalls die verschiedenen Filterqueries verwendet, die die zugehörigen Argumente des Spiels bekommen. Jedoch werden nicht Spiele zurückgeliefert, die exakt den Kriterien entsprechen, sondern diejenigen, die am meisten Übereinstimmung zum Spiel aufweisen.
 
+Um die Anzeige der Filteroptionen für Genre, Hersteller und Plattform des Filters im Frontend dynamisch zu gestalten, werden die Optionen jedes Mal beim Aufrufen der Startseite von der Datenbank abgefragt. Diese werden dann in der Backend API gezählt, um zusätzlich zu ermöglichen, dass die Menge der Spiele mit den jeweiligen Optionen einsehbar ist.
 
 \subsection{Frontend}\label{subsec:frontend}
 
