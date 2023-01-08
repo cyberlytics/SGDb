@@ -89,7 +89,7 @@ dreistelliger Country-Code definiert, der von der International Organization for
 und im ISO-3166 publiziert wurde~\cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres
 Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert. 
 
-Der Datensatz wird anschließend in OpenRefine~\cite{refine} gereinigt, strukturiert und in RDF-Triples umgewandelt.
+Der Datensatz wird anschließend in OpenRefine~\cite{refine} geladen. 
 
 \begin{figure*}[ht]
     \centering
@@ -105,19 +105,10 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 \subsection{Datenbank}\label{subsec:datenbank}
 
-Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet. 
-In Ontotext werden die Daten in Form von RDF-Triples gespeichert, die aus einem Subjekt, einem Prädikat und einem 
-Objekt bestehen. Diese Triples werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen 
-Datenbanken organisiert sind. Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe 
-von Klassifizierungen und Interpretationsregeln organisiert. Ein Repository kann als eine einzelne Ontotext-Datenbank 
-angesehen werden, die für sich selbst fungiert. Somit können mehrere Repositories gleichzeitig existieren, diese sind 
-jedoch von den anderen isoliert.Die Unterteilung der Daten in Klassen, Subklassen oder Instanzen, sowie die Definition 
-der Beziehung untereinander wird durch Ontologien festgelegt. Um mit RDF-Triples zu arbeiten, verwendet Ontotext GraphDB
-das RDF4J-Framework sowie die SAIL-API. Um mit den RDF-Daten interagieren zu können, unterstützt Ontotext die 
-graphbasierte Abfragesprache SPARQL. Das webbasierte Verwaltungstool von Ontotext ist leicht bedienbar und 
-ermöglicht den Import und Export der Daten in verschiedenen Formaten, das Clustern/Bearbeiten/Anzeigen des RDF-Graphen,
-Erstellung neues Repositories, Ausführen der SPARQL-Abfragen u.v.m.
-
+In OpenRefine werden zunächst die Überschriften geändert, da diese fehlerhaft kovertiert sind und irrelevante Spalten werden entfernt. Die Bewertungen werden in Integer umgewandelt, für eine simple Darstellung im Frontend. Da leere Zeilen im späteren Verlauf zu Fehlern führen, werden diese mit \enquote{\texttt{Nicht Vorhanden}}-Strings gefüllt. 
+Im Anschluss werden die gereinigten Daten zu RDF-Triples strukturiert. Diese bestehen aus einem Subjekt, einem Prädikat und einem Objekt. Es werden Ontologien von \enquote{\texttt{schema.org}} für die Definition der Spieleinformationen verwendet, da diese Ontologie die geeigneten Beschreibungen für ein Spiel beinhaltet. Damit das Erscheinungsdatum auch als Datum intepretierbar ist, wird \enquote{\texttt{xsd:dateTime}} der XMLSchema benutzt. Um die Spiele zum Beginn vom Typ \enquote{\texttt{schema:VideoGame}} zu deklarieren, wird das RDF-Schema \enquote{\texttt{typeof}} eingesetzt. 
+Für die Verwaltung und Vernetzung dieser Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet. Die Triples werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind. Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe von Klassifizierungen und Interpretationsregeln organisiert. Ein Repository kann als eine einzelne Ontotext-Datenbank angesehen werden, die für sich selbst fungiert. Somit können mehrere Repositories gleichzeitig existieren, diese sind jedoch von den 
+anderen isoliert.Die Unterteilung der Daten in Klassen, Subklassen oder Instanzen, sowie die Definition der Beziehung untereinander wird durch Ontologien festgelegt. Um mit RDF-Triples zu arbeiten, verwendet Ontotext GraphDB das RDF4J-Framework sowie die SAIL-API. Um mit den RDF-Daten interagieren zu können, unterstützt Ontotext die graphbasierte Abfragesprache SPARQL. Das webbasierte Verwaltungstool von Ontotext ist leicht bedienbar und ermöglicht den Import und Export der Daten in verschiedenen Formaten, das Clustern/Bearbeiten/Anzeigen des RDF-Graphen, Erstellung neues Repositories, Ausführen der SPARQL-Abfragen u.v.m.
 
 \subsection{Backend}\label{subsec:backend}
 
@@ -177,7 +168,9 @@ Dazu wird zuerst ein Graph Objekt erzeugt, das jeden Knoten zufällig positionie
 
 \subsubsection{Suche}
 %TODO
-
+\subsubsection{Filter}
+Die Filter werden in vier Kategoriern unterteilt: Genre, Spieleplattform, Spielentwickler und Erscheinungsjahr. Die ersten drei Kategorien werden im Frontend als Checkboxinputs ausgegeben, um eine Mehrfachauswahl zu ermöglichen. Sowohl die Filterinhalte als auch die Gesamtanzahl dieser Inhalte werden aus der Datenbank bezogen. Das Erscheinungsjahr ist ein Sliderinput mit einem, auf die Spiele abgestimmten, Wertebereich. Die Filterselektion wurde auf 5 mögliche Filteritems begrenzt, da eine uneingeschränkte Auswahl an Kombinationen in den allermeisten Fällen zu einem sinnvollen Ergebnis geführt hat.
+Für eine visuelle kategorische Differenzierung der Filterselektion verändert sich die Farbe der Filterbox und es wird ein Tag der gleichen Farbe generiert. Nach der Auswahld der Filter, werden diese mit POST-Request an das Backend übermittelt. 
 \subsubsection{Detailseite}
 
 Die Detailseite zeigt die spezifischen Informationen über ein bestimmtes Spiel an. Die Komponente führt asynchron eine HTTP-Anfrage an die REST-API aus, um Details zu einem Spiel abzurufen, wenn sie gerendert wird, und verwendet dann die empfangenen Daten, um die Seite mit Spielinformationen zu füllen. Der Endpunkt lautet \enquote{/detail/\texttt{game\_name}}, wobei \enquote{\texttt{game\_name}} der Name des angeforderten Spiels ist. Die Daten werden anschließend in verschiedenen Elementen in der Vorlage der Komponente angezeigt. Die Komponente enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind. Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll. Die Daten für diese Metatags werden ebenfalls von der REST-Schnittstelle abgerufen, wenn die Komponente gerendert wird. Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden. Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum. 
