@@ -16,6 +16,8 @@
   const handleSuggestion = async (event: CustomEvent<string>) => {
     // write selected game suggestion into search input
     search = event.detail;
+    // execute the search
+    handleSearch();
   };
 
   $: isSearchDisabled.set(search.length == 0);
