@@ -46,7 +46,7 @@ Dieser Technical Report beschreibt die Architektur von SGDb -- eine webbasierte 
 \end{abstract}
 
 
-\section{Einführung und Ziele}
+\section{Einführung}
 
 Vor über einem halben Jahrhundert wurde das erste Videospiel von William Higinbotham veröffentlicht~\cite{tennis_for_two}, bei dem zwei Spieler gegeneinander auf einem Oszilloskop spielen konnten. Das Spiel bestand aus einem einfachen Tennis-Spiel, bei dem ein Punkt erzielt wurde, wenn der Ball auf das andere Ende des Bildschirms gespielt wurde. Im Jahr 2022 waren es 2.95 Milliarden aktive Spieler, die täglich mehr als 10 Milliarden Stunden an Videospielen verbringen~\cite{gamers}. Die Anzahl der Videospieler als auch die Anzahl der Spiele steigt stetig an, weshalb es für einen Spieler immer schwieriger wird, sich in der Vielzahl an Spielen zurechtzufinden. Die Suche nach einem passenden Spiel kann sehr zeitaufwendig sein, da die Suche nach einem passenden Spiel über verschiedene Plattformen erfolgen muss. Dazu soll eine Semantic Video Game Database (SGDb) entwickelt werden, die eine Suche nach Videospielen ermöglicht. Die Anwendung soll eine Graphen-basierte Suche von Videospielen ermöglichen, die auf einer semantischen Datenbank basiert.
 In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} eingegangen.
@@ -89,7 +89,12 @@ dreistelliger Country-Code definiert, der von der International Organization for
 und im ISO-3166 publiziert wurde~\cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres
 Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert. 
 
-Der Datensatz wird anschließend in OpenRefine~\cite{refine} geladen. 
+Der Datensatz wird anschließend in „Refine“~\cite{refine} geladen.
+Darin werden zunächst die Überschriften geändert, da diese fehlerhaft konvertiert sind und irrelevante Spalten werden entfernt.
+Die Bewertungen werden in Integer umgewandelt, für eine simple Darstellung im Frontend.
+Da leere Zeilen im späteren Verlauf zu Fehlern führen, werden diese mit \enquote{\texttt{Nicht Vorhanden}}-Strings gefüllt.
+Im Anschluss werden die gereinigten Daten zu RDF-Triples strukturiert.
+Diese bestehen aus einem Subjekt, einem Prädikat und einem Objekt.
 
 \begin{figure*}[ht]
     \centering
@@ -105,10 +110,17 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 \subsection{Datenbank}\label{subsec:datenbank}
 
-In OpenRefine werden zunächst die Überschriften geändert, da diese fehlerhaft konvertiert sind und irrelevante Spalten werden entfernt. Die Bewertungen werden in Integer umgewandelt, für eine simple Darstellung im Frontend. Da leere Zeilen im späteren Verlauf zu Fehlern führen, werden diese mit \enquote{\texttt{Nicht Vorhanden}}-Strings gefüllt. 
-Im Anschluss werden die gereinigten Daten zu RDF-Triples strukturiert. Diese bestehen aus einem Subjekt, einem Prädikat und einem Objekt. Es werden Ontologien von \enquote{\texttt{schema.org}} für die Definition der Spieleinformationen verwendet, da diese Ontologie die geeigneten Beschreibungen für ein Spiel beinhaltet. Damit das Erscheinungsdatum auch als Datum interpretierbar ist, wird \enquote{\texttt{xsd:dateTime}} der XMLSchema benutzt. Um die Spiele zum Beginn vom Typ \enquote{\texttt{schema:VideoGame}} zu deklarieren, wird das RDF-Schema \enquote{\texttt{typeof}} eingesetzt. 
-Für die Verwaltung und Vernetzung dieser Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet. Die Triples werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind. Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe von Klassifizierungen und Interpretationsregeln organisiert. Ein Repository kann als eine einzelne Ontotext-Datenbank angesehen werden, die für sich selbst fungiert. Somit können mehrere Repositories gleichzeitig existieren, diese sind jedoch von den 
-anderen isoliert. Die Unterteilung der Daten in Klassen, Subklassen oder Instanzen sowie die Definition der Beziehung untereinander wird durch Ontologien festgelegt. Um mit RDF-Triples zu arbeiten, verwendet Ontotext GraphDB das RDF4J-Framework sowie die SAIL-API. Um mit den RDF-Daten interagieren zu können, unterstützt Ontotext die graphbasierte Abfragesprache SPARQL. Das webbasierte Verwaltungstool von Ontotext ist leicht bedienbar und ermöglicht den Import und Export der Daten in verschiedenen Formaten, das Clustern/Bearbeiten/Anzeigen des RDF-Graphen, Erstellung neues Repositories, Ausführen der SPARQL-Abfragen u.v.m.
+Es werden Ontologien von \enquote{\texttt{schema.org}} für die Definition der Spieleinformationen verwendet, da diese Ontologie die geeigneten Beschreibungen für ein Spiel beinhaltet.
+Damit das Erscheinungsdatum auch als Datum interpretierbar ist, wird \enquote{\texttt{xsd:dateTime}} der XMLSchema benutzt.
+Um die Spiele zum Beginn vom Typ \enquote{\texttt{schema:VideoGame}} zu deklarieren, wird das RDF-Schema \enquote{\texttt{typeof}} eingesetzt.
+Für die Verwaltung und Vernetzung dieser Informationen wird die Ontotext GraphDB~\cite{graphdb} verwendet.
+Die Triples werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
+Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe von Klassifizierungen und Interpretationsregeln organisiert.
+Ein Repository kann als eine einzelne Ontotext-Datenbank angesehen werden, die für sich selbst fungiert.
+Somit können mehrere Repositories gleichzeitig existieren, diese sind jedoch von den anderen isoliert.
+Die Unterteilung der Daten in Klassen, Subklassen oder Instanzen sowie die Definition der Beziehung untereinander wird durch Ontologien festgelegt.
+Um die RDF-Daten im Repository abfragen zu können, stellt die Datenbank einen SPARQL-Endpunkt zur Verfügung.
+
 
 \subsection{Backend}\label{subsec:backend}
 
@@ -154,7 +166,7 @@ Das Frontend ist für die Benutzerschnittstelle verantwortlich.
 Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseite zu einem Videospiel.
 Die Interaktion mit dem Backend erfolgt über die REST-Schnittstelle.
 
-\subsubsection{Graphen Layout}
+\subsubsection{Graph}
 
 Für die Darstellung des Graphen und die Interaktion mit diesem wird „Sigma.js“~\cite{sigma} verwendet.
 Sigma.js rendert Graphen mit WebGL. Damit lassen sich größere Graphen schneller zeichnen als mit Canvas- oder SVG-basierten Lösungen.
@@ -167,17 +179,23 @@ Daher müssen zwei Attribute namens x und y für alle Knoten des Diagramms defin
 Dazu wird zuerst ein Graph Objekt erzeugt, das jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall $[0, 1)$ ausgewählt werden.
 
 \subsubsection{Suche}
-%TODO
+
+Als Benutzer lässt sich ein Videospiel neben der direkten Suche im Graphen auch per Texteingabe suchen.
+Dazu ist ein Eingabefeld für die textuelle Suche vorhanden, das bei einer Benutzereingabe basierend auf den eingegebenen Suchbegriff vom Backend die besten Suchtreffer abfrägt.
+Ist die Suche erfolgreich, wird der Knotenpunkte zum gesuchten Videospiel im Graphen hervorgehoben.
+
 \subsubsection{Filter}
+
 Die Filter werden in vier Kategoriern unterteilt: Genre, Spieleplattform, Spielentwickler und Erscheinungsjahr. Die ersten drei Kategorien werden im Frontend als Checkboxinputs ausgegeben, um eine Mehrfachauswahl zu ermöglichen. Sowohl die Filterinhalte als auch die Gesamtanzahl dieser Inhalte werden aus der Datenbank bezogen. Das Erscheinungsjahr ist ein Sliderinput mit einem, auf die Spiele abgestimmten, Wertebereich. Die Filterselektion wurde auf 5 mögliche Filteritems begrenzt, da eine uneingeschränkte Auswahl an Kombinationen in den allermeisten Fällen zu einem sinnvollen Ergebnis geführt hat.
 Für eine visuelle kategorische Differenzierung der Filterselektion verändert sich die Farbe der Filterbox und es wird ein Tag der gleichen Farbe generiert. Nach der Auswahld der Filter, werden diese mit POST-Request an das Backend übermittelt. 
+
 \subsubsection{Detailseite}
 
 Die Detailseite zeigt die spezifischen Informationen über ein bestimmtes Spiel an. Die Komponente führt asynchron eine HTTP-Anfrage an die REST-API aus, um Details zu einem Spiel abzurufen, wenn sie gerendert wird, und verwendet dann die empfangenen Daten, um die Seite mit Spielinformationen zu füllen. Der Endpunkt lautet \enquote{/detail/\texttt{game\_name}}, wobei \enquote{\texttt{game\_name}} der Name des angeforderten Spiels ist. Die Daten werden anschließend in verschiedenen Elementen in der Vorlage der Komponente angezeigt. Die Komponente enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind. Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll. Die Daten für diese Metatags werden ebenfalls von der REST-Schnittstelle abgerufen, wenn die Komponente gerendert wird. Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden. Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum. 
 
 \section{Verteilungssicht}\label{sec:verteilungssicht}
 
-Dieser Abschnitt beschreibt den Betrieb von SGDb. Zentraler Bestandteil der Verteilungsstruktur sind Docker- Container~\cite{docker} (Abbildung~\ref{fig:verteilungssicht}).
+Dieser Abschnitt beschreibt den Betrieb von SGDb. Zentraler Bestandteil der Verteilungsstruktur sind Docker-Container~\cite{docker} (Abbildung~\ref{fig:verteilungssicht}).
 Jeder Baustein von SGDb ist für sich isoliert in einem eigenen Docker-Container untergebracht.
 Damit das gesamte System mit allen verteilten Komponenten in der korrekten Reihenfolge gestartet wird, werden die Docker- Container mit Docker Compose orchestriert.
 Docker Compose übernimmt die Netzwerkkonfiguration und die Vergabe von Host-Namen an die jeweiligen Docker-Container.
@@ -197,16 +215,18 @@ Dieser Abschnitt geht auf die verwendeten Entwicklungswerkzeuge im Backend (Absc
 
 \subsection{Backend}\label{subsec:backend-dev-tools}
 
-Der Hauptbestandteil des Backends wird mit dem Framework FastAPI umgesetzt, das auf den Frameworks „Starlette"~\cite{starlette} und „Pydantic"~\cite{pydantic} basiert. Starlette bietet Funktionen wie WebSockets und Pydantic ermöglicht die Validierung von Datenmodellen, die von FastAPI genutzt werden. Durch Starlette kann ebenso das Test-Framework „Pytest“~\cite{pytest} für Unit-Tests direkt genutzt werden. Als ASGI Server wird Uvicorn genutzt, mit welchen die Anwendung gestartet wird. Als ASGI-Server (Asynchronous Server Gateway Interface) wird "Uvicorn"~\cite{uvicorn} verwendet, um die Anwendung zu starten. Uvicorn ist ein schneller und leistungsfähiger ASGI-Server, der perfekt für die Verwendung mit FastAPI geeignet ist.
+Der Hauptbestandteil des Backends wird mit dem Framework FastAPI umgesetzt, das auf den Frameworks „Starlette“~\cite{starlette} und „Pydantic“~\cite{pydantic} basiert.
+Starlette bietet Funktionen wie WebSockets und Pydantic ermöglicht die Validierung von Datenmodellen, die von FastAPI genutzt werden.
+Durch Starlette kann ebenso das Test-Framework „Pytest“~\cite{pytest} für Unit-Tests direkt genutzt werden.
+Für die Bereitstellung wird der ASGI (Asynchronous Server Gateway Interface) Server „Uvicorn“~\cite{uvicorn} verwendet.
 
 
 \subsection{Frontend}\label{subsec:frontend-dev-tools}
 
 Das Frontend wird unter Zuhilfenahme des Frontend-Frameworks „Svelte“~\cite{svelte} realisiert.
-Die Verwaltung der Abhängigkeiten erfolgt mit „npm“~\cite{npm} für auf „Node.js“ basierende Bausteine.
-Im Frontend ist Vite dafür zuständig, die Anwendung aus dem Quellcode zu erstellen.
-Dabei gibt es zwei Varianten: Für Entwicklungszwecke wird ein Vite-Dev-Server (mit Reload-Funktionalität) zum Bereitstellen der Anwendung verwendet.
-Für den Produktiveinsatz werden nur die benötigten Zieldateien unter Verwendung des \texttt{Static adapter} erstellt, die dann mit einer beliebigen Server-Software ausgeliefert werden können.
+Die Verwaltung der Abhängigkeiten erfolgt mit „npm“~\cite{npm}.
+Als Build-Tool ist „Vite“~\cite{vite} dafür zuständig, die Frontend Anwendung aus dem Quellcode zu erstellen.
+Für die Entwicklung wird ein Vite-Dev-Server (mit Reload-Funktionalität) zum Bereitstellen der Anwendung verwendet.
 Für die Gestaltung der Benutzeroberfläche wird „Tailwind CSS“~\cite{tailwindcss} verwendet.
 Im Gegensatz zu anderen CSS-Framework, die eine Vielzahl von vordefinierten Komponenten bereitstellen, bietet Tailwind CSS eine Vielzahl von niedrigschwelligen Gestaltungsoptionen, die es Entwicklern ermöglichen, genau die benutzerdefinierten Designs zu erstellen, die sie benötigen.
 Im Frontend wird das Vite-native Test-Framework „Vitest“~\cite{vitest} in Kombination mit der „Svelte Testing Library“~\cite{stl} und „c8“~\cite{c8} für die Testabdeckung verwendet.
