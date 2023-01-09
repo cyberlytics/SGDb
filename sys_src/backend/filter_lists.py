@@ -30,14 +30,13 @@ def filter_schema(schema_type):
         ?game schema:{schema_type} ?object.
         }}                  
         """.format(schema_type=schema_type))
-    return sparql_obj
+    return sparql_obj.queryAndConvert()
 
 
 def extract_obj(result):
     """get the objects inside a list"""
     try:
-        ret = result.queryAndConvert()
-        objs = ret["results"]["bindings"]
+        objs = result["results"]["bindings"]
         return [obj["object"]["value"] for obj in objs]
     except Exception as e:
         print(e)
