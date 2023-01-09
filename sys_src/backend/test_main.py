@@ -30,9 +30,25 @@ def test_startpage_title_for_year():
     
 def test_post_startpage():
     # Test that the startpage endpoint returns the expected output
-    response = client.post("/", json={"date": 2013, "genre": "shooter", "gamePlatform": "Playstation 3", "rating_num": 50})
+    response = client.post("/", json={"date": 2013, "genre": "shooter", "platform": "Playstation 3", "rating_num": 50})
     assert response.status_code == 200
     assert "The Last of Us" in response.json()["data"]["2013"]
+
+def test_post_only_date():
+    response = client.post("/", json={"date": 1994})
+    assert response.status_code == 200
+    assert "Super Metroid" in response.json()["data"]["1994"]
+
+def test_post_only_creator():
+    response = client.post("/", json={"creator": "Nintendo"})
+    assert response.status_code == 200
+    assert "Punch-Out!!" in response.json()["data"]["1983"]
+
+def test_post_no_matching_game():
+    # Test that the startpage endpoint returns the expected output
+    response = client.post("/", json={"date": 2013, "genre": "shooter", "platform": "Playstation 3", "rating_num": 93})
+    assert response.status_code == 404
+    assert response.json() == {"message": "no matching game with the used filter"}
 
 def test_post_startpage_years():
     # Test that the startpage endpoint returns the expected output
