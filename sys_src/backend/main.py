@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from db_wrapper import detailpage_content, search_query, get_root_graph
-from db_filter import combine_Filter
+from db_filter import combine_Filter, recommendations
 from filter_lists import get_data
 from utils import escaping_string
 
@@ -146,7 +146,7 @@ async def detailpage(game: str):
             status_code=404,
             content={"message": "no game for detailpage found"},
         )
-    recommends = combine_Filter(content, True)
+    recommends = recommendations(content)
     content["recommends"] = recommends
     return content
 

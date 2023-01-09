@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 from db_wrapper import detailpage_content
 from filter_lists import get_data
-from db_filter import combine_Filter
+from db_filter import recommendations
 from main import app
 
 client = TestClient(app)
@@ -105,7 +105,7 @@ def test_detailpage():
     assert response.status_code == 200
     response_detailpage = {key: value for key, value in response.json().items() if key != "recommends"}
     detailpage = detailpage_content("Evergate")
-    recommends = combine_Filter(detailpage, True)
+    recommends = recommendations(detailpage)
 
     assert detailpage == response_detailpage
     assert recommends == response.json()["recommends"]
