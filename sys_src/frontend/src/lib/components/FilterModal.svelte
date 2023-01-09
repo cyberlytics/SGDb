@@ -12,7 +12,6 @@
     isFilterVisible.set(false);
   };
 
-  let errorVisible = false;
   //passes set filteritems to backend with post-request
   async function postFilter () {
     isPost.set(true);
@@ -45,6 +44,7 @@
           <button
                   on:click={handleClose}
                   type="button"
+                  data-testid="close-button"
                   class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
             <span class="sr-only">Close</span>
             <!-- Heroicon name: outline/x-mark -->
@@ -64,11 +64,6 @@
             <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Filter</h3>
             <Filter />
           </div>
-          {#if errorVisible ==true}
-          <div class = "absolute text-left top-60 left-20">
-            <p class="text-red-600"> Keine Ergebnisse</p>
-          </div> 
-            {/if}
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
           <button
@@ -76,12 +71,14 @@
                   class:cursor-not-allowed="{$isApplyDisabled}"
                   on:click={postFilter}
                   type="button"
+                  data-testid="apply-button"
                   class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm disabled:opacity-25 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
             Anwenden
           </button>
           <button
                   on:click={handleFilterCancel}
                   type="button"
+                  data-testid="cancel-button"
                   class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
             Abbrechen
           </button>
