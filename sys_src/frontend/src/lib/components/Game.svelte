@@ -3,9 +3,9 @@
 
   let recommendationsCount = 0;
 
-  const fetchGameDetails = async () => {
+  const fetchGameDetails = async (game: string) => {
     const data = await fetch(
-      "http://localhost:8000/detail/" + $selectedGame.replace(" ", "_")
+      "http://localhost:8000/detail/" + game.replace(" ", "_")
     );
     const json = await data.json();
     recommendationsCount = json.recommends.length;
@@ -14,19 +14,20 @@
 
   let currentRecommendationIndex = 0;
 
-  const navigateRecommendations = (offset) => {
-    currentRecommendationIndex += (offset);
+  const navigateRecommendations = (offset: number) => {
+    currentRecommendationIndex += offset;
     if (currentRecommendationIndex < 0) {
       currentRecommendationIndex = 0;
     } else if ( currentRecommendationIndex >= recommendationsCount) {
       currentRecommendationIndex = recommendationsCount - 1;
     }
   }
+
+  $: gameDetails = fetchGameDetails($selectedGame);
 </script>
 
 <svelte:head>
-  <title>Game Information</title>
-  {#await fetchGameDetails() then details}
+  {#await gameDetails then details}
     <meta name="twitter:card" content={details.description} />
     <meta name="twitter:title" content={$selectedGame} />
     <meta name="twitter:description" content={details.description} />
@@ -34,7 +35,7 @@
   {/await}
 </svelte:head>
 
-{#await fetchGameDetails() then details}
+{#await gameDetails then details}
   <main>
     <div
       class="relative z-10"
@@ -195,7 +196,7 @@
                         >
                           <time datetime={details.releaseDate.value}
                             >{new Date(
-                              details.releaseDate.value
+                            details.releaseDate.value
                             ).toLocaleString("de-DE", {
                               month: "long",
                               day: "numeric",
@@ -242,6 +243,7 @@
                         >
                           {#each details.recommends.slice(currentRecommendationIndex, currentRecommendationIndex + 3) as recommendation}
                             <div
+                                    on:click={() => selectedGame.set(recommendation.title.value)}
                               class="relative w-32 h-48 rounded-md overflow-hidden bg-gray-100 bg-opacity-50 mr-2"
                             >
                               <img
