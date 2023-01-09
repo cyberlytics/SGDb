@@ -13,14 +13,14 @@
 </script>
 <!--create a new num-tag with given color-->
 {#if date!=undefined}
-    <span class="input-tag" style="background-color:{color}">{date} 
-    <button type="button"  class="remove-tag" on:click={removeNum}>&times;</button></span>
+    <span class="input-tag" data-testid='date-tag' style="background-color:{color}">{date}
+    <button type="button"  data-testid='date-tag-button' class="remove-tag" on:click={removeNum}>&times;</button></span>
 {/if}
 <!--create a new list-tag with given color-->
 {#if group!=undefined}
     {#each group as tag}
-        <span class="input-tag" style="background-color: {color}">{tag} 
-            <button type="button" class="remove-tag" on:click={() => removeTag(tag)}>
+        <span class="input-tag" data-testid='checkbox-tag' style="background-color: {color}">{tag} 
+            <button type="button"  data-testid='checkbox-tag-button' class="remove-tag" on:click={() => removeTag(tag)}>
              &times;
             </button>
         </span>

@@ -30,7 +30,7 @@ It serves to differentiate between the filters and the tags-->
                     {#each [...data] as [creator, vals]}
                         <label class="border-zinc-900 text-sm text-gray-900">
                             <input type="checkbox" value={creator} bind:group
-                            disabled={$isInputDisabled==true && !group.includes(creator)}>
+                            disabled={$isInputDisabled==true && !group.includes(creator)} data-testid='creator-input'>
                             {creator}</label><p>({vals})</p> <br />
                     {/each}
                 </div>

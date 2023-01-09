@@ -17,7 +17,7 @@ It serves to differentiate between the filters and the tags-->
     <!--creates a input with number and a range
         the settings for the max and min values ​​depend on the age of the games-->
     <label class='border-zinc-900 text-sm text-gray-900'>
-        <input type=range bind:value={date} min=1980 max=2022>
+        <input type=range bind:value={date} min=1980 max=2022 data-testid='date-input'>
     </label>
 </div>
 
