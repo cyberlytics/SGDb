@@ -89,10 +89,10 @@ Dieser liefert einen Datensatz zurück, der wesentliche Informationen zu einem S
 Zu den Informationen zählen: Spiele-ID, Spieletitel, Spieleplattform, Beschreibung, Veröffentlichungsdatum, Genre, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes.
 
 Der Datensatz wird im JSON-Format gespeichert und ist auf 500 Spiele, die eine hohe Bewertung (>85) erzielt haben, beschränkt.
-Außerdem werden einige numerische Werte wie das Veröffentlichungsdatum, das im Unix-Zeitstempel\footnote{Dieser ist auch als „The Epoch“ bekannt und zählt die
-Anzahl der vergangenen Sekunden seit 1.Januar 1970~\cite{unix}.} angegeben ist und der Standort des Entwicklerunternehmens als dreistelliger Country-Code\footnote{von der International Organization for Standardization (ISO) entwickelt
-und im ISO-3166 publiziert wurde~\cite{iso}.} definiert.
-Im Skript \texttt{igdb.py} wurde eine Funktion \texttt{change\_format} implementiert, welche die Unix-Zeit in ein reguläres Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert.
+Außerdem werden einige numerische Werte wie das Veröffentlichungsdatum, das im Unix-Zeitstempel\footnote{Der Unix-Zeitstempel ist auch als „The Epoch“ bekannt und zählt die
+Anzahl der vergangenen Sekunden seit 1.Januar 1970~\cite{unix}.} angegeben ist und der Standort des Entwicklerunternehmens als dreistelliger Country-Code\footnote{Der Country-Code wurde von der International Organization for Standardization entwickelt
+und im ISO-3166 publiziert~\cite{iso}.} definiert.
+Im Skript \texttt{igdb.py} wurde eine Funktion \texttt{change\_format} implementiert, welche deb Unix-Zeitstempel in das Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert.
 
 Der Datensatz wird anschließend in „Refine“~\cite{refine} geladen.
 Darin werden zunächst die Überschriften geändert, da diese fehlerhaft konvertiert sind und irrelevante Spalten werden entfernt.
@@ -104,7 +104,7 @@ Ein RDF-Triple besteht aus einem Subjekt, einem Prädikat und einem Objekt.
 \begin{figure*}[ht]
     \centering
     \includegraphics[width=\linewidth]{architektur}
-    \caption{Überblick über die Architektur von SGDb. Die Architektur besteht aus drei Teilen: Das Frontend bietet dem Nutzer ein graphisches Dashboard (Abschnitt~\ref{subsec:frontend}),  das Backend stellt (Abschnitt~\ref{subsec:backend}) die API bereit und die Datenbank (Abschnitt~\ref{subsec:datenbank}) speichert persistent Daten.}
+    \caption{Überblick über die Architektur von SGDb. Die Architektur besteht aus drei Diensten: Das Frontend (Abschnitt~\ref{subsec:frontend}) bietet dem Nutzer eine grafische Bedienoberfläche, das Backend (Abschnitt~\ref{subsec:backend}) stellt die API bereit und die Datenbank (Abschnitt~\ref{subsec:datenbank}) speichert persistent die Daten.}
     \label{fig:architecture}
 \end{figure*}
 
@@ -115,9 +115,9 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 \subsection{Datenbank}\label{subsec:datenbank}
 
-Zur Beschreibung der Videospiele werden Ontologien von \enquote{\texttt{schema.org}} verwendet.
-Damit das Erscheinungsdatum auch als Datum interpretierbar ist, wird \enquote{\texttt{xsd:dateTime}} aus „XML Schema“~\cite{xmlschema} benutzt.
-Um Videospiele vom Typ \enquote{\texttt{schema:VideoGame}} zu deklarieren, wird das RDF-Schema \enquote{\texttt{typeof}} eingesetzt. %TODO: Warum eigentlich?
+Zur Beschreibung der Videospiele werden Ontologien von „schema.org“~\cite{schemaorg} verwendet.
+Damit das Erscheinungsdatum auch als Datum interpretierbar ist, wird \texttt{xsd:dateTime} aus „XML Schema“~\cite{xmlschema} benutzt.
+Um Videospiele vom Typ \texttt{schema:VideoGame} zu deklarieren, wird das RDF-Schema \texttt{typeof} eingesetzt. %TODO: Warum eigentlich?
 Für die Verwaltung und Vernetzung dieser Informationen wird die „Ontotext GraphDB“~\cite{graphdb} verwendet.
 Die Triples werden in sogenannten \textit{Repositories} gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
 Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe von Klassifizierungen und Interpretationsregeln organisiert.
@@ -166,16 +166,12 @@ Aufgrund der angewandten Einstellungen in der Filter Route kann es passieren, da
 Die \texttt{Detailpage}-Route gibt alle Details zu einem Videospiel, die in Abschnitt~\ref{subsubsec:detailpage} näher beschrieben werden, zurück.
 
 Für den Zugriff auf die Datenbank wird ein Graphenobjekt definiert.
-Über das definierte Graphenobjekt können nun Abfragen direkt in der Python Datei vollzogen werden.
 Die Antwort der Abfragen wird noch weiter formatiert, sodass die benötigten Informationen aus dem Ergebnis leichter zugänglich sind.
-
 Die Filter sind so gestaltet, dass sich über die Funktion \texttt{combine\_filter} verschiedene Filteroptionen wie Datum, Genre, Bewertung, Entwickler und Plattform beliebig kombinieren lassen.
 Ist ein Filterargument gegeben, so wird für das jeweilige Argument eine zugehörige Abfrage erstellt, die Spiele zurückliefert, die dem Filter entsprechen.
 Anschließend werden alle Abfrage-Ergebnisse verglichen und nur diejenigen zurückgegeben, die auf alle Filtereinstellungen zutreffen.
-
 Die Funktion \texttt{recommendations} nutzt die Spieledetails um Vorschläge für ähnliche Spiele zu generien.
 Jedoch werden nicht Spiele zurückgeliefert, die exakt den Kriterien entsprechen, sondern diejenigen, die am meisten Übereinstimmung zum Spiel aufweisen.
-
 Um die Anzeige der Filteroptionen für Genre, Hersteller und Plattform des Filters im Frontend dynamisch zu gestalten, werden die Optionen jedes Mal beim Aufrufen der Startseite von der Datenbank abgefragt.
 Diese werden dann in der Backend API gezählt, um zusätzlich zu ermöglichen, dass die Menge der Spiele mit den jeweiligen Optionen einsehbar ist.
 
@@ -183,7 +179,6 @@ Diese werden dann in der Backend API gezählt, um zusätzlich zu ermöglichen, d
 
 Das Frontend ist für die Benutzerschnittstelle verantwortlich.
 Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseite zu einem Videospiel.
-Die Interaktion mit dem Backend erfolgt über die REST-Schnittstelle.
 
 \subsubsection{Graph}
 
@@ -194,7 +189,7 @@ Dies ist eine Standardbibliothek mit Algorithmen aus der Graphentheorie und allg
 
 Für das Graphen Layout wird der ForceAtlas2 Algorithmus~\cite{forceatlas2} verwendet.
 Vor dem Start von ForceAtlas 2 Layout muss die Startposition jedes Knotens festgelegt werden.
-Daher müssen zwei Attribute namens x und y für alle Knoten des Diagramms definiert werden.
+Daher müssen zwei Attribute namens $x$ und $y$ für alle Knoten des Diagramms definiert werden.
 Dazu wird zuerst ein Graph Objekt erzeugt, das jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall $[0, 1)$ ausgewählt werden.
 
 \subsubsection{Suche}
