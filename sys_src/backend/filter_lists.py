@@ -1,6 +1,5 @@
 from collections import Counter
 from urllib.parse import unquote
-import json
 from SPARQLWrapper import SPARQLWrapper, JSON
 import os
 
@@ -31,14 +30,13 @@ def filter_schema(schema_type):
         ?game schema:{schema_type} ?object.
         }}                  
         """.format(schema_type=schema_type))
-    return sparql_obj
+    return sparql_obj.queryAndConvert()
 
 
 def extract_obj(result):
     """get the objects inside a list"""
     try:
-        ret = result.queryAndConvert()
-        objs = ret["results"]["bindings"]
+        objs = result["results"]["bindings"]
         return [obj["object"]["value"] for obj in objs]
     except Exception as e:
         print(e)
@@ -61,18 +59,9 @@ def get_most_frequents(type_list, n):
     return [{val: count} for val, count in Counter(type_list).most_common(n)]
 
 
-def save_as_json(*val_lists):
-    """Save the lists as JSON data"""
-    with open("./frontend/src/lib/stores/filter_values.json", "w") as f:
-        for data in val_lists:
-            json.dump(data, f, indent=4)
-
-
 def get_data():
     # Generate lists for the given filters 
     genre_list = {"genre": get_filter_vals("genre")}
-    # date_list = {"releaseDate" : get_filter_vals(sparql_obj, "releaseDate", False)} # is it even necessary??
-    # rating_list = {"ratingValues" : get_filter_vals(sparql_obj, "ratingValues")} # not necessary 'cause they are always from 1 to 100
     creator_list = {"creator": get_filter_vals("creator")}
     platform_list = {"platform": get_filter_vals("gamePlatform")}
     return [genre_list, creator_list, platform_list]

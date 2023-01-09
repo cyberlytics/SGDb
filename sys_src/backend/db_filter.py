@@ -9,7 +9,7 @@ sparql_obj.setReturnFormat(JSON)
 
 """Create multiple filter queries so it's easy to combine them."""
 
-def combine_Filter(filter_requests, recommendation=False):
+def combine_Filter(filter_requests):
 
     """Select the filters that should be combined for the query.
     NOTE: If recommendation is used, use the objects of the game subject as the filter
@@ -18,49 +18,49 @@ def combine_Filter(filter_requests, recommendation=False):
     Matches Substrings and it is case insensitive"""
 
     game_list = {}
-    games = []
-    
+
     if "date" in filter_requests and filter_requests["date"] != "":
-        if recommendation is False:
-            game_list = extend_list(game_list, fil_date(filter_requests["date"]))
+        game_list = extend_list(game_list, fil_date(filter_requests["date"]))
 
     if "rating_num" in filter_requests and filter_requests["rating_num"] != "":
-        if recommendation is False:
-            game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
+        game_list = extend_list(game_list, fil_rating(filter_requests["rating_num"]))
 
     if "genre" in filter_requests:
-        if recommendation is False:
-            for element in filter_requests["genre"]:  
+        for element in filter_requests["genre"]:  
                 game_list = extend_list(game_list, fil_genre(element))
-        elif "genreName" in filter_requests: 
-            for element in filter_requests["genreName"]["value"].split(","):
-                res = fil_genre(element)
-                games.extend(get_titles(res))
 
     if "creator" in filter_requests:
-        if recommendation is False:
-            for element in filter_requests["creator"]:  
+        for element in filter_requests["creator"]:  
                 game_list = extend_list(game_list, fil_creator(element))
-        elif "creatorName" in filter_requests: 
-            for element in filter_requests["creatorName"]["value"].split(","):
-                res = fil_creator(element)
-                games.extend(get_titles(res))
 
     if "platform" in filter_requests:
-        if recommendation is False:
-            for element in filter_requests["platform"]:  
+        for element in filter_requests["platform"]:  
                 game_list = extend_list(game_list, fil_platform(element))
-        elif "gamePlatformName" in filter_requests: 
-            for element in filter_requests["gamePlatformName"]["value"].split(","):
-                res = fil_genre(element)
-                games.extend(get_titles(res))
 
-    if recommendation is False:
-        return game_list
-    else: 
-        recomms =  get_biggest_intersec(games, filter_requests["title"]["value"])
+    return game_list
+
+
+def recommendations(content_detailpage):
+    games = []
+    if "genreName" in content_detailpage: 
+        for element in content_detailpage["genreName"]["value"].split(","):
+            res = fil_genre(element)
+            games.extend(get_titles(res))
+    if "creatorName" in content_detailpage: 
+        for element in content_detailpage["creatorName"]["value"].split(","):
+            res = fil_creator(element)
+            games.extend(get_titles(res))
+    if "gamePlatformName" in content_detailpage: 
+        for element in content_detailpage["gamePlatformName"]["value"].split(","):
+            res = fil_genre(element)
+            games.extend(get_titles(res))
+
+    recomms =  get_biggest_intersec(games, content_detailpage["title"]["value"])
+    if recomms is None:
+        return None
+    else:
         return get_imgs(recomms)
-        
+
 
 def get_titles(result):
     """Extract the Titles of a game dictionary"""
@@ -105,26 +105,24 @@ def get_imgs(mc_games):
 
 def extend_list(game_list, func_res):
     """Only returns games that were already included in the results of other filters"""
-    if(func_res):
-        func_res = func_res["results"]["bindings"]
-        if len(game_list) != 0:
-            if game_list[0] is not None:
-                intersec = []
-                for i in game_list:
-                        for k in func_res:
-                            if i["title"]["value"] == k["title"]["value"] and i not in intersec: 
-                                intersec.append(i)
-                                break
-                if intersec:
-                    return intersec
-                else:
-                    return [None]
+    func_res = func_res["results"]["bindings"]
+    if len(game_list) != 0:
+        if game_list[0] is not None:
+            intersec = []
+            for i in game_list:
+                    for k in func_res:
+                        if i["title"]["value"] == k["title"]["value"] and i not in intersec: 
+                            intersec.append(i)
+                            break
+            if intersec:
+                return intersec
+            else:
+                return [None]
         else:
-            # if the list is empty fill it with the first results 
-            return func_res 
+            return [None]
     else:
-        # If the result is None return None
-        return ["There is no game in the Database for the used Filter"]
+        # if the list is empty fill it with the first results 
+        return func_res 
 
 
 def fil_date(year):

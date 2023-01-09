@@ -1,13 +1,12 @@
 from fastapi import FastAPI
 from db_wrapper import detailpage_content, search_query, get_root_graph
-from db_filter import combine_Filter
+from db_filter import combine_Filter, recommendations
 from filter_lists import get_data
+from utils import escaping_string
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-# for debugging purpose
-import uvicorn
 
 app = FastAPI()
 
@@ -20,6 +19,7 @@ app.add_middleware(
 )
 
 graph = {}
+
 
 # returns a root-graph in dependency to the release-date of a game
 @app.get("/")
@@ -51,28 +51,22 @@ def filter(filter_requests: dict):
         if not isinstance(filter_requests["date"], int):
                 return JSONResponse(
                 status_code=404,
-                content={"message": "only Filter one year"},
+                content={"message": "invalid date input, only int allowed"},
             )
     if "rating_num" in filter_requests:
         if not isinstance(filter_requests["rating_num"], int):
                 return JSONResponse(
                 status_code=404,
-                content={"message": "only Filter one rating_num"},
+                content={"message": "invalid rating_num input, only int allowed"},
             )
 
     root = {'data': {}, 'filters': {}}
     root_graph = combine_Filter(filter_requests)
 
-    if root_graph is None:
-            return JSONResponse(
-            status_code=404,
-            content={"message": "no matching Game with the Filter"},
-        )
-
     if None in root_graph:
             return JSONResponse(
             status_code=404,
-            content={"message": "no matching Game with the Filter"},
+            content={"message": "no matching game with the used filter"},
         )
 
     for game in root_graph:
@@ -97,15 +91,14 @@ def filter(filter_requests: dict):
     return root
 
 
-
 # search request
 # load list-page with games with similiar names to searched game
 @app.get("/search/{search:path}")
 def search(search: str = None):
     if search == "":
         return {"message": "please enter a title for search"}
-    # remove possible underscore
-    search = search.replace("_", " ")
+    # escape string
+    search = escaping_string(search)
     # search in the database for the requested game
     searched_game = search_query(search)
     game_list = []
@@ -116,7 +109,7 @@ def search(search: str = None):
     if not game_list:
         return JSONResponse(
             status_code=404,
-            content={"message": "Game not found"},
+            content={"message": "searched game not found"},
         )
 
     games_graph = []
@@ -137,6 +130,7 @@ def search(search: str = None):
 
     return json_game_list
 
+
 @app.get("/detail/{game}", tags=['Game'])
 async def detailpage(game: str):
     """
@@ -144,22 +138,15 @@ async def detailpage(game: str):
     \f
     :param game: Name of the game to query for details.
     """
-    content = detailpage_content(game.replace("_", " "))
+    # escape string
+    game = escaping_string(game)
+    content = detailpage_content(game)
     if not content:
         return JSONResponse(
             status_code=404,
-            content={"message": "Game not found"},
+            content={"message": "no game for detailpage found"},
         )
-    recommends = combine_Filter(content, True)
-    if recommends:
-        content["recommends"] = recommends
-        return content
-    else:
-        return content
+    recommends = recommendations(content)
+    content["recommends"] = recommends
+    return content
 
-
-'''
-# debugging purpose
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8810)
-'''

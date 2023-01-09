@@ -16,18 +16,6 @@ def get_root_graph():
     }}""")
     return graphdb.query().convert()
 
-
-def query_the_subject(subject):
-    # Search the Query by the given subject
-    graphdb.setQuery("""
-        SELECT ?subject ?predicate ?object
-        WHERE {{
-            <{subject}> ?predicate ?object .
-        }} LIMIT 100
-        """.format(subject=subject))
-    return graphdb.query().convert()
-
-
 def query_game_details(title: str):
     """Query game details by title"""
 
@@ -60,6 +48,7 @@ def detailpage_content(game_name: str):
         return None
     bindings = result['results']['bindings'][0]
     return bindings
+
 
 # method for searching games
 def search_query(game_name):
