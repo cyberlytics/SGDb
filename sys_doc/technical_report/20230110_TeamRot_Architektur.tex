@@ -65,7 +65,7 @@ Abschließend wird ein Fazit und Ausblick in Abschnitt~\ref{sec:fazit} gegeben.
 \section{Lösungsstrategie}\label{sec:loesungsstrategie}
 
 Eine Gegenüberstellung der wichtigsten Ziele und Lösungsansätze für die Architektur befinden sich in der nachfolgenden Tabelle~\ref{tab:loesungsstrategie}.
-Die Abbildung~\ref{fig:architecture} gibt einen Überblick über die Architektur.
+Des Weiteren gibt Abbildung~\ref{fig:architecture} einen Überblick über die Architektur.
 
 \begin{table}[h!]
     \begin{center}
@@ -90,7 +90,7 @@ Zu den Informationen zählen: Spiele-ID, Spieletitel, Spieleplattform, Beschreib
 
 Der Datensatz wird im JSON-Format gespeichert und ist auf 500 Spiele, die eine hohe Bewertung (>85) erzielt haben, beschränkt.
 Außerdem werden einige numerische Werte wie das Veröffentlichungsdatum, das im Unix-Zeitstempel\footnote{Der Unix-Zeitstempel ist auch als „The Epoch“ bekannt und zählt die
-Anzahl der vergangenen Sekunden seit 1.Januar 1970~\cite{unix}.} angegeben ist und der Standort des Entwicklerunternehmens als dreistelliger Country-Code\footnote{Der Country-Code wurde von der International Organization for Standardization entwickelt
+Anzahl der vergangenen Sekunden seit 1. Januar 1970~\cite{unix}.} angegeben ist und der Standort des Entwicklerunternehmens als dreistelliger Country-Code\footnote{Der Country-Code wurde von der International Organization for Standardization entwickelt
 und im ISO-3166 publiziert~\cite{iso}.} definiert.
 Im Skript \texttt{igdb.py} wurde eine Funktion \texttt{change\_format} implementiert, welche deb Unix-Zeitstempel in das Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert.
 
@@ -183,14 +183,14 @@ Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseit
 \subsubsection{Graph}
 
 Für die Darstellung des Graphen und die Interaktion mit diesem wird „Sigma.js“~\cite{sigma} verwendet.
-Sigma.js rendert Graphen mit WebGL. Damit lassen sich größere Graphen schneller zeichnen als mit Canvas- oder SVG-basierten Lösungen.
+Sigma.js zeichnet Graphen mit WebGL. Dadurch lassen sich größere Graphen schneller zeichnen als mit Canvas- oder SVG-basierten Lösungen.
 Das Graphenmodell wird in einer separaten Bibliothek namens „Graphology“~\cite{graphology} verwaltet.
 Dies ist eine Standardbibliothek mit Algorithmen aus der Graphentheorie und allgemeinen Hilfsprogrammen wie z.B.\ Graphengeneratoren.
 
-Für das Graphen Layout wird der ForceAtlas2 Algorithmus~\cite{forceatlas2} verwendet.
-Vor dem Start von ForceAtlas 2 Layout muss die Startposition jedes Knotens festgelegt werden.
-Daher müssen zwei Attribute namens $x$ und $y$ für alle Knoten des Diagramms definiert werden.
-Dazu wird zuerst ein Graph Objekt erzeugt, das jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall $[0, 1)$ ausgewählt werden.
+Für das Graphen-Layout wird der „ForceAtlas2“~\cite{forceatlas2} Algorithmus verwendet.
+Vor dem Start von ForceAtlas2 muss die Startposition jedes Knotens festgelegt werden.
+Daher müssen zwei Attribute namens $x$ und $y$ für alle Knoten des Graphen definiert werden.
+Dazu wird zuerst ein Graph-Objekt erzeugt, das jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall $[0, 1)$ ausgewählt werden.
 
 \subsubsection{Suche}
 
@@ -204,15 +204,19 @@ Die Filter werden in vier Kategoriern unterteilt: Genre, Spieleplattform, Spiele
 Die ersten drei Kategorien werden durch Checkboxen dargestellt, um eine Mehrfachauswahl (z.B. mehrere Genres) zu ermöglichen.
 Die Filterinhalte werden jeweils mit der Gesamtanzahl der Vorkomnisse angezeigt.
 Das Erscheinungsjahr ist ein Schieberegler mit einem, auf die Spiele abgestimmten, Wertebereich.
-Die Filterselektion wurde auf fünf mögliche Filteritems begrenzt, da eine uneingeschränkte Auswahl an Filterkombinationen in den allermeisten Fällen zu keinem sinnvollen Ergebnis geführt hat.
+Die Filterselektion wurde auf fünf mögliche Filtermöglichkeiten begrenzt, da eine uneingeschränkte Auswahl an Filterkombinationen in den allermeisten Fällen zu keinem sinnvollen Ergebnis geführt hat.
 Für eine visuelle kategorische Differenzierung der Filterselektion verändert sich die Farbe der Filterbox und es wird ein \textit{Tag} der gleichen Farbe generiert.
 Werden die Filtereinstellungen angewendet, erfolgt ein POST-Request an die \texttt{/}-Route.
 
 \subsubsection{Detailseite}\label{subsubsec:detailpage}
 
 Die Detailseite zeigt die spezifischen Informationen über ein bestimmtes Spiel an.
-Die Komponente führt asynchron eine HTTP-Anfrage an die REST-API aus, um Details zu einem Spiel abzurufen, wenn sie gerendert wird, und verwendet dann die empfangenen Daten, um die Seite mit Spielinformationen zu füllen.
-Der Endpunkt lautet \enquote{/detail/\texttt{game\_name}}, wobei \enquote{\texttt{game\_name}} der Name des angeforderten Spiels ist. Die Daten werden anschließend in verschiedenen Elementen in der Vorlage der Komponente angezeigt. Die Komponente enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind. Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll. Die Daten für diese Metatags werden ebenfalls von der REST-Schnittstelle abgerufen, wenn die Komponente gerendert wird. Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden. Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum.
+Die Komponente führt asynchron eine HTTP-Anfrage an die Route \texttt{/detail/{game\_name}} der Backend-API aus, um Details zu einem Spiel abzurufen und die Detailseite damit zu befüllen.
+Die Detailseite enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind.
+Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll.
+Die Daten für diese Metatags werden ebenfalls von der Backend-API abgerufen, wenn die Komponente gerendert wird.
+Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden.
+Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum.
 
 \section{Verteilungssicht}\label{sec:verteilungssicht}
 
@@ -239,7 +243,7 @@ Dieser Abschnitt geht auf die verwendeten Entwicklungswerkzeuge im Backend (Absc
 Der Hauptbestandteil des Backends wird mit dem Framework FastAPI umgesetzt, das auf den Frameworks „Starlette“~\cite{starlette} und „Pydantic“~\cite{pydantic} basiert.
 Starlette bietet Funktionen wie WebSockets und Pydantic ermöglicht die Validierung von Datenmodellen, die von FastAPI genutzt werden.
 Durch Starlette kann ebenso das Test-Framework „Pytest“~\cite{pytest} für Unit-Tests direkt genutzt werden.
-Für die Bereitstellung wird der ASGI (Asynchronous Server Gateway Interface) Server „Uvicorn“~\cite{uvicorn} verwendet.
+Für die Bereitstellung wird der Asynchronous Server Gateway Interface (ASGI) Server „Uvicorn“~\cite{uvicorn} verwendet.
 Zur Interaktion mit der Datenbank (RDF Triplestore) wird die Python-Bibliothek „SPARQLWrapper“~\cite{sparqlwrapper} genutzt.
 Diese dient als Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Abfragen in der SPARQL-Syntax.
 Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können.
