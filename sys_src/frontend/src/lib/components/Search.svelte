@@ -5,14 +5,23 @@
   let search = "";
 
   const handleSearch = () => {
+    // set query for graph search
     searchQuery.set(search);
+    // clear search input
+    search = "";
+    // hide search suggestions
+    isSearchSuggestionVisible.set(false);
   };
 
   const handleSuggestion = async (event: CustomEvent<string>) => {
+    // write selected game suggestion into search input
     search = event.detail;
+    // execute the search
+    handleSearch();
   };
 
   $: isSearchDisabled.set(search.length == 0);
+  $: isSearchSuggestionVisible.set(search.length != 0);
 </script>
 
 <div class="w-full">
@@ -27,6 +36,7 @@
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
     </div>
+    <!-- Search input -->
     <input bind:value={search}
            on:input={() => searchText.set(search)}
            type="search"
@@ -37,6 +47,7 @@
            placeholder="Suche nach Videospielen..."
            required
     >
+    <!-- Search button -->
     <button
             disabled={$isSearchDisabled}
             class:cursor-not-allowed="{$isSearchDisabled}"
@@ -45,6 +56,7 @@
     >
       Suche
     </button>
+    <!-- Search suggestions -->
     {#if $isSearchSuggestionVisible}
     <SearchSuggestions on:suggestclick={handleSuggestion}/>
     {/if}

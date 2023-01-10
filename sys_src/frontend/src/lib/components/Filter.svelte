@@ -43,7 +43,7 @@
 </script>
 <!--Modal contains filter options and set filteritem tags-->
 <div class="filter_box">
-    <div class="position">
+    <div class="position" data-testid='inputs'>
         <!--Creates new filteroptions, returns checked items as values in a list 
         and passes color-variables for style-->
         <Genre bind:group={genre} bind:color={genre_color} />  
@@ -51,7 +51,7 @@
         <Creator bind:group={creator} bind:color={creator_color}/>    
         <Date bind:date={date} bind:color={date_color}/>
     </div>
-    <div class="tags">
+    <div class="tags" data-testid='tags'>
          <!--Creates new tags as checked, passes meantfor colors and values-->
         <Tags bind:group={creator} bind:color={creator_color}/>
         <Tags bind:group={genre} bind:color={genre_color}/>

@@ -6915,7 +6915,7 @@ Developed in collaboration between SEGA, Christian Whitehead, Headcannon, and Pa
   schema:country "United States" .
 
 <20398> a schema:VideoGame;
-  schema:title "Chrono Trigger";
+  schema:title "Chrono Trigger (2008)";
   schema:ratingValue "93";
   schema:description "When a newly developed teleportation device malfunctions at the Millennial Fair, young Crono must travel through time to rescue his misfortunate companion from an intricate web of past and present perils. The swashbuckling adventure that ensues soon unveils an evil force set to destroy the world, triggering Crono's race against time to change the course of history and bring about a brighter future.";
   schema:releaseDate "2008-11-20T00:00:00Z"^^xsd:dateTime;
@@ -7495,7 +7495,7 @@ With new story details, learn the tale of hunters who once made Yharnam their hu
   schema:country "Japan" .
 
 <1802> a schema:VideoGame;
-  schema:title "Chrono Trigger";
+  schema:title "Chrono Trigger (1995)";
   schema:ratingValue "93";
   schema:description "In this turn-based Japanese RPG, young Crono must travel through time through a misfunctioning teleporter to rescue his misfortunate companion and take part in an intricate web of past and present perils. The adventure that ensues soon unveils an evil force set to destroy the world, triggering Crono's race against time to change the course of history and bring about a brighter future.";
   schema:releaseDate "1995-11-03T00:00:00Z"^^xsd:dateTime;
