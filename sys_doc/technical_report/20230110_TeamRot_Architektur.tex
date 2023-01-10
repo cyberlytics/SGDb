@@ -17,6 +17,7 @@
 \usepackage[ngerman]{babel}
 \usepackage[style=ieee]{biblatex}
 \usepackage{rotating}
+\usepackage{csquotes}
 
 \addbibresource{references.bib}
 
@@ -44,127 +45,220 @@
 Dieser Technical Report beschreibt die Architektur von SGDb -- eine webbasierte Anwendung mit einer Graphen-basierten Suche von Videospielen.
 \end{abstract}
 
-\section{Einführung und Ziele}
 
-In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} eingegangen.
-Im nächsten Abschnitt~\ref{sec:bausteinsicht} wird das Gesamtsystem aus Bausteinsicht beschrieben.
-Anschließend wird in Abschnitt~\ref{sec:verteilungssicht} die Verteilungssicht der Anwendung beschrieben.
-In Abschnitt~\ref{sec:entwicklungswerkzeuge} werden die angewandten Werkzeuge zur Entwicklung der Anwendung vorgestellt.
+\section{Einleitung}
+
+Vor über einem halben Jahrhundert wurde das erste Videospiel von William Higinbotham veröffentlicht~\cite{tennis_for_two}, bei dem zwei Spieler gegeneinander auf einem Oszilloskop spielen konnten.
+Das Spiel bestand aus einem einfachen Tennis-Spiel, bei dem ein Punkt erzielt wurde, wenn der Ball auf das andere Ende des Bildschirms gespielt wurde.
+Im Jahr 2022 waren es 2,95 Milliarden aktive Spieler, die täglich mehr als 10 Milliarden Stunden an Videospielen verbringen~\cite{gamers}.
+Die Anzahl der Videospieler als auch die Anzahl der Spiele steigt stetig an, weshalb es für einen Spieler immer schwieriger wird, sich in der Vielzahl an Spielen zurechtzufinden.
+Die Suche nach einem passenden Spiel kann sehr zeitaufwendig sein.
+Dazu soll eine Semantic Video Game Database (SGDb) mit einer Graphen-basierten Suche für Videospiele entwickelt werden.
+
+In den weiteren Abschnitten des Technical Reports wird zuerst auf die Lösungsstrategie in Abschnitt~\ref{sec:loesungsstrategie} und die Datenbeschaffung in Abschnitt~\ref{sec:datenbeschaffung} eingegangen.
+Im nächsten Abschnitt~\ref{sec:bausteinsicht} wird das System aus Bausteinsicht beschrieben.
+Daran anschließend wird in Abschnitt~\ref{sec:verteilungssicht} die Verteilungssicht der Anwendung beschrieben.
+In Abschnitt~\ref{sec:entwicklungswerkzeuge} werden die angewandten Entwicklungswerkzeuge vorgestellt.
 Abschließend wird ein Fazit und Ausblick in Abschnitt~\ref{sec:fazit} gegeben.
 
 
 \section{Lösungsstrategie}\label{sec:loesungsstrategie}
 
-Dieser Abschnitt enthält einen stark verdichteten Architekturüberblick.
-Eine Gegenüberstellung der wichtigsten Ziele und Lösungsansätze.
+Eine Gegenüberstellung der wichtigsten Ziele und Lösungsansätze für die Architektur befinden sich in der nachfolgenden Tabelle~\ref{tab:loesungsstrategie}.
+Die Abbildung~\ref{fig:architecture} gibt einen Überblick über die Architektur.
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{Qualitätsziele und Lösungsansätze}
+        \label{tab:loesungsstrategie}
+        \begin{tabular}{|l|l|}
+            \textbf{Qualitätsziel} & \textbf{Lösungsansatz}\\
+            \hline
+            Intuitive Bedienung & Benutzeroberfläche mit Svelte\\
+            Separierung der Zuständigkeiten & „Backend for Frontend“-Muster\\
+            Verarbeitung großer Graphen	& Graphen mit WebGL zeichnen\\
+        \end{tabular}
+    \end{center}
+\end{table}
 
 
 \section{Datenbeschaffung}\label{sec:datenbeschaffung}
 
-Für die Datenbeschaffung wird eine Client-Anfrage an die Endpunkte der IGDB-API \cite{igdb-api} gesendet. 
-Als Antwort wird im Anschluss der Bearbeitung ein Datensatz zurückgegeben, der wesentliche Informationen zu einem Spiel 
-beinhaltet. Zu den Informationen zählen: Spiele-ID, Spieletitel, Beschreibung, Veröffentlichungsdatum, Genre, 
-Spieleplattform, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes. 
+Die Daten für den Prototypen werden über den \texttt{/games} API-Endpunkt der IGDB-API~\cite{igdb-api} bezogen.
+Dieser liefert einen Datensatz zurück, der wesentliche Informationen zu einem Spiel beinhaltet.
+Zu den Informationen zählen: Spiele-ID, Spieletitel, Spieleplattform, Beschreibung, Veröffentlichungsdatum, Genre, Bewertung, Entwicklername- und Land sowie eine URL des Coverbildes.
 
-Der Datensatz wird im JSON-Format gespeichert und auf 500 Spiele, die eine hohe Bewertung erzielt haben (>85), reduziert. Begründet wird diese Bedingung durch das Bestreben, einen Datensatz zu erzeugen, der über viele Informationen zu den einzelnen Spielen verfügt.
-Der Datensatz weist an mancher Stelle numerische Werte auf, die jedoch nicht informativ wären für einen Durschnittsnutzer. 
-So ist das Veröffentlichungsdatum im Unix-Zeitstempel angegeben. Dieser ist auch als "The Epoch" bekannt und zählt die 
-Anzahl der vergangenen Sekunden seit 1.Januar 1970 \cite{unix}. Der Standort des Entwicklerunternehmens wird als 
-dreistelliger Country-Code definiert, der von der International Organization for Standardization (ISO) entwickelt 
-und im ISO-3166 publiziert wurde \cite{iso}. Es wurde eine Funktion implementiert, die die Unix-Zeit in ein reguläres 
-Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert. 
+Der Datensatz wird im JSON-Format gespeichert und ist auf 500 Spiele, die eine hohe Bewertung (>85) erzielt haben, beschränkt.
+Außerdem werden einige numerische Werte wie das Veröffentlichungsdatum, das im Unix-Zeitstempel\footnote{Der Unix-Zeitstempel ist auch als „The Epoch“ bekannt und zählt die
+Anzahl der vergangenen Sekunden seit 1.Januar 1970~\cite{unix}.} angegeben ist und der Standort des Entwicklerunternehmens als dreistelliger Country-Code\footnote{Der Country-Code wurde von der International Organization for Standardization entwickelt
+und im ISO-3166 publiziert~\cite{iso}.} definiert.
+Im Skript \texttt{igdb.py} wurde eine Funktion \texttt{change\_format} implementiert, welche deb Unix-Zeitstempel in das Zeitformat \texttt{DD-MM-YYYY} und den ISO-Country-Code in Ländernamen konvertiert.
 
-Der Datensatz wird anschließend mit „Refine“~\cite{refine} strukturiert und in RDF-Triples (Graphs) umgewandelt. 
+Der Datensatz wird anschließend in „Refine“~\cite{refine} geladen.
+Darin werden zunächst die Überschriften geändert, da diese fehlerhaft konvertiert sind und irrelevante Spalten werden entfernt.
+Außerdem werden die Bewertungen in Ganzzahlen umgewandelt.
+Da leere Zeilen im späteren Verlauf zu Fehlern führen, werden diese mit \enquote{\texttt{Nicht Vorhanden}}-Strings gefüllt.
+Im Anschluss werden die gereinigten Daten zu RDF-Triples strukturiert und in die Datenbank geladen.
+Ein RDF-Triple besteht aus einem Subjekt, einem Prädikat und einem Objekt.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{architektur}
+    \caption{Überblick über die Architektur von SGDb. Die Architektur besteht aus drei Diensten: Das Frontend (Abschnitt~\ref{subsec:frontend}) bietet dem Nutzer eine grafische Bedienoberfläche, das Backend (Abschnitt~\ref{subsec:backend}) stellt die API bereit und die Datenbank (Abschnitt~\ref{subsec:datenbank}) speichert persistent die Daten.}
+    \label{fig:architecture}
+\end{figure*}
 
 
 \section{Bausteinsicht}\label{sec:bausteinsicht}
+
 Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen.
 
-\subsection{Gesamtsystem}\label{subsec:gesamtsystem}
-%TODO Bild von Gesamtsystem mit kurzer Beschreibung
-
 \subsection{Datenbank}\label{subsec:datenbank}
-Für die Datenverwaltung und Vernetzung der Informationen wird die Ontotext GraphDB \cite{graphdb} verwendet. In Ontotext werden die Daten in Form von RDF-Triplen gespeichert, die aus einem Subjekt, einem Prädikat und einem Objekt bestehen. Diese Triplen werden in sogenannten Repositories gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
-%TODO Beschreibung relevanter Informationen über die Datenbank, z.B. Aufbau des Repositories, Ontologie, etc.
+
+Zur Beschreibung der Videospiele werden Ontologien von „schema.org“~\cite{schemaorg} verwendet.
+Damit das Erscheinungsdatum auch als Datum interpretierbar ist, wird \texttt{xsd:dateTime} aus „XML Schema“~\cite{xmlschema} benutzt.
+Um Videospiele vom Typ \texttt{schema:VideoGame} zu deklarieren, wird das RDF-Schema \texttt{typeof} eingesetzt. %TODO: Warum eigentlich?
+Für die Verwaltung und Vernetzung dieser Informationen wird die „Ontotext GraphDB“~\cite{graphdb} verwendet.
+Die Triples werden in sogenannten \textit{Repositories} gespeichert, die ähnlich wie Tabellen in relationalen Datenbanken organisiert sind.
+Der Unterschied zu einer relationalen Datenbank ist, dass Ontotext Informationen mithilfe von Klassifizierungen und Interpretationsregeln organisiert.
+Ein Repository kann als eine einzelne Ontotext-Datenbank angesehen werden, die für sich selbst fungiert.
+Somit können mehrere Repositories gleichzeitig existieren, diese sind jedoch von den anderen isoliert.
+Die Unterteilung der Daten in Klassen, Subklassen oder Instanzen sowie die Definition der Beziehung untereinander wird durch Ontologien festgelegt.
+Um die RDF-Daten im Repository abfragen zu können, stellt die Datenbank einen SPARQL-Endpunkt zur Verfügung.
+
 
 \subsection{Backend}\label{subsec:backend}
 
-Das Backend ist mit der Programmiersprache Python und dem Framework „FastAPI“~\cite{fastapi} realisiert. Es dient als Schnittstelle zwischen Datenbank und Frontend. Zusätzlich ist es für die Verarbeitung von Ressourcen zuständig. Hierunter fällt die Aufgabe, Daten vom Frontend so aufzubereiten, dass diese für eine Datenbank-Abfrage genutzt werden können. Des Weiteren werden Ergebnisse aus einer Datenbank-Abfrage vom Backend aufbereitet und über einen Endpunkt dem Frontend zur Verfügung gestellt. Das Format der Rückgaben ist bei jedem Endpunkt JSON.
-Das Frontend kommuniziert mit dem Backend über eine RESTful-API, die mithilfe des Frameworks implementiert ist.
+Das Backend ist mit der Programmiersprache Python und dem Framework „FastAPI“~\cite{fastapi} realisiert.
+Es dient als Schnittstelle zwischen Datenbank und Frontend.
+Das Frontend kommuniziert mit dem Backend über eine RESTful-API, die mithilfe des FastAPI Frameworks implementiert ist.
+Zusätzlich ist es für die Verarbeitung von Ressourcen zuständig.
+Hierunter fällt die Aufgabe, Daten vom Frontend so aufzubereiten, dass diese für eine Datenbank-Abfrage genutzt werden können.
+Des Weiteren werden Ergebnisse aus einer Datenbank-Abfrage vom Backend aufbereitet und über die Endpunkt der API dem Frontend zur Verfügung gestellt.
+Das Rückgabeformat ist bei jedem API-Endpunkt JSON. %TODO: ggf. noch einmal ausschreiben
 
-Die API ist wie folgt aufgebaut:: 
-\begin{center}
-\begin{tabular}{||c c c||} 
- \hline
- Method & Route &  Description  \\ [0.5ex] 
- \hline\hline
- GET & / & Startpage \\
- \hline
- POST & / & Filter  \\
-  \hline
- GET & /search/\{search\} & Search \\
-  \hline
- GET & /detail/\{game\} & Detailpage \\
- \hline
-\end{tabular}
-\end{center}
+Folgende Endpunkte, in Tabelle~\ref{tab:api}, stellt die API im Backend für das Frontend zur Verfügung:
 
-Die Startpage Route gibt als key die Jahre beginnend von 1985 bis 2022 zurück. Jeder key enthält als value die Titel, welche in diesem Jahr veröffentlicht wurden.
-Die Filter Route gibt, nachdem sie Daten im JSON Format mit den entsprechenden Filtern erhalten hat, einen aktualisierten Graphen zurück, der die angegebenen Filter berücksichtigt. Das Format und die Struktur des Graphen sind identisch mit demjenigen, der von der Startpage zur Verfügung gestellt wird.
-Die Search Route verarbeitet eine Suchanfrage und gibt drei Listen zurück. Die erste Liste enthält alle Spieletitel, welche auf die gestellte Suchanfrage zutreffen. Die zweite Liste enthält alle Spieletitel, welche auf die gestellte Suchanfrage zutreffen und im aktuell angezeigten Graphen zu finden sind. Die dritte Liste enthält alle Spieletitel, welche auf die gestellte Suchanfrage zutreffen und nicht im aktuell angezeigten Graphen zu finden sind. Denn durch die Einstellungen der Filter Route kann es passieren, dass gesuchte Spiele nicht im angezeigten Graphen enthalten sind.
-Die Detailpage Route gibt alle in der Datenbank gespeicherten Details zu einem Spiel zurück.
+\begin{table}[h!]
+    \begin{center}
+        \caption{Backend-API für das Frontend}
+        \label{tab:api}
+        \begin{tabular}{|l|l|}
+            \textbf{Endpunkt} & \textbf{Beschreibung}\\
+            \hline
+            \texttt{GET \, /}				& Graphen für Startseite\\
+            \texttt{POST /}					& Filter für den Graphen\\
+            \texttt{GET /search/\{search\}}	& Suche eines Videospiels\\
+            \texttt{GET /detail/\{game\}}	& Detailseite zu Videospiel\\
+        \end{tabular}
+    \end{center}
+\end{table}
 
-Zur Interaktion mit der Datenbank (RDF Triplestore) wird die Python-Bibliothek „SPARQLWrapper“~\cite{sparqlwrapper} genutzt.
-Diese dient als Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Queries in der SPARQL-Syntax. Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können. SPARQL selbst ist eine graphenbasierte Query-Sprache, die mit Daten im RDF-Format arbeitet.
+Die \texttt{Startpage}-Route gibt eine Menge von Schlüssel-Werte-Paaren zurück.
+Davon ist jeder Schlüssel ein Jahr, beginnend von 1985 bis 2022, und der Wert eine Liste von Videospielen, die in diesem Jahr erschienen sind.
+Die \texttt{Filter}-Route gibt einen aktualisierten Graphen, basierend auf den gewählten Filtern in der POST-Anfrage, zurück.
+Das Format und die Struktur des Graphen sind identisch mit demjenigen, der von der Startpage zur Verfügung gestellt wird.
+Die \texttt{Search}-Route verarbeitet eine Suchanfrage und gibt drei Listen zurück.
+Die erste Liste enthält alle Spieletitel, welche auf die gestellte Suchanfrage zutreffen.
+Die zweite Liste enthält alle Spieletitel, welche auf die gestellte Suchanfrage zutreffen und im aktuell angezeigten Graphen zu finden sind.
+Die dritte Liste enthält alle Spieletitel, welche auf die gestellte Suchanfrage zutreffen und nicht im aktuell angezeigten Graphen zu finden sind.
+Aufgrund der angewandten Einstellungen in der Filter Route kann es passieren, dass gesuchte Spiele nicht im angezeigten Graphen enthalten sind.
+Die \texttt{Detailpage}-Route gibt alle Details zu einem Videospiel, die in Abschnitt~\ref{subsubsec:detailpage} näher beschrieben werden, zurück.
 
-Zuerst wird ein Graphenobjekt definiert, über welches der Zugriff auf die Datenbank realisiert wird. Der Rückgabetyp ist auf das JSON-Format festgelegt. Über das definierte Graphenobjekt können nun Abfragen direkt in der Python Datei vollzogen werden. Die Antwort der Abfragen ist eine geschachtelte JSON-Ausgabe, sodass diese noch weiter formatiert wird.
-
-% TODO hier nochmal drüber arbeiten, hat sich viel getan in den Bereich
-%Zuerst wird ein Graphenobjekt definiert, das alle Daten aus der Graphdatenbank beinhaltet. Dieses dient als Grundlage für die weiteren Abfragen. Die Abfragen sind in die Wortsuche sowie die unterschiedlichen Filter unterteilt, die nach Datum, Genre, Bewertung, Entwickler und Plattform filtern können. Sie lassen sich beliebig kombinieren. Die Abfragen bekommen die im Frontend festgelegten Argumente und filtern zunächst nach den gewünschten Kriterien und liefern die Videospiel-IRI‘s in Form von Objekten zurück. Entsprechen die Objekte den Anforderungen, werden diese als Subjekte in der nächsten Abfrage genutzt, um alle zugehörigen Prädikate sowie Objekte der Videospiele im JSON-Format zurückzugeben. Diese werden im Frontend für die Darstellung der Knoten sowie für die Inhalte in der Detailseite genutzt.
-
+Für den Zugriff auf die Datenbank wird ein Graphenobjekt definiert.
+Die Antwort der Abfragen wird noch weiter formatiert, sodass die benötigten Informationen aus dem Ergebnis leichter zugänglich sind.
+Die Filter sind so gestaltet, dass sich über die Funktion \texttt{combine\_filter} verschiedene Filteroptionen wie Datum, Genre, Bewertung, Entwickler und Plattform beliebig kombinieren lassen.
+Ist ein Filterargument gegeben, so wird für das jeweilige Argument eine zugehörige Abfrage erstellt, die Spiele zurückliefert, die dem Filter entsprechen.
+Anschließend werden alle Abfrage-Ergebnisse verglichen und nur diejenigen zurückgegeben, die auf alle Filtereinstellungen zutreffen.
+Die Funktion \texttt{recommendations} nutzt die Spieledetails um Vorschläge für ähnliche Spiele zu generien.
+Jedoch werden nicht Spiele zurückgeliefert, die exakt den Kriterien entsprechen, sondern diejenigen, die am meisten Übereinstimmung zum Spiel aufweisen.
+Um die Anzeige der Filteroptionen für Genre, Hersteller und Plattform des Filters im Frontend dynamisch zu gestalten, werden die Optionen jedes Mal beim Aufrufen der Startseite von der Datenbank abgefragt.
+Diese werden dann in der Backend API gezählt, um zusätzlich zu ermöglichen, dass die Menge der Spiele mit den jeweiligen Optionen einsehbar ist.
 
 \subsection{Frontend}\label{subsec:frontend}
 
 Das Frontend ist für die Benutzerschnittstelle verantwortlich.
 Hauptbestandteile des Frontends sind die Suchmaske, der Graph und die Detailseite zu einem Videospiel.
+
+\subsubsection{Graph}
+
 Für die Darstellung des Graphen und die Interaktion mit diesem wird „Sigma.js“~\cite{sigma} verwendet.
 Sigma.js rendert Graphen mit WebGL. Damit lassen sich größere Graphen schneller zeichnen als mit Canvas- oder SVG-basierten Lösungen.
 Das Graphenmodell wird in einer separaten Bibliothek namens „Graphology“~\cite{graphology} verwaltet.
 Dies ist eine Standardbibliothek mit Algorithmen aus der Graphentheorie und allgemeinen Hilfsprogrammen wie z.B.\ Graphengeneratoren.
 
-Generierung
 Für das Graphen Layout wird der ForceAtlas2 Algorithmus~\cite{forceatlas2} verwendet.
 Vor dem Start von ForceAtlas 2 Layout muss die Startposition jedes Knotens festgelegt werden.
-Daher müssen zwei Attribute namens x und y für alle Knoten des Diagramms definiert werden.
+Daher müssen zwei Attribute namens $x$ und $y$ für alle Knoten des Diagramms definiert werden.
+Dazu wird zuerst ein Graph Objekt erzeugt, das jeden Knoten zufällig positioniert, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall $[0, 1)$ ausgewählt werden.
 
-Dazu wird ein Graph Objekt mit dem Random layout erzeugt.
-Positionierung jedes Knotens, indem die Koordinaten gleichmäßig nach dem Zufallsprinzip auf dem Intervall [0, 1) auswählt. %(https://graphology.github.io/standard-library/layout.html)
+\subsubsection{Suche}
 
-Die Interaktion mit dem Backend erfolgt über die REST-Schnittstelle.
+Es gibt zwei Arten von Videospiel-Suche: Die direkte Suche im Graphen und die Suche per Texteingabe.
+Dazu ist ein Eingabefeld für die textuelle Suche vorhanden, das bei einer Benutzereingabe basierend auf den eingegebenen Suchbegriff vom Backend die besten Suchtreffer abfrägt.
+Ist die Suche erfolgreich, wird der Knotenpunkte zum gesuchten Videospiel im Graphen hervorgehoben.
 
+\subsubsection{Filter}
+
+Die Filter werden in vier Kategoriern unterteilt: Genre, Spieleplattform, Spielentwickler und Erscheinungsjahr.
+Die ersten drei Kategorien werden durch Checkboxen dargestellt, um eine Mehrfachauswahl (z.B. mehrere Genres) zu ermöglichen.
+Die Filterinhalte werden jeweils mit der Gesamtanzahl der Vorkomnisse angezeigt.
+Das Erscheinungsjahr ist ein Schieberegler mit einem, auf die Spiele abgestimmten, Wertebereich.
+Die Filterselektion wurde auf fünf mögliche Filteritems begrenzt, da eine uneingeschränkte Auswahl an Filterkombinationen in den allermeisten Fällen zu keinem sinnvollen Ergebnis geführt hat.
+Für eine visuelle kategorische Differenzierung der Filterselektion verändert sich die Farbe der Filterbox und es wird ein \textit{Tag} der gleichen Farbe generiert.
+Werden die Filtereinstellungen angewendet, erfolgt ein POST-Request an die \texttt{/}-Route.
+
+\subsubsection{Detailseite}\label{subsubsec:detailpage}
+
+Die Detailseite zeigt die spezifischen Informationen über ein bestimmtes Spiel an.
+Die Komponente führt asynchron eine HTTP-Anfrage an die REST-API aus, um Details zu einem Spiel abzurufen, wenn sie gerendert wird, und verwendet dann die empfangenen Daten, um die Seite mit Spielinformationen zu füllen.
+Der Endpunkt lautet \enquote{/detail/\texttt{game\_name}}, wobei \enquote{\texttt{game\_name}} der Name des angeforderten Spiels ist. Die Daten werden anschließend in verschiedenen Elementen in der Vorlage der Komponente angezeigt. Die Komponente enthält auch einige HTML-Metatags, die Informationen über das Spiel enthalten, die für Social Media-Plattformen wie Twitter relevant sind. Die Metatags enthalten den Titel des Spiels, eine Beschreibung und ein Bild, das im Tweet angezeigt werden soll. Die Daten für diese Metatags werden ebenfalls von der REST-Schnittstelle abgerufen, wenn die Komponente gerendert wird. Schließlich enthält die Komponente ein Hauptelement, in dem die eigentlichen Spielinformationen angezeigt werden. Die Informationen umfassen ein Bild des Spiels, den Titel des Spiels und weitere Details wie die Plattformen, auf denen das Spiel verfügbar ist, und das Veröffentlichungsdatum.
 
 \section{Verteilungssicht}\label{sec:verteilungssicht}
 
-Zentraler Bestandteil der Verteilungsstruktur sind Docker- Container. Jeder Baustein von SGDb ist für sich isoliert in einem eigenen Docker-Container untergebracht. Damit das gesamte System mit allen verteilten Komponenten in der korrekten Reihenfolge gestartet wird, werden die Docker- Container mit Docker Compose orchestriert. Docker Compose übernimmt die Netzwerkkonfiguration und die Vergabe von Host-Namen an die jeweiligen Docker-Container. Darüber hinaus können Umgebungsvariablen verwaltet werden.
+Dieser Abschnitt beschreibt den Betrieb von SGDb. Zentraler Bestandteil der Verteilungsstruktur sind Docker-Container~\cite{docker} (Abbildung~\ref{fig:verteilungssicht}).
+Jeder Baustein von SGDb ist für sich isoliert in einem eigenen Docker-Container untergebracht.
+Damit das gesamte System mit allen verteilten Komponenten in der korrekten Reihenfolge gestartet wird, werden die Docker- Container mit Docker Compose orchestriert.
+Docker Compose übernimmt die Netzwerkkonfiguration und die Vergabe von Host-Namen an die jeweiligen Docker-Container.
+Darüber hinaus können Umgebungsvariablen verwaltet werden.
 
+\begin{figure}[thp]
+    \centering
+    \includegraphics[width=\linewidth]{verteilungssicht}
+    \caption{Verteilungssicht}
+    \label{fig:verteilungssicht}
+\end{figure}
 
 
 \section{Entwicklungswerkzeuge}\label{sec:entwicklungswerkzeuge}
 
+Dieser Abschnitt geht auf die verwendeten Entwicklungswerkzeuge im Backend (Abschnitt~\ref{subsec:backend-dev-tools}) und Frontend (Abschnitt~\ref{subsec:frontend-dev-tools}) ein.
 
-\subsection{Backend}
+\subsection{Backend}\label{subsec:backend-dev-tools}
 
-Im Backend wird als Test-Framework „Pytest“~\cite{pytest} genutzt, welches bereits in FastAPI integriert ist.
+Der Hauptbestandteil des Backends wird mit dem Framework FastAPI umgesetzt, das auf den Frameworks „Starlette“~\cite{starlette} und „Pydantic“~\cite{pydantic} basiert.
+Starlette bietet Funktionen wie WebSockets und Pydantic ermöglicht die Validierung von Datenmodellen, die von FastAPI genutzt werden.
+Durch Starlette kann ebenso das Test-Framework „Pytest“~\cite{pytest} für Unit-Tests direkt genutzt werden.
+Für die Bereitstellung wird der ASGI (Asynchronous Server Gateway Interface) Server „Uvicorn“~\cite{uvicorn} verwendet.
+Zur Interaktion mit der Datenbank (RDF Triplestore) wird die Python-Bibliothek „SPARQLWrapper“~\cite{sparqlwrapper} genutzt.
+Diese dient als Python-Wrapper für SPARQL und ermöglicht so die Ausführung von Abfragen in der SPARQL-Syntax.
+Dazu bietet es die Möglichkeit, das Ergebnis in das gewünschte Format zu formatieren, sodass diese Daten leichter in Python weiterverarbeitet werden können.
 
 
-\subsection{Frontend}
+\subsection{Frontend}\label{subsec:frontend-dev-tools}
 
-Im Frontend wird als Test-Framework Vitest in Kombination mit Svelte Testing Library verwendet.
-
+Das Frontend wird unter Zuhilfenahme des Frontend-Frameworks „Svelte“~\cite{svelte} realisiert.
+Die Verwaltung der Abhängigkeiten erfolgt mit „npm“~\cite{npm}.
+Als Build-Tool ist „Vite“~\cite{vite} dafür zuständig, die Frontend Anwendung aus dem Quellcode zu erstellen.
+Für die Entwicklung wird ein Vite-Dev-Server (mit Reload-Funktionalität) zum Bereitstellen der Anwendung verwendet.
+Für die Gestaltung der Benutzeroberfläche wird „Tailwind CSS“~\cite{tailwindcss} verwendet.
+Im Gegensatz zu anderen CSS-Framework, die eine Vielzahl von vordefinierten Komponenten bereitstellen, bietet Tailwind CSS eine Vielzahl von niedrigschwelligen Gestaltungsoptionen, die es Entwicklern ermöglichen, genau die benutzerdefinierten Designs zu erstellen, die sie benötigen.
+Im Frontend wird das Vite-native Test-Framework „Vitest“~\cite{vitest} in Kombination mit der „Svelte Testing Library“~\cite{stl} und „c8“~\cite{c8} für die Testabdeckung verwendet.
 
 \section{Fazit und Ausblick}\label{sec:fazit}
 
-Im Rahmen der Arbeit wurde mit einem begrenzten Datensatz von 500 Spielen eine erste Version der Anwendung entwickelt. Diese ist voll funktionsfähig und erfüllt alle Anforderungen des Fachkonzepts. Zusätzlich konnten einige Optionale-Anforderungen verwirklicht werden. Somit konnte eine bis dato einmalige Anwendung umgesetzt werden.
+Im Rahmen der Arbeit wurde mit einem begrenzten Datensatz von 500 Spielen eine erste Version der Anwendung entwickelt, welche die Anforderungen des Fachkonzepts erfüllt.
+Ein Benutzer kann per Graph oder per Texteingabe suchen, die Suchergebnisse filtern und Details zu einem Spiel einsehen.
 Die Anwendung ist darauf ausgelegt, auch ohne Komplikationen mit einem größeren Datensatz zu arbeiten.
 
 
