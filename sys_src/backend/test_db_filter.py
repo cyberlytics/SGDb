@@ -1,5 +1,6 @@
 from db_filter import recommendations, get_titles
 
+# test the return value, if there is no valid detailpage is returned
 def test_recommendations_no_data():
     content_detailpage = {
     "title": {
