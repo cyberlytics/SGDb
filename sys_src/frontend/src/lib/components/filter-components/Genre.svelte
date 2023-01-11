@@ -4,6 +4,7 @@
     export let color;
     export let data = toArray($filter_data.genre);
 
+    console.log($filter_data);
 </script>
 <!--Options for genre-filter.
 The color of the box depends on the content in the listobject.
@@ -17,7 +18,7 @@ It serves to differentiate between the filters and the tags-->
             {#each [...data] as [genre, vals]}
                 <label class="border-zinc-900 text-sm text-gray-900">
                     <input type=checkbox value={genre} bind:group
-                    disabled={$isInputDisabled==true && !group.includes(genre)}>
+                    disabled={$isInputDisabled==true && !group.includes(genre)} data-testid='mult-genre-input'>
                     {genre} </label><p>({vals})</p> <br />
             {/each}
         </div>

@@ -2,7 +2,7 @@
   import { searchQuery, searchText, isSearchDisabled, isSearchSuggestionVisible } from '$stores/search';
   import SearchSuggestions from '$components/SearchSuggestions.svelte';
 
-  let search = "";
+  export let search = "";
 
   const handleSearch = () => {
     // set query for graph search

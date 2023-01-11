@@ -6,9 +6,9 @@
     import Tags from "./filter-components/Tags.svelte";
     import {filterSettings, isApplyDisabled, isInputDisabled} from '$stores/filter.ts';
 
-    let creator=[];
-    let platform=[];
-    let genre=[];
+    export let creator=[];
+    export let platform=[];
+    export let genre=[];
     let date;
 
     let genre_color= 'rgb(90, 73, 157)';

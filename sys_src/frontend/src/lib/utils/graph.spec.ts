@@ -1,8 +1,14 @@
-import { buildGraph } from './graph';
+import { buildGraph,  buildStartPageGraph} from './graph';
 
 describe("graph", () => {
+  const object = {data: {2000:['test1', 'test2'], 2001:['test1', 'test2']}, filter: {}}
+
   it("builds a graph", async () => {
-    const graph = await buildGraph();
+    const graph = await buildGraph('','');
     expect(graph).toBeDefined();
+  });
+  it("builds startpagegraph", async () => {
+    const startpagegraph = await buildStartPageGraph(object);
+    expect(startpagegraph).toBeDefined();
   });
 });

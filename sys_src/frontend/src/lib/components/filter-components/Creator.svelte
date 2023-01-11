@@ -4,7 +4,6 @@
     export let group = [];
     export let color;
     export let data = toArray($filter_data.creator);
-    let max = 2;
 </script>
 <!--Options for creator-filter.
 The color of the box depends on the content in the listobject.
@@ -16,10 +15,10 @@ It serves to differentiate between the filters and the tags-->
             <div class='filter_container' style="border-color:{color}">
                 <!--a new checkbox is created for each value in the creator list-->
                 {#each [...data] as [creator, vals]}
-                    <label class="border-zinc-900 text-sm text-gray-900">
+                    <label class="border-zinc-900 text-sm text-gray-900" data-testid='creator-label'>
                         <input type="checkbox" value={creator} bind:group
                         disabled={$isInputDisabled==true && !group.includes(creator)}>
-                        {creator}</label><p>({vals})</p> <br />
+                        {creator}</label><p data-testid='creator-p'>({vals})</p> <br />
                 {/each}
             </div>
     {/if}

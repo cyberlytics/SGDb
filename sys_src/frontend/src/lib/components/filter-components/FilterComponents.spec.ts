@@ -43,11 +43,16 @@ describe("Genre inputs", () => {
 
 describe("Date input", () => {
 
-    test("input checked",  () => {
+    test("set date",  () => {
         render(Date, { props: { date: 0, color: 'red' } });
         const dateInput = screen.getByTestId('date-input')
         fireEvent.change(dateInput, { target: { value: 2002 } });
         expect(dateInput).toHaveValue('2002')
     });
 
+    test("date already setted",  () => {
+        render(Date, { props: { date: 2002, color: 'red' } });
+        const dateInput = screen.getByTestId('date-input')
+        expect(dateInput).toHaveValue('2002')
+    });
 });
