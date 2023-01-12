@@ -8,7 +8,7 @@ describe('Navbar component', () => {
     render(Navbar);
     const filterButton = screen.getByTestId('filter-button');
 
-    expect(filterButton).toBeDisabled();
+    expect(filterButton).toBeEnabled();
   })
 
 });
