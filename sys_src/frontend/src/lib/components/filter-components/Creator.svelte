@@ -15,10 +15,10 @@ It serves to differentiate between the filters and the tags-->
             <div class='filter_container' style="border-color:{color}">
                 <!--a new checkbox is created for each value in the creator list-->
                 {#each [...data] as [creator, vals]}
-                    <label class="border-zinc-900 text-sm text-gray-900" data-testid='creator-label'>
+                    <label class="border-zinc-900 text-sm text-gray-900">
                         <input type="checkbox" value={creator} bind:group
                         disabled={$isInputDisabled==true && !group.includes(creator)}>
-                        {creator}</label><p data-testid='creator-p'>({vals})</p> <br />
+                        {creator}</label><p>({vals})</p> <br />
                 {/each}
             </div>
     {/if}
@@ -27,7 +27,7 @@ It serves to differentiate between the filters and the tags-->
         <h2 style="color:rgb(30, 29, 29)">Creator</h2>
                 <div class='filter_container' style="border-color:#ccc">
                     {#each [...data] as [creator, vals]}
-                        <label class="border-zinc-900 text-sm text-gray-900">
+                        <label class="border-zinc-900 text-sm text-gray-900" data-testid='creator-label'>
                             <input type="checkbox" value={creator} bind:group
                             disabled={$isInputDisabled==true && !group.includes(creator)} data-testid='creator-input'>
                             {creator}</label><p>({vals})</p> <br />

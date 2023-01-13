@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent, waitFor, getByTestId, getByRole, getByText} from "@testing-library/svelte";
+import { render, screen, fireEvent} from "@testing-library/svelte";
 import FilterModal from './FilterModal.svelte';
-import { isFilterVisible, graphData, isPost, filterSettings, isApplyDisabled } from '$stores/filter.ts';
-
 describe('Filter Modal component', () => {
 
   test('close button enabled',  () => {

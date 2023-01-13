@@ -16,14 +16,15 @@
     let platform_color ='rgb(73, 122, 157)';
     let date_color ='rgb(176, 55, 55)';
 
+    //saves filtersettings in filtermodal
     let filter;
     $: filter = JSON.stringify({creator, platform, genre, date});
     $: filterSettings.set(filter);
-    
     $: if(creator.length==0 && platform.length==0 && genre.length==0 && date==undefined){
         filterSettings.set('');
     }
 
+    //disables the apply button, if no filter are set
     $: isApplyDisabled.set($filterSettings == '');
 
     if($filterSettings!=''){
@@ -34,7 +35,7 @@
         date= settings.date;
     }
 
-
+    //disables checkbox inputs
     $: if(creator.length + platform.length + genre.length >= 4){
         isInputDisabled.set(true);
     }else {isInputDisabled.set(false)}

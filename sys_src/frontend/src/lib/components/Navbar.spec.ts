@@ -11,6 +11,7 @@ describe('Navbar component', () => {
 
     expect(filterButton).toBeEnabled();
   })
+  
   test('handle click', async() => {
     render(Navbar);
     const filterButton = screen.getByTestId('filter-button');

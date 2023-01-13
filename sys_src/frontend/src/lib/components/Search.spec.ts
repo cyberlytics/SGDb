@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent, screen } from '@testing-library/svelte'
 import Search from './Search.svelte';
-import { searchQuery, searchText, isSearchDisabled, isSearchSuggestionVisible } from '$stores/search';
+import { isSearchDisabled} from '$stores/search';
 
 describe('Search component', () => {
 
