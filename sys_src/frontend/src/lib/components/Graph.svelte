@@ -21,8 +21,6 @@
   const dispatch = createEventDispatcher();
 
   onMount(async () => {
-    console.log("onMount Graph");
-
     sigma = new Sigma(graph, container, {
       allowInvalidContainer: true,
       defaultNodeColor: "#a3a3a3",

@@ -58,7 +58,7 @@
                       class="text-lg font-medium text-gray-900"
                       id="slide-over-title"
                     >
-                      Game Information
+                      Videospiel Details
                     </h2>
 
                     <div class="ml-3 flex h-7 items-center">

@@ -31,7 +31,7 @@
 <main id="graph-container">
     {#if !$isPost}
         {#await fetchGraph()}
-            <p class="text-black text-2xl p-8">Loading Graph...</p>
+            <p class="text-black text-2xl p-8">Lade Graph...</p>
         {:then graph}
             <Graph on:nodeclick={handleNodeClick} {graph} />
         {:catch error}
