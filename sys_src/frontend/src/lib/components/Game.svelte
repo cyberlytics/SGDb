@@ -28,10 +28,10 @@
 
 <svelte:head>
   {#await gameDetails then details}
-    <meta name="twitter:card" content={details.description} />
+    <meta name="twitter:card" content={details.descriptions.value} />
     <meta name="twitter:title" content={$selectedGame} />
-    <meta name="twitter:description" content={details.description} />
-    <meta name="twitter:image" content={details.image} />
+    <meta name="twitter:description" content={details.descriptions.value} />
+    <meta name="twitter:image" content={details.images.value} />
   {/await}
 </svelte:head>
 
@@ -102,7 +102,7 @@
                           >
                             <img
                               class="h-24 w-24 flex-shrink-0 sm:h-40 sm:w-40 lg:h-48 lg:w-48"
-                              src={details.image.value}
+                              src={details.images.value}
                               alt=""
                             />
                           </div>
@@ -134,7 +134,7 @@
                         <dd
                           class="mt-1 text-sm text-left text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          <p>{details.description.value}</p>
+                          <p>{details.descriptions.value}</p>
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -146,7 +146,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.creatorName.value}
+                          {details.creatorNames.value}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -158,7 +158,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.gamePlatformName.value}
+                          {details.gamePlatformNames.value}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -170,7 +170,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.genreName.value}
+                          {details.genreNames.value}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -182,7 +182,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.ratingValue.value}/100
+                          {details.ratingValues.value}/100
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -194,9 +194,9 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          <time datetime={details.releaseDate.value}
+                          <time datetime={details.releaseDates.value}
                             >{new Date(
-                            details.releaseDate.value
+                            details.releaseDates.value
                             ).toLocaleString("de-DE", {
                               month: "long",
                               day: "numeric",
