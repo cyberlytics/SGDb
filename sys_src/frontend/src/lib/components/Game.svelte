@@ -28,10 +28,10 @@
 
 <svelte:head>
   {#await gameDetails then details}
-    <meta name="twitter:card" content={details.descriptions.value} />
+    <meta name="twitter:card" content={details.description.value} />
     <meta name="twitter:title" content={$selectedGame} />
-    <meta name="twitter:description" content={details.descriptions.value} />
-    <meta name="twitter:image" content={details.images.value} />
+    <meta name="twitter:description" content={details.description.value} />
+    <meta name="twitter:image" content={details.image.value} />
   {/await}
 </svelte:head>
 
@@ -102,7 +102,7 @@
                           >
                             <img
                               class="h-24 w-24 flex-shrink-0 sm:h-40 sm:w-40 lg:h-48 lg:w-48"
-                              src={details.images.value}
+                              src={details.image.value}
                               alt=""
                             />
                           </div>
@@ -134,7 +134,7 @@
                         <dd
                           class="mt-1 text-sm text-left text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          <p>{details.descriptions.value}</p>
+                          <p>{details.description.value}</p>
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -182,7 +182,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.ratingValues.value}/100
+                          {details.ratingValue.value}/100
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -194,9 +194,9 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          <time datetime={details.releaseDates.value}
+                          <time datetime={details.releaseDate.value}
                             >{new Date(
-                            details.releaseDates.value
+                            details.releaseDate.value
                             ).toLocaleString("de-DE", {
                               month: "long",
                               day: "numeric",
