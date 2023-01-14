@@ -25,9 +25,12 @@ npm install # Installation der Abhängigkeiten
 
 Im Backend stehen folgende Kommandos zur Verfügung:
 
-| Kommando           | Beschreibung         |
-|--------------------|----------------------|
-| `uvicorn main:app` | Startet das Backend. |
+| Kommando           | Beschreibung                                     |
+|--------------------|--------------------------------------------------|
+| `python -m uvicorn main:app` | Startet das Backend.|
+| `pip freeze > requirements.txt` | Erstellt/Aktulaisiert die Requirements Textdatei.|
+| `python -m pytest --cov -v --cov-report term-missing --cov-branch` | Führt Unittests für alle Dateien durch.|
+| `python -m --cov main --cov-branch --cov-report term-missing` | Führt Unittest für main.py durch.|
 
 Im Frontend stehen folgende Kommandos zur Verfügung:
 
