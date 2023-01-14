@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from db_wrapper import detailpage_content
+from db_wrapper import query_game_details
 from filter_lists import get_data
 from db_filter import recommendations
 from main import app
@@ -145,7 +145,8 @@ def test_detailpage():
     response = client.get('/detail/Evergate')
     assert response.status_code == 200
     response_detailpage = {key: value for key, value in response.json().items() if key != "recommends"}
-    detailpage = detailpage_content("Evergate")
+    detailpage = query_game_details("Evergate")
+    detailpage = detailpage['results']['bindings'][0]
     recommends = recommendations(detailpage)
 
     assert detailpage == response_detailpage

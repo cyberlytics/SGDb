@@ -16,13 +16,15 @@ def get_root_graph():
     }}""")
     return graphdb.query().convert()
 
+# Query for Detailpage, return only one entry. The cells with different results will be grouped.
 def query_game_details(title: str):
-    """Query game details by title"""
-
     graphdb.setQuery("""
         PREFIX schema: <https://schema.org/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT *
+        SELECT ?game ?title (GROUP_CONCAT(DISTINCT ?releaseDate; separator = ", ") as ?releaseDates) (GROUP_CONCAT(DISTINCT ?image; separator = ", ") as ?images) 
+        (GROUP_CONCAT(DISTINCT ?ratingValue; separator = ", ") as ?ratingValues) (GROUP_CONCAT(DISTINCT ?description; separator = ", ") as ?descriptions)
+        (GROUP_CONCAT(DISTINCT ?creatorName; separator = ", ") as ?creatorNames) (GROUP_CONCAT(DISTINCT ?gamePlatformName; separator = ", ") as ?gamePlatformNames)
+        (GROUP_CONCAT(DISTINCT ?genreName; separator = ", ") as ?genreNames)
         WHERE {{
         ?game rdf:type schema:VideoGame .
         ?game schema:title ?title .
@@ -38,16 +40,9 @@ def query_game_details(title: str):
         ?genre schema:name ?genreName .
         FILTER REGEX(?title, "{game_name}", "i")
         }}
+        GROUP BY ?game ?title
         """.format(game_name=title))
     return graphdb.query().convert()
-
-
-def detailpage_content(game_name: str):
-    result = query_game_details(game_name)
-    if len(result["results"]["bindings"]) == 0:
-        return None
-    bindings = result['results']['bindings'][0]
-    return bindings
 
 
 # method for searching games
