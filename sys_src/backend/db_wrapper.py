@@ -21,8 +21,8 @@ def query_game_details(title: str):
     graphdb.setQuery("""
         PREFIX schema: <https://schema.org/>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        SELECT ?game ?title (GROUP_CONCAT(DISTINCT ?releaseDate; separator = ", ") as ?releaseDates) (GROUP_CONCAT(DISTINCT ?image; separator = ", ") as ?images) 
-        (GROUP_CONCAT(DISTINCT ?ratingValue; separator = ", ") as ?ratingValues) (GROUP_CONCAT(DISTINCT ?description; separator = ", ") as ?descriptions)
+        SELECT ?game ?title (GROUP_CONCAT(DISTINCT ?releaseDate; separator = ", ") as ?releaseDate) (GROUP_CONCAT(DISTINCT ?image; separator = ", ") as ?image) 
+        (GROUP_CONCAT(DISTINCT ?ratingValue; separator = ", ") as ?ratingValue) (GROUP_CONCAT(DISTINCT ?description; separator = ", ") as ?description)
         (GROUP_CONCAT(DISTINCT ?creatorName; separator = ", ") as ?creatorNames) (GROUP_CONCAT(DISTINCT ?gamePlatformName; separator = ", ") as ?gamePlatformNames)
         (GROUP_CONCAT(DISTINCT ?genreName; separator = ", ") as ?genreNames)
         WHERE {{
