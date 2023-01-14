@@ -42,16 +42,16 @@ def combine_Filter(filter_requests):
 
 def recommendations(content_detailpage):
     games = []
-    if "genreName" in content_detailpage: 
-        for element in content_detailpage["genreName"]["value"].split(","):
+    if "genreNames" in content_detailpage: 
+        for element in content_detailpage["genreNames"]["value"].split(","):
             res = fil_genre(element)
             games.extend(get_titles(res))
-    if "creatorName" in content_detailpage: 
-        for element in content_detailpage["creatorName"]["value"].split(","):
+    if "creatorNames" in content_detailpage: 
+        for element in content_detailpage["creatorNames"]["value"].split(","):
             res = fil_creator(element)
             games.extend(get_titles(res))
-    if "gamePlatformName" in content_detailpage: 
-        for element in content_detailpage["gamePlatformName"]["value"].split(","):
+    if "gamePlatformNames" in content_detailpage: 
+        for element in content_detailpage["gamePlatformNames"]["value"].split(","):
             res = fil_genre(element)
             games.extend(get_titles(res))
 

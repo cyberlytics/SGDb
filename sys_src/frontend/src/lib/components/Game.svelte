@@ -28,10 +28,10 @@
 
 <svelte:head>
   {#await gameDetails then details}
-    <meta name="twitter:card" content={details.description} />
+    <meta name="twitter:card" content={details.description.value} />
     <meta name="twitter:title" content={$selectedGame} />
-    <meta name="twitter:description" content={details.description} />
-    <meta name="twitter:image" content={details.image} />
+    <meta name="twitter:description" content={details.description.value} />
+    <meta name="twitter:image" content={details.image.value} />
   {/await}
 </svelte:head>
 
@@ -58,7 +58,7 @@
                       class="text-lg font-medium text-gray-900"
                       id="slide-over-title"
                     >
-                      Game Information
+                      Videospiel Details
                     </h2>
 
                     <div class="ml-3 flex h-7 items-center">
@@ -146,7 +146,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.creatorName.value}
+                          {details.creatorNames.value}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -158,7 +158,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.gamePlatformName.value}
+                          {details.gamePlatformNames.value}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">
@@ -170,7 +170,7 @@
                         <dd
                           class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 sm:ml-6"
                         >
-                          {details.genreName.value}
+                          {details.genreNames.value}
                         </dd>
                       </div>
                       <div class="sm:flex sm:px-6 sm:py-5">

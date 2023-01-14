@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from db_wrapper import detailpage_content, search_query, get_root_graph
+from db_wrapper import search_query, get_root_graph, query_game_details
 from db_filter import combine_Filter, recommendations
 from filter_lists import get_data
 from utils import escaping_string
@@ -140,12 +140,16 @@ async def detailpage(game: str):
     """
     # escape string
     game = escaping_string(game)
-    content = detailpage_content(game)
-    if not content:
+    query_result = query_game_details(game)
+
+    if len(query_result['results']['bindings']) == 0:
         return JSONResponse(
             status_code=404,
             content={"message": "no game for detailpage found"},
         )
+
+    content = query_result['results']['bindings'][0]
+
     recommends = recommendations(content)
     content["recommends"] = recommends
     return content
