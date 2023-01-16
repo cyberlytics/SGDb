@@ -3,7 +3,6 @@
     export let group = [];
     export let color;
     export let data = toArray($filter_data.genre);
-
 </script>
 <!--Options for genre-filter.
 The color of the box depends on the content in the listobject.

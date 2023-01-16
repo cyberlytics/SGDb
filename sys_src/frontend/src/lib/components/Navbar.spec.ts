@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
-import { render, screen } from "@testing-library/svelte";
+import { fireEvent, render, screen } from "@testing-library/svelte";
 import Navbar from './Navbar.svelte';
+import { isFilterVisible } from '$stores/filter';
 
 describe('Navbar component', () => {
 
@@ -10,5 +11,13 @@ describe('Navbar component', () => {
 
     expect(filterButton).toBeEnabled();
   })
+
+  test('handle click', async() => {
+    render(Navbar);
+    const filterButton = screen.getByTestId('filter-button');
+    await fireEvent.click(filterButton)
+    expect(isFilterVisible).toBeTruthy()
+  })
+
 
 });

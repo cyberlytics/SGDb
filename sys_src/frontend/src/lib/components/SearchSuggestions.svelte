@@ -13,7 +13,7 @@
     return data['matches'];
   };
 
-  const fetchSuggestions = async (search: string) => {
+  export const fetchSuggestions = async (search: string) => {
     const data = await fetch("http://localhost:8000/search/" + search);
     const response = await data.json();
     return formatData(response);

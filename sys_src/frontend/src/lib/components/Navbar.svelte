@@ -2,7 +2,7 @@
   import Search from '$components/Search.svelte';  
   import { isFilterVisible } from '$stores/filter';
 
-  const handleClick = () => {
+  export const handleClick = () => {
     isFilterVisible.set(true);
   };
 </script>
